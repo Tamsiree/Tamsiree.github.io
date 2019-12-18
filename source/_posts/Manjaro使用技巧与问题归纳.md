@@ -17,7 +17,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 
 Dolphin 是 KDE 下默认的文件管理器，整体来说做的很不错，但可能有一些使用不太令人习惯（例如单击直接打开文件）。这里列出几点优化配置建议：
 
--   双击打开文件（夹）：这个设置选项深藏在与 dolphin 毫无关系的角落里[/无奈] 。打开系统设置=>桌面行为=>工作空间=>点击行为可以看见这一选项。
+-   双击打开文件（夹）：这个设置选项深藏在与 dolphin 毫无关系的角落里[无奈] 。打开系统设置=>桌面行为=>工作空间=>点击行为可以看见这一选项。
 -   也有人可能会发现在Dolphin中使用 Del 键是很危险的：它会在没有任何确认的情况下直接删除你的文件。可以在配置Dolphin=>常规=>确认中打开文件删除确认。
 
 ---
@@ -347,6 +347,23 @@ sudo mount /dev/sda1 /home/tamsiree/Disk1/
 
 `/dev/sda1` 为待挂载 新硬盘  
 `/home/tamsiree/Disk1/` 为挂载指定路径
+
+### 设置开机自动挂载
+
+查询磁盘UUID
+```bash
+ls  -al  /dev/disk/by-uuid
+```
+
+编辑/etc/fstab(用来存放文件系统的静态信息的文件)
+
+加入挂载磁盘的信息
+
+```bash
+UUID=xxx  /[挂载目录]  ext4[文件格式]  defaults  0  0
+```
+
+重启系统即可
 
 ---
 
