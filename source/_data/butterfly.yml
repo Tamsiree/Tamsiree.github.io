@@ -258,7 +258,7 @@ valine:
 # ------------------------------------
 since: 2016
 
-footer_custom_text: 我是有底线的
+footer_custom_text: 不要盯着我看，已经到底啦～
 
 footer_copyright:
   enable: false
@@ -539,8 +539,8 @@ medium_zoom:
 # position 彈窗位置
 # 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
 snackbar:
-  enable: false
-  position: bottom-left
+  enable: true
+  position: bottom-center
   bg_light: '#49b1f5' #light mode時彈窗背景
   bg_dark: '#2d3035' #dark mode時彈窗背景
 

@@ -2,9 +2,11 @@
 title: CSGO
 date: 2018-12-18 11:34:00
 tags:
+  - Steam
   - CSGO
 categories:
   - 第九艺术
+  - GamePlatform
   - Steam
   - CSGO
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-587592.png

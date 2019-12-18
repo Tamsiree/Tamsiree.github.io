@@ -8090,7 +8090,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>CSGO</title>
-    <url>/%E7%AC%AC%E4%B9%9D%E8%89%BA%E6%9C%AF/Steam/CSGO/CSGO/</url>
+    <url>/%E7%AC%AC%E4%B9%9D%E8%89%BA%E6%9C%AF/GamePlatform/Steam/CSGO/CSGO/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="CSGO设置显示FPS"><a href="#CSGO设置显示FPS" class="headerlink" title="CSGO设置显示FPS"></a>CSGO设置显示FPS</h1><ol>
 <li><p>开启控制台<br>游戏开始界面——“选项”——“游戏设置”<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135501_1_lit.png" class="lazyload"><br>找到“启用开发者控制台(<del>)”，选择“是”<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135518_1_lit.png" class="lazyload"><br>之后，在游戏中只要按“</del>”按键(Esc下面)即可开启控制台<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135532_1_lit.png" class="lazyload"></p>
 </li>
@@ -8108,11 +8108,13 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>第九艺术</category>
+        <category>GamePlatform</category>
         <category>Steam</category>
         <category>CSGO</category>
       </categories>
       <tags>
         <tag>CSGO</tag>
+        <tag>Steam</tag>
       </tags>
   </entry>
   <entry>
@@ -9669,7 +9671,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </blockquote>
 <p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Vendetta.jpg" class="lazyload"></p>
 <hr>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="Steam中文支持"><a href="#Steam中文支持" class="headerlink" title="Steam中文支持"></a>Steam中文支持</h2><p>请移步查阅我的这篇文章<a href="https://tamsiree.com/Game/GamePlatform/Steam/Steam中文支持/">Steam中文支持</a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="Steam中文支持"><a href="#Steam中文支持" class="headerlink" title="Steam中文支持"></a>Steam中文支持</h2><p>请移步查阅我的这篇文章 <a href="https://tamsiree.com/第九艺术/GamePlatform/Steam/Steam中文支持/">[Steam中文支持]</a></p>
 <hr>
 <h1 id="使用独显N卡运行游戏"><a href="#使用独显N卡运行游戏" class="headerlink" title="使用独显N卡运行游戏"></a>使用独显N卡运行游戏</h1><p>可以在 steam 的游戏启动选项里打开高级选项，填写 <code>primusrun %command%</code> 这样你就可以规定用独显来启动特定的程序。</p>
 <hr>

@@ -10,7 +10,6 @@ categories:
   - Steam
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01fbd871ed0d04d43d.jpg
 ---
-
 # 前言
 > Steam在Windows环境下支持的还不错，但是到了Linux环境下就会出现各种各样的问题，因此便总结归纳一下所遇到的问题及其解决方案。
 
@@ -20,7 +19,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 
 # 正文
 ## Steam中文支持
-请移步查阅我的这篇文章[Steam中文支持](https://tamsiree.com/Game/GamePlatform/Steam/Steam中文支持/)
+请移步查阅我的这篇文章 [[Steam中文支持]](https://tamsiree.com/第九艺术/GamePlatform/Steam/Steam中文支持/)
 
 ---
 
