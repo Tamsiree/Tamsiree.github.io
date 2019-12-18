@@ -1,0 +1,130 @@
+class:
+  class_name: 神秘链接
+  link_list:
+    1:
+      name: Tamsiree
+      link: https://tamsiree.github.io
+      avatar: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
+      descr: 勇于尝试才会成功
+class2:
+  class_name: 游戏开发
+  link_list:
+    1:
+      name: 洪流学堂
+      link: https://edu.hongliu.cc
+      avatar: https://wechatapppro-1252524126.file.myqcloud.com/appoLCNnR883515/image/b41e55f86786279c47021afe01f8abf4.png
+      descr: Unity的百科全书
+    2:
+      name: Siki
+      link: http://www.sikiedu.com/
+      avatar: http://www.sikiedu.com/files/system/2016/08-18/165519754d1f590889.ico?version=8.3.21
+      descr: 学习游戏开发
+class3:
+  class_name: 壁纸
+  link_list:
+    1:
+      name: 无崖子壁纸
+      link: http://tu.fbisb.com/
+      avatar: https://www.fbisb.com/favicon.ico
+      descr: 无崖子壁纸资源网
+    2:
+      name: Net牛人壁纸
+      link: https://ss.netnr.com/wallpaper
+      avatar: https://ss.netnr.com/favicon.svg
+      descr: 特别好用的壁纸
+    3:
+      name: alphacoders
+      link: https://wall.alphacoders.com/
+      avatar: https://static.alphacoders.com/alpha_system_360.png
+      descr: 国外壁纸网
+    4:
+      name: 乌云高清壁纸站
+      link: https://www.obzhi.com/
+      avatar: https://www.obzhi.com/wp-content/uploads/2016/09/www.ico.la_512423bc80c1b7f3d5e2f5be43f42407_32X32.ico
+      descr: 高清壁纸
+    5:
+      name: 小贝壁纸
+      link: http://www.xiaobeibizi.com/
+      avatar: http://www.xiaobeibizi.com/Public/Img/bz.png
+      descr: 海量精美壁纸
+    6:
+      name: 彼岸桌面
+      link: http://www.netbian.com/
+      avatar: http://www.netbian.com/favicon.ico
+      descr: 免费彼岸桌面壁纸
+    7:
+      name: unsplash
+      link: https://unsplash.com/
+      avatar: https://unsplash.com/favicon-32x32.png
+      descr: 国外壁纸网
+    8:
+      name: Wallls
+      link: http://wallls.com/
+      avatar: http://wallls.com/favicon.ico
+      descr: 国外壁纸网
+    9:
+      name: Wallpaperup
+      link: https://www.wallpaperup.com
+      avatar: https://www.wallpaperup.com/favicon.ico
+      descr: 国外壁纸适配屏幕
+class4:
+  class_name: 工具
+  link_list:
+    1:
+      name: Net牛人
+      link: https://ss.netnr.com
+      avatar: https://ss.netnr.com/favicon.svg
+      descr: 在线工具 壁纸
+    2:
+      name: DogeDoge
+      link: https://www.dogedoge.com/
+      avatar: https://www.dogedoge.com/assets/doge_ico.png
+      descr: 不追踪的搜索引擎
+    3:
+      name: Linux命令搜索
+      link: https://jaywcjlove.gitee.io/linux-command/
+      avatar: https://jaywcjlove.gitee.io/linux-command/img/favicon.ico
+      descr: Linux命令搜索
+    4:
+      name: 虫部落搜索引擎
+      link: https://search.chongbuluo.com/
+      avatar: https://search.chongbuluo.com/favicon.ico
+      descr: 集其众多搜索引擎
+    5:
+      name: 爱资料工具
+      link: https://www.toolnb.com
+      avatar: https://www.toolnb.com/favicon.ico
+      descr: 在线工具
+    6:
+      name: 在线工具集
+      link: https://atool.vip/
+      avatar: https://atool.vip/static/media/logo.b726e10c.svg
+      descr: 在线工具集
+    7:
+      name: waifu2x
+      link: http://waifu2x.udp.jp/index.zh-CN.html
+      avatar: https://www.easyicon.net/api/resizeApi.php?id=1179376&size=128
+      descr: 图片无损放大
+class5:
+  class_name: 图标
+  link_list:
+    1:
+      name: FontAwesome
+      link: http://www.fontawesome.com.cn/faicons/
+      avatar: https://www.easyicon.net/api/resizeApi.php?id=1201068&size=128
+      descr: 绝佳的图标字体库
+    2:
+      name: FontAwesome
+      link: http://fontawesome.dashgame.com/
+      avatar: http://fontawesome.dashgame.com/assets/ico/favicon.ico
+      descr: 绝佳的图标字体库
+    3:
+      name: EasyIcon
+      link: https://www.easyicon.net/
+      avatar: https://cdn-img.easyicon.net/image/2019/panda-index.svg
+      descr: 圆润图标搜索下载
+    4:
+      name: Iconfont
+      link: https://www.iconfont.cn/
+      avatar: https://gtms04.alicdn.com/tps/i4/TB1_oz6GVXXXXaFXpXXJDFnIXXX-64-64.ico
+      descr: 阿里系图标库
