@@ -349,4 +349,42 @@ sudo mount /dev/sda1 /home/tamsiree/Disk1/
 `/home/tamsiree/Disk1/` 为挂载指定路径
 
 ---
+
+# 获取文件的md5sums
+
+例如我在AUR中安装unityhub时，提示文件的 md5sums 验证失败(这问题老生常谈了)，因此便自己获取文件的 `md5sums` 然后修改构建脚本文件。
+```bash
+md5sum unityhub-2.2.2.AppImage  | cut -d ' ' -f1
+```
+
+# PGP Key Fingerprint
+
+在注册 [archlinux](https://aur.archlinux.org/) 的时候，需要用到 PGP 秘钥
+
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191014041534340.png)
+
+使用加密工具GPG 生成秘钥
+
+> 简单介绍GPG  
+> 
+> 要了解什么是 GPG，就要先了解 PGP。  
+> 1991 年，程序员 Phil Zimmermann 为了避开政府监视，开发了加密软件 PGP。这个软件非常好用，迅速流传开来，成了许多程序员的必备工具。但是，它是商业软件，不能自由使用。所以，自由软件基金会决定，开发一个 PGP 的替代品，取名为 GnuPG。这就是 GPG 的由来。  
+> GPG 有许多用途，包括文件加密、邮件的加密。
+
+1. 安装
+```bash
+sudo pacman -S gnupg
+```
+
+2. 查看帮助，如果屏幕显示 GPG 的帮助，就表示安装成功。
+```bash
+gpg -help
+```
+
+3. 安装成功后，使用 gen-ken 参数生成自己的密钥。
+```bash
+gpg --gen-key
+```
+
+---
 待续...
