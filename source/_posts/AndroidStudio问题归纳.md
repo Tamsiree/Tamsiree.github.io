@@ -8,7 +8,7 @@ tags:
   - Android
 categories:
   - Tool
-  - Development Tool
+  - DevelopmentTool
   - AndroidStudio
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/5wg9y3.jpg
 ---

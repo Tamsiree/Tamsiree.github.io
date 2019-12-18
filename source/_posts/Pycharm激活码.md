@@ -7,7 +7,7 @@ tags:
   - Python
 categories:
   - Tool
-  - Development Tool
+  - DevelopmentTool
   - Pycharm
 date: 2018-10-27 12:35:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01296e28f318001c9b.jpg

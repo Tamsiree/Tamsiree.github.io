@@ -4,11 +4,11 @@ author: Tamsiree
 description: Visual Studio（中文版）默认保存的文本文件是 `GB2312` 编码的，默认的行尾（End of line）是 `CRLF` 的。如果仅仅是在 Windows 下开发问题也不大，但是涉及到跨平台开发的时候，就不是很满意了。
 tags:
   - Tool
-  - Development Tool
+  - DevelopmentTool
   - VisualStudio
 categories:
   - Tool
-  - Development Tool
+  - DevelopmentTool
   - VisualStudio
 date: 2019-07-18 13:19:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/v2-0c1570453df88cc154251edad85e4440_hd.jpg
