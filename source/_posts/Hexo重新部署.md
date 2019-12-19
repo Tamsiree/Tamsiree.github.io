@@ -5,7 +5,7 @@ description: 因为折腾Manjaro的NVIDIA卡的驱动程序，导致系统只能
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t018b1761a290906f94.jpg
 ---

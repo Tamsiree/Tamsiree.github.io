@@ -1,11 +1,12 @@
 ---
-title: 捐赠名单
+title: Contributor
 date: 2018-04-11 22:34:11
 description: 非常感谢列表中的朋友，你们的肯定和支持是我前进的最大动力！
 tags:
-  - 捐赠名单
+  - RxTool
+  - Contributor
 categories:
-  - 日常
+  - RxTool
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-73l29v.jpg
 password: RxTool
 abstract: 有东西被加密了, 请输入密码查看.

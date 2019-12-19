@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Git | Tamsiree</title><meta name="description" content="整理Git的各种用法"><meta name="keywords" content="Git"><meta name="author" content="Tamsiree,tamsiree@163.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#fff"><meta name="msapplication-TileColor" content="#fff"><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png" color="#5bbad5"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Git"><meta name="twitter:description" content="整理Git的各种用法"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-4y37g0.jpg"><meta property="og:type" content="article"><meta property="og:title" content="Git"><meta property="og:url" content="https://tamsiree.com/TechnicalResearch/Git/Git/"><meta property="og:site_name" content="Tamsiree"><meta property="og:description" content="整理Git的各种用法"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-4y37g0.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css"><link rel="canonical" href="https://tamsiree.com/TechnicalResearch/Git/Git/"><link rel="prev" title="响应式编程的理解" href="https://tamsiree.com/TechnicalResearch/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/"><link rel="next" title="AndroidStudio插件集合" href="https://tamsiree.com/Tool/DevelopmentTool/AndroidStudio/AndroidStudio%E6%8F%92%E4%BB%B6%E9%9B%86%E5%90%88/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://tamsiree.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: {"languages":{"author":"作者: Tamsiree","link":"链接: https://tamsiree.com/TechnicalResearch/Git/Git/","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  copy_copyright_js: true,
+  ClickShowText: undefined,
+  medium_zoom: 'false',
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-center"}
+  
+}</script><meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Tamsiree</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-ship"></i><span> 时间胶囊</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-envira"></i><span> 风向标</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-safari"></i><span> 寻龙尺</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 回味</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-camera-retro"></i><span> 画廊</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-graduation-cap"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-tasks"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fa fa-eercast"></i><span> 冥想屋</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome11.png" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/RxTool/icon_placeholder.jpg'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">83</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">风向标</div><div class="length_num">70</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length_num">74</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-ship"></i><span> 时间胶囊</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-envira"></i><span> 风向标</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-safari"></i><span> 寻龙尺</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 回味</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-camera-retro"></i><span> 画廊</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-graduation-cap"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-tasks"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fa fa-eercast"></i><span> 冥想屋</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#Git的妙用"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Git的妙用</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#创建SSH秘钥"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">创建SSH秘钥</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#问题归纳"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">问题归纳</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Git报错：index-lock-File-exists"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">Git报错：index.lock File exists</span></a></li></ol></li></ol></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git的妙用"><span class="toc-number">1.</span> <span class="toc-text">Git的妙用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建SSH秘钥"><span class="toc-number">1.1.</span> <span class="toc-text">创建SSH秘钥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题归纳"><span class="toc-number">2.</span> <span class="toc-text">问题归纳</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git报错：index-lock-File-exists"><span class="toc-number">2.1.</span> <span class="toc-text">Git报错：index.lock File exists</span></a></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-4y37g0.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">Git</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2016-12-20<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-12-20</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/TechnicalResearch/">TechnicalResearch</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/TechnicalResearch/Git/">Git</a></span><div class="post-meta-wordcount"><i class="fa fa-file-word-o post-meta__icon" aria-hidden="true"></i><span>字数总计: </span><span class="word-count">631</span><span class="post-meta__separator">|</span><i class="fa fa-clock-o post-meta__icon" aria-hidden="true"></i><span>阅读时长: 2 分钟</span><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="Git的妙用"><a href="#Git的妙用" class="headerlink" title="Git的妙用"></a>Git的妙用</h1><p>有时候想要下载Github上的库，但是因为母亲对于我们的保护，下载速度往往只有10k/s左右，我们可以选择在Gitee上同步此库，然后在Gitee上下载，最后几秒就搞定啦！</p>
+<p>如果是自己的库需要关联的话，可以这样做  </p>
+<ol>
+<li>先用 git 把库从 Gitee 上 clone 下来</li>
+<li>然后 删除库目录中的.git文件夹</li>
+<li><a href="#创建SSH秘钥">创建SSH秘钥</a> ,使用 SSH 密钥连接本地仓库和 github 远程仓库</li>
+<li>然后 用 git 把本地库与远程库关联起来<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:你的用户名&#x2F;你的库名.git</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="创建SSH秘钥"><a href="#创建SSH秘钥" class="headerlink" title="创建SSH秘钥"></a>创建SSH秘钥</h2><p>在 GitHub 上，一般都是通过 SSH 来授权的，而且大多数 Git 服务器也会选择使用 SSH 公钥来进行授权，所以想要向 GitHub 提交代码，首先就得在 GitHub 上添加 SSH key配置。  </p>
+<p>此时是没有 SSH 加密文件的,需要我们手动添加,首先使用命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 填写你自己的github注册邮箱</span><br><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>指定 RSA 算法生成密钥，然后敲三次回车键，期间不需要输入密码，之后就会生成两个文件，分别为id_rsa和id_rsa.pub，即密钥id_rsa和公钥id_rsa.pub.<br>对于这两个文件，其都为隐藏文件，默认生成在以下目录：</p>
+<ul>
+<li>Linux 系统：~/.ssh</li>
+<li>Mac 系统：~/.ssh</li>
+<li>Windows 系统：C:\Documents and Settings\username.ssh</li>
+<li>Windows 10 ThinkPad：C:\Users\think.ssh</li>
+</ul>
+<p>密钥和公钥生成之后，我们要做的事情就是把公钥 id_rsa.pub 的内容添加到 GitHub，这样我们本地的密钥id_rsa和 GitHub 上的公钥id_rsa.pub才可以进行匹配，这样后就可以像GitHub上提交代码。</p>
+<p><img alt="GitHub绑定SSH" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/6134999-80a031f051c917f7.webp" class="lazyload"></p>
+<p>如上图所示，我们只需要将公钥id_rsa.pub的内容粘贴到Key处的位置（Titles的内容不填写也没事），然后点击Add SSH key 即可.<br>在我们添加完SSH key之后，也没有明确的通知告诉我们绑定成功啊！<br>不过我们可以通过在 Git Bash 中输入 ssh -T <a href="mailto:git@github.com">git@github.com</a> 进行测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><img alt="SSH验证" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/6134999-f736ef17639d5802.webp" class="lazyload"></p>
+<h1 id="问题归纳"><a href="#问题归纳" class="headerlink" title="问题归纳"></a>问题归纳</h1><h2 id="Git报错：index-lock-File-exists"><a href="#Git报错：index-lock-File-exists" class="headerlink" title="Git报错：index.lock File exists"></a>Git报错：index.lock File exists</h2><p>Git 提交（commit 或 discard, remove等）时，报错，显示错误如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: Unable to create &#39;XXXXXX&#x2F;.git&#x2F;index.lock&#39;: File exists.</span><br><span class="line"></span><br><span class="line">If no other git process is currently running, this probably means a</span><br><span class="line">git process crashed in this repository earlier. Make sure no other git</span><br><span class="line">process is running and remove the file manually to continue.</span><br></pre></td></tr></table></figure>
+
+<p>解决方案:  </p>
+<blockquote>
+<p>根据提示找到对应文件 <code>index.lock</code> ，删除即可。</p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree@163.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/TechnicalResearch/Git/Git/">https://tamsiree.com/TechnicalResearch/Git/Git/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git    </a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-4y37g0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/pay_qr_code.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/TechnicalResearch/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01fe15961fa44f2359.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>响应式编程的理解</span></div></a></div><div class="next-post pull_right"><a href="/Tool/DevelopmentTool/AndroidStudio/AndroidStudio%E6%8F%92%E4%BB%B6%E9%9B%86%E5%90%88/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01cf099416056cb243.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'"><div class="label">下一篇</div><div class="next_info"><span>AndroidStudio插件集合</span></div></a></div></nav></div></div><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-4y37g0.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2019 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","superSample":2,"width":150,"height":300,"hOffset":80,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>

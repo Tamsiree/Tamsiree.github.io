@@ -7,7 +7,7 @@ tags:
   - Android
   - RxTool
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Android
   - RxTool
   - Wiki

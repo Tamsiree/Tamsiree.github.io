@@ -8,7 +8,7 @@ tags:
   - Android
   - RxTool
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Android
   - RxTool
 date: 2016-09-24 17:30:00

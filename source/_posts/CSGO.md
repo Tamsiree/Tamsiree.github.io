@@ -2,11 +2,11 @@
 title: CSGO
 date: 2018-12-18 11:34:00
 tags:
-  - 第九艺术
+  - Game
   - Steam
   - CSGO
 categories:
-  - 第九艺术
+  - Game
   - GamePlatform
   - Steam
   - CSGO

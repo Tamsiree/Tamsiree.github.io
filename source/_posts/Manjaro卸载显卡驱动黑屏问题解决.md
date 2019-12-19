@@ -3,11 +3,11 @@ title: Manjaro卸载显卡驱动黑屏问题解决
 date: 2019-10-21 13:27:07
 description: 大晚上的滚动更新了Manjaro的内核之后，突然发现无法播放声音了，一系列的排查下来，发现是NVIDIA显卡驱动导致的问题，于是乎便卸载了video-hybrid-intel-nvidia-430xx-bumblebee 显卡驱动。结果，重启之后黑屏无法进入桌面了，于是乎便开始了修复之旅。
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/chuyin_sky.jpg

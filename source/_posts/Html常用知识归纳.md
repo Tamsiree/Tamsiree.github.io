@@ -5,7 +5,7 @@ description: 这是对用过的一些Html前端知识的归纳
 tags:
   - Html
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Html
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-5wd977.jpg
 ---

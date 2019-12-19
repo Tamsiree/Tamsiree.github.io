@@ -5,7 +5,7 @@ description: 当我们在用hexo搭建了个人博客之后，用username.github
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/3970baedd9aeb7e51ba12711ebd08e3d.jpg
 ---

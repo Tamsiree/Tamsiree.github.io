@@ -23,17 +23,17 @@ class3:
   class_name: 壁纸
   link_list:
     1:
+      name: WallHaven
+      link: https://wallhaven.cc/
+      avatar: https://wallhaven.cc/favicon.ico
+      descr: 国外高质量壁纸
+    2:
       name: 无崖子壁纸
       link: http://tu.fbisb.com/
       avatar: https://www.fbisb.com/favicon.ico
       descr: 无崖子壁纸资源网
-    2:
-      name: Net牛人壁纸
-      link: https://ss.netnr.com/wallpaper
-      avatar: https://ss.netnr.com/favicon.svg
-      descr: 特别好用的壁纸
     3:
-      name: alphacoders
+      name: AlphaCoders
       link: https://wall.alphacoders.com/
       avatar: https://static.alphacoders.com/alpha_system_360.png
       descr: 国外壁纸网
@@ -53,17 +53,17 @@ class3:
       avatar: http://www.netbian.com/favicon.ico
       descr: 免费彼岸桌面壁纸
     7:
-      name: unsplash
+      name: UnSplash
       link: https://unsplash.com/
       avatar: https://unsplash.com/favicon-32x32.png
       descr: 国外壁纸网
     8:
-      name: Wallls
+      name: WallLs
       link: http://wallls.com/
       avatar: http://wallls.com/favicon.ico
       descr: 国外壁纸网
     9:
-      name: Wallpaperup
+      name: WallpaperUp
       link: https://www.wallpaperup.com
       avatar: https://www.wallpaperup.com/favicon.ico
       descr: 国外壁纸适配屏幕

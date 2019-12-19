@@ -5,7 +5,7 @@ description: 整理平时使用Python时遇到的问题。
 tags:
   - Python
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Python
 date: 2019-08-27 01:44:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/214606-15553359663cd8.jpg

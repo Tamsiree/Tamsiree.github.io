@@ -1,5 +1,5 @@
 ---
-title: Office 2019 激活
+title: Office2019激活
 date: 2019-04-13 12:09:09
 tags:
   - Windows
@@ -7,7 +7,7 @@ tags:
 categories:
   - Windows
   - Software
-  - Office 2019
+  - Office2019
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-md3vjm.jpg
 ---
 > 前提：电脑需要联网

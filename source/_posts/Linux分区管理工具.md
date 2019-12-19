@@ -2,10 +2,10 @@
 title: Linux分区管理工具
 date: 2019-10-10 00:50:44
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/suyajdgakhj.jpeg
 ---

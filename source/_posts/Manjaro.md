@@ -3,11 +3,11 @@ title: Manjaro
 author: Tamsiree
 description: linux 拥有大量的发行版，虽然都是使用的相同的 linux kernel，但是由于 linux 下软件的繁多，各种不同的发行版有着不同的软件组合和生态。大众常用的几个发行版主要有 RedHat、Fedora、CentOS、Ubuntu 等。最近发现了 ArchLinux 分支下据说最好的版本 ———— Manjaro，对其进行一番尝试。
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 date: 2019-09-20 23:32:00

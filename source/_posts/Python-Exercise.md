@@ -5,7 +5,7 @@ description: 朋友需要帮忙解决一下`学术`问题，当然义不容辞�
 tags:
   - Python
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Python
 date: 2019-09-25 12:38:41
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/djskaif.jpeg

@@ -6,7 +6,7 @@ tags:
   - 单元测试
   - Android
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Android
   - 单元测试
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-nmdprk.jpg

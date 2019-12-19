@@ -3,11 +3,11 @@ title: Windows常用软件
 author: Tamsiree
 description: 本文旨在分享一些 Windows 平台下的优秀软件，很多也是日常使用必不可少的装机软件。
 tags:
-  - 操作系统
+  - OperationSystem
   - Windows
   - Software
 categories:
-  - 操作系统
+  - OperationSystem
   - Windows
   - Software
 date: 2017-06-10 02:27:00

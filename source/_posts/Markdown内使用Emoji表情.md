@@ -5,7 +5,7 @@ tags:
   - Markdown
   - Emoji
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Markdown
   - Emoji
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6f8a2832gy1g6s9wpt1mdj21hc0u0u0x.jpg 

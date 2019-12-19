@@ -5,7 +5,7 @@ description: 收集美化Hexo的各种方案
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-lmk1vq.png
 ---

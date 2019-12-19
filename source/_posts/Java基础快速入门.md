@@ -5,7 +5,7 @@ description: 前些日子有朋友想要了解一下JAVA，于是便整理了这
 tags:
   - Java
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Java
 date: 2018-08-21 11:14:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01e7631535e0aebff4.jpg

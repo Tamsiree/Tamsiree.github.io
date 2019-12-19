@@ -4,7 +4,7 @@ date: 2018-04-20 11:14:11
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-6kogj6.jpg
 ---

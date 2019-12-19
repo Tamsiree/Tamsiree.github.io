@@ -5,7 +5,7 @@ description: Hexo 博客中所见文章都是经由渲染的静态网页，而�
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01781bd4b1218329e1.jpg
 ---

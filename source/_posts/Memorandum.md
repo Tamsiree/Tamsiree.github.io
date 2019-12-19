@@ -3,9 +3,9 @@ title: Memorandum
 date: 2018-11-30 11:16:16
 description: 主要是作为一个备忘录使用，记录有想法对某一技术或领域进行深层次的研究但是没有时间而搁置的计划。
 tags:
-  - 日常
+  - Daily
 categories:
-  - 日常
+  - Daily
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01b8db9f24b7814800.jpg
 password: LuckyStar*123
 abstract: 有东西被加密了, 请输入密码查看.

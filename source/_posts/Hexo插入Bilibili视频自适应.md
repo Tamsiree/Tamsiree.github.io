@@ -5,7 +5,7 @@ description: 在Hexo插入Bilibili视频的时候，发现视频的播放器大�
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-422864.jpg
 ---

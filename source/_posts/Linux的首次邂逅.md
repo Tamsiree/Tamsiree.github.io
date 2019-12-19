@@ -3,10 +3,10 @@ title: Linux的首次邂逅
 author: Tamsiree
 description: 不过作为一个程序员，很有必要学会linux，如果你的程序最终是跑在线上的Linux服务器上，那么你就更应该从现在开始投入linux的怀抱中，早日从windows脱坑。
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
 date: 2019-09-10 00:30:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01098667d865cc2e9f.jpg

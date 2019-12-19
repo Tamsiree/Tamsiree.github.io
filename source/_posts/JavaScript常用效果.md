@@ -4,7 +4,7 @@ date: 2018-10-23 03:43:52
 tags:
   - JavaScript
 categories:
-  - Technical Research
+  - TechnicalResearch
   - JavaScript
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-w8epx6.jpg
 ---

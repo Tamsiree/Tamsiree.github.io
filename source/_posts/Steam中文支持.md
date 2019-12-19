@@ -3,10 +3,10 @@ title: Steam中文支持
 date: 2018-11-09 12:31:27
 description: 整理Steam上的诸多游戏中文显示问题。
 tags:
-  - 第九艺术
+  - Game
   - Steam
 categories:
-  - 第九艺术
+  - Game
   - GamePlatform
   - Steam
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01ef59672c708202df.jpg

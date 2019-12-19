@@ -3,10 +3,10 @@ title: Steam问题归纳
 date: 2017-12-03 11:08:35
 description: Steam在Windows环境下支持的还不错，但是到了Linux环境下就会出现各种各样的问题，因此便总结归纳一下所遇到的问题及其解决方案。
 tags:
-  - 第九艺术
+  - Game
   - Steam
 categories:
-  - 第九艺术
+  - Game
   - GamePlatform
   - Steam
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01fbd871ed0d04d43d.jpg

@@ -2,11 +2,11 @@
 title: Manjaro使用技巧与问题归纳
 date: 2019-09-23 14:52:03
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01236039c4be3c4806.jpg

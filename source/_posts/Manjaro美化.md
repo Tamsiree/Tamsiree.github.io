@@ -3,11 +3,11 @@ title: Manjaro美化
 date: 2019-09-22 11:41:03
 description: 俗话说颜值是第一生产力（真的假的？）。但毋庸置疑一个漂亮的学习工作环境是会提高人的生产效率的。这里我就推荐一些桌面美化方案给大家参考。
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01f37ee8b9d9b4e805.jpg

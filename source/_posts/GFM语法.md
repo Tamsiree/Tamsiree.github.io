@@ -6,7 +6,7 @@ tags:
   - Markdown
   - GFM
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Markdown
   - GFM
 date: 2017-07-18 12:44:00

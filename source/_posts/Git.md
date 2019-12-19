@@ -5,7 +5,7 @@ description: 整理Git的各种用法
 tags:
   - Git
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Git
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-4y37g0.jpg
 ---

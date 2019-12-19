@@ -5,7 +5,7 @@ description: 有位朋友需要在Python下开发GUI，想要做一个网格列�
 tags:
   - Python
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Python
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/hulicaihong.jpg
 ---

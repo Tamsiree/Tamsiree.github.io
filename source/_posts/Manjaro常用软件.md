@@ -2,11 +2,11 @@
 title: Manjaro常用软件
 date: 2019-09-21 21:26:03
 tags:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 categories:
-  - 操作系统
+  - OperationSystem
   - Linux
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t012460c7fdf2994e17.jpg

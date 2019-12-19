@@ -5,7 +5,7 @@ description: CDN旨在解决因分布、带宽、服务器性能带来的访问�
 tags:
   - CDN
 categories:
-  - Technical Research
+  - TechnicalResearch
   - CDN
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-p879qj.jpg
 ---

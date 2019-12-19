@@ -5,7 +5,7 @@ description: Github 是程序员必备的代码托管平台，上面有许多公
 tags:
   - GitHub
 categories:
-  - Technical Research
+  - TechnicalResearch
   - GitHub
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-2ed16y.jpg
 ---

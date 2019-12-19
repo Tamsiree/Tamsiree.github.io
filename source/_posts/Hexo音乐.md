@@ -5,7 +5,7 @@ description: 正所谓不愿研究的程序员不是好厨子，所以我想研�
 tags:
   - Hexo
 categories:
-  - Technical Research
+  - TechnicalResearch
   - Hexo
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t0112dc637203be0564.jpg
 ---
