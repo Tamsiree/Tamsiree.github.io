@@ -2,11 +2,11 @@
 title: MathJax 引擎数学符号说明
 date: 2019-10-08 23:38:47
 tags:
-  - 学习
+  - Study
   - Math
   - MathJax
 categories:
-  - 学习
+  - Study
   - Math
   - MathJax
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/longsahidsa.jpeg

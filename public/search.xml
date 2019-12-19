@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>考研英语作文</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD/%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BD%9C%E6%96%87/</url>
+    <url>/Study/%E8%8B%B1%E8%AF%AD/%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E4%BD%9C%E6%96%87/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>考研英语的大纲要求：</p>
 <blockquote>
 <p>要求根据所规定的情景或给出的提纲，写出一篇150词左右的英语说明文或议论文。<br>提供的场景的形式一般为 <a href="#往年图表形式分析">图表</a> 。共15分。</p>
@@ -413,17 +413,17 @@
 <p>中国出口商品交易会提供了一个机会，让我们在一个地方会见很多老朋友，商洽业务；又可遇见新朋友，开创新的贸易关系。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>英语</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>英语</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
     <title>伪代码</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E4%BC%AA%E4%BB%A3%E7%A0%81/%E4%BC%AA%E4%BB%A3%E7%A0%81/</url>
+    <url>/Study/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E4%BC%AA%E4%BB%A3%E7%A0%81/%E4%BC%AA%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>伪代码（Pseudocode）是一种算法描述语言。<br>使用伪代码的目的是为了使被描述的算法可以容易地以任何一种编程语言（Pascal，C，Java，etc）实现。<br>因此，伪代码必须结构清晰、代码简单、可读性好，并且类似自然语言。<br>介于自然语言与编程语言之间。</p>
 <p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-15.jpg" class="lazyload"></p>
 <p>它以编程语言的书写形式指明算法的职能。<br>相比于程序语言（例如Java, C++,C, Dephi 等等）它更类似自然语言。<br>它是半角式化、不标准的语言。<br>我们可以将整个算法运行过程的结构用接近自然语言的形式（这里，你可以使用任何一种你熟悉的文字，中文，英文 等等，关键是你把你程序的意思表达出来）描述出来。<br>使用伪代码, 可以帮助我们更好的表述算法, 不用拘泥于具体的实现。</p>
@@ -479,15 +479,15 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>待续…</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>软件工程</category>
         <category>伪代码</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>软件工程</tag>
         <tag>伪代码</tag>
         <tag>PseudoCode</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
@@ -582,7 +582,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>费曼技巧</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E8%AE%B0%E5%BF%86%E6%96%B9%E6%B3%95/%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7/</url>
+    <url>/Study/Memorizing/%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>费曼技巧是一种「以教为学」的学习方式，能够帮助你提高知识的吸收效率，真正理解并学会运用知识。这个学习方法其实很简单，就是验证你是否真正掌握一个知识，看你能否用直白浅显的语言把复杂深奥的问题和知识讲清楚。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><blockquote>
 <p><strong>费曼技巧，是最高效，最实用的学习方法</strong>。</p>
@@ -619,17 +619,17 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p><strong>但是，要想真正掌握高效学习，你还需要拥有优质的学习资源才行，想想如果韩信没有兵，那么，即使他的兵法再厉害，也没用啊。</strong>所以，如果你掌握了最好的学习方法，却用来学习一些碎片化的、不专业的知识，就像杀鸡用牛刀一样，非常浪费。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
-        <category>记忆方法</category>
+        <category>Study</category>
+        <category>Memorizing</category>
       </categories>
       <tags>
-        <tag>学习</tag>
-        <tag>记忆方法</tag>
+        <tag>Study</tag>
+        <tag>Memorizing</tag>
       </tags>
   </entry>
   <entry>
     <title>考研英语词根</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD/%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%A0%B9/</url>
+    <url>/Study/%E8%8B%B1%E8%AF%AD/%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%A0%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>英语词根就好比汉字中的偏旁部首，英语中的很多单词完全可以依靠词根来进行扩展记忆。</p>
 <p>因为历史原因，英文词汇中基本是从 <code>拉丁语</code> 、<code>希腊语</code> 以及其他语言的词根与词缀（前缀、后缀）扩展而来，掌握好词根词缀后，就可以将绝大部分英语单词进行模块切分，划分为以下几块：</p>
 <p><img alt data-src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=465249258,2498397663&fm=173&app=25&f=JPEG?w=480&h=333&s=A89A7D9240CCFCEC48455CDF030050F2" class="lazyload"></p>
@@ -3934,17 +3934,17 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>　　epittomize v 典型概括(把主要特点概括进去)</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>英语</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>英语</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
     <title>考研思想政治理论知识</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E6%80%9D%E6%83%B3%E6%94%BF%E6%B2%BB/%E8%80%83%E7%A0%94%E6%80%9D%E6%83%B3%E6%94%BF%E6%B2%BB%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/</url>
+    <url>/Study/%E6%80%9D%E6%83%B3%E6%94%BF%E6%B2%BB/%E8%80%83%E7%A0%94%E6%80%9D%E6%83%B3%E6%94%BF%E6%B2%BB%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="马克思主义基本原理概论"><a href="#马克思主义基本原理概论" class="headerlink" title="马克思主义基本原理概论"></a>马克思主义基本原理概论</h1><h2 id="哲学基本问题及不同哲学流派"><a href="#哲学基本问题及不同哲学流派" class="headerlink" title="哲学基本问题及不同哲学流派"></a>哲学基本问题及不同哲学流派</h2><p><img alt="哲学基本问题及不同哲学流派" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191120182258.png" class="lazyload"></p>
 <h2 id="马克思主义哲学与其他哲学的联系与区别"><a href="#马克思主义哲学与其他哲学的联系与区别" class="headerlink" title="马克思主义哲学与其他哲学的联系与区别"></a>马克思主义哲学与其他哲学的联系与区别</h2><p><img alt="马克思主义哲学与其他哲学的联系与区别" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191122231937.png" class="lazyload"></p>
 <h2 id="辩证法"><a href="#辩证法" class="headerlink" title="辩证法"></a>辩证法</h2><p><img alt="辩证法" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191122232553.png" class="lazyload"></p>
@@ -3974,12 +3974,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>反托拉斯法即反垄断法</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>思想政治</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>思想政治</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
@@ -4075,7 +4075,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>软件工程基础知识</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <url>/Study/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>个人学习整理之用。</p>
 <p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/heikebizhi.jpg" class="lazyload"></p>
 <h1 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h1><p>软件生命周期一般分为八个阶段：<br>问题定义、可行性研究、需求分析、概要设计（总体设计）、详细设计、编码和单元测试、测试（综合测试）、软件维护。</p>
@@ -4554,12 +4554,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>纵向复用活动的关键在于领域分析。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>软件工程</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>软件工程</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
@@ -4698,7 +4698,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>中南大学软件工程考研题型</title>
-    <url>/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E4%B8%AD%E5%8D%97%E5%A4%A7%E5%AD%A6%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%80%83%E7%A0%94%E9%A2%98%E5%9E%8B/</url>
+    <url>/Study/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E4%B8%AD%E5%8D%97%E5%A4%A7%E5%AD%A6%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%80%83%E7%A0%94%E9%A2%98%E5%9E%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="选择题型"><a href="#选择题型" class="headerlink" title="选择题型"></a>选择题型</h1><ol>
 <li><p>瀑布模型是以文档为驱动、适合于（<code>软件需求确定的</code>）软件项目的开发。    </p>
 </li>
@@ -4952,17 +4952,17 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </ol>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>软件工程</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>软件工程</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
     <title>MathJax 引擎数学符号说明</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Math/MathJax/MathJax%E5%BC%95%E6%93%8E%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E/</url>
+    <url>/Study/Math/MathJax/MathJax%E5%BC%95%E6%93%8E%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="关于-MathJax"><a href="#关于-MathJax" class="headerlink" title="关于 MathJax"></a>关于 MathJax</h1><blockquote>
 <p>使用 MathJax 渲染 <code>LaTex</code> 数学公式，详见 <a href="http://math.stackexchange.com/" target="_blank" rel="noopener">math.stackexchange.com</a>，在 Markdown 中输入数学公式需要 <code>LaTeX</code> 语法的支持。</p>
 </blockquote>
@@ -5593,19 +5593,19 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1\\<br>a_2x+b_2y+c_2z=d_2\\<br>a_3x+b_3y+c_3z=d_3\\<br>\end{cases}$$  </p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>Math</category>
         <category>MathJax</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Math</tag>
         <tag>MathJax</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
     <title>高等数学知识点</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Math/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <url>/Study/Math/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="常用基础知识"><a href="#常用基础知识" class="headerlink" title="常用基础知识"></a>常用基础知识</h1><blockquote>
 <p>$\log_a{b}=\frac{\ln b}{\ln a}$<br>$ln1=0$<br>$e^{-\infty}=0$<br>$e^{+\infty}=+\infty$<br>$arctan(e^*)+arctan(e^{- *})=\frac{\pi}{2}.$<br>$sin \ arctan \ x = \frac{x}{\sqrt[]{1+x^2}}.$<br>$cos \ arctan \ x = \frac{1}{\sqrt[]{1+x^2}}.$<br>$cot \ arctan \ x = \frac{1}{x}.$<br>$sin \ arccos \ x = {\sqrt[]{1-x^2}}.$<br>$tan \ arccos \ x = \frac{\sqrt[]{1-x^2}}{x}.$<br>$sinx+cosx=√2(sinxcos\frac{π}{4}+cosxsin\frac{π}{4})=\sqrt[]{2}sin(x+\frac{π}{4})$</p>
 </blockquote>
@@ -6174,19 +6174,19 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>待续…  </p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>Math</category>
         <category>高等数学</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Math</tag>
         <tag>高等数学</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
     <title>线性代数知识点总结</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+    <url>/Study/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>重要观点 1: 矩阵也是有若干个行(列)向量拼成的<br>重要观点 2：矩阵不能计算</p>
 <p>求解线性方程组，就是对增广矩阵作初等行变换，化成行阶梯形矩阵，然后求解</p>
 <p>以下三个问题是等价的：<br>(1) 求非齐次方程组的解<br>(2) 求一个向量由一组向量线性表示的系数<br>(3) 求一个向量在一组基下的坐标(唯一解)</p>
@@ -6253,14 +6253,14 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </ol>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>Math</category>
         <category>线性代数</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Math</tag>
         <tag>线性代数</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
@@ -7265,7 +7265,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>线性代数公式</title>
-    <url>/%E5%AD%A6%E4%B9%A0/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F/</url>
+    <url>/Study/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/math_xxds_01.png" class="lazyload"></p>
 <a id="more"></a>
 
@@ -7277,14 +7277,14 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/math_xxds_07.png" class="lazyload"></p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>Study</category>
         <category>Math</category>
         <category>线性代数</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Math</tag>
         <tag>线性代数</tag>
+        <tag>Study</tag>
       </tags>
   </entry>
   <entry>
@@ -8122,18 +8122,43 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>CSGO</title>
     <url>/%E7%AC%AC%E4%B9%9D%E8%89%BA%E6%9C%AF/GamePlatform/Steam/CSGO/CSGO/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="CSGO设置显示FPS"><a href="#CSGO设置显示FPS" class="headerlink" title="CSGO设置显示FPS"></a>CSGO设置显示FPS</h1><ol>
-<li><p>开启控制台<br>游戏开始界面——“选项”——“游戏设置”<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135501_1_lit.png" class="lazyload"><br>找到“启用开发者控制台(<del>)”，选择“是”<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135518_1_lit.png" class="lazyload"><br>之后，在游戏中只要按“</del>”按键(Esc下面)即可开启控制台<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135532_1_lit.png" class="lazyload"></p>
-</li>
-<li><p>显示帧数(FPS)及网络参数(PING、LOSS、CHOKE等)<br>net_graph 1 开启帧数、网络参数显示<br>net_graph 0 关闭<br>在控制台输入“net_graph 1”后回车<br>即可在右下角显示帧数(FPS)及网络参数(PING、LOSS、CHOKE等)<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135619_1_lit.png" class="lazyload"></p>
-</li>
-<li><p>修改参数显示位置(左、中、右)<br>net_graphpos 0 参数显示在界面左边<br>net_graphpos 1 参数显示在界面右边<br>net_graphpos 2 参数显示在界面中间<br>使用方法同上，控制台输入即可，下图是net_graphpos 0效果<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135640_1_lit.png" class="lazyload"></p>
-</li>
-<li><p>修改参数显示位置高度(详细到像素)<br>net_graphheight 数值，数值越大，位置越高<br>下图为net_graphheight 500 的效果<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135717_1_lit.png" class="lazyload"></p>
-</li>
-<li><p>修改参数显示字体大小<br>net_graphproportionalfont 0.9 将参数字体变小<br>net_graphproportionalfont 1 将参数字体变大(默认)<br>只有两个显示效果，小于1字体小(上图)，大于等于1字体大(下图)<br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135805_1_lit.png" class="lazyload"><br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135805_2_lit.png" class="lazyload"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-587592.png" class="lazyload"></p>
+<h1 id="CSGO设置显示FPS"><a href="#CSGO设置显示FPS" class="headerlink" title="CSGO设置显示FPS"></a>CSGO设置显示FPS</h1><ol>
+<li>开启控制台<br>游戏开始界面 - “选项” - “游戏设置”</li>
+</ol>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135501_1_lit.png" class="lazyload"></p>
+<p>找到“启用开发者控制台(~)”，选择“是”</p>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135518_1_lit.png" class="lazyload"></p>
+<p>之后，在游戏中只要按“~”按键(Esc下面)即可开启控制台</p>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135532_1_lit.png" class="lazyload"></p>
+<ol start="2">
+<li>显示帧数(FPS)及网络参数(PING、LOSS、CHOKE等)  <blockquote>
+<p>net_graph 1 开启帧数、网络参数显示<br>net_graph 0 关闭<br>在控制台输入“net_graph 1”后回车<br>即可在右下角显示帧数(FPS)及网络参数(PING、LOSS、CHOKE等)</p>
+</blockquote>
 </li>
 </ol>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135619_1_lit.png" class="lazyload"></p>
+<ol start="3">
+<li>修改参数显示位置(左、中、右)  <blockquote>
+<p>net_graphpos 0 参数显示在界面左边<br>net_graphpos 1 参数显示在界面右边<br>net_graphpos 2 参数显示在界面中间<br>使用方法同上，控制台输入即可，下图是net_graphpos 0效果  </p>
+</blockquote>
+</li>
+</ol>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135640_1_lit.png" class="lazyload"></p>
+<ol start="4">
+<li>修改参数显示位置高度(详细到像素)  <blockquote>
+<p>net_graphheight 数值，数值越大，位置越高<br>下图为net_graphheight 500 的效果</p>
+</blockquote>
+</li>
+</ol>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135717_1_lit.png" class="lazyload"></p>
+<ol start="5">
+<li>修改参数显示字体大小  <blockquote>
+<p>net_graphproportionalfont 0.9 将参数字体变小<br>net_graphproportionalfont 1 将参数字体变大(默认)<br>只有两个显示效果，小于1字体小(上图)，大于等于1字体大(下图)</p>
+</blockquote>
+</li>
+</ol>
+<p><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135805_1_lit.png" class="lazyload"><br><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/340_170121135805_2_lit.png" class="lazyload"></p>
 <hr>
 <p>待续…</p>
 ]]></content>
