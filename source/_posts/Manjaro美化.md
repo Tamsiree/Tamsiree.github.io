@@ -165,6 +165,14 @@ zsh
 
 ![powerlevel10k主题](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Manjaro/plasmashell_20191114001128.png)
 
+powerlevel10k的配置方法
+
+```bash
+p10k configure
+```
+
+powerline字体安装 [powerline fonts](https://github.com/powerline/fonts)
+
 安装配置就此大功告成啦！
 
 ---
