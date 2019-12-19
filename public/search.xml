@@ -7147,7 +7147,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>Origin问题归纳</title>
-    <url>/Game/GamePlatform/Origin/Origin%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/</url>
+    <url>/%E7%AC%AC%E4%B9%9D%E8%89%BA%E6%9C%AF/GamePlatform/Origin/Origin%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Origin的下载速度改善方法"><a href="#Origin的下载速度改善方法" class="headerlink" title="Origin的下载速度改善方法"></a>Origin的下载速度改善方法</h1><ol>
 <li><p>退出origin，在origin根目录找到 EACore.ini 这个文件  </p>
 </li>
@@ -7161,12 +7161,13 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </ol>
 ]]></content>
       <categories>
-        <category>Game</category>
+        <category>第九艺术</category>
         <category>GamePlatform</category>
         <category>Origin</category>
       </categories>
       <tags>
         <tag>Origin</tag>
+        <tag>第九艺术</tag>
       </tags>
   </entry>
   <entry>
@@ -8164,6 +8165,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       <tags>
         <tag>CSGO</tag>
         <tag>Steam</tag>
+        <tag>第九艺术</tag>
       </tags>
   </entry>
   <entry>
@@ -8307,6 +8309,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       </categories>
       <tags>
         <tag>Steam</tag>
+        <tag>第九艺术</tag>
       </tags>
   </entry>
   <entry>
@@ -9759,6 +9762,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       </categories>
       <tags>
         <tag>Steam</tag>
+        <tag>第九艺术</tag>
       </tags>
   </entry>
   <entry>

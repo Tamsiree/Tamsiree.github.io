@@ -2,9 +2,10 @@
 title: Origin问题归纳
 author: Tamsiree
 tags:
+  - 第九艺术
   - Origin
 categories:
-  - Game
+  - 第九艺术
   - GamePlatform
   - Origin
 date: 2019-08-18 21:59:00
