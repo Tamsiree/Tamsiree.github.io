@@ -37,3 +37,7 @@ exit
 第二步：双击bat批处理文件，弹出黑框框，等待20s激活成功
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTI2OTQ2Ni8yMDE5MDYvMTI2OTQ2Ni0yMDE5MDYyMzAyMTE0MzkzOS05MzI4Njk2MjQucG5n?x-oss-process=image/format,png)
+
+
+---
+to be continued...

@@ -98,3 +98,7 @@ github.global.ssl.fastly.net
 ```
 sudo systemctl restart NetworkManager.service
 ```
+
+
+---
+to be continued...

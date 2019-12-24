@@ -60,3 +60,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/397
 然后执行命令 hexo d 重新部署 然后打开我们的域名 就可以访问啦
 
 ![Tamsiree.com](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/hexo_domain9.png)
+
+
+---
+to be continued...

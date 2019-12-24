@@ -35,3 +35,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 [Linux CentOS官方下载](https://www.centos.org/download/)
 
 > 从最初入手的 CentOS 到 ubuntu ,再到 Manjaro，经亲身体验后，最后还是留在了 Manjaro 。
+
+
+---
+to be continued...

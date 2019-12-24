@@ -30,3 +30,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/v2-bb4cb7afa87
 如果勾选了 `Autoconnect Profiler` 选项，并且在开着 editor 的情况下使用 UPR App 或者 UPR Desktop ，可能出现 `NO_FRAME` 的情况。   
 请关闭 Editor Profiler 窗口，或者在不勾选 `Autoconnect Profiler` 选项时重新Build And Run，并重新使用UPR进行测试。   
 -- UPR开发小组 敬上
+
+
+---
+to be continued...

@@ -25,3 +25,7 @@ CdnOverride=akamai
 ```
 
 3. 重新登录origin享受下载速度吧(注:有些地区这方法不管用)
+
+
+---
+to be continued...

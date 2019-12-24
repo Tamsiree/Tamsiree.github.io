@@ -307,3 +307,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
     这四个作用域的可见范围如下表所示  
     ![](https://img-blog.csdn.net/2018091916370321?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTQ3ODYz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)  
     说明：如果在修饰的元素上面没有写任何访问修饰符，则表示friendly
+
+
+---
+to be continued...

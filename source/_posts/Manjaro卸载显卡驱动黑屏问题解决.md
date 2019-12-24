@@ -45,3 +45,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/chuyin_sky.jpg
 15. 第十五步，期待你的Manjaro桌面的重新出现吧～
 
 > 如果你卡在了网络连接这一步，跟我的情况有出入的话，可以查看下这个 [Arch Linux 官方的无线网络连接配置](https://wiki.archlinux.org/index.php/Wireless_network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+
+
+---
+to be continued...

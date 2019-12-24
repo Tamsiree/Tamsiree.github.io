@@ -59,3 +59,7 @@ VisualStudio 本身的`文件 -> 高级保存选项`中是可以选择保存的�
 打开`工具 -> 扩展和更新`，在“扩展和更新”界面中，左边选择“联机”，右边“搜索”输入扩展名称关键字，选中要安装的扩展，点击下载即可安装。例如下图。
 
 ![Visual Studio IDE 安装扩展](https://www.123si.org/photo-gallery/articles/2019/03/07/original/123si-org-img-1551946922424.jpg "Visual Studio IDE 安装扩展")
+
+
+---
+to be continued...

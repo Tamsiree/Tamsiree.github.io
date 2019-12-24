@@ -61,3 +61,7 @@ hexo server -d
 不要用hexo init初始化，部分文件已经拷贝生成，如果不慎使用，则站点配置文件_config.yml会被初始化为默认值
 
 > 到此为止，重新配置已经完成
+
+
+---
+to be continued...

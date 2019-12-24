@@ -106,3 +106,6 @@ AAPT: error: <item> inner element must either be a resource reference or emptyã€
 <item name="about_version_code" type="id" />
 ```
 
+
+---
+to be continued...

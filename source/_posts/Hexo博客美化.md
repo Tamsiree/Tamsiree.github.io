@@ -915,5 +915,6 @@ setInterval("createtime()",250);
 
 
 
-- - -
-未完待续…
+
+---
+to be continued...

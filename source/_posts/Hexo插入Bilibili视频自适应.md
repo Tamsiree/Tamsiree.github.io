@@ -42,3 +42,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wal
 > 手机上也能很好的自适应噢
 
 本文中的自适应解决方案来自这篇 [文章](https://www.andyvj.com/2019/02/12/190213-01/)，里面还介绍了其他音视频平台插入的方法，在这里也谢谢这位老哥了。
+
+
+---
+to be continued...

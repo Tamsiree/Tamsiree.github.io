@@ -874,3 +874,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png
         //Friend 分享微信好友,Zone 分享微信朋友圈,Favorites 分享微信收藏
         WechatShareTools.shareURL(mWechatShareModel, WechatShareTools.SharePlace.Friend);//分享操作
 ```
+
+
+---
+to be continued...
