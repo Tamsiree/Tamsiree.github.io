@@ -65,3 +65,19 @@ process is running and remove the file manually to continue.
 
 解决方案:  
 > 根据提示找到对应文件 `index.lock` ，删除即可。
+
+# 强制拉取覆盖本地
+在使用git管理代码时，我们总会遇到在本地修改了一通，结果发现忒乱了想重新来过，本能地尝试本地删除然后重新git pull，结果发现没用，文件根本拉取不下来。那行吧，咱直接从远程仓库拉取代码覆盖本地就行了。
+
+```git
+git fetch --all
+git reset --hard origin/master
+git pull //可以省略
+```
+
+git fetch 指令是下载远程仓库最新内容，不做合并 
+git reset 指令把HEAD指向master最新版本
+
+---
+to be continued...
+

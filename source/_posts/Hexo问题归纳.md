@@ -81,7 +81,7 @@ Node Sass could not find a binding for your current environment: Linux 64-bit wi
 
 Found bindings for the following environments:
 
-  Linux 64-bit with Node.js 10.x
+Linux 64-bit with Node.js 10.x
 ```
 
 解决办法：  
@@ -89,3 +89,27 @@ Found bindings for the following environments:
 ```zsh
 npm rebuild node-sass
 ```
+
+# extends includes/layout.pug block content 
+
+```bash
+extends includes/layout.pug block content   
+recent-posts.recent-posts include includes/recent-posts.pug include includes/pagination.pug   
+aside_content.aside_content include includes/aside.pug
+```
+
+解决方法：请下载安装
+```
+npm install hexo-renderer-pug hexo-renderer-stylus --save
+```
+
+# 報錯wordcount is not a function
+
+請檢查是否安裝了wordcount插件 
+
+```
+npm i --save hexo-wordcount
+```
+
+---
+to be continued...

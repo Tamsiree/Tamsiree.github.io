@@ -1,5 +1,5 @@
 ---
-title: Python Exercise
+title: PythonExercise
 author: Tamsiree
 description: 朋友需要帮忙解决一下`学术`问题，当然义不容辞啦 ✎～～～✐。
 tags:
