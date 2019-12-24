@@ -1,18 +1,3 @@
-# Theme color for customize
-# Notice: color value must in double quotes like "#000" or may cause error!
-# ---------------
-# theme_color:
-#   enable: true
-#   main: "#49B1F5"
-#   paginator: "#00c4b6"
-#   button_hover: "#FF7242"
-#   text_selection: "#00c4b6"
-#   link_color: "#99a9bf"
-#   meta_color: '#858585'
-#   hr_color: "#A4D8FA"
-#   read-mode-bg_color: '#FAF9DE'
-#   inline-code-color: '#F47466'
-
 # Main menu navigation
 # ---------------
 # format: xxx: /xxx/||icon
@@ -26,9 +11,9 @@ menu:
   寻龙尺: /categories/||fa fa-safari
   神秘链接: /link/||fa fa-link
   回味||fa fa-heartbeat:
-   - 音乐 || /music/ || fa fa-music
-   - 电影 || /movie/ || fa fa-film
-   - 画廊 || /gallery/||fa fa-camera-retro
+    - 音乐 || /music/ || fa fa-music
+    - 电影 || /movie/ || fa fa-film
+    - 画廊 || /gallery/||fa fa-camera-retro
   关于我: /about/||fa fa-graduation-cap
   留言板: /messageboard/||fa fa-tasks
   冥想屋: /night_sky/||fa fa-eercast
@@ -106,20 +91,18 @@ local_search:
 # ---------------
 mathjax:
   enable: true
-  
+  # true 表示每一頁都加載mathjax.js
+  # false 需要時加載，須在使用的Markdown Front-matter 加上 mathjax: true
+  per_page: false
+
 # KaTeX
 # ---------------
 katex:
   enable: false
+  # true 表示每一頁都加載katex.js
+  # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true
+  per_page: false
   hide_scrollbar: true
-
-####   Analysis    ####
-# ---------------
-# baidu_analytics: 
-
-#Google Analytics
-google_analytics:
-
 
 # Post info settings
 # ---------------
@@ -129,7 +112,7 @@ avatar: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome11.png
 
 # the banner image of index
 # if the banner of another page not setting,it will show the top_img
-top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/5ce53eb6dc82757840.jpg
+index_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/5ce53eb6dc82757840.jpg
 # 以下鏈接是動態壁紙，每次刷新會更換
 # https://source.unsplash.com/collection/collectionid/1600x900
 # https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture
@@ -145,11 +128,11 @@ default_cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konach
 # the banner image of archive page
 archive_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/timg.jpeg
 
-# the banner image of category page
-category_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/153105-1570260665e147.jpg
-
 # the banner image of tag page
 tag_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/flytimg.jpeg
+
+# the banner image of category page
+category_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/153105-1570260665e147.jpg
 
 # 如果你有使用hexo-douban去生成movie界面，可配置這個
 movies_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1d5cd579cce238bc27fc485f8cba71cd.jpg
@@ -215,28 +198,19 @@ disqus:
   enable: false
   shortname: 
   
-# laibili:
-  # enable: false
-  # uid:
+laibili:
+  enable: false
+  uid:
 
-# gitment
-  # enable: false
-  # owner: 
-  # repo: 
-  # client_id: 
-  # client_secret: 
-
-# gitalk:
-#   enable: false
-#   client_id: 
-#   client_secret: 
-#   repo:
-#   owner:
-#   admin:
-#   language:   # en , zh-CN , zh-TW
-####   Using this js for redirect to gitalk container after login
-####   See https://github.com/gitalk/gitalk/issues/125
-#   js: https://cdn.jsdelivr.net/gh/upupming/gitalk@36368e5dffd049e956cdbbd751ff96c28d8255cf/dist/gitalk.min.js
+gitalk:
+  enable: false
+  client_id:
+  client_secret:
+  repo:
+  owner:
+  admin:
+  language: # en , zh-CN , zh-TW
+  count: false # top_img顯示評論數
 
 # valine comment system. https://valine.js.org
 valine:
@@ -253,6 +227,7 @@ valine:
   guest_info: nick,mail,link #valine comment header inf
   bg: /img/comment_bg.png  # valine background
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
+  count: true # top_img顯示評論數
 
 #####     Footer Settings    ####
 # ------------------------------------
@@ -269,6 +244,24 @@ ICP:
   text:
   icon: /img/icp.png
 
+####   Analysis    ####
+# ---------------
+baidu_analytics: 
+
+#Google Analytics
+google_analytics:
+
+# Tencent_analytics ID
+tencent_analytics:
+
+# Ads
+# ---------------
+# Google Adsense
+google_adsense:
+  enable: false
+  js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+  client:
+  enable_page_level_ads: true
 
 ####    站長驗證    ####
 # Google Webmaster tools verification setting
@@ -313,6 +306,7 @@ reward:
 related_post:
   enable: true
   limit: 6 # 顯示推薦文章數目
+  date_type: created # or created or updated 文章日期顯示创建日或者更新日
 
 ####    美化/效果    ####
 #--------------------------------
@@ -338,13 +332,16 @@ related_post:
 index_site_info_top:   #主頁標題距離頂部距離  例如 300px/300em/300rem/10%
 index_top_img_height:  #主頁top_img高度 例如 300px/300em/300rem  不能使用百分比
 
+# 主頁文章COVER顯示位置
+# 三個值可配置 left , right , both
+# left(全部圖片顯示在左邊)，right(全部圖片顯示在右邊)，both(左右左右順序顯示)
+index_post_cover: both
 
 # category和tag頁的UI設置
 # index 值代表 UI將與首頁的UI一樣
 # 默認跟archives頁面UI一樣
 category_ui:  # 留空或index
 tag_ui:  # 留空或index
-
 
 # 設置網站背景
 # 可設置圖片 或者 顔色
@@ -355,7 +352,6 @@ background: '#f0f0f0'
 
 # footer是否顯示圖片背景(與top_img一致)
 footer_bg: true
-
 
 # canvas_ribbon 禁止彩帶背景
 # See: https://github.com/hustcc/ribbon.js
@@ -385,8 +381,12 @@ canvas_nest:
 # 打字效果
 activate_power_mode:
   enable: false
+  colorful: true # 冒光特效
+  shake: true # 抖動特效
 
 # 鼠標點擊效果
+# 避免卡頓，建議只開啓一個
+# 點擊烟火特效
 fireworks:
   enable: false
 
@@ -463,6 +463,9 @@ subtitle:
 
 ####    側邊欄    ####
 #-------------------------------------
+# 手機頁面（ 顯示寬度 < 768px ）是否顯示aside内容
+aside_mobile: true
+
 # 側邊欄顯示設置
 aside:
   position: left # left or right
@@ -529,10 +532,16 @@ autoChangeMode: false
 #------------------------------------------------
 
 # 圖片大圖查看模式
-# 默認為 fancybox http://fancyapps.com/fancybox/3/
-# 可以選擇改爲 medium_zoom https://github.com/francoischalifour/medium-zoom
+# 可選 medium_zoom 或者 fancybox
+# 只選一個 或者 兩個都不選
+#--------------------------------------------
+# medium_zoom https://github.com/francoischalifour/medium-zoom
 medium_zoom:
   enable: false
+
+# fancybox http://fancyapps.com/fancybox/3/
+fancybox:
+  enable: true
 
 # Snackbar 彈窗
 # https://github.com/polonel/SnackBar
@@ -541,8 +550,8 @@ medium_zoom:
 snackbar:
   enable: true
   position: bottom-center
-  bg_light: '#49b1f5' #light mode時彈窗背景
-  bg_dark: '#2d3035' #dark mode時彈窗背景
+  bg_light: "#49b1f5" #light mode時彈窗背景
+  bg_dark: "#2d3035" #dark mode時彈窗背景
 
 #百度推送
 baidu_push:
@@ -586,8 +595,6 @@ twitter_meta: true
 # https://i.loli.net/2019/09/08/2wbFJEKloisRvhj.png
 Open_Graph_meta: true
 
-
-
 # CDN
 # 網站必須
 # 可根據需要自行添加js/css
@@ -595,33 +602,30 @@ CDN_USE:
   css:
     - /css/index.css
     - https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
-    # - https://use.fontawesome.com/releases/v5.8.1/css/all.css #fontawesomeV5_css
+    # - https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css #fontawesomeV5_css
 
   js:
     - https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js  #/js/third-party/jquery.min.js
     - /js/utils.js
     - /js/main.js
 
-
 # CDN
 # 非必要不要修改
 CDN:
   #comments
-  blueimp-md5: https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js
+  blueimp_md5: https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
   gitalk_css: https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css
   valine: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
 
   # share
   addtoany: https://static.addtoany.com/menu/page.js
-  sharejs: https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js
-  sharejs_css: https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css
+  sharejs: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
+  sharejs_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
 
   #search
-  algolia_search: https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js
-  algolia_search_css: https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css
-  algolia_js: /js/search/algolia.js
-  local_search: /js/search/local-search.js
+  algolia_search: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js
+  algolia_search_css: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css
 
   mathjax: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   katex: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
@@ -632,9 +636,9 @@ CDN:
   busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
 
   # 背景特效
-  canvas_ribbon: /js/third-party/canvas-ribbon.js # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-ribbon.js
-  canvas_ribbon_piao: /js/third-party/piao.js # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/piao.js
-  canvas_nest: /js/third-party/canvas-nest.js  # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/canvas-nest.js 
+  canvas_ribbon: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-ribbon.js
+  canvas_ribbon_piao: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/piao.js
+  canvas_nest: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-nest.js
 
   lazyload: https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js
   instantpage: https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js
@@ -643,19 +647,17 @@ CDN:
   js_cookies: https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js
 
   fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js  #/js/third-party/jquery.fancybox.min.js
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
   medium_zoom: https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js
 
-  snackbar_css: https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.css
-  snackbar: https://cdn.jsdelivr.net/npm/node-snackbar@0.1.15/dist/snackbar.min.js
+  snackbar_css: https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css
+  snackbar: https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js
 
   #鼠标点击特效
-  anime: https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js  #/js/third-party/anime.min.js
-  activate_power_mode: /js/third-party/activate-power-mode.js # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/activate-power-mode.js
-  fireworks: /js/third-party/fireworks.js # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/fireworks.js
-  click_heart: /js/third-party/click_heart.js # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/click_heart.js
-  ClickShowText: /js/third-party/ClickShowText.js # https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@latest/js/ClickShowText.js
+  anime: https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js
+  activate_power_mode: https://cdn.jsdelivr.net/npm/activate-power-mode/dist/activate-power-mode.min.js
+  fireworks: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/fireworks.js
+  click_heart: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js
+  ClickShowText: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/ClickShowText.js
 
   translate: /js/tw_cn.js
-  runtimeshow: js/runtimeshow.js
-
