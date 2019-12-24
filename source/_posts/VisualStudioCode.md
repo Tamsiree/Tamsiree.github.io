@@ -362,24 +362,24 @@ VS Code 使用的 Electron 版本不包含 ffmpeg，需替換自帶的 ffmpeg �
 
 ##### Windows
 
-{% codeblock lang:bash %}
+```bash
 下載 electron-%version%-win32-%arch%.zip  
 替換 ./ffmpeg.dll  
-{% endcodeblock %}  
+```  
 
 ##### macOS
 
-{% codeblock lang:bash %}
+```bash
 下載 electron-%version%-darwin-x64.zip  
 替換 ./Electron.app/Contents/Frameworks/Electron\ Framework.framework/Libraries/libffmpeg.dylib  
-{% endcodeblock %}  
+```  
 
 ##### Linux
 
-{% codeblock lang:bash %}
+```bash
 下載 electron-%version%-linux-%arch%.zip  
 替換 ./libffmpeg.so  
-{% endcodeblock %}  
+```  
 
 #### 自動替換
 
@@ -389,15 +389,15 @@ VS Code 使用的 Electron 版本不包含 ffmpeg，需替換自帶的 ffmpeg �
 
 ##### Windows Powershell
 
-{% codeblock lang:bash %}
+```bash
 Invoke-RestMethod https://gist.githubusercontent.com/nondanee/f157bbbccecfe29e48d87273cd02e213/raw | python  
-{% endcodeblock %}  
+```  
 
 ##### Unix Shell
 
-{% codeblock lang:bash %}
+```bash
 curl https://gist.githubusercontent.com/nondanee/f157bbbccecfe29e48d87273cd02e213/raw | python  
-{% endcodeblock %}  
+```  
 
 如果 VS Code 使用默認配置安裝，腳本會自動尋找並替換，若自定義了安裝位置，請自行修改 installation
 

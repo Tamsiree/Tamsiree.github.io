@@ -16,51 +16,51 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wal
 设置网页在浏览器标签头的图标，通常说favicon.icon
 在头文件中添加以下代码:
 
-{% codeblock lang:html %}
+```html
     <link rel="icon" href="Images/wangyi.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="Images/wangyi.ico" type="image/x-icon" />
-{% endcodeblock %}
+```
 
 # Input标签
 ## Input标签文本值的变更监听
 
-{% codeblock lang:javascript %}
+```javascript
 document.getElementById("myInput").addEventListener("input", myFunction);
 function myFunction() {
   alert("input 输入框值已发生变化。");
 }
-{% endcodeblock %}  
+```  
 
 ## Input标签限制输入文本类型
 
 ### 限制为输入数字
-{% codeblock lang:html %}
+```html
 <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')">
-{% endcodeblock %}  
+```  
 
 ### 限制为输入英文
-{% codeblock lang:html %}
+```html
 <input type="text" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
-{% endcodeblock %}  
+```  
 
 ### 限制为输入中文
-{% codeblock lang:html %}
+```html
 <input type="text" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')">
-{% endcodeblock %}  
+```  
 
 ### 限制为输入数字和英文
-{% codeblock lang:html %}
+```html
 <input class=input maxLength=12 size=15 name=username id="username" onKeyUp="value=value.replace(/[\W]/g,'')">
-{% endcodeblock %}  
+```  
 
 ### 限制为输入 数字 英文 中文
-{% codeblock lang:html %}
+```html
 <input onkeyup="value=value.replace(/[^\w\u4E00-\u9FA5]/g, '')">
-{% endcodeblock %}  
+```  
 
 # 提示信息
 ## 使用 :hover::before 显示提示信息
-{% codeblock lang:html %}
+```html
 <style>
     span[data-title]{
         position: relative;
@@ -91,7 +91,7 @@ function myFunction() {
     }
 </style>
 <p>hello,<span data-title="我是提示信息！">请把鼠标放到我身上！</span></p>
-{% endcodeblock %}  
+```  
 
 预览效果:  
 
@@ -175,7 +175,7 @@ function myFunction() {
 # 自定义组件
 ## 数字滚动效果
 
-{% codeblock lang:html %}
+```html
 <template>
     <ul class="number-roll" :style="{height: height + 'px'}" v-html="strHtml"></ul>
 </template>
@@ -302,13 +302,13 @@ function myFunction() {
         overflow: hidden;
     }
 </style>
-{% endcodeblock %}  
+```  
 
 代码实例：  
 
-{% codeblock lang:html %}
+```html
 <numberRoll :number="9866.66"></numberRoll>
-{% endcodeblock %}  
+```  
 
 
 ---

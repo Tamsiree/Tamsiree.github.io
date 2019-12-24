@@ -25,11 +25,11 @@ Hexo 博客中所见文章都是经由渲染的静态网页，而静态网页的
 
 用编辑器打开 Hexo\source 创建的文件夹中的 index.html 文件，在开头添加如下代码即可
 
-{% codeblock lang:node %}
+```node
 ---  
 layout: false  
 ---  
-{% endcodeblock %}
+```
 
 
 添加该指令后，执行 hexo g 命令时便会跳过该 index.html 文件，使得 index.html 不受当前 hexo 主题影响，完全是一个独立的网页。
@@ -45,30 +45,30 @@ layout: false
 skip_render 一般有以下四种常用参数：
 
 1. 跳过source目录下的 test.html:  
-{% codeblock lang:node %}
+```node
 skip_render:  
     test.html
-{% endcodeblock %}  
+```  
 
 2. 跳过source目录下 test 文件夹内所有文件：
-{% codeblock lang:node %}
+```node
 skip_render:  
     test/*
-{% endcodeblock %}  
+```  
 
 3. 跳过source目录下 test 文件夹内所有文件包括子文件夹以及子文件夹内的文件：  
-{% codeblock lang:node %}
+```node
 skip_render:  
     test/**
-{% endcodeblock %}  
+```  
 
 4. 跳过多个路径：
 
-{% codeblock lang:node %}
+```node
     skip_render:  
      - test.html  
      - test/*  
-{% endcodeblock %}  
+```  
 
 对格式要求严格，注意填写参数时的格式，添加完成后便不会渲染指定文件/文件夹。
 
