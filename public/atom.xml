@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Tamsiree</title>
-  <icon>https://www.gravatar.com/avatar/9df9bfb4c4caa6fb65a807bdf6e7f0d1</icon>
+  <icon>https://www.gravatar.com/avatar/6f05c6132e630e969d55a8ea105fd562</icon>
   
   <link href="/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>Tamsiree</name>
-    <email>tamsiree@163.com</email>
+    <email>tamsiree.com@gmail.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>

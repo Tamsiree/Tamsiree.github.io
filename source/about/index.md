@@ -14,7 +14,7 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/45dd79eb-d80
 
 ## 联系方式
 
-> Email： [`Tamsiree@163.com`](mailto:Tamsiree@163.com)
+> Email： [`tamsiree.com@gmail.com`](mailto:tamsiree.com@gmail.com)
 
 ---
 
