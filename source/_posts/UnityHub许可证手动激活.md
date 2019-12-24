@@ -1,15 +1,15 @@
 ---
 title: Unity3d许可证手动激活
 date: 2018-10-29 11:14:45
-description: 在Unity3D Hub的使用过程中，隔三差五的就提示要求激活新的许可证，此处提供一个一劳永逸的解决方案
+description: 在UnityHub的使用过程中，隔三差五的就提示要求激活新的许可证，此处提供一个一劳永逸的解决方案
 tags:
   - Tool
   - DevelopmentTool
-  - Unity3d
+  - Unity
 categories:
   - Tool
   - DevelopmentTool
-  - Unity3d
+  - Unity
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-0jwzwp.jpg
 ---
 # 前言

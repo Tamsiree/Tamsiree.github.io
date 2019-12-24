@@ -4,11 +4,11 @@ author: Tamsiree
 tags:
   - Tool
   - DevelopmentTool
-  - Unity3d
+  - Unity
 categories:
   - Tool
   - DevelopmentTool
-  - Unity3d
+  - Unity
 date: 2019-08-14 22:22:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/v2-bb4cb7afa870bd5aff95f0326f0bac63_hd.jpg
 ---
@@ -25,3 +25,8 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/v2-bb4cb7afa87
 `File` -> `build setting` -> `play setting`
 
 ![](https://img-blog.csdn.net/20180913204248247?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Jpbkthcw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+# NO_FRAME错误
+如果勾选了 `Autoconnect Profiler` 选项，并且在开着 editor 的情况下使用 UPR App 或者 UPR Desktop ，可能出现 `NO_FRAME` 的情况。   
+请关闭 Editor Profiler 窗口，或者在不勾选 `Autoconnect Profiler` 选项时重新Build And Run，并重新使用UPR进行测试。   
+-- UPR开发小组 敬上
