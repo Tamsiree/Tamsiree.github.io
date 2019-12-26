@@ -17,14 +17,14 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1
 
 ## 开心鬼系列
 
-> [**`开心鬼系列`**](https://tamsiree.com/电影/香港电影/开心鬼系列) 是由高志森、杜琪峰、黄百鸣导演，黄百鸣主演的香港喜剧电影系列。  
+> [**`开心鬼系列`**](https://tamsiree.com/Movie/HongKongMovie/开心鬼系列) 是由高志森、杜琪峰、黄百鸣导演，黄百鸣主演的香港喜剧电影系列。  
 > 捧红了袁洁莹、罗美薇、陈加玲、李丽珍等一众少女。  
 > 《开心鬼系列》共五部电影，即：  
-> 　　《[**``开心鬼``**](https://tamsiree.com/电影/香港电影/开心鬼系列/#开心鬼-1984)》   
-> 　　《[**``开心鬼放暑假``**](https://tamsiree.com/电影/香港电影/开心鬼系列/#开心鬼2开心鬼放暑假-1985)》   
-> 　　《[**``开心鬼撞鬼``**](https://tamsiree.com/电影/香港电影/开心鬼系列/#开心鬼撞鬼-1986)》   
-> 　　《[**`开心鬼救开心鬼`**](https://tamsiree.com/电影/香港电影/开心鬼系列/#开心鬼救开心鬼-1990)》   
-> 　　《[**`开心鬼上错身`**](https://tamsiree.com/电影/香港电影/开心鬼系列/#开心鬼5开心鬼上错身-1991)》 
+> 　　《[**``开心鬼``**](https://tamsiree.com/Movie/HongKongMovie/开心鬼系列/#开心鬼-1984)》   
+> 　　《[**``开心鬼放暑假``**](https://tamsiree.com/Movie/HongKongMovie/开心鬼系列/#开心鬼2开心鬼放暑假-1985)》   
+> 　　《[**``开心鬼撞鬼``**](https://tamsiree.com/Movie/HongKongMovie/开心鬼系列/#开心鬼撞鬼-1986)》   
+> 　　《[**`开心鬼救开心鬼`**](https://tamsiree.com/Movie/HongKongMovie/开心鬼系列/#开心鬼救开心鬼-1990)》   
+> 　　《[**`开心鬼上错身`**](https://tamsiree.com/Movie/HongKongMovie/开心鬼系列/#开心鬼5开心鬼上错身-1991)》 
 
 ---
 

@@ -34,12 +34,12 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/8
 
 
 # 仙剑奇侠传系列
-[**`仙剑奇侠传系列`**](https://tamsiree.com/电视剧/仙剑奇侠传系列) 经典的回忆杀呀
+[**`仙剑奇侠传系列`**](https://tamsiree.com/Teleplay/仙剑奇侠传系列) 经典的回忆杀呀
 
 > 据说:  
-> 《[**`逍遥叹`**](https://tamsiree.com/电视剧/仙剑奇侠传系列/#逍遥叹)》是 `李逍遥` 的人生  
-> 《[**`六月的雨`**](https://tamsiree.com/电视剧/仙剑奇侠传系列/#六月的雨)》是 `李逍遥` 对 `赵灵儿` 的心声  
-> 《[**`一直很安静`**](https://tamsiree.com/电视剧/仙剑奇侠传系列/#一直很安静)》是 `林月如` 的存在  
+> 《[**`逍遥叹`**](https://tamsiree.com/Teleplay/仙剑奇侠传系列/#逍遥叹)》是 `李逍遥` 的人生  
+> 《[**`六月的雨`**](https://tamsiree.com/Teleplay/仙剑奇侠传系列/#六月的雨)》是 `李逍遥` 对 `赵灵儿` 的心声  
+> 《[**`一直很安静`**](https://tamsiree.com/Teleplay/仙剑奇侠传系列/#一直很安静)》是 `林月如` 的存在  
 
 
 ---
