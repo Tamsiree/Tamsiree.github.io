@@ -11,10 +11,19 @@ categories:
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t012460c7fdf2994e17.jpg
 ---
-# 安装常用软件
-## yaourt
+# 常用软件
+## 安装工具
+### yay 
+以后可以用yay来代替pacman安装软件   
+```bash
+sudo pacman -S yay base-devel
+```
 
-> 注意：yaourt 目前已经停止维护，用户可以考虑迁移到 aurman 或 **yay**(推荐) 。  
+---
+
+### yaourt
+
+> 注意：yaourt 目前已经`停止维护`，用户可以考虑迁移到 aurman 或 **`yay`** (推荐) 。  
 > 可以参考 [Arch Wiki](https://wiki.archlinux.org/index.php/AUR_Helpers) 详细了解。
 
 
@@ -48,15 +57,7 @@ sudo pacman -Sy yaourt
 
 ---
 
-## yay 
-以后可以用yay来代替pacman安装软件   
-```bash
-sudo pacman -S yay base-devel
-```
-
----
-
-## Snap
+### Snap
 
 ```bash
 sudo pacman -S snapd
@@ -77,7 +78,8 @@ sudo systemctl enable --now snapd.socket
 
 ---
 
-## fcitx(输入法)
+## 输入法
+### fcitx(输入法)
 
 fcitx 是 Free Chinese Input Toy for X 的缩写，国内也常称作小企鹅输入法，是一款 Linux 下的中文输入法。
 
@@ -106,7 +108,7 @@ qtconfig-qt4
 ```
 
 找到 `interface` 选项  
-把最低端的 `Defult Input Method`选项设置为`fcitx`  
+把最低端的 `Default Input Method`选项设置为`fcitx`  
 按 `Ctrl`+`s`键 保持，然后重启即可。
 
 然后重启 fcitx 服务即可使用。
@@ -119,6 +121,7 @@ qtconfig-qt4
 
 ---
 
+## 常用功能性软件
 ## deepin-screenshot截屏
 > 当前 Manjaro 下比较好用的截屏工具要属 `deepin-screenshot`
 
@@ -126,20 +129,13 @@ qtconfig-qt4
 ```bash
 yay -S deepin-screenshot
 ```
-
-2. 配置系统快捷键
-
+2. 配置系统快捷键  
 在 `系统设置` - `工作区` - `自定义快捷键` 中  
-
 ![配置系统快捷键](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Manjaro/5410339-65ef5ef062c11a5c.webp)
-
 点击 `编辑` - `新建` - `全局快捷键` - `命令/URL：`  
-
 ![快捷键触发器配置](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Manjaro/5410339-d6b61bcb24daa799.webp)
-
-然后填写动作名称，如我这里是 `Deepin截图` , 然后分别填写注释（非必须）、触发器和动作，  
-如下图：
-
+然后填写动作名称，如我这里是 `Deepin截图` , 然后分别填写注释（非必须）、触发器和动作，   
+如下图：  
 ![快捷键动作配置](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Manjaro/5410339-dbe8ca8b43041840.webp)
 
 ---
@@ -148,6 +144,8 @@ yay -S deepin-screenshot
 ```bash
 sudo pacman -S git
 ```
+
+Git的GUI软件推荐： Gitkraken 和 Github-desktop .
 
 ---
 
@@ -413,6 +411,15 @@ sudo pacman -S visual-studio-code-bin
 
 ---
 
+## UnityHub
+
+Unity Hub是一个独立的应用程序，它简化了您查找、下载和管理Unity项目和安装的方式。
+
+```bash
+yay -S unityhub
+```
+
+
 ## Intellij IDEA 
 ```bash
 # 社区版 
@@ -509,6 +516,11 @@ clamscan  -ri /  --move=/home/tamsiree/文档 --max-scansize=4000M
 
 --max-scansize=4000M  支持扫描大文件
 ```
+
+# 分区工具
+
+1. GNOME 磁盘 (gnome-disk-utility)   
+2. GParted 分区编辑器 (gparted) 
 
 ---
 > to be continued...

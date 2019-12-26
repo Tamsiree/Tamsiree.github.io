@@ -1,5 +1,5 @@
 ---
-title: VisualStudioCode
+title: VisualStudioCode插件
 author: Tamsiree
 description: 在前端开发中，有一个非常好用的工具，Visual Studio Code，简称VS code。
 tags:
@@ -23,33 +23,33 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wal
 
 # 日常安利
 
-VS vode特点：
+VS code特点：
 
-* 开源，免费；
-* 自定义配置
-* 集成git
-* 智能提示强大
-* 支持各种文件格式（html/jade/css/less/sass/xml）
-* 调试功能强大
-* 各种方便的快捷键
-* 强大的插件扩展
+> * 开源，免费；
+> * 自定义配置
+> * 集成git
+> * 智能提示强大
+> * 支持各种文件格式（html/jade/css/less/sass/xml）
+> * 调试功能强大
+> * 各种方便的快捷键
+> * 强大的插件扩展
 
-对前端这么友好，没理由不用。
+对程序员这么友好，没理由不用。
 
 > Visual Studio Code（VScode ）官网　：[https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 > Visual Studio Code（VScode ）github地址 ：[https://github.com/Microsoft/vscode](https://github.com/Microsoft/vscode)
 
-# 怎么安装插件？
+# 安装插件的方式
 
 方法一：
 
-* 按F1或Ctrl+Shift+p，输入extensions，点击第一个就可以
+* 按 `F1` 或 `Ctrl` + `Shift` + `p` ，输入 `extensions` ，点击第一个就可以
 * ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206153427966-260575790.png)
 
 方法二：
 
-* ctrl + P 然后输入 >ext install
+* `ctrl` + `P` 然后输入 `ext install`
 * ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206153328337-1360629846.png)
 
 方法三：
@@ -65,23 +65,18 @@ VS vode特点：
 
 ## 配置类插件
 
-**1.[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)**
-
-最好用的插件，没有之一，一台电脑配置好之后，其它的几台电脑都不用配置。新机器登录一下就搞定了。再也不用折腾环境了，
-
-使用GitHub Gist同步多台计算机上的设置，代码段，主题，文件图标，启动，键绑定，工作区和扩展。
-
+1. Settings Sync  
+[Settings Sync插件地址](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
+最好用的插件，没有之一，一台电脑配置好之后，其它的几台电脑都不用配置。新机器登录一下就搞定了。再也不用折腾环境了，  
+使用GitHub Gist同步多台计算机上的设置，代码段，主题，文件图标，启动，键绑定，工作区和扩展。  
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206162846619-523184775.png)
 
-**2.[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)**
-
-从VS Code调试在Google Chrome中运行的JavaScript代码。
-
-用于在Google Chrome浏览器或支持[Chrome DevTools协议的](https://chromedevtools.github.io/debugger-protocol-viewer/)其他目标中调试JavaScript代码的VS Code扩展。
-
+2. [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)  
+从VS Code调试在Google Chrome中运行的JavaScript代码。  
+用于在Google Chrome浏览器或支持[Chrome DevTools协议的](https://chromedevtools.github.io/debugger-protocol-viewer/)其他目标中调试JavaScript代码的VS Code扩展。  
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206164127036-1621084600.png)
 
- **3.[beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)**
+3. [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)**
 
 格式化代码工具
 
@@ -157,11 +152,19 @@ VS vode特点：
 
  ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206175535740-1762311521.png)
 
+```
+ext install wix.vscode-import-cost
+```
+
 **14.[Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)**
 
 可自动填充文件名。
 
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206171352570-1802692211.png)
+
+```
+ext install christian-kohler.path-intellisense
+```
 
 **15.[WakaTime](https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime) **
 
@@ -214,19 +217,24 @@ VS Code的Azure存储扩展允许您部署静态网站并浏览Azure Blob容器�
 
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206160353637-1420849990.png)
 
-**21.[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java#overview)[redhat.java](https://marketplace.visualstudio.com/items?itemName=redhat.java#overview)**
-
-这个插件，这个下载次数，安装就对了。
-
+21. Language Support for Java(TM) by Red Hat  
+[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java#overview)[redhat.java](https://marketplace.visualstudio.com/items?itemName=redhat.java#overview)  
+这个插件，这个下载次数，安装就对了。  
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206173123464-1710552650.png)
 
-**22.[Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) **
-
-此扩展可以快速搜索（使用[ripgrep](https://github.com/BurntSushi/ripgrep)）您的工作区以获取TODO和FIXME等注释标记，并在资源管理器窗格的树视图中显示它们。单击树中的TODO将打开文件并将光标放在包含TODO的行上。
-
-找到的TODO也可以在打开的文件中突出显示。
-
+22. [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)  
+此扩展可以快速搜索（使用[ripgrep](https://github.com/BurntSushi/ripgrep)）您的工作区以获取TODO和FIXME等注释标记，并在资源管理器窗格的树视图中显示它们。单击树中的TODO将打开文件并将光标放在包含TODO的行上。  
+找到的TODO也可以在打开的文件中突出显示。  
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206160705142-312341754.png)
+
+23. TabNine  
+[TabNine插件地址](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode)  
+这是一款基于GPT-2语言模型的自动补全工具，强烈推荐TabNine这款插件，哪怕你使用的不是vs code也可以尝试一下这款插件。
+```
+ext install TabNine.tabnine-vscode
+```
+
+---
 
 ## VS code 主题集合
 

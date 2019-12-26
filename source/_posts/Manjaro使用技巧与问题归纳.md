@@ -11,7 +11,7 @@ categories:
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01236039c4be3c4806.jpg
 ---
-# 常见配置问题
+# 使用技巧
 
 ## Dolphin 设置
 
@@ -125,6 +125,36 @@ primusrun android-studio
 ```
 
 值得一提的是，在使用 bunblebee 框架的时候，nvidia 设置是不能打开的，你需要使用 `optirun -b none nvidia-settings -c :8` 来启动 nvidia 面板。其他设置依然可以参考 [manjaro wiki 页面](https://wiki.manjaro.org/index.php?title=Configure_NVIDIA_(non-free)_settings_and_load_them_on_Startup)。
+
+---
+
+## 安装deb包
+
+### 使用 debtap 工具进行解包  
+
+1. 首先查看电脑上是否安装过 debtap
+```
+sudo pacman -Q debtap
+```
+2. 安装解包打包工具 debtap
+```
+yay -S debtap
+```
+3. 升级 debtap
+```
+sudo debtap -u
+```
+4. 将deb解包
+```
+sudo debtap  xxxx.deb
+```
+5. 上述操作完成后会在deb包同级目录生成 ×.tar.xz 文件，直接用 `pacman` 安装即可
+```
+sudo pacman -U x.tar.xz
+```
+> 安装时会提示输入包名，以及 `license`。  
+> 包名随意，`license` 就填 GPL 吧  
+
 
 ---
 
