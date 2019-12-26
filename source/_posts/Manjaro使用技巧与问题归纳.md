@@ -547,4 +547,42 @@ pacman-key --populate archlinux
 ```
 
 ---
-to be continued...
+
+# 系统优化
+## Manjaro 清理垃圾
+
+### 清除系统中无用的包
+```bash
+sudo pacman -R $(pacman -Qdtq)
+```
+
+### 清除已下载的安装包
+
+```bash
+sudo pacman -Scc
+```
+
+### 日志垃圾
+查看日志文件
+```bash
+du -t 100M /var
+```
+
+或
+
+```bash
+journalctl --disk-usage
+```
+
+删除指定大小日志文件
+```bash
+sudo journalctl --vacuum-size=50M
+```
+
+崩溃日志
+```bash
+sudo rm /var/lib/systemd/coredump/*
+```
+
+---
+> to be continued...
