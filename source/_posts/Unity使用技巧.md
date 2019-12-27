@@ -10,7 +10,7 @@ categories:
   - Tool
   - DevelopmentTool
   - Unity
-cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-lmj76r.png
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhavenlmj76.png
 ---
 # 前言
 掌握一些Unity编辑器的小技巧，会让你开发以及使用更加快捷有效。
@@ -92,7 +92,7 @@ IEnumerator SecondCo()
 使用工具还可以改变脚本的变量。
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/143736fe4s6imoo8eigiu6.jpg)
 
-### Animation窗口快捷键
+## Animation窗口快捷键
 
 在Animation窗口中，按下Ctrl+A，所有关键帧将集中显示在窗口中；选择某些关键帧，按下F键，可将它们居中显示在窗口中；按下C键，可以在曲线视图和关键帧视图间切换；按下K键添加关键帧。
 
@@ -168,7 +168,7 @@ using UnityEngine.Serialization;
 可将经常访问的文件夹的快捷方式拖入Project面板中，双击快捷方式可快速打开此目录。  
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/150338u8rweojymjjj85ml.jpg)
 
-### F与Shift+F
+## F与Shift+F
 
 选择游戏对象，按下F键，可将Scene的视口中央移动到该游戏对象处；按下Shift+F，可将视口与该游戏对象锁定，即无论如何移动游戏对象，视口中央始终跟随此游戏对象。
 
@@ -236,7 +236,7 @@ if (gameObject.tag == "Enemy")
 
 Unity窗口布局可自定义，调整完毕以后，如果希望以后继续沿用此布局，点击编辑器右上角的Layout下拉列表，选择命令Save Layout，可将当前窗口布局进行保存。
 
-### 改变编辑器颜色
+## 改变编辑器颜色
 
 选择命令Editor > Preferences命令，可自定义编辑器当前主题的颜色。  
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/160023ei520ohvg10ee8r3.jpg)  
@@ -275,7 +275,7 @@ void DoSomething()
 
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/160223spc3pxrq6xsrqpfw.jpg)
 
-### 隐藏和锁定层
+## 隐藏和锁定层
 
 在编辑器右上角的Layers下拉列表中，点击对应层右侧的眼睛按钮，可以隐藏或显示某个层上的对象；点击锁按钮，可对某个层进行锁定或解锁，当被锁定后，该层上的所有对象将不能被选择。  
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/160304qe1o1xwrvrgonts6.jpg)
@@ -565,7 +565,7 @@ void Update()
 
 ```
 
-### 方便使用的元数据
+## 方便使用的元数据
 
 为变量添加一些属性可使它们在Inspector面板中更容易被使用。在变量前添加Range属性可将其限定在某个范围内使用滑块进行调节，如下代码所示：
 
@@ -672,7 +672,7 @@ void Update()
 点击暂停按钮右侧的步进（Step）按钮，可以在程序运行时逐帧查看程序运行状态。  
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161903oggzgxzg5fj7jlwz.jpg)
 
-### 查看游戏性能统计
+## 查看游戏性能统计
 
 点击Game窗口右上角的Stats按钮可以查看游戏性能统计数据，如帧率、批处理等指标。  
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161925y3djqz0sicl3cxy2.jpg)
