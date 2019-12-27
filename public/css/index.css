@@ -1834,11 +1834,6 @@ blockquote footer cite:before {
     margin-right: 15px;
   }
 }
-@media screen and (max-width: 768px) {
-  #aside_content {
-    display: none;
-  }
-}
 .category-content ol,
 .category-content ul {
   margin-top: 0.4rem;
@@ -2795,6 +2790,18 @@ header {
   -o-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
+}
+#recent-posts > .recent-post-item .left_radius {
+  border-radius: 8px 0 0 8px;
+}
+#recent-posts > .recent-post-item .right_radius {
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  -o-box-ordinal-group: 2;
+  -ms-flex-order: 2;
+  -webkit-order: 2;
+  order: 2;
+  border-radius: 0 8px 8px 0;
 }
 #recent-posts > .recent-post-item .post_cover {
   overflow: hidden;
