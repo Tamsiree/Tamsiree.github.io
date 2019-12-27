@@ -6,6 +6,8 @@ tags:
   - RxTool
   - Contributor
 categories:
+  - TechnicalResearch
+  - Android
   - RxTool
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-73l29v.jpg
 password: RxTool
