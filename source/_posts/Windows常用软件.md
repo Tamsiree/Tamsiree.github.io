@@ -11,7 +11,7 @@ categories:
   - Windows
   - Software
 date: 2017-06-10 02:27:00
-cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/48l1wk.png
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhavenne92gk.jpg
 ---
 
 # 前言
@@ -20,7 +20,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/48l
 > 
 > 软件比较良心同时体验也很不错，远离流氓软件从我开始！
 
-![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/48l1wk.png)
 
 <!-- more -->
 

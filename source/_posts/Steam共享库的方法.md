@@ -14,6 +14,8 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wal
 # 前言
 自己的Steam库里的游戏太少，可以寻求小伙伴获取他的Steam库授权，这样就可以玩到小伙伴账号的游戏了。
 
+
+
 # 正文
 
 首先打开需要被授权的电脑登录授权者的Steam账号，并打开Steam设置。

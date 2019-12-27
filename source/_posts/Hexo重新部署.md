@@ -12,6 +12,8 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 # 前言
 因为折腾Manjaro的NVIDIA卡的驱动程序，导致系统只能显示ttf界面，只好重装系统，因此Hexo也需要重新部署。
 
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg)
+
 # 正文
 # 首先安装依赖环境
 

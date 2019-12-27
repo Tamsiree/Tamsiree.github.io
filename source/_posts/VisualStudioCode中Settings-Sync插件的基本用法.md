@@ -15,28 +15,28 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cyq
 # 前言
 自己平常工作生活中偶尔折腾系统，或许是因为驱动或者其他原因导致系统重装了，vscode的插件与配置等每次都需要单独记录一下然后再重新配置一遍，发现可以使用Settings Sync插件可以直接同步配置和插件。
 
-![clipboard.png](https://segmentfault.com/img/bVbfnE1?w=1112&h=868)
+![clipboard.png](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1975534395-5b73c12c825ba_articlex.png)
 
 ## 上传配置以及相关
 
 -   首先在VSC中安装SettingsSync，安装完Settings Sync插件重启窗口之后按快捷键`Shift + Alt + U`准备上传你的配置，但是首次上传需要一个access token。
 -   到GitHub个人设置创建一个新的access token。登录github，在[Personal access tokens]页面点击Generate New Token按钮
 
-![clipboard.png](https://segmentfault.com/img/bVbfnLl?w=1000&h=325)
+![clipboard.png](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/2317606048-5b73c5af281e1_articlex.png)
 
 -   输入`Token description`token的描述，勾选`gist`权限，
 
-![clipboard.png](https://segmentfault.com/img/bVbfnLx?w=1000&h=1193)
+![clipboard.png](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1110566462-5b73c5dc835d4_articlex.png)
 
 -   用新建的Access Token上传你的配置和扩展记录
 
-![clipboard.png](https://segmentfault.com/img/bVbfnMf?w=1000&h=434)
+![clipboard.png](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/671610823-5b73c65e95ceb_articlex.png)
 
 回到vscode，在任意界面按 Alt + Shift + U，在对话框中输出刚才复制的 token。
 
-![](https://upload-images.jianshu.io/upload_images/8056318-9e56c8327172b494.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/674/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/8056318-9e56c8327172b494.webp)
 
-![](https://upload-images.jianshu.io/upload_images/8056318-c18d2e32912c1958.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/8056318-c18d2e32912c1958.webp)
 
 再次按 Alt + Shift + U 完成配置上传，使用组合键 Alt + Shift + D 即可下载配置。
 
@@ -46,15 +46,15 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cyq
 复制重新生成好的token
 
 点击命令面板 或 Ctrl+Shift+P 输入 sync: 找到 Advanced Options 回车
-![](https://segmentfault.com/img/bVblKbm?w=1250&h=350)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/4181780275-5c246e001cd68_articlex.png)
 
 选中 Edit Extension Local Settings
 
-![](https://segmentfault.com/img/bVblKbX?w=1292&h=724)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/531495797-5c246e3c67f93_articlex.png)
 
 修改本地配置文件中的 token 属性就可以了
 
-![](https://segmentfault.com/img/bVblKcU?w=1726&h=558)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/527372815-5c246ef664938_articlex.png)
 
 找到配置文件修改
 复制重新生成好的token
@@ -77,8 +77,9 @@ Linux下：`~/.config/Code/User/syncLocalSettings.json`
 
 ## 参考链接
 
-[Settings Sync -- VSCode]
+> [Gist](https://gist.github.com/)  
+> [Personal access tokens](https://github.com/settings/tokens)  
+> [Settings Sync -- VSCode](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) 
 
-[Gist](https://gist.github.com/)  
-[Personal access tokens](https://github.com/settings/tokens)  
-[Settings Sync -- VSCode](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
+---
+> to be continued...

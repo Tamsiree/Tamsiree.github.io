@@ -206,31 +206,31 @@
     <title>VisualStudioCode中Settings Sync插件的基本用法</title>
     <url>/Tool/DevelopmentTool/VisualStudioCode/VisualStudioCode%E4%B8%ADSettings-Sync%E6%8F%92%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自己平常工作生活中偶尔折腾系统，或许是因为驱动或者其他原因导致系统重装了，vscode的插件与配置等每次都需要单独记录一下然后再重新配置一遍，发现可以使用Settings Sync插件可以直接同步配置和插件。</p>
-<p><a href="https://segmentfault.com/img/bVbfnE1?w=1112&h=868" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVbfnE1?w=1112&h=868" class="lazyload" title="clipboard.png"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1975534395-5b73c12c825ba_articlex.png" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" title="clipboard.png" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1975534395-5b73c12c825ba_articlex.png" class="lazyload"></a></p>
 <h2 id="上传配置以及相关"><a href="#上传配置以及相关" class="headerlink" title="上传配置以及相关"></a>上传配置以及相关</h2><ul>
 <li>首先在VSC中安装SettingsSync，安装完Settings Sync插件重启窗口之后按快捷键<code>Shift + Alt + U</code>准备上传你的配置，但是首次上传需要一个access token。</li>
 <li>到GitHub个人设置创建一个新的access token。登录github，在[Personal access tokens]页面点击Generate New Token按钮</li>
 </ul>
-<p><a href="https://segmentfault.com/img/bVbfnLl?w=1000&h=325" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVbfnLl?w=1000&h=325" class="lazyload" title="clipboard.png"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/2317606048-5b73c5af281e1_articlex.png" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" title="clipboard.png" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/2317606048-5b73c5af281e1_articlex.png" class="lazyload"></a></p>
 <ul>
 <li>输入<code>Token description</code>token的描述，勾选<code>gist</code>权限，</li>
 </ul>
-<p><a href="https://segmentfault.com/img/bVbfnLx?w=1000&h=1193" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVbfnLx?w=1000&h=1193" class="lazyload" title="clipboard.png"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1110566462-5b73c5dc835d4_articlex.png" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" title="clipboard.png" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1110566462-5b73c5dc835d4_articlex.png" class="lazyload"></a></p>
 <ul>
 <li>用新建的Access Token上传你的配置和扩展记录</li>
 </ul>
-<p><a href="https://segmentfault.com/img/bVbfnMf?w=1000&h=434" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" data-src="https://segmentfault.com/img/bVbfnMf?w=1000&h=434" class="lazyload" title="clipboard.png"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/671610823-5b73c65e95ceb_articlex.png" data-fancybox="group" data-caption="clipboard.png" class="fancybox"><img alt="clipboard.png" title="clipboard.png" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/671610823-5b73c65e95ceb_articlex.png" class="lazyload"></a></p>
 <p>回到vscode，在任意界面按 Alt + Shift + U，在对话框中输出刚才复制的 token。</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/8056318-9e56c8327172b494.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/674/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://upload-images.jianshu.io/upload_images/8056318-9e56c8327172b494.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/674/format/webp" class="lazyload" title></a></p>
-<p><a href="https://upload-images.jianshu.io/upload_images/8056318-c18d2e32912c1958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://upload-images.jianshu.io/upload_images/8056318-c18d2e32912c1958.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/8056318-9e56c8327172b494.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/8056318-9e56c8327172b494.webp" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/8056318-c18d2e32912c1958.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/8056318-c18d2e32912c1958.webp" class="lazyload"></a></p>
 <p>再次按 Alt + Shift + U 完成配置上传，使用组合键 Alt + Shift + D 即可下载配置。</p>
 <p>一切完成后会自动弹出<code>Gist ID</code>，控制台也会显示Gist ID，这意味着你的配置上传到了GitHub Gist，你可以在 <code>https://gist.github.com/{your_userName}/{gist_id}</code> 上查看具体的上传内容</p>
 <p>在VS Code中修改<br>复制重新生成好的token</p>
-<p>点击命令面板 或 Ctrl+Shift+P 输入 sync: 找到 Advanced Options 回车<br><a href="https://segmentfault.com/img/bVblKbm?w=1250&h=350" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://segmentfault.com/img/bVblKbm?w=1250&h=350" class="lazyload" title></a></p>
+<p>点击命令面板 或 Ctrl+Shift+P 输入 sync: 找到 Advanced Options 回车<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/4181780275-5c246e001cd68_articlex.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/4181780275-5c246e001cd68_articlex.png" class="lazyload"></a></p>
 <p>选中 Edit Extension Local Settings</p>
-<p><a href="https://segmentfault.com/img/bVblKbX?w=1292&h=724" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://segmentfault.com/img/bVblKbX?w=1292&h=724" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/531495797-5c246e3c67f93_articlex.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/531495797-5c246e3c67f93_articlex.png" class="lazyload"></a></p>
 <p>修改本地配置文件中的 token 属性就可以了</p>
-<p><a href="https://segmentfault.com/img/bVblKcU?w=1726&h=558" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://segmentfault.com/img/bVblKcU?w=1726&h=558" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/527372815-5c246ef664938_articlex.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/527372815-5c246ef664938_articlex.png" class="lazyload"></a></p>
 <p>找到配置文件修改<br>复制重新生成好的token</p>
 <p>Win下：<code>C:\Users\Administrator\AppData\Roaming\Code\User</code><br>Mac下：<code>~/Library/Application Support/Code/User/syncLocalSettings.json</code><br>Linux下：<code>~/.config/Code/User/syncLocalSettings.json</code>  </p>
 <p>进入目录后，找到 syncLocalSettings.json 这个文件，查找token，并替换后面复制的值，就可以顺利进行同步配置信息了。</p>
@@ -243,8 +243,13 @@
 <li>然后输入 <code>Gist ID</code> 即可下载指定的配置，以及安装拓展，假如你有自定义扩展不在这个列表内，它们将被移除，你可以设置是否每次下载都直接移除旧的部分。</li>
 </ul>
 <p>大功告成！ 现在你就可以在任何机器上轻松复制你的IDE配置了，嗯，每次重装系统之后也能很快进入工作状态啦 (๑•̀ㅂ•́)و✧</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>[Settings Sync – VSCode]</p>
-<p><a href="https://gist.github.com/" target="_blank" rel="noopener">Gist</a><br><a href="https://github.com/settings/tokens" target="_blank" rel="noopener">Personal access tokens</a><br><a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync" target="_blank" rel="noopener">Settings Sync – VSCode</a>  </p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="https://gist.github.com/" target="_blank" rel="noopener">Gist</a><br><a href="https://github.com/settings/tokens" target="_blank" rel="noopener">Personal access tokens</a><br><a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync" target="_blank" rel="noopener">Settings Sync – VSCode</a> </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Tool</category>
@@ -4908,6 +4913,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
     <title>Hexo重新部署</title>
     <url>/TechnicalResearch/Hexo/Hexo%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为折腾Manjaro的NVIDIA卡的驱动程序，导致系统只能显示ttf界面，只好重装系统，因此Hexo也需要重新部署。</p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg" class="lazyload"></a></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="首先安装依赖环境"><a href="#首先安装依赖环境" class="headerlink" title="首先安装依赖环境"></a>首先安装依赖环境</h1><ol>
 <li><p>安装nodejs</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S nodejs</span><br></pre></td></tr></table></figure></div>
@@ -13868,7 +13874,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>本文旨在分享一些 Windows 平台下的优秀软件，很多也是日常使用必不可少的装机软件。</p>
 <p>软件比较良心同时体验也很不错，远离流氓软件从我开始！</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/48l1wk.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/48l1wk.png" class="lazyload"></a></p>
 <a id="more"></a>
 
 <h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><blockquote>
@@ -13883,17 +13889,17 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h1 id="压缩工具"><a href="#压缩工具" class="headerlink" title="压缩工具"></a>压缩工具</h1><blockquote>
 <p>Bandizip <a href="http://cn.bandisoft.com/bandizip/" target="_blank" rel="noopener">官网下载</a> <a href="https://www.bandisoft.com/bandizip/cn/" target="_blank" rel="noopener">备用下载</a></p>
 </blockquote>
-<p><a href="https://www.bandisoft.com/bandizip/imgs/bandizip.cn.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://www.bandisoft.com/bandizip/imgs/bandizip.cn.png" class="lazyload" title></a></p>
+<p><a href="https://www.bandisoft.com/bandizip/imgs/bandizip.cn.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://www.bandisoft.com/bandizip/imgs/bandizip.cn.png" class="lazyload"></a></p>
 <p>Bandizip 是一款买免费可靠和快速的压缩软件，它支持 WinZip、7-Zip 和 WinRAR 以及其它压缩格式。<br>它拥有非常快速的压缩和解压缩的算法，适用于多核心压缩、快速拖放、高速压缩等功能。<br>支持图片预览</p>
 <blockquote>
 <p>7zip <a href="https://www.7-zip.org/" target="_blank" rel="noopener">官网下载</a></p>
 </blockquote>
-<p><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565018336982&di=3fe8769a08d7c67da8f9cfcfc7196a94&imgtype=0&src=http%3A%2F%2Fnews.mydrivers.com%2Fimg%2F20180506%2Fdec0c543d73743a9827ae3484b216ae6.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565018336982&di=3fe8769a08d7c67da8f9cfcfc7196a94&imgtype=0&src=http%3A%2F%2Fnews.mydrivers.com%2Fimg%2F20180506%2Fdec0c543d73743a9827ae3484b216ae6.png" class="lazyload" title></a></p>
+<p><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565018336982&di=3fe8769a08d7c67da8f9cfcfc7196a94&imgtype=0&src=http%3A%2F%2Fnews.mydrivers.com%2Fimg%2F20180506%2Fdec0c543d73743a9827ae3484b216ae6.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565018336982&di=3fe8769a08d7c67da8f9cfcfc7196a94&imgtype=0&src=http%3A%2F%2Fnews.mydrivers.com%2Fimg%2F20180506%2Fdec0c543d73743a9827ae3484b216ae6.png" class="lazyload"></a></p>
 <hr>
 <h1 id="视频播放器"><a href="#视频播放器" class="headerlink" title="视频播放器"></a>视频播放器</h1><blockquote>
 <p>PotPlayer <a href="https://hao.su/372/" target="_blank" rel="noopener">[绿色便携版]</a></p>
 </blockquote>
-<p><a href="https://tva1.sinaimg.com/large/6f8a2832gy1fj8lhnke07j21hc0zke81.jpg" data-fancybox="group" data-caption="PotPlayer" class="fancybox"><img alt="PotPlayer" data-src="https://tva1.sinaimg.com/large/6f8a2832gy1fj8lhnke07j21hc0zke81.jpg" class="lazyload" title="PotPlayer"></a></p>
+<p><a href="https://tva1.sinaimg.com/large/6f8a2832gy1fj8lhnke07j21hc0zke81.jpg" data-fancybox="group" data-caption="PotPlayer" class="fancybox"><img alt="PotPlayer" title="PotPlayer" data-src="https://tva1.sinaimg.com/large/6f8a2832gy1fj8lhnke07j21hc0zke81.jpg" class="lazyload"></a></p>
 <p>特别推荐，个人认为最简单好用的本地视频播放器，民间皮肤丰富多样，总有你喜欢的风格。<br>史上最强大电脑多媒体播放器 PotPlayer 简体中文绿色便携版，由 PotPlayer 论坛版主” 闻雷” 专注维护，完善简体中文语言，禁止联网强制屏蔽 TV，精简 Live 相关、安装临时文件等多余文件。PotPlayer 已原生支持简体中文，内置强大解码器，启动速度快，播放过程稳定，对付高清大片无任何问题，对外挂字幕的支持很不错，普通用户无需装第三方解码器即可播放主流格式视频，支持 BD 和 MKV 等大视频文件流畅播放。</p>
 <hr>
 <h1 id="音乐播放器"><a href="#音乐播放器" class="headerlink" title="音乐播放器"></a>音乐播放器</h1><blockquote>
@@ -13904,7 +13910,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h1 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h1><blockquote>
 <p>IDM <a href="https://hao.su/983/" target="_blank" rel="noopener">[绿色便携版]</a></p>
 </blockquote>
-<p><a href="https://tva1.sinaimg.com/large/6f8a2832gy1fgds7qld1mj20hu08o3zi.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://tva1.sinaimg.com/large/6f8a2832gy1fgds7qld1mj20hu08o3zi.jpg" class="lazyload" title></a></p>
+<p><a href="https://tva1.sinaimg.com/large/6f8a2832gy1fgds7qld1mj20hu08o3zi.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://tva1.sinaimg.com/large/6f8a2832gy1fgds7qld1mj20hu08o3zi.jpg" class="lazyload"></a></p>
 <p>Internet Download Manager 必备最佳网络下载利器，网页嗅探高速下载无所不能，缺点是不能下载磁力和种子，可以用<a href="https://hao.su/915/" target="_blank" rel="noopener">迅雷极速版</a>交替使用</p>
 <hr>
 <h1 id="办公工具"><a href="#办公工具" class="headerlink" title="办公工具"></a>办公工具</h1><blockquote>
@@ -13925,7 +13931,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </blockquote>
 <p>AnyDesk 是一款号称速度最快的免费远程连接 / 远程桌面控制软件，据说是前 TeamViewer 开发小组人员自立门户的产品，它拥有先进的视频压缩技术 DeskRT， 可以轻松穿透防火墙 / 路由器，实测在电信、移动的跨网宽带环境下，速度确实要比 QQ 流畅很多，和 TeamViewer 几乎不相上下。</p>
 <p>AnyDesk 大小仅有 1M 多，并且是绿色软件，下载后直接运行，并将生成的 ID 通过即时通讯或者其他方式发送给对方即可远程协助！在多次实际远程体验中发现，在同等网络情况下，流畅度确实是 QQ 自带的远程控制的 N 倍。</p>
-<p><a href="https://tva1.sinaimg.com/large/6f8a2832gw1f8tfnskyaqj21400lon07.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://tva1.sinaimg.com/large/6f8a2832gw1f8tfnskyaqj21400lon07.jpg" class="lazyload" title></a></p>
+<p><a href="https://tva1.sinaimg.com/large/6f8a2832gw1f8tfnskyaqj21400lon07.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://tva1.sinaimg.com/large/6f8a2832gw1f8tfnskyaqj21400lon07.jpg" class="lazyload"></a></p>
 <p>AnyDesk 不仅仅是因为体积小、无需繁琐操作。更多的是因为 AnyDesk 支持全平台协助。</p>
 <p>Window、Mac、Linux 全平台系统 AnyDesk 无所不能</p>
 <h1 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h1><blockquote>
@@ -13979,20 +13985,20 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p><a href="https://link.zhihu.com/?target=http%3A//www.listary.com/">Listary</a></p>
 </blockquote>
 <p>Listary 是一款极其强大的 Windows 文件资源管理器增强工具，它可以帮助你快速定位文件、执行智能命令、记录访问历史、快速切换目录、收藏常用项目等。你可以在任意文件资源管理器窗口通过键盘输入直接调用 Listary 在本目录下进行搜索，节省大量的鼠标移动和定位时间。</p>
-<p><a href="https://pic1.zhimg.com/50/v2-9d7d18e16440af445e2a86e8fd740d6b_hd.gif" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic1.zhimg.com/50/v2-9d7d18e16440af445e2a86e8fd740d6b_hd.gif" class="lazyload" title></a></p>
+<p><a href="https://pic1.zhimg.com/50/v2-9d7d18e16440af445e2a86e8fd740d6b_hd.gif" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic1.zhimg.com/50/v2-9d7d18e16440af445e2a86e8fd740d6b_hd.gif" class="lazyload"></a></p>
 <p>Listary 另一个绝技是它对 Windows 文件选择对话框的增强，当你需要打开或保存一个文件时，Listary 的操作框会自动浮现在弹出窗口的下方，让你可以快速搜索指定路径。如果当前有其它打开的资源管理器窗口，你还可以通过 Listary 快速切换到该目录，十分方便。</p>
 <p>你还可以用 Listary 搜索网页、打开应用程序、执行命令行等，当做快捷启动器也是个不错的选择。</p>
 <p>此外，Listary 专业版还可以让你创建工程项目、自定义动作、指定命令快捷键、使用模糊搜索、更换主题等，可以说非常强大了。</p>
 <blockquote>
 <p>Everything <a href="https://www.voidtools.com/zh-cn/" target="_blank" rel="noopener">Everything</a> <a href="https://hao.su/1000/" target="_blank" rel="noopener">官方便携版 + 安装版</a> </p>
 </blockquote>
-<p><a href="https://pic4.zhimg.com/50/v2-52bb7dbeef6375e0627c6e0bcb99ada8_hd.gif" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic4.zhimg.com/50/v2-52bb7dbeef6375e0627c6e0bcb99ada8_hd.gif" class="lazyload" title></a></p>
+<p><a href="https://pic4.zhimg.com/50/v2-52bb7dbeef6375e0627c6e0bcb99ada8_hd.gif" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic4.zhimg.com/50/v2-52bb7dbeef6375e0627c6e0bcb99ada8_hd.gif" class="lazyload"></a></p>
 <p>Everything 是速度最快的文件名搜索工具，其速度之快令人震惊，百 G 硬盘几十万个文件，可以在几秒钟之内完成索引；文件名搜索瞬间呈现结果。它小巧免费，界面简洁，实时跟踪更新，轻松分享文件索引，支持通配符、正则表达式，可以通过 HTTP 或 FTP 分享搜索结果</p>
 <blockquote>
 <p><a href="https://ditto-cp.sourceforge.io/" target="_blank" rel="noopener">Ditto</a></p>
 </blockquote>
 <p>Ditto 最基本的功能，当然就是剪贴板历史记录管理了，你不仅可以储存数百条剪贴历史，还可以通过搜索功能轻松找到想要粘贴的内容。此外，Ditto 还支持合并粘贴，即将多条记录一次性粘贴到指定位置，方便收集资料。对于从网页或其它地方复制的带格式内容，你还可以通过快捷键（默认是 Shift + Enter）直接粘贴为无格式纯文本，盗转文章从未变得如此简单。</p>
-<p><a href="https://pic4.zhimg.com/80/v2-07c0842f5f1f10ed5f340ab985488eae_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic4.zhimg.com/80/v2-07c0842f5f1f10ed5f340ab985488eae_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic4.zhimg.com/80/v2-07c0842f5f1f10ed5f340ab985488eae_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic4.zhimg.com/80/v2-07c0842f5f1f10ed5f340ab985488eae_hd.jpg" class="lazyload"></a></p>
 <blockquote>
 <p><a href="https://link.zhihu.com/?target=http%3A//clipber.com/clipber/index.html">快贴</a></p>
 </blockquote>
@@ -14005,9 +14011,9 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p><a href="https://link.zhihu.com/?target=http%3A//www.wox.one/">Wox</a></p>
 </blockquote>
 <p>Wox 是一款国人开发的免费开源快捷启动器，类似于 macOS 上的效率神器 Alfred（还没听说过 Alfred？欢迎 点此 了解）。它可以调用 Everything 快速搜索本地文件，也可以启动程序、执行命令行、进行网页搜索等，非常强大。</p>
-<p><a href="https://pic4.zhimg.com/80/v2-9e5461969457ead5781bd08009f8b6f3_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic4.zhimg.com/80/v2-9e5461969457ead5781bd08009f8b6f3_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic4.zhimg.com/80/v2-9e5461969457ead5781bd08009f8b6f3_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic4.zhimg.com/80/v2-9e5461969457ead5781bd08009f8b6f3_hd.jpg" class="lazyload"></a></p>
 <p>类似于 Alfred，Wox 同样支持安装各种插件，从而实现剪贴板历史、进程管理、文本翻译、进制转换、快递查询等扩展功能。目前，Wox 已经有上百款插件供你选择，如果你的动手能力足够强大，也可以定制专属于你的 workflow。</p>
-<p><a href="https://pic3.zhimg.com/80/v2-4e52af4dc9ef83ffbd5074324a8bb25e_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic3.zhimg.com/80/v2-4e52af4dc9ef83ffbd5074324a8bb25e_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic3.zhimg.com/80/v2-4e52af4dc9ef83ffbd5074324a8bb25e_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic3.zhimg.com/80/v2-4e52af4dc9ef83ffbd5074324a8bb25e_hd.jpg" class="lazyload"></a></p>
 <hr>
 <h1 id="笔记工具"><a href="#笔记工具" class="headerlink" title="笔记工具"></a>笔记工具</h1><blockquote>
 <p>OneNote</p>
