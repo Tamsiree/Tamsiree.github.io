@@ -467,7 +467,7 @@ public class ExampleWindow : EditorWindow
 ```csharp
 using UnityEngine;
 using UnityEditor;
- 
+
 [CustomEditor(typeof(Sphere))]
 public class SphereEditor : Editor
 {
@@ -712,8 +712,6 @@ InvokeRepeating能够按照一定的时间间隔反复执行某个函数，若�
 
 使用Physics Debugger（Window > Analysis > Physics Debugger）可以查看碰撞引起的异常，当开启Collision Geometry选项后，场景中所有游戏对象的碰撞体都将被绘制出来，而不用依次选择游戏对象进行检查。如下图所示，球体因为添加了不正确的Box Collider，在物理碰撞时必然不能达到预期的表现效果。  
 ![在这里插入图片描述](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162100ne3fx66get6bensn.jpg)
-
-
 
 ---
 > to be continued...
