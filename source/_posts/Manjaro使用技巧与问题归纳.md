@@ -615,4 +615,32 @@ sudo rm /var/lib/systemd/coredump/*
 ```
 
 ---
+
+# 生成ISO文件
+
+首先安装cdrkit工具
+```bash
+sudo pacman -S cdrkit  
+```
+
+然后将目标文件夹打包成为ISO文件  
+使用目录文件制作ISO文件
+```bash
+mkisofs -r -o 路径/ISO 文件名 目录文件路径
+```
+例子：
+```bash
+mkisofs -r -o /home/tamsiree/Tam1T/SteamOS.iso /home/tamsiree/Tam1T/系统镜像/SteamOSInstaller/
+```
+
+制作完ISO文件后，如何挂载呢？
+```bash
+mount -o loop ISO文件名 挂载点路径
+```
+例子：
+```bash
+mount -o loop /opt/mycd.iso /mnt/cdrom
+```
+
+---
 > to be continued...
