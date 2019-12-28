@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>SteamOS</title>
-    <url>/%E9%9A%8F%E6%89%8B%E8%AE%B0/SteamOS/</url>
+    <url>/OperationSystem/Linux/SteamOS/SteamOS/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SteamOS Beta 是Steam团队研发的 Linux 架构操作系统。该操作系统基于代号为 Debian Jessie 的 Debian 8 系统。它的工作始于 Debian 系统强劲的核心，并尽可能对其进行优化，使其拥有良好的客厅体验。最重要的是，它是开源的 Linux 平台，一切尽在您的掌控之内。您可以掌控您的系统，并且随心所欲地安装您想要的新软件或内容。</p>
 <p><a href="https://store.steampowered.com/steamos/buildyourown?l=schinese" target="_blank" rel="noopener">SteamOS官方描述</a></p>
 <h1 id="安装和自定义-SteamOS"><a href="#安装和自定义-SteamOS" class="headerlink" title="安装和自定义 SteamOS"></a>安装和自定义 SteamOS</h1><h2 id="SteamOS-硬件需求如何？"><a href="#SteamOS-硬件需求如何？" class="headerlink" title="SteamOS 硬件需求如何？"></a>SteamOS 硬件需求如何？</h2><blockquote>
@@ -49,6 +49,16 @@
 <p>to be continued…</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>OperationSystem</category>
+        <category>Linux</category>
+        <category>SteamOS</category>
+      </categories>
+      <tags>
+        <tag>OperationSystem</tag>
+        <tag>Linux</tag>
+        <tag>SteamOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>Base64加密原理</title>
