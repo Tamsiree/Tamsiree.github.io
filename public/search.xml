@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Base64加密原理</title>
-    <url>/TechnicalResearch/CDN/Base64%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86/</url>
+    <url>/TechnicalResearch/Base64%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>在互联网中的每一刻，你可能都在享受着Base64带来的便捷，但对于Base64的基础原理又了解多少？今天这篇博文带领大家了解一下Base64的底层实现。</p>
 </blockquote>
@@ -224,10 +224,9 @@
 ]]></content>
       <categories>
         <category>TechnicalResearch</category>
-        <category>CDN</category>
       </categories>
       <tags>
-        <tag>CDN</tag>
+        <tag>Base64</tag>
       </tags>
   </entry>
   <entry>
@@ -8649,7 +8648,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>Chromium</title>
-    <url>/Google/Chromium/Chromium/</url>
+    <url>/Google/Chrome/Chromium/Chromium/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>安装模式 Chromium可以免安装，下载zip压缩包后解压缩即可使用，而Chrome虽然理论上也可以免安装，但Google仅提供安装版（而且每次打开chrome都会提示开发者模式危险）。</p>
 <h1 id="Chromium"><a href="#Chromium" class="headerlink" title="Chromium"></a>Chromium</h1><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="http://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html" target="_blank" rel="noopener">官方存储库地址</a></p>
 <p>以Windows版为例：  </p>
@@ -8692,10 +8691,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>Google</category>
+        <category>Chrome</category>
         <category>Chromium</category>
       </categories>
       <tags>
         <tag>Google</tag>
+        <tag>Chrome</tag>
         <tag>Chromium</tag>
       </tags>
   </entry>
@@ -14308,11 +14309,11 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>服务器常用端口</title>
-    <url>/TechnicalResearch/Port/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3/</url>
+    <url>/TechnicalResearch/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>在日常编程开发过程中，特别是在开发APP与网络游戏的过程中，总会需要了解各类端口号，便搜集整理常用的端口号以备无患。</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-16.jpg" data-fancybox="group" data-caption="端口号" class="fancybox"><img alt="端口号" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-16.jpg" class="lazyload" title="端口号"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-16.jpg" data-fancybox="group" data-caption="端口号" class="fancybox"><img alt="端口号" title="端口号" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-16.jpg" class="lazyload"></a></p>
 <hr>
 <h1 id="常用端口号"><a href="#常用端口号" class="headerlink" title="常用端口号"></a>常用端口号</h1><p>代理服务器常用以下端口：</p>
 <ul>
@@ -14445,7 +14446,6 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>TechnicalResearch</category>
-        <category>Port</category>
       </categories>
       <tags>
         <tag>Port</tag>
@@ -14867,13 +14867,13 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>CDN</title>
-    <url>/TechnicalResearch/CDN/CDN/</url>
+    <url>/TechnicalResearch/CDN/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="CDN的基本思路"><a href="#CDN的基本思路" class="headerlink" title="CDN的基本思路"></a>CDN的基本思路</h1><p>即是<code>空间</code>换<code>时间</code>的策略。  </p>
-<p><a href="https://w.wallhaven.cc/full/47/wallhaven-476vye.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://w.wallhaven.cc/full/47/wallhaven-476vye.jpg" class="lazyload" title></a></p>
+<p><a href="https://w.wallhaven.cc/full/47/wallhaven-476vye.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://w.wallhaven.cc/full/47/wallhaven-476vye.jpg" class="lazyload"></a></p>
 <blockquote>
 <p>尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-bfc304be84498eda.webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-bfc304be84498eda.webp" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-bfc304be84498eda.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-bfc304be84498eda.webp" class="lazyload"></a></p>
 <h1 id="CDN的目的"><a href="#CDN的目的" class="headerlink" title="CDN的目的"></a>CDN的目的</h1><p>解决因分布、带宽、服务器性能带来的访问延迟问题，适用于站点加速、点播、直播等场景。使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度和成功率。</p>
 <p>控制时延无疑是现代信息科技的重要指标，CDN的意图就是尽可能的减少资源在转发、传输、链路抖动等情况下顺利保障信息的连贯性。</p>
 <h1 id="CDN的优势"><a href="#CDN的优势" class="headerlink" title="CDN的优势"></a>CDN的优势</h1><p><strong>如果你在经营一家网站，那你应该知道几点因素是你制胜的关键：</strong></p>
@@ -14907,16 +14907,16 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p><strong>引入一个词：控制时延</strong></p>
 <p>无疑是现代信息科技的重要指标，CDN的意图就是尽可能的减少资源在转发、传输、链路抖动等情况下顺利保障信息的连贯性</p>
 <p>根据论文《WAITING TIMES IN QUALITY OF EXPERIENCE FOR WEB BASED SERVICES》中提出的： 其指出基于人脑在等待不同时长的信息时，产生的不同意识行为，进而对信息获取产生的差别感官体验。</p>
-<p><a href="https://pic3.zhimg.com/80/v2-4742d592efff599944a987b74aad5fce_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic3.zhimg.com/80/v2-4742d592efff599944a987b74aad5fce_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic3.zhimg.com/80/v2-4742d592efff599944a987b74aad5fce_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic3.zhimg.com/80/v2-4742d592efff599944a987b74aad5fce_hd.jpg" class="lazyload"></a></p>
 <p><strong>感知的持续时间 VS 客观持续时间</strong></p>
 <p>根据研究发现：当人们获得Voice这类声音讯息时，好感度随时间流逝下降的最为迅速，仅需16分钟“评估意见等级”下降了70%，可见音像资源受缓冲时间的影响可见一斑</p>
-<p><a href="https://pic2.zhimg.com/80/v2-eef8ab6cda50ccd34af59322f8dc2909_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic2.zhimg.com/80/v2-eef8ab6cda50ccd34af59322f8dc2909_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic2.zhimg.com/80/v2-eef8ab6cda50ccd34af59322f8dc2909_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic2.zhimg.com/80/v2-eef8ab6cda50ccd34af59322f8dc2909_hd.jpg" class="lazyload"></a></p>
 <p>✫0.1 s： 用户几乎感觉不到系统是否不连贯性。</p>
 <p>✫1.0 s： 用户明显注意到时延的发生，但是在该时间内思维依然是连贯的。</p>
 <p>✫10 s： 超过该时间的时延会使用户失去等待意愿。 控制时延无疑是现代信息科技的重要指标，CDN的意图就是尽可能的减少资源在转发、传输、链路抖动等情况下顺利保障信息的连贯性。</p>
 <p>通俗点说就是在网速一定的前提下，CDN就像网络中快递员小哥</p>
-<p><a href="https://pic3.zhimg.com/v2-b0133eed1c7b2fd40a98356737107086_b.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic3.zhimg.com/v2-b0133eed1c7b2fd40a98356737107086_b.jpg" class="lazyload" title></a></p>
-<p><a href="https://pic4.zhimg.com/80/v2-c15d6d3cd74dfef3d732b224998da823_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic4.zhimg.com/80/v2-c15d6d3cd74dfef3d732b224998da823_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic3.zhimg.com/v2-b0133eed1c7b2fd40a98356737107086_b.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic3.zhimg.com/v2-b0133eed1c7b2fd40a98356737107086_b.jpg" class="lazyload"></a></p>
+<p><a href="https://pic4.zhimg.com/80/v2-c15d6d3cd74dfef3d732b224998da823_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic4.zhimg.com/80/v2-c15d6d3cd74dfef3d732b224998da823_hd.jpg" class="lazyload"></a></p>
 <ul>
 <li>而且CDN这个快递员很是聪明 TA不是在用蛮力瞎跑、乱撞</li>
 <li>TA还承建了很多家快递点，就近快递(缓存)</li>
@@ -14934,21 +14934,21 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <li>全局负载均衡设备把服务器的IP地址返回给用户。</li>
 <li>用户向缓存服务器发起请求，缓存服务器响应用户请求，将用户所需内容传送到用户终端。如果这台缓存服务器上并没有用户想要的内容，而区域均衡设备依然将它分配给了用户，那么这台服务器就要向它的上一级缓存服务器请求内容，直至追溯到网站的源服务器将内容拉到本地。</li>
 </ol>
-<p><a href="https://pic4.zhimg.com/80/v2-5793aec83fc645e002a1cd70ab7209a3_hd.jpg" data-fancybox="group" data-caption="1" class="fancybox"><img alt="1" data-src="https://pic4.zhimg.com/80/v2-5793aec83fc645e002a1cd70ab7209a3_hd.jpg" class="lazyload" title="1"></a></p>
+<p><a href="https://pic4.zhimg.com/80/v2-5793aec83fc645e002a1cd70ab7209a3_hd.jpg" data-fancybox="group" data-caption="1" class="fancybox"><img alt="1" title="1" data-src="https://pic4.zhimg.com/80/v2-5793aec83fc645e002a1cd70ab7209a3_hd.jpg" class="lazyload"></a></p>
 <h1 id="服务模式"><a href="#服务模式" class="headerlink" title="服务模式"></a>服务模式</h1><p>简单地说，CDN是一个经策略性部署的整体系统，包括分布式存储、负载均衡、网络请求的重定向和内容管理4个要件，而内容管理和全局的网络流量管理(Traffic Management)是CDN的核心所在。</p>
 <p>通过用户就近性和服务器负载的判断，CDN确保内容以一种极为高效的方式为用户的请求提供服务。</p>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-35593095520e2050.webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-35593095520e2050.webp" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-35593095520e2050.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-35593095520e2050.webp" class="lazyload"></a></p>
 <p><strong>举例说明：</strong></p>
 <p>国内访问量较高的网站、直播、视频平台，均使用CDN网络加速技术，虽然网站的访问巨大，但无论在什么地方访问都会感觉速度很快。而一般的网站如果服务器在网通，电信用户访问很慢，如果服务器在电信，网通用户访问又很慢。</p>
 <p>通过在现有的Internet中增加一层新的网络架构，将网站的内容发布到最接近用户的cache服务器内，通过DNS负载均衡的技术，判断用户来源就近访问cache服务器取得所需的内容，解决Internet网络拥塞状况，提高用户访问网站的响应速度，如同提供了多个分布在各地的加速器，以达到快速、可冗余的为多个网站加速的目的。</p>
 <p>CDN服务最初用于确保快速可靠地分发静态内容，这些内容可以缓存，最适合在网速庞大的网络中存储和分发，该网络在几十多个国家的十几个网络中的覆盖CDN网络服务器。由于动态内容必须通过互联网来传输，因此要提供快速的网络体验。如今的CDN可谓是大文件、小文件、点播、直播、动静皆宜！</p>
-<p><a href="https://pic3.zhimg.com/80/v2-9b12ed731f01f8425c688bb13e0d913e_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic3.zhimg.com/80/v2-9b12ed731f01f8425c688bb13e0d913e_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic3.zhimg.com/80/v2-9b12ed731f01f8425c688bb13e0d913e_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic3.zhimg.com/80/v2-9b12ed731f01f8425c688bb13e0d913e_hd.jpg" class="lazyload"></a></p>
 <h1 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h1><p>1、本地Cache加速，提高了企业站点（尤其含有大量图片和静态页面站点）的访问速度，并大大提高以上性质站点的稳定性</p>
 <p>2、镜像服务消除了不同运营商之间互联的瓶颈造成的影响，实现了跨运营商的网络加速，保证不同网络中的用户都能得到良好的访问质量。</p>
 <p>3、远程加速 远程访问用户根据DNS负载均衡技术 智能自动选择Cache服务器，选择最快的Cache服务器，加快远程访问的速度</p>
 <p>4、带宽优化 自动生成服务器的远程Mirror（镜像）cache服务器，远程用户访问时从cache服务器上读取数据，减少远程访问的带宽、分担网络流量、减轻原站点WEB服务器负载等功能。</p>
 <p>5、集群抗攻击 广泛分布的CDN节点加上节点之间的智能冗余机制，可以有效地预防黑客入侵以及降低各种D.D.o.S攻击对网站的影响，同时保证较好的服务质量 。</p>
-<h1 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h1><p><a href="https://pic1.zhimg.com/80/v2-eaf80abf6a52913375d2ade0dde79ed0_hd.jpg" data-fancybox="group" data-caption="s" class="fancybox"><img alt="s" data-src="https://pic1.zhimg.com/80/v2-eaf80abf6a52913375d2ade0dde79ed0_hd.jpg" class="lazyload" title="s"></a></p>
+<h1 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h1><p><a href="https://pic1.zhimg.com/80/v2-eaf80abf6a52913375d2ade0dde79ed0_hd.jpg" data-fancybox="group" data-caption="s" class="fancybox"><img alt="s" title="s" data-src="https://pic1.zhimg.com/80/v2-eaf80abf6a52913375d2ade0dde79ed0_hd.jpg" class="lazyload"></a></p>
 <p>内容发布：它借助于建立索引、缓存、流分裂、组播（Multicast）等技术</p>
 <p>内容路由：它是整体性的网络负载均衡技术，通过内容路由器中的重定向（DNS）机制，在多个远程POP上均衡用户的请求，以使用户请求得到最近内容源的响应；</p>
 <p>内容交换：它根据内容的可用性、服务器的可用性以及用户的背景，在POP的缓存服务器上，利用应用层交换、流分裂、重定向（ICP、WCCP）等技术，智能地平衡负载流量；</p>
@@ -14966,20 +14966,20 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h2 id="能不能让CDN不缓存某些即时性要求很高的网页和图片？"><a href="#能不能让CDN不缓存某些即时性要求很高的网页和图片？" class="headerlink" title="能不能让CDN不缓存某些即时性要求很高的网页和图片？"></a>能不能让CDN不缓存某些即时性要求很高的网页和图片？</h2><p><em>只需要使用动态页面，asp，php，jsp等动态技术做成的页面不被CDN缓存，无需每次都要刷新。或者采用一个网站两个域名，一个启用CDN，另外一个域名不用CDN，对即时性要求高的页面和图片放在不用CDN的域名下。</em></p>
 <h2 id="网站新增了不少网页和图片，这些需要使用URL推送吗？"><a href="#网站新增了不少网页和图片，这些需要使用URL推送吗？" class="headerlink" title="网站新增了不少网页和图片，这些需要使用URL推送吗？"></a>网站新增了不少网页和图片，这些需要使用URL推送吗？</h2><p><em>后来增加的网页和图片，不需要使用URL推送，因为它们本来就不存在缓存中。</em></p>
 <h2 id="网站用CDN后，有些地区反映无法访问了，怎么办？"><a href="#网站用CDN后，有些地区反映无法访问了，怎么办？" class="headerlink" title="网站用CDN后，有些地区反映无法访问了，怎么办？"></a>网站用CDN后，有些地区反映无法访问了，怎么办？</h2><p><em>CDN启用后，访客不能访问网站有很多种可能，可能是CDN的问题，也可能是源站点出现故障或者源站点被关闭，还可能是访客自己所在的网络出现问题，甚至我们实际故障排除中，还出现过客户自己计算机中毒，导致无法访问网站。　　<br>客户报告故障时，可随时联系我们24小时技术部进行处理。</em></p>
-<h2 id="哪些情况不适用于CDN"><a href="#哪些情况不适用于CDN" class="headerlink" title="哪些情况不适用于CDN?"></a>哪些情况不适用于CDN?</h2><p><a href="https://pic1.zhimg.com/80/v2-74cc31d9834415eb23115552613f373c_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic1.zhimg.com/80/v2-74cc31d9834415eb23115552613f373c_hd.jpg" class="lazyload" title></a></p>
+<h2 id="哪些情况不适用于CDN"><a href="#哪些情况不适用于CDN" class="headerlink" title="哪些情况不适用于CDN?"></a>哪些情况不适用于CDN?</h2><p><a href="https://pic1.zhimg.com/80/v2-74cc31d9834415eb23115552613f373c_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic1.zhimg.com/80/v2-74cc31d9834415eb23115552613f373c_hd.jpg" class="lazyload"></a></p>
 <p><em><strong>此类极端状况不建议您使用CDN服务</strong></em></p>
-<p><a href="https://pic1.zhimg.com/80/v2-3cb264b4b37a79bdcd27afcbdf34b0e8_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://pic1.zhimg.com/80/v2-3cb264b4b37a79bdcd27afcbdf34b0e8_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://pic1.zhimg.com/80/v2-3cb264b4b37a79bdcd27afcbdf34b0e8_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic1.zhimg.com/80/v2-3cb264b4b37a79bdcd27afcbdf34b0e8_hd.jpg" class="lazyload"></a></p>
 <h2 id="有CDN的时候用户浏览web流程和无CDN的时候有什么区别？"><a href="#有CDN的时候用户浏览web流程和无CDN的时候有什么区别？" class="headerlink" title="有CDN的时候用户浏览web流程和无CDN的时候有什么区别？"></a>有CDN的时候用户浏览web流程和无CDN的时候有什么区别？</h2><blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a63c320607612c38.webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a63c320607612c38.webp" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a63c320607612c38.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a63c320607612c38.webp" class="lazyload"></a></p>
 <center>无CDN</center>
 </blockquote>
 <blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-e414c656e6389085.webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-e414c656e6389085.webp" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-e414c656e6389085.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-e414c656e6389085.webp" class="lazyload"></a></p>
 <center>有CDN</center>
 </blockquote>
 <h2 id="用户可以通过什么方式强制刷新CDN？"><a href="#用户可以通过什么方式强制刷新CDN？" class="headerlink" title="用户可以通过什么方式强制刷新CDN？"></a>用户可以通过什么方式强制刷新CDN？</h2><p>在url后面加上？即可</p>
-<h2 id="CDN的关键技术有什么？"><a href="#CDN的关键技术有什么？" class="headerlink" title="CDN的关键技术有什么？"></a>CDN的关键技术有什么？</h2><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a3a2667952a5f3af.webp" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a3a2667952a5f3af.webp" class="lazyload" title></a></p>
-<h1 id="常用CDN"><a href="#常用CDN" class="headerlink" title="常用CDN"></a>常用CDN</h1><p><a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">Jsdelivr</a><br><a href="https://www.jsdelivr.com/img/logo-horizontal.svg" data-fancybox="group" data-caption="Jsdelivr" class="fancybox"><img alt="Jsdelivr" data-src="https://www.jsdelivr.com/img/logo-horizontal.svg" class="lazyload" title="Jsdelivr"></a></p>
+<h2 id="CDN的关键技术有什么？"><a href="#CDN的关键技术有什么？" class="headerlink" title="CDN的关键技术有什么？"></a>CDN的关键技术有什么？</h2><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a3a2667952a5f3af.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/16132650-a3a2667952a5f3af.webp" class="lazyload"></a></p>
+<h1 id="常用CDN"><a href="#常用CDN" class="headerlink" title="常用CDN"></a>常用CDN</h1><p><a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">Jsdelivr</a><br><a href="https://www.jsdelivr.com/img/logo-horizontal.svg" data-fancybox="group" data-caption="Jsdelivr" class="fancybox"><img alt="Jsdelivr" title="Jsdelivr" data-src="https://www.jsdelivr.com/img/logo-horizontal.svg" class="lazyload"></a></p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
@@ -14987,7 +14987,6 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>TechnicalResearch</category>
-        <category>CDN</category>
       </categories>
       <tags>
         <tag>CDN</tag>
@@ -15169,11 +15168,11 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>正则表达式</title>
-    <url>/TechnicalResearch/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <url>/TechnicalResearch/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="什么是正则表达式："><a href="#什么是正则表达式：" class="headerlink" title="什么是正则表达式："></a>什么是正则表达式：</h1><blockquote>
 <p>查找符合某些复杂规则的字符串。正则表达式就是用于描述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/170734-1569402454d977.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/170734-1569402454d977.jpg" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/170734-1569402454d977.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/170734-1569402454d977.jpg" class="lazyload"></a></p>
 <p>例：查找 hi：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\bhi\b</span><br></pre></td></tr></table></figure></div>
 
@@ -15455,7 +15454,6 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>TechnicalResearch</category>
-        <category>正则表达式</category>
       </categories>
       <tags>
         <tag>正则表达式</tag>

@@ -3,10 +3,9 @@ title: Base64加密原理
 date: 2019-12-28 15:30:44
 description: 在互联网中的每一刻，你可能都在享受着Base64带来的便捷，但对于Base64的基础原理又了解多少？今天这篇博文带领大家了解一下Base64的底层实现。
 tags:
-  - CDN
+  - Base64
 categories:
   - TechnicalResearch
-  - CDN
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven439kv4.jpg
 ---
 # 前言

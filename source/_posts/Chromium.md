@@ -4,9 +4,11 @@ date: 2019-02-14 16:03:33
 description: 安装模式 Chromium可以免安装，下载zip压缩包后解压缩即可使用，而Chrome虽然理论上也可以免安装，但Google仅提供安装版（而且每次打开chrome都会提示开发者模式危险）。
 tags:
   - Google
+  - Chrome
   - Chromium
 categories:
   - Google
+  - Chrome
   - Chromium
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-nkp2mm.jpg
 ---

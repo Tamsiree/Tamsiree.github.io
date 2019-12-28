@@ -6,7 +6,6 @@ tags:
   - CDN
 categories:
   - TechnicalResearch
-  - CDN
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-p879qj.jpg
 ---
 # CDN的基本思路
