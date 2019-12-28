@@ -8513,14 +8513,14 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       </tags>
   </entry>
   <entry>
-    <title>Steam共享库的方法</title>
-    <url>/Game/GamePlatform/Steam/Steam%E5%85%B1%E4%BA%AB%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <title>Steam库共享</title>
+    <url>/Game/GamePlatform/Steam/Steam%E5%BA%93%E5%85%B1%E4%BA%AB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自己的Steam库里的游戏太少，可以寻求小伙伴获取他的Steam库授权，这样就可以玩到小伙伴账号的游戏了。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>首先打开需要被授权的电脑登录授权者的Steam账号，并打开Steam设置。</p>
-<p><a href="https://pics3.baidu.com/feed/cefc1e178a82b901b6e289c9dabc76733812efb0.png?token=fbee6421d902682048388a4d603c7bf7&s=BA83A14C5EE4B76C5455B8850300E0C3" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pics3.baidu.com/feed/cefc1e178a82b901b6e289c9dabc76733812efb0.png?token=fbee6421d902682048388a4d603c7bf7&s=BA83A14C5EE4B76C5455B8850300E0C3" class="lazyload"></a></p>
-<p>然后选择家庭，将【在此电脑上授权库共享】的选项打上勾，并且在【可用用户】上将要被授权的账号上打上勾，这台电脑的这个账号就可以游玩授权者的所有游戏了 ！不过有些第三方游戏（例：刺客信条等），有游玩资格的（A牌）是不能共享的。</p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191228184636.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191228184636.png" class="lazyload"></a></p>
+<p>然后选择家庭，将 [<code>在此电脑上授权库共享</code>] 的选项打上勾，并且在 [<code>可用用户</code>] 上将要被授权的账号上打上勾，这台电脑的这个账号就可以游玩授权者的所有游戏了 ！不过有些第三方游戏（例：刺客信条等），有游玩资格的（A牌）是不能共享的。</p>
 <p>总共能授权给10台电脑，5个账号。</p>
-<p><a href="https://pics7.baidu.com/feed/78310a55b319ebc41c078afd2b1710f81e171609.jpeg?token=a5dce700d9896fbe7a8d07dc9981ab3f&s=B2D7A164DAE4B76C085890030100C0C1" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pics7.baidu.com/feed/78310a55b319ebc41c078afd2b1710f81e171609.jpeg?token=a5dce700d9896fbe7a8d07dc9981ab3f&s=B2D7A164DAE4B76C085890030100C0C1" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/plasmashell_20191228184812.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/plasmashell_20191228184812.png" class="lazyload"></a></p>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="我该如何在我的计算机上启用家庭库共享"><a href="#我该如何在我的计算机上启用家庭库共享" class="headerlink" title="我该如何在我的计算机上启用家庭库共享?"></a>我该如何在我的计算机上启用家庭库共享?</h2><p>要启用家庭库共享，首先请确认您已通过 Steam 客户端中的“Steam &gt; 设置 &gt; 帐户”启用 Steam 令牌，然后通过“设置 &gt; 家庭”(大屏幕模式下为“设置 &gt; 家庭库共享”)启用共享功能，您也可以在此处授权特定计算机及用户分享您的库。</p>
 <h2 id="我授权共享库的设备或好友有数量上限吗"><a href="#我授权共享库的设备或好友有数量上限吗" class="headerlink" title="我授权共享库的设备或好友有数量上限吗?"></a>我授权共享库的设备或好友有数量上限吗?</h2><p>有。您最多同时授权 10 台设备用于家庭库共享，并且在所有您授权的计算机上最多授权 5 个帐户使用您的游戏库。</p>
 <h2 id="我在玩共享的游戏时必须在线吗"><a href="#我在玩共享的游戏时必须在线吗" class="headerlink" title="我在玩共享的游戏时必须在线吗?"></a>我在玩共享的游戏时必须在线吗?</h2><p>是的。您必须在线才能访问并开始玩共享给您的游戏。</p>
@@ -8532,6 +8532,10 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h2 id="谁拥有并有权访问与共享游戏关联的-DLC-和游戏内容"><a href="#谁拥有并有权访问与共享游戏关联的-DLC-和游戏内容" class="headerlink" title="谁拥有并有权访问与共享游戏关联的 DLC 和游戏内容?"></a>谁拥有并有权访问与共享游戏关联的 DLC 和游戏内容?</h2><p>来宾必须自己不拥有基础游戏才有权访问出借人的 DLC。来宾不能为其没有的基础游戏购买 DLC。任何玩家都可以在玩游戏时购买、交易、赚取，或者以其他方式获得游戏中内容，但游戏中物品不能跨帐户共享。无论是借用还是出借基础游戏，这些物品都为购买或获取它们的帐户所有。</p>
 <h2 id="地区限制的内容可以跨地区共享吗"><a href="#地区限制的内容可以跨地区共享吗" class="headerlink" title="地区限制的内容可以跨地区共享吗?"></a>地区限制的内容可以跨地区共享吗?</h2><p>不可以，任何地区限制在出借或借用时保持不变。</p>
 <h2 id="如果其他用户在玩我的游戏时发生作弊或欺诈行为，我会因此受到惩罚吗"><a href="#如果其他用户在玩我的游戏时发生作弊或欺诈行为，我会因此受到惩罚吗" class="headerlink" title="如果其他用户在玩我的游戏时发生作弊或欺诈行为，我会因此受到惩罚吗?"></a>如果其他用户在玩我的游戏时发生作弊或欺诈行为，我会因此受到惩罚吗?</h2><p>如果您库内的游戏在分享给他人时被用于作弊或欺诈，那么您的家庭库共享权限将会被撤销，同时您的帐户也可能被 VAC 封禁。此外，已被 VAC 封禁的游戏将无法共享。我们建议您只向您认为安全且熟悉的计算机授权。和往常一样，请不要将您的密码透露给任何人。</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Game</category>
