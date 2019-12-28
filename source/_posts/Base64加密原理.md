@@ -37,7 +37,7 @@ Base64的原理比较简单，每当我们使用Base64时都会先定义一个�
 -   第三步，在每组前面添加两个0，每组由6个变为8个二进制位，总共32个二进制位，即四个字节。
 -   第四步，根据Base64编码对照表（见下图）获得对应的值。
 
-| 编号 | 编码 | 编号 | 编码值| 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 |
+| 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 | 编号 | 编码 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 0　| A | 1　|　B | 2　|　C | 3　|　D | 4　|　E | 5　|　F | 6　|　G | 7　|　H |
 | 8　|　I | 9　|　J | 10　|　K | 11　|　L | 12　|　M | 13　|　N | 14　|　O | 15　|　P |
@@ -88,24 +88,23 @@ Base64的原理比较简单，每当我们使用Base64时都会先定义一个�
 最后，我们用一段Java代码来验证一下上面的转换结果：
 
 ```java
-package com.secbro2.blog.utils;
-
+package com.tamsiree.utils;
 import sun.misc.BASE64Encoder;
 
 /**
- * @author zzs
+ * @author tamsiree
  */
 public class Base64Utils {
 
 	public static void main(String[] args) {
-		String man = "Man";
 		String a = "A";
 		String bc = "BC";
+		String man = "Man";
 
 		BASE64Encoder encoder = new BASE64Encoder();
-		System.out.println("Man base64结果为：" + encoder.encode(man.getBytes()));
-		System.out.println("BC base64结果为：" + encoder.encode(bc.getBytes()));
 		System.out.println("A base64结果为：" + encoder.encode(a.getBytes()));
+		System.out.println("BC base64结果为：" + encoder.encode(bc.getBytes()));
+		System.out.println("Man base64结果为：" + encoder.encode(man.getBytes()));
 	}
 }
 
@@ -114,9 +113,9 @@ public class Base64Utils {
 打印结果为：
 
 ```console
-Man base64结果为：TWFu
-BC base64结果为：QkM=
 A base64结果为：QQ==
+BC base64结果为：QkM=
+Man base64结果为：TWFu
 
 ```
 
