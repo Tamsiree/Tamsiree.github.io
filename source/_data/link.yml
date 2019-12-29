@@ -10,15 +10,25 @@ class2:
   class_name: 游戏开发
   link_list:
     1:
-      name: 洪流学堂
-      link: https://edu.hongliu.cc
-      avatar: https://wechatapppro-1252524126.file.myqcloud.com/appoLCNnR883515/image/b41e55f86786279c47021afe01f8abf4.png
-      descr: Unity的百科全书
+      name: 雨松MOMO
+      link: https://www.xuanyusong.com/
+      avatar: https://www.xuanyusong.com/favicon.ico
+      descr: 专注Unity3D游戏开发
     2:
       name: Siki
       link: http://www.sikiedu.com/
       avatar: http://www.sikiedu.com/files/system/2016/08-18/165519754d1f590889.ico?version=8.3.21
       descr: 学习游戏开发
+    3:
+      name: 洪流学堂
+      link: https://edu.hongliu.cc
+      avatar: https://wechatapppro-1252524126.file.myqcloud.com/appoLCNnR883515/image/b41e55f86786279c47021afe01f8abf4.png
+      descr: Unity的百科全书
+    4:
+      name: Udemy
+      link: https://www.udemy.com/topic/unity/
+      avatar: https://www.udemy.com/staticx/udemy/images/v6/favicon-32x32.png
+      descr: 开放式在线教育网站
 class3:
   class_name: 壁纸
   link_list:
