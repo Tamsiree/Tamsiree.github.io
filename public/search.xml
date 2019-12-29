@@ -21916,7 +21916,9 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>黄金屋</title>
     <url>/book/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><table>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><p>现在的我们只要离开电脑跟手机就跟吸毒没药一样，需要下决心改变这种浮躁的心态，读书，是最快捷的成长方式。</p>
+<p><a href="http://5b0988e595225.cdn.sohucs.com/images/20170827/9d083b9299234c5c8df365f7139932ec.gif" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="http://5b0988e595225.cdn.sohucs.com/images/20170827/9d083b9299234c5c8df365f7139932ec.gif" class="lazyload"></a></p>
+<table>
 <thead>
 <tr>
 <th align="center">书名</th>
@@ -21925,9 +21927,29 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">草枕</td>
+<td align="center">《草枕》</td>
 <td align="center">夏目漱石</td>
-<td align="center"><a href="https://bkimg.cdn.bcebos.com/pic/4afbfbedab64034f00568670a3c379310a551d28@wm_1,g_7,k_d2F0ZXIvYmFpa2UxMTY=,xp_5,yp_5" data-fancybox="group" data-caption="undefined" class="fancybox"><img height="80" width="60" data-src="https://bkimg.cdn.bcebos.com/pic/4afbfbedab64034f00568670a3c379310a551d28@wm_1,g_7,k_d2F0ZXIvYmFpa2UxMTY=,xp_5,yp_5" class="lazyload"></a></td>
+<td align="center"><a href="https://bkimg.cdn.bcebos.com/pic/4afbfbedab64034f00568670a3c379310a551d28@wm_1,g_7,k_d2F0ZXIvYmFpa2UxMTY=,xp_5,yp_5" data-fancybox="group" data-caption="undefined" class="fancybox"><img height="40" width="30" data-src="https://bkimg.cdn.bcebos.com/pic/4afbfbedab64034f00568670a3c379310a551d28@wm_1,g_7,k_d2F0ZXIvYmFpa2UxMTY=,xp_5,yp_5" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center">《活着》</td>
+<td align="center">余华</td>
+<td align="center"><a href="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3492701257,262860285&fm=179&app=42&f=JPEG?w=121&h=161" data-fancybox="group" data-caption="undefined" class="fancybox"><img height="40" width="30" data-src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3492701257,262860285&fm=179&app=42&f=JPEG?w=121&h=161" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center">《三体》</td>
+<td align="center">刘慈欣</td>
+<td align="center"><a href="https://upload.wikimedia.org/wikipedia/zh/thumb/0/0f/Threebody.jpg/200px-Threebody.jpg" data-fancybox="group" data-caption="undefined" class="fancybox"><img height="40" width="30" data-src="https://upload.wikimedia.org/wikipedia/zh/thumb/0/0f/Threebody.jpg/200px-Threebody.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center">《墨菲定律》</td>
+<td align="center">[美] 阿瑟·布洛赫</td>
+<td align="center"><a href="https://img3.doubanio.com/view/subject/l/public/s8958835.jpg" data-fancybox="group" data-caption="undefined" class="fancybox"><img height="40" width="30" data-src="https://img3.doubanio.com/view/subject/l/public/s8958835.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center">《鬼谷子》</td>
+<td align="center">王诩</td>
+<td align="center"><a href="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=990ff7bc4334970a47731729adf1b6f5/21a4462309f79052a9fe78ad0ef3d7ca7acbd5bb.jpg" data-fancybox="group" data-caption="undefined" class="fancybox"><img height="40" width="30" data-src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=990ff7bc4334970a47731729adf1b6f5/21a4462309f79052a9fe78ad0ef3d7ca7acbd5bb.jpg" class="lazyload"></a></td>
 </tr>
 </tbody></table>
 <hr>
