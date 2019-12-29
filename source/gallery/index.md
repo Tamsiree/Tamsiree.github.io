@@ -29,6 +29,7 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/w
 # 每日一拍
 
 {% gallery %}
+![我的背影](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Gallery/SAVE_20191207_232455.jpg)
 ![情人湖木质走廊1](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Gallery/853766509.jpeg)
 ![无名水池](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Gallery/853598775.jpeg)
 ![情人湖木质走廊2](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Gallery/853766510.jpeg)
