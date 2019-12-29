@@ -13,11 +13,11 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/w
 
 |书名|作者|封面|
 | :---: | :---: | :---: |
-|《草枕》|夏目漱石|<img src="https://bkimg.cdn.bcebos.com/pic/4afbfbedab64034f00568670a3c379310a551d28@wm_1,g_7,k_d2F0ZXIvYmFpa2UxMTY=,xp_5,yp_5" height="40" width="30" >|
-|《活着》|余华|<img src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3492701257,262860285&fm=179&app=42&f=JPEG?w=121&h=161" height="40" width="30" >|
-|《三体》|刘慈欣|<img src="https://upload.wikimedia.org/wikipedia/zh/thumb/0/0f/Threebody.jpg/200px-Threebody.jpg" height="40" width="30" >|
+|《草枕》|夏目漱石|<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1501282350,1812887527&fm=15&gp=0.jpg" height="40" width="30" >|
+|《活着》|余华|<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577630845032&di=9d7610f55fd3b66a485882d078e4a41d&imgtype=0&src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-99382a9a4c2fe8c56e644d51c2cdbf99_b.jpg" height="40" width="30" >|
+|《三体》|刘慈欣|<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577630886554&di=531a98280e6b1e0fbc4c60fcd8b89cbe&imgtype=0&src=http%3A%2F%2Fwww.kfzimg.com%2FG06%2FM00%2F3E%2FEA%2Fp4YBAFsZz-2APW2IAAELi1nNtZ4654_b.jpg" height="40" width="30" >|
 |《墨菲定律》|[美] 阿瑟·布洛赫|<img src="https://img3.doubanio.com/view/subject/l/public/s8958835.jpg" height="40" width="30" >|
-|《鬼谷子》|王诩|<img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=990ff7bc4334970a47731729adf1b6f5/21a4462309f79052a9fe78ad0ef3d7ca7acbd5bb.jpg" height="40" width="30" >|
+|《鬼谷子》|王诩|<img src="http://s6.sinaimg.cn/mw690/494f6b03tx6Dr7S08Xr45&690" height="40" width="30" >|
 
 ---
 > to be continued...
