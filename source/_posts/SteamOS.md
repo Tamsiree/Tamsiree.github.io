@@ -1,6 +1,6 @@
 ---
 title: SteamOS
-date: 2019-12-29 02:18:14
+date: 2019-12-25 02:18:14
 description: SteamOS Beta 是Steam团队研发的 Linux 架构操作系统。该操作系统基于代号为 Debian Jessie 的 Debian 8 系统。它的工作始于 Debian 系统强劲的核心，并尽可能对其进行优化，使其拥有良好的客厅体验。最重要的是，它是开源的 Linux 平台，一切尽在您的掌控之内。您可以掌控您的系统，并且随心所欲地安装您想要的新软件或内容。
 tags:
   - OperationSystem

@@ -1,6 +1,6 @@
 ---
 title: TA是怎样炼成的
-date: 2019-12-25 23:56:12
+date: 2019-12-29 23:56:12
 description: TA 是 Technical Artist 的缩写，就是游戏行业的技术美术岗位。TA 是为项目解决问题的岗位,它的职责是节省项目成本，缩短项目周期，提升项目效果等。也为技术与美术作为沟通桥梁，所以才有的岗位细分方向。
 tags:
   - TA
@@ -14,7 +14,7 @@ TA 是 Technical Artist 的缩写，就是游戏行业的技术美术岗位。
 TA 是为项目解决问题的岗位,它的职责是节省项目成本，缩短项目周期，提升项目效果等。也为技术与美术作为沟通桥梁，所以才有的岗位细分方向。  
 岗位细分的大方向可分为 程序向、美术向两大方向。细分又可分为工具、渲染、流程、动作等方向。
 
-本文是对[霜狼的视频](https://www.bilibili.com/video/av77755500?from=search&seid=12879415090510697416)总结。 
+本文是对 [霜狼的视频](https://www.bilibili.com/video/av77755500?from=search&seid=12879415090510697416) 的总结。 
 
 # 目标
 简单来说作为一个给其它岗位解决问题的职业，我们学习的第一个目标自然是锻炼自己解决问题的能力。
@@ -79,6 +79,7 @@ UE4：《大象无形：虚幻引擎程序设计浅析》
 MAX 、MAYA、ZB、Blender等等  
 开始入门自动化  
 [SD](http://search.bilibili.com/all?keyword=sd%20%E6%95%99%E7%A8%8B&from_source=nav_search)、[HOUDINI](http://search.bilibili.com/all?keyword=houdini%20%E6%95%99%E7%A8%8B) 顺便送个我常看的[搬运网站](https://www.aboutcg.com/page/2?s=HOUDINI)  
+[参考知乎推荐](https://www.zhihu.com/search?type=content&q=TA)
 
 3. 项目效率优化：（公共项）  
 优化内容：  
