@@ -14660,8 +14660,8 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>响应式编程的理解</title>
-    <url>/TechnicalResearch/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在理解响应式编程之前，先了解一下几个概念 <strong>同步阻塞</strong> 和 <strong>异步非阻塞</strong> 。</p>
+    <url>/TechnicalResearch/ReactiveProgramming/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Reactive Programming 即为响应式编程,在理解响应式编程之前，先了解一下几个概念 <strong>同步阻塞</strong> 和 <strong>异步非阻塞</strong> 。</p>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/u=2928893194,2468344512&fm=214&gp=0.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/u=2928893194,2468344512&fm=214&gp=0.jpg" class="lazyload" title></a></p>
 <h1 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a><strong>同步阻塞</strong></h1><p>“你知道什么是  <strong>同步阻塞</strong>  吗”，当然知道了。“那你怎么看它呢?”</p>
 <p>在 <strong>同步阻塞</strong> 的世界里，代码执行到哪里，数据就跟到哪里。如果数据很慢跟不上来，代码就停在那里等待数据的到来，然后再带着数据一起往下执行。  </p>
@@ -14762,10 +14762,10 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>TechnicalResearch</category>
-        <category>响应式编程</category>
+        <category>ReactiveProgramming</category>
       </categories>
       <tags>
-        <tag>响应式编程</tag>
+        <tag>ReactiveProgramming</tag>
       </tags>
   </entry>
   <entry>
@@ -14962,7 +14962,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>Android单元测试</title>
-    <url>/TechnicalResearch/Android/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/Android%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
+    <url>/TechnicalResearch/UnitTest/Android/Android%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>软件测试作为软件质量的保障，有着十分重要的意义。<br>按照不同的层次划分，测试也有着诸多的种类。<br>按照测试方式分，有白盒测试、黑盒测试、灰盒测试。<br>按照测试范围或流程来分，有单元测试、集成测试与系统测试等。<br>其中，应用覆盖面最广、也是最为基础的就是 <strong>单元测试</strong> 。</p>
 </blockquote>
@@ -15064,12 +15064,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>TechnicalResearch</category>
+        <category>UnitTest</category>
         <category>Android</category>
-        <category>单元测试</category>
       </categories>
       <tags>
         <tag>Android</tag>
-        <tag>单元测试</tag>
+        <tag>UnitTest</tag>
       </tags>
   </entry>
   <entry>
@@ -15201,7 +15201,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>闲情逸致</title>
-    <url>/Hobbies/%E4%B8%AA%E4%BA%BA%E8%AF%97%E9%9B%86/%E9%97%B2%E6%83%85%E9%80%B8%E8%87%B4/</url>
+    <url>/Hobbies/PersonalPoetry/%E9%97%B2%E6%83%85%E9%80%B8%E8%87%B4/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><blockquote>
 <p>平日里闲来无事，就喜欢随手写几句小诗，仅此记录。</p>
 </blockquote>
@@ -15366,11 +15366,11 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>Hobbies</category>
-        <category>个人诗集</category>
+        <category>PersonalPoetry</category>
       </categories>
       <tags>
         <tag>Hobbies</tag>
-        <tag>个人诗集</tag>
+        <tag>PersonalPoetry</tag>
       </tags>
   </entry>
   <entry>
@@ -15379,7 +15379,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="什么是正则表达式："><a href="#什么是正则表达式：" class="headerlink" title="什么是正则表达式："></a>什么是正则表达式：</h1><blockquote>
 <p>查找符合某些复杂规则的字符串。正则表达式就是用于描述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/170734-1569402454d977.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/170734-1569402454d977.jpg" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/gcyqwan1707341569402454d977.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/gcyqwan1707341569402454d977.jpg" class="lazyload" title></a></p>
 <p>例：查找 hi：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\bhi\b</span><br></pre></td></tr></table></figure></div>
 
@@ -15663,7 +15663,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
         <category>TechnicalResearch</category>
       </categories>
       <tags>
-        <tag>正则表达式</tag>
+        <tag>RegularExpression</tag>
       </tags>
   </entry>
   <entry>
@@ -18635,7 +18635,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>芦江曲</title>
-    <url>/Hobbies/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/%E8%8A%A6%E6%B1%9F%E6%9B%B2/</url>
+    <url>/Hobbies/PersonalDiary/%E8%8A%A6%E6%B1%9F%E6%9B%B2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="芦江曲"><a href="#芦江曲" class="headerlink" title="芦江曲"></a>芦江曲</h1><p>　  </p>
 <blockquote>
 <p>　　在十月黄金周的第三天，正睡眼朦胧时，恍惚间便游荡在古镇中..  </p>
@@ -18664,11 +18664,11 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
       <categories>
         <category>Hobbies</category>
-        <category>个人日志</category>
+        <category>PersonalDiary</category>
       </categories>
       <tags>
         <tag>Hobbies</tag>
-        <tag>个人日志</tag>
+        <tag>PersonalDiary</tag>
       </tags>
   </entry>
   <entry>
@@ -21916,7 +21916,9 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>黄金屋</title>
     <url>/book/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><p>现在的我们只要离开电脑跟手机就跟吸毒没药一样，需要下决心改变这种浮躁的心态，读书，是最快捷的成长方式。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><blockquote>
+<p>现在的我们只要离开电脑和手机就六神无主坐立不安，需要下决心改变这种浮躁的心态，读书，是最快捷的成长方式。</p>
+</blockquote>
 <p><a href="http://5b0988e595225.cdn.sohucs.com/images/20170827/9d083b9299234c5c8df365f7139932ec.gif" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="http://5b0988e595225.cdn.sohucs.com/images/20170827/9d083b9299234c5c8df365f7139932ec.gif" class="lazyload"></a></p>
 <table>
 <thead>
@@ -21929,27 +21931,27 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <tbody><tr>
 <td align="center">《草枕》</td>
 <td align="center">夏目漱石</td>
-<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/sadcaozhencyqwan.jpg" data-fancybox="group" data-caption="草枕 - 夏目漱石" class="fancybox"><img height="40" width="30" alt="草枕 - 夏目漱石" title="草枕 - 夏目漱石" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/sadcaozhencyqwan.jpg" class="lazyload"></a></td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/sadcaozhencyqwan.jpg" data-fancybox="group" data-caption="草枕 - 夏目漱石" class="fancybox"><img height="20" width="15" alt="草枕 - 夏目漱石" title="草枕 - 夏目漱石" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/sadcaozhencyqwan.jpg" class="lazyload"></a></td>
 </tr>
 <tr>
 <td align="center">《活着》</td>
 <td align="center">余华</td>
-<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/scyqwoainidfsad.jpeg" data-fancybox="group" data-caption="活着 - 余华" class="fancybox"><img height="40" width="30" alt="活着 - 余华" title="活着 - 余华" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/scyqwoainidfsad.jpeg" class="lazyload"></a></td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/scyqwoainidfsad.jpeg" data-fancybox="group" data-caption="活着 - 余华" class="fancybox"><img height="20" width="15" alt="活着 - 余华" title="活着 - 余华" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/scyqwoainidfsad.jpeg" class="lazyload"></a></td>
 </tr>
 <tr>
 <td align="center">《三体》</td>
 <td align="center">刘慈欣</td>
-<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/santikchenyuqianwoainidsahjlsa.jpeg" data-fancybox="group" data-caption="三体 - 刘慈欣" class="fancybox"><img height="40" width="30" alt="三体 - 刘慈欣" title="三体 - 刘慈欣" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/santikchenyuqianwoainidsahjlsa.jpeg" class="lazyload"></a></td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/santikchenyuqianwoainidsahjlsa.jpeg" data-fancybox="group" data-caption="三体 - 刘慈欣" class="fancybox"><img height="20" width="15" alt="三体 - 刘慈欣" title="三体 - 刘慈欣" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/santikchenyuqianwoainidsahjlsa.jpeg" class="lazyload"></a></td>
 </tr>
 <tr>
 <td align="center">《墨菲定律》</td>
 <td align="center">[美] 阿瑟·布洛赫</td>
-<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/s8958835.jpg" data-fancybox="group" data-caption="墨菲定律 - [美] 阿瑟·布洛赫" class="fancybox"><img height="40" width="30" alt="墨菲定律 - [美] 阿瑟·布洛赫" title="墨菲定律 - [美] 阿瑟·布洛赫" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/s8958835.jpg" class="lazyload"></a></td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/s8958835.jpg" data-fancybox="group" data-caption="墨菲定律 - [美] 阿瑟·布洛赫" class="fancybox"><img height="20" width="15" alt="墨菲定律 - [美] 阿瑟·布洛赫" title="墨菲定律 - [美] 阿瑟·布洛赫" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/s8958835.jpg" class="lazyload"></a></td>
 </tr>
 <tr>
 <td align="center">《鬼谷子》</td>
 <td align="center">王诩</td>
-<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" data-fancybox="group" data-caption="鬼谷子 - 王诩" class="fancybox"><img height="40" width="30" alt="鬼谷子 - 王诩" title="鬼谷子 - 王诩" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" class="lazyload"></a></td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" data-fancybox="group" data-caption="鬼谷子 - 王诩" class="fancybox"><img height="20" width="15" alt="鬼谷子 - 王诩" title="鬼谷子 - 王诩" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" class="lazyload"></a></td>
 </tr>
 </tbody></table>
 <hr>
