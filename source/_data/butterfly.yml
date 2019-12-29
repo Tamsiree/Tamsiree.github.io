@@ -11,6 +11,7 @@ menu:
   寻龙尺: /categories/||fa fa-safari
   神秘链接: /link/||fa fa-link
   回味||fa fa-heartbeat:
+    - 黄金屋 || /book/ || fa fa-book
     - 音乐 || /music/ || fa fa-music
     - 电影 || /movie/ || fa fa-film
     - 画廊 || /gallery/||fa fa-camera-retro
