@@ -62,8 +62,8 @@ copy:
 # ---------------
 social:
   fa fa-envelope: mailto:tamsiree.com@gmail.com
-  fa fa-github: https://github.com/Tamsiree
-  fa fa-rss: /atom.xml
+  fa fa-github-square: https://github.com/Tamsiree
+  fa fa-rss-square: /atom.xml
 
 ####    search    ####
 # Algolia search
