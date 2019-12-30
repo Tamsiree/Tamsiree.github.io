@@ -1,6 +1,7 @@
 ---
 title: Manjaro使用技巧与问题归纳
 date: 2019-09-23 14:52:03
+description: 在日常使用Manjaro系统的过程中，总会遇到这样或者那样的问题，也会遇到需要有某种需求的时候，特此记录。
 tags:
   - OperationSystem
   - Linux
@@ -11,6 +12,106 @@ categories:
   - Manjaro
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01236039c4be3c4806.jpg
 ---
+# 前言
+在日常使用Manjaro系统的过程中，总会遇到这样或者那样的问题，也会遇到需要有某种需求的时候，特此记录。
+
+# 功能需求
+##  生成ISO文件
+
+1. 首先安装cdrkit工具
+```bash
+sudo pacman -S cdrkit  
+```
+
+2. 然后将目标文件夹打包成为ISO文件  
+使用目录文件制作ISO文件
+```bash
+mkisofs -r -o 路径/ISO 文件名 目录文件路径
+```
+例子：
+```bash
+mkisofs -r -o /home/tamsiree/Tam1T/SteamOS.iso /home/tamsiree/Tam1T/系统镜像/SteamOSInstaller/
+```
+
+3. 制作完ISO文件后，如何挂载呢？
+```bash
+mount -o loop ISO文件名 挂载点路径
+```
+例子：
+```bash
+mount -o loop /opt/mycd.iso /mnt/cdrom
+```
+
+---
+
+# 获取文件的md5sums
+
+例如我在AUR中安装unityhub时，提示文件的 md5sums 验证失败(这问题老生常谈了)，因此便自己获取文件的 `md5sums` 然后修改构建脚本文件。
+```bash
+md5sum unityhub-2.2.2.AppImage  | cut -d ' ' -f1
+```
+
+# PGP Key Fingerprint
+
+在注册 [ArchLinux](https://aur.archlinux.org/) 的时候，需要用到 PGP 秘钥。
+
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191014041534340.png)
+
+使用加密工具GPG 生成秘钥
+
+> 简单介绍GPG  
+> 
+> 要了解什么是 GPG，就要先了解 PGP。  
+> 1991 年，程序员 Phil Zimmermann 为了避开政府监视，开发了加密软件 PGP。这个软件非常好用，迅速流传开来，成了许多程序员的必备工具。但是，它是商业软件，不能自由使用。所以，自由软件基金会决定，开发一个 PGP 的替代品，取名为 GnuPG。这就是 GPG 的由来。  
+> GPG 有许多用途，包括文件加密、邮件的加密。
+
+1. 安装
+```bash
+sudo pacman -S gnupg
+```
+
+2. 查看帮助，如果屏幕显示 GPG 的帮助，就表示安装成功。
+```bash
+gpg -help
+```
+
+3. 安装成功后，使用 gen-ken 参数生成自己的密钥。
+```bash
+gpg --gen-key
+```
+
+---
+
+## 安装deb包
+
+### 使用 debtap 工具进行解包  
+
+1. 首先查看电脑上是否安装过 debtap
+```
+sudo pacman -Q debtap
+```
+2. 安装解包打包工具 debtap
+```
+yay -S debtap
+```
+3. 升级 debtap
+```
+sudo debtap -u
+```
+4. 将deb解包
+```
+sudo debtap  xxxx.deb
+```
+5. 上述操作完成后会在deb包同级目录生成 ×.tar.xz 文件，直接用 `pacman` 安装即可
+```
+sudo pacman -U x.tar.xz
+```
+> 安装时会提示输入包名，以及 `license`。  
+> 包名随意，`license` 就填 GPL 吧  
+
+
+---
+
 # 使用技巧
 
 ## Dolphin 设置
@@ -128,35 +229,41 @@ primusrun android-studio
 
 ---
 
-## 安装deb包
+### 分区挂载
 
-### 使用 debtap 工具进行解包  
+这里我觉得最要紧的问题就是 manjaro 安装完之后不能写入 NTFS！也就是说他们打开只能只读。  
+之前这个硬盘装的是双系统，大部分分区仍然是 Windows 下边的 NTFS 格式，然后发现 NTFS 分区不能写入。  
+当然解决方案也很简单，安装 `ntfs-3g-fuse` 这个包就好。我强烈建议你不要用 `ntfs-config` 这个包，上次安装这个包直接导致我系统各种挂载不正常。
 
-1. 首先查看电脑上是否安装过 debtap
-```
-sudo pacman -Q debtap
-```
-2. 安装解包打包工具 debtap
-```
-yay -S debtap
-```
-3. 升级 debtap
-```
-sudo debtap -u
-```
-4. 将deb解包
-```
-sudo debtap  xxxx.deb
-```
-5. 上述操作完成后会在deb包同级目录生成 ×.tar.xz 文件，直接用 `pacman` 安装即可
-```
-sudo pacman -U x.tar.xz
-```
-> 安装时会提示输入包名，以及 `license`。  
-> 包名随意，`license` 就填 GPL 吧  
+### 挂载新硬盘
 
+```
+sudo mount /dev/sda1 /home/tamsiree/Disk1/ 
+```
+
+`/dev/sda1` 为待挂载 新硬盘  
+`/home/tamsiree/Disk1/` 为挂载指定路径
+
+#### 设置开机自动挂载硬盘
+
+查询磁盘UUID
+```bash
+ls  -al  /dev/disk/by-uuid
+```
+
+编辑/etc/fstab(用来存放文件系统的静态信息的文件)
+
+加入挂载磁盘的信息
+
+```bash
+UUID=xxx  /[挂载目录]  ext4[文件格式]  defaults  0  0
+```
+
+重启系统即可
 
 ---
+
+
 
 # 问题解决
 ## 中文字体显示问题
@@ -363,77 +470,7 @@ defaults.ctl.card 0
 
 ---
 
-## 分区挂载
-
-这里我觉得最要紧的问题就是 manjaro 安装完之后不能写入 NTFS！也就是说他们打开只能只读。  
-之前这个硬盘装的是双系统，大部分分区仍然是 Windows 下边的 NTFS 格式，然后发现 NTFS 分区不能写入。  
-当然解决方案也很简单，安装 `ntfs-3g-fuse` 这个包就好。我强烈建议你不要用 `ntfs-config` 这个包，上次安装这个包直接导致我系统各种挂载不正常。
-
-## 挂载新硬盘
-
-```
-sudo mount /dev/sda1 /home/tamsiree/Disk1/ 
-```
-
-`/dev/sda1` 为待挂载 新硬盘  
-`/home/tamsiree/Disk1/` 为挂载指定路径
-
-### 设置开机自动挂载
-
-查询磁盘UUID
-```bash
-ls  -al  /dev/disk/by-uuid
-```
-
-编辑/etc/fstab(用来存放文件系统的静态信息的文件)
-
-加入挂载磁盘的信息
-
-```bash
-UUID=xxx  /[挂载目录]  ext4[文件格式]  defaults  0  0
-```
-
-重启系统即可
-
----
-
-# 获取文件的md5sums
-
-例如我在AUR中安装unityhub时，提示文件的 md5sums 验证失败(这问题老生常谈了)，因此便自己获取文件的 `md5sums` 然后修改构建脚本文件。
-```bash
-md5sum unityhub-2.2.2.AppImage  | cut -d ' ' -f1
-```
-
-# PGP Key Fingerprint
-
-在注册 [archlinux](https://aur.archlinux.org/) 的时候，需要用到 PGP 秘钥
-
-![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191014041534340.png)
-
-使用加密工具GPG 生成秘钥
-
-> 简单介绍GPG  
-> 
-> 要了解什么是 GPG，就要先了解 PGP。  
-> 1991 年，程序员 Phil Zimmermann 为了避开政府监视，开发了加密软件 PGP。这个软件非常好用，迅速流传开来，成了许多程序员的必备工具。但是，它是商业软件，不能自由使用。所以，自由软件基金会决定，开发一个 PGP 的替代品，取名为 GnuPG。这就是 GPG 的由来。  
-> GPG 有许多用途，包括文件加密、邮件的加密。
-
-1. 安装
-```bash
-sudo pacman -S gnupg
-```
-
-2. 查看帮助，如果屏幕显示 GPG 的帮助，就表示安装成功。
-```bash
-gpg -help
-```
-
-3. 安装成功后，使用 gen-ken 参数生成自己的密钥。
-```bash
-gpg --gen-key
-```
-
-# 秘钥出现问题
+## 秘钥出现问题
 
 在更新软件时，蹦出来这个错误
 
@@ -578,6 +615,48 @@ pacman-key --populate archlinux
 
 ---
 
+## Manjaro更新软件失败
+在系统提示软件更新时，准备进行软件更新，突然遇到这个错误。
+
+```
+全部安装大小：  2800.78 MiB
+净更新大小：    40.91 MiB
+
+:: 进行安装吗？ [Y/n] y
+(294/294) 正在检查密钥环里的密钥                   [#####] 100%
+(294/294) 正在检查软件包完整性                     [#####] 100%
+错误：gnome-shell-extension-gsconnect: 来自 "lilac (build machine) <lilac@build.archlinuxcn.org>" 的签名是未知信任的
+:: 文件 /var/cache/pacman/pkg/gnome-shell-extension-gsconnect-19-1-any.pkg.tar.xz 已损坏 (无效或已损坏的软件包 (PGP 签名)).
+打算删除吗？ [Y/n] y
+错误：inxi: 来自 "lilac (build machine) <lilac@build.archlinuxcn.org>" 的签名是未知信任的
+:: 文件 /var/cache/pacman/pkg/inxi-3.0.30-1-any.pkg.tar.xz 已损坏 (无效或已损坏的软件包 (PGP 签名)).
+打算删除吗？ [Y/n] y
+错误：timeshift: 来自 "lilac (build machine) <lilac@build.archlinuxcn.org>" 的签名是未知信任的
+:: 文件 /var/cache/pacman/pkg/timeshift-18.9.1-1-x86_64.pkg.tar.xz 已损坏 (无效或已损坏的软件包 (PGP 签名)).
+打算删除吗？ [Y/n] y
+错误：yad: 来自 "Colin Keenan <colinnkeenan@gmail.com>" 的签名是未知信任的
+:: 文件 /var/cache/pacman/pkg/yad-0.40.0-2-x86_64.pkg.tar.xz 已损坏 (无效或已损坏的软件包 (PGP 签名)).
+打算删除吗？ [Y/n] y
+错误：无法提交处理 (无效或已损坏的软件包)
+发生错误，没有软件包被更新。
+```
+
+> 我猜测原因可能是在Manjaro系统安装之后，我先安装了一部分软件，过了一段时间，我修改了 `/etc/pacman.conf` 文件，添加了 `ArchLinuxCN` 软件源，导致后期更新时，软件的签名不一致，因此需要修改 `/etc/pacman.conf` 文件中的 `SigLevel` 选项为 `Never`。
+
+例如：
+```
+[archlinuxcn]
+#SigLevel = Optional TrustedOnly
+SigLevel = Never
+Server = http://mirrors.163.com/archlinux-cn/$arch
+```
+
+如果问题仍然存在，可以尝试着把 `/etc/pacman.conf` 文件中的 **所有** `SigLevel` 选项为 `Never`。
+
+在更新完成后，记得修改回原来的文件配置！有利于系统的安全。
+
+---
+
 # 系统优化
 ## Manjaro 清理垃圾
 
@@ -612,34 +691,6 @@ sudo journalctl --vacuum-size=50M
 崩溃日志
 ```bash
 sudo rm /var/lib/systemd/coredump/*
-```
-
----
-
-# 生成ISO文件
-
-首先安装cdrkit工具
-```bash
-sudo pacman -S cdrkit  
-```
-
-然后将目标文件夹打包成为ISO文件  
-使用目录文件制作ISO文件
-```bash
-mkisofs -r -o 路径/ISO 文件名 目录文件路径
-```
-例子：
-```bash
-mkisofs -r -o /home/tamsiree/Tam1T/SteamOS.iso /home/tamsiree/Tam1T/系统镜像/SteamOSInstaller/
-```
-
-制作完ISO文件后，如何挂载呢？
-```bash
-mount -o loop ISO文件名 挂载点路径
-```
-例子：
-```bash
-mount -o loop /opt/mycd.iso /mnt/cdrom
 ```
 
 ---
