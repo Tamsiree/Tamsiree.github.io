@@ -33,46 +33,56 @@ class3:
   class_name: 壁纸
   link_list:
     1:
+      name: wallRoom
+      link: https://wallroom.io/
+      avatar: https://wallroom.io/favicon.ico
+      descr: 站长人工收集高质量壁纸
+    2:
+      name: wallpaperCave
+      link: https://wallpapercave.com/
+      avatar: https://wallpapercave.com/favicon.ico
+      descr: 国外高质量壁纸
+    3:
       name: WallHaven
       link: https://wallhaven.cc/
       avatar: https://wallhaven.cc/favicon.ico
       descr: 国外高质量壁纸
-    2:
+    4:
       name: 无崖子壁纸
       link: http://tu.fbisb.com/
       avatar: https://www.fbisb.com/favicon.ico
       descr: 无崖子壁纸资源网
-    3:
+    5:
       name: AlphaCoders
       link: https://wall.alphacoders.com/
       avatar: https://static.alphacoders.com/alpha_system_360.png
       descr: 国外壁纸网
-    4:
+    6:
       name: 乌云高清壁纸站
       link: https://www.obzhi.com/
       avatar: https://www.obzhi.com/wp-content/uploads/2016/09/www.ico.la_512423bc80c1b7f3d5e2f5be43f42407_32X32.ico
       descr: 高清壁纸
-    5:
+    7:
       name: 小贝壁纸
       link: http://www.xiaobeibizi.com/
       avatar: http://www.xiaobeibizi.com/Public/Img/bz.png
       descr: 海量精美壁纸
-    6:
+    8:
       name: 彼岸桌面
       link: http://www.netbian.com/
       avatar: http://www.netbian.com/favicon.ico
       descr: 免费彼岸桌面壁纸
-    7:
+    9:
       name: UnSplash
       link: https://unsplash.com/
       avatar: https://unsplash.com/favicon-32x32.png
       descr: 国外壁纸网
-    8:
+    10:
       name: WallLs
       link: http://wallls.com/
       avatar: http://wallls.com/favicon.ico
       descr: 国外壁纸网
-    9:
+    11:
       name: WallpaperUp
       link: https://www.wallpaperup.com
       avatar: https://www.wallpaperup.com/favicon.ico
