@@ -15,6 +15,8 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 # 前言
 在日常使用Manjaro系统的过程中，总会遇到这样或者那样的问题，也会遇到需要有某种需求的时候，特此记录。
 
+---
+
 # 功能需求
 ##  生成ISO文件
 
@@ -44,14 +46,16 @@ mount -o loop /opt/mycd.iso /mnt/cdrom
 
 ---
 
-# 获取文件的md5sums
+## 获取文件的md5sums
 
 例如我在AUR中安装unityhub时，提示文件的 md5sums 验证失败(这问题老生常谈了)，因此便自己获取文件的 `md5sums` 然后修改构建脚本文件。
 ```bash
 md5sum unityhub-2.2.2.AppImage  | cut -d ' ' -f1
 ```
 
-# PGP Key Fingerprint
+---
+
+## PGP Key Fingerprint
 
 在注册 [ArchLinux](https://aur.archlinux.org/) 的时候，需要用到 PGP 秘钥。
 
@@ -263,8 +267,6 @@ UUID=xxx  /[挂载目录]  ext4[文件格式]  defaults  0  0
 
 ---
 
-
-
 # 问题解决
 ## 中文字体显示问题
 ### 解决 中文字体 乱码方块
@@ -292,6 +294,8 @@ yay -S noto-fonts-cjk
 sudo pacman -S ttf-dejavu
 sudo pacman -S noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk
 ```
+
+---
 
 #### 字体设置
 在使用winfonts之后，电脑默认中文字体编程宋体，并不是很好看，我们把它转变成文泉驿正黑。操作如下：
@@ -659,7 +663,6 @@ Server = http://mirrors.163.com/archlinux-cn/$arch
 
 # 系统优化
 ## Manjaro 清理垃圾
-
 ### 清除系统中无用的包
 ```bash
 sudo pacman -R $(pacman -Qdtq)
