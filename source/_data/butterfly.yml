@@ -61,7 +61,7 @@ copy:
 #   icon: link
 # ---------------
 social:
-  fa fa-envelope: mailto:tamsiree.com@gmail.com
+  fa fa-envelope-square: mailto:tamsiree.com@gmail.com
   fa fa-github-square: https://github.com/Tamsiree
   fa fa-rss-square: /atom.xml
 
