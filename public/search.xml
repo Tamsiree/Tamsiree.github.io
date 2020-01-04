@@ -301,7 +301,7 @@
 </tr>
 <tr>
 <td align="center">披毛犀</td>
-<td align="center">woolly rhino</td>
+<td align="center">WoollyRhino</td>
 <td align="center">草食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
@@ -328,7 +328,7 @@
 </tr>
 <tr>
 <td align="center">水龙兽</td>
-<td align="center">lystrosaurus</td>
+<td align="center">Lystrosaurus</td>
 <td align="center">草食</td>
 <td align="center">软弱型</td>
 <td align="center">可以驯服</td>
@@ -346,7 +346,7 @@
 </tr>
 <tr>
 <td align="center">大地懒</td>
-<td align="center">megatherilm</td>
+<td align="center">Megatherilm</td>
 <td align="center">肉食</td>
 <td align="center">对昆虫是欺软怕硬型<br>对其他生物是老实型</td>
 <td align="center">可以驯服</td>
@@ -355,7 +355,7 @@
 </tr>
 <tr>
 <td align="center">袋狮</td>
-<td align="center">thylacoleo</td>
+<td align="center">Thylacoleo</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -364,7 +364,7 @@
 </tr>
 <tr>
 <td align="center">巨型短面袋鼠</td>
-<td align="center">prolopiodon</td>
+<td align="center">Prolopiodon</td>
 <td align="center">草食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
@@ -373,7 +373,7 @@
 </tr>
 <tr>
 <td align="center">恐熊</td>
-<td align="center">direbear</td>
+<td align="center">Direbear</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -382,7 +382,7 @@
 </tr>
 <tr>
 <td align="center">砂犷兽</td>
-<td align="center">chalicotherium</td>
+<td align="center">Chalicotherium</td>
 <td align="center">草食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
@@ -391,7 +391,7 @@
 </tr>
 <tr>
 <td align="center">龙王鲸</td>
-<td align="center">basilosaurus</td>
+<td align="center">Basilosaurus</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -400,7 +400,7 @@
 </tr>
 <tr>
 <td align="center">麝足兽</td>
-<td align="center">moschops</td>
+<td align="center">Moschops</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -409,7 +409,7 @@
 </tr>
 <tr>
 <td align="center">兽头兽</td>
-<td align="center">purlovia</td>
+<td align="center">Purlovia</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -476,7 +476,7 @@
 </tr>
 <tr>
 <td align="center">远古水母</td>
-<td align="center">cnidaria</td>
+<td align="center">Cnidaria</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">无法驯服</td>
@@ -485,7 +485,7 @@
 </tr>
 <tr>
 <td align="center">古马陆</td>
-<td align="center">arthuopllera</td>
+<td align="center">Arthuopllera</td>
 <td align="center">腐食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -494,7 +494,7 @@
 </tr>
 <tr>
 <td align="center">广翅鲎</td>
-<td align="center">eurypterid</td>
+<td align="center">Eurypterid</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">无法驯服</td>
@@ -503,7 +503,7 @@
 </tr>
 <tr>
 <td align="center">远古蜣螂</td>
-<td align="center">dling beetle</td>
+<td align="center">DlingBeetle</td>
 <td align="center">粪食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -512,7 +512,7 @@
 </tr>
 <tr>
 <td align="center">托斯特巨鱿</td>
-<td align="center">toth，the giant squid</td>
+<td align="center">Toth<br>The Giant Squid</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -521,7 +521,7 @@
 </tr>
 <tr>
 <td align="center">玛瑙螺</td>
-<td align="center">achatina</td>
+<td align="center">Achatina</td>
 <td align="center">草食</td>
 <td align="center">软弱型</td>
 <td align="center">可以驯服</td>
@@ -530,7 +530,7 @@
 </tr>
 <tr>
 <td align="center">菊石</td>
-<td align="center">ammonite</td>
+<td align="center">Ammonite</td>
 <td align="center">肉食</td>
 <td align="center">软弱型</td>
 <td align="center">无法驯服</td>
@@ -539,7 +539,7 @@
 </tr>
 <tr>
 <td align="center">水蛭</td>
-<td align="center">leech</td>
+<td align="center">Leech</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">无法驯服</td>
@@ -606,7 +606,7 @@
 </tr>
 <tr>
 <td align="center">禽龙</td>
-<td align="center">iglianodon</td>
+<td align="center">Iglianodon</td>
 <td align="center">草食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
@@ -687,7 +687,7 @@
 </tr>
 <tr>
 <td align="center">梁龙</td>
-<td align="center">diplodollis</td>
+<td align="center">Diplodollis</td>
 <td align="center">草食</td>
 <td align="center">软弱型</td>
 <td align="center">可以驯服</td>
@@ -714,7 +714,7 @@
 </tr>
 <tr>
 <td align="center">异齿龙</td>
-<td align="center">dimetrodon</td>
+<td align="center">Dimetrodon</td>
 <td align="center">肉食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
@@ -759,7 +759,7 @@
 </tr>
 <tr>
 <td align="center">蛇颈龙</td>
-<td align="center">plesiosaur</td>
+<td align="center">Plesiosaur</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -768,7 +768,7 @@
 </tr>
 <tr>
 <td align="center">滑齿龙</td>
-<td align="center">lioplelirodon</td>
+<td align="center">Lioplelirodon</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -795,7 +795,7 @@
 </tr>
 <tr>
 <td align="center">古巨蜥</td>
-<td align="center">megalania</td>
+<td align="center">Megalania</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -831,7 +831,7 @@
 </tr>
 <tr>
 <td align="center">异特龙</td>
-<td align="center">allosaurus</td>
+<td align="center">Allosaurus</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -858,7 +858,7 @@
 </tr>
 <tr>
 <td align="center">窃蛋龙</td>
-<td align="center">ovirapior</td>
+<td align="center">Ovirapior</td>
 <td align="center">肉食</td>
 <td align="center">软弱型</td>
 <td align="center">可以驯服</td>
@@ -867,7 +867,7 @@
 </tr>
 <tr>
 <td align="center">似鸡龙</td>
-<td align="center">gallimimlis</td>
+<td align="center">Gallimimlis</td>
 <td align="center">草食</td>
 <td align="center">软弱型</td>
 <td align="center">可以驯服</td>
@@ -885,7 +885,7 @@
 </tr>
 <tr>
 <td align="center">美颌龙</td>
-<td align="center">compy</td>
+<td align="center">Compy</td>
 <td align="center">肉食</td>
 <td align="center">一只时弱 两只以上强</td>
 <td align="center">可以驯服</td>
@@ -894,7 +894,7 @@
 </tr>
 <tr>
 <td align="center">伤齿龙</td>
-<td align="center">troodon</td>
+<td align="center">Troodon</td>
 <td align="center">肉食</td>
 <td align="center">欺软怕硬型</td>
 <td align="center">可以驯服</td>
@@ -903,7 +903,7 @@
 </tr>
 <tr>
 <td align="center">盗首螈</td>
-<td align="center">diplolalillia</td>
+<td align="center">Diplolalillia</td>
 <td align="center">肉食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
@@ -912,7 +912,7 @@
 </tr>
 <tr>
 <td align="center">泰坦龙</td>
-<td align="center">titanosaur</td>
+<td align="center">Titanosaur</td>
 <td align="center">草食</td>
 <td align="center">老实型</td>
 <td align="center">可以驯服</td>
