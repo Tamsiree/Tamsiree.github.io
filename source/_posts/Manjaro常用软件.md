@@ -351,6 +351,16 @@ yay -S typora
 
 ---
 
+## Foxit
+Foxit Reader 8.0——获得殊荣的 PDF 阅读器
+
+安装：  
+```bash
+yay -S foxit
+```
+
+---
+
 ## wireshark-qt
 
 > Wireshark 是一款免费开源的包分析器，可用于网络排错、网络分析、软件和通讯协议开发以及教学等。然而不幸的是官方网站上仅提供了 Windows 和 MacOS 的版本。不过不用担心，你依然可以使用 pacman 直接从 Arch 的 community 软件源里直接安装 wireshark-qt 。wireshark-qt 就是用 qt 做成的 wireshark 前端界面，它依赖于终端版的 wireshark-cli 。
