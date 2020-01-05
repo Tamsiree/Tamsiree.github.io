@@ -11,6 +11,9 @@ categories:
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6f8a2832gy1g6s9wpt1mdj21hc0u0u0x.jpg 
 ---
 
+# 前言
+总结Markdown内使用的Emoji表情。
+
 # Emoji表情
 
 将对应 emoji 表情的符号码复制后输入你的 markdown 文本即可显示 emoji 表情。

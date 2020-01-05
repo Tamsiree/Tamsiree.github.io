@@ -12729,7 +12729,8 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>Markdown内使用Emoji表情</title>
     <url>/TechnicalResearch/Markdown/Emoji/Markdown%E5%86%85%E4%BD%BF%E7%94%A8Emoji%E8%A1%A8%E6%83%85/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Emoji表情"><a href="#Emoji表情" class="headerlink" title="Emoji表情"></a>Emoji表情</h1><p>将对应 emoji 表情的符号码复制后输入你的 markdown 文本即可显示 emoji 表情。<br>如<code>:blush:</code>，显示为 :blush:</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>总结Markdown内使用的Emoji表情。</p>
+<h1 id="Emoji表情"><a href="#Emoji表情" class="headerlink" title="Emoji表情"></a>Emoji表情</h1><p>将对应 emoji 表情的符号码复制后输入你的 markdown 文本即可显示 emoji 表情。<br>如<code>:blush:</code>，显示为 :blush:</p>
 <h2 id="人物"><a href="#人物" class="headerlink" title="人物"></a>人物</h2><table>
 <thead>
 <tr>
