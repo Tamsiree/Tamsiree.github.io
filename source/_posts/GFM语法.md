@@ -503,7 +503,7 @@ Github的Markdown语法支持添加emoji表情，输入不同的符号码（两�
 
 具体每一个表情的符号码，可以查询GitHub的官网 [官网](http://www.emoji-cheat-sheet.com)。
 
-但是这个网页每次都打开**奇慢**。。所以我整理到了本博客中，大家可以直接在此查看 [[Markdown内使用Emoji表情]](https://tamsiree.com/Technical-Research/Markdown/Emoji/Markdown内使用Emoji表情)。
+但是这个网页每次都打开**奇慢**。。所以我整理到了本博客中，大家可以直接在此查看 [[Markdown内使用Emoji表情]](https://tamsiree.com/TechnicalResearch/Markdown/Emoji/Markdown内使用Emoji表情)。
 
 # diff语法
 

@@ -16,8 +16,10 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6f8
 
 # Emoji表情
 
-将对应 emoji 表情的符号码复制后输入你的 markdown 文本即可显示 emoji 表情。
-如`:blush:`，显示为 :blush:
+将对应 emoji 表情的符号码复制后输入你的 markdown 文本即可显示 emoji 表情。  
+如`:blush:`，显示为 😊
+
+具体每一个表情的符号码，可以查询 Emoji 的 [官网](http://www.emoji-cheat-sheet.com)。
 
 ## 人物
 
