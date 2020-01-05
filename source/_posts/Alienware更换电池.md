@@ -1,10 +1,15 @@
 ---
 title: Alienware更换电池
 date: 2020-01-05 16:21:46
+description: 入手Alienware也有快四个年头了，当初是在官网买的Alienware 15R2版本，用到现在整体性能还不错，就是因为在之前的公司经常需要自带电脑，而且常常在一些猝不及防的时候就有紧急工作安排，所以导致电池的寿命持续变短，今天正好腾出空来更换一下电池。
 tags:
+  - Computer
+categories:
+  - Computer
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhavenwyo8g6.jpg
 ---
 # 前言
-入手Alienware也有快四个年头了，当初是在官网买的Alienware 15R2版本，用到现在整体性能还不错，就是因为在之前的公司经常需要自带电脑，而且常常在一些猝不及防的时候就有紧急工作安排，所以导致电池的寿命持续变短，今天正好腾出空来更换一下电池。
+入手 `Alienware` 也有快四个年头了，当初是在官网买的 `Alienware 15R2` 版本，用到现在整体性能还不错，就是因为在之前的公司经常需要自带电脑，而且常常在一些猝不及防的时候就有紧急工作安排，所以导致电池的寿命持续变短，今天正好腾出空来更换一下电池。
 
 ---
 

@@ -2,51 +2,108 @@
 <search>
   <entry>
     <title>Alienware更换电池</title>
-    <url>/%E9%9A%8F%E6%89%8B%E8%AE%B0/Alienware%E6%9B%B4%E6%8D%A2%E7%94%B5%E6%B1%A0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>入手Alienware也有快四个年头了，当初是在官网买的Alienware 15R2版本，用到现在整体性能还不错，就是因为在之前的公司经常需要自带电脑，而且常常在一些猝不及防的时候就有紧急工作安排，所以导致电池的寿命持续变短，今天正好腾出空来更换一下电池。</p>
+    <url>/Computer/Alienware%E6%9B%B4%E6%8D%A2%E7%94%B5%E6%B1%A0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>入手 <code>Alienware</code> 也有快四个年头了，当初是在官网买的 <code>Alienware 15R2</code> 版本，用到现在整体性能还不错，就是因为在之前的公司经常需要自带电脑，而且常常在一些猝不及防的时候就有紧急工作安排，所以导致电池的寿命持续变短，今天正好腾出空来更换一下电池。</p>
 <hr>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><div class="table-container">
-<table>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><table>
 <thead>
 <tr>
-<th style="text-align:center">一把小尖嘴钳</th>
-<th style="text-align:center">一把小号十字起</th>
-<th style="text-align:center">一把小号一字起</th>
+<th align="center">一把小尖嘴钳</th>
+<th align="center">一把小号十字起</th>
+<th align="center">一把小号一字起</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><a href="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=344872325,1823788294&fm=15&gp=0.jpg" data-fancybox="group" data-caption="一把小尖嘴钳" class="fancybox"><img height="200" width="300" alt="一把小尖嘴钳" title="一把小尖嘴钳" data-src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=344872325,1823788294&fm=15&gp=0.jpg" class="lazyload"></a></td>
-<td style="text-align:center"><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578224356651&di=5877cb9e759ddc5ae72ea951b1ea9b3b&imgtype=0&src=http%3A%2F%2Fimg006.hc360.cn%2Fhb%2FMTQ2MjQzOTYyMTAyMC04OTMzOTQ1MTk%3D.jpg" data-fancybox="group" data-caption="一把小号十字起" class="fancybox"><img height="200" width="300" alt="一把小号十字起" title="一把小号十字起" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578224356651&di=5877cb9e759ddc5ae72ea951b1ea9b3b&imgtype=0&src=http%3A%2F%2Fimg006.hc360.cn%2Fhb%2FMTQ2MjQzOTYyMTAyMC04OTMzOTQ1MTk%3D.jpg" class="lazyload"></a></td>
-<td style="text-align:center"><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578819115&di=72fa1c07087e231219166b33e97c8948&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.114pifa.com%2F3193%2FqzKsyNQVL_1409936118.jpg" data-fancybox="group" data-caption="一把小号一字起" class="fancybox"><img height="200" width="300" alt="一把小号一字起" title="一把小号一字起" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578819115&di=72fa1c07087e231219166b33e97c8948&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.114pifa.com%2F3193%2FqzKsyNQVL_1409936118.jpg" class="lazyload"></a></td>
+<tbody><tr>
+<td align="center"><a href="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=344872325,1823788294&fm=15&gp=0.jpg" data-fancybox="group" data-caption="一把小尖嘴钳" class="fancybox"><img height="200" width="300" alt="一把小尖嘴钳" title="一把小尖嘴钳" data-src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=344872325,1823788294&fm=15&gp=0.jpg" class="lazyload"></a></td>
+<td align="center"><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578224356651&di=5877cb9e759ddc5ae72ea951b1ea9b3b&imgtype=0&src=http%3A%2F%2Fimg006.hc360.cn%2Fhb%2FMTQ2MjQzOTYyMTAyMC04OTMzOTQ1MTk%3D.jpg" data-fancybox="group" data-caption="一把小号十字起" class="fancybox"><img height="200" width="300" alt="一把小号十字起" title="一把小号十字起" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578224356651&di=5877cb9e759ddc5ae72ea951b1ea9b3b&imgtype=0&src=http%3A%2F%2Fimg006.hc360.cn%2Fhb%2FMTQ2MjQzOTYyMTAyMC04OTMzOTQ1MTk%3D.jpg" class="lazyload"></a></td>
+<td align="center"><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578819115&di=72fa1c07087e231219166b33e97c8948&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.114pifa.com%2F3193%2FqzKsyNQVL_1409936118.jpg" data-fancybox="group" data-caption="一把小号一字起" class="fancybox"><img height="200" width="300" alt="一把小号一字起" title="一把小号一字起" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578819115&di=72fa1c07087e231219166b33e97c8948&imgtype=jpg&er=1&src=http%3A%2F%2Fimg3.114pifa.com%2F3193%2FqzKsyNQVL_1409936118.jpg" class="lazyload"></a></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <hr>
-<h2 id="动手"><a href="#动手" class="headerlink" title="动手"></a>动手</h2><div class="table-container">
-<table>
+<h2 id="动手"><a href="#动手" class="headerlink" title="动手"></a>动手</h2><table>
 <thead>
 <tr>
-<th style="text-align:center">图解</th>
+<th align="center">图解</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1619218cyzy5ymeimwllif.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1619218cyzy5ymeimwllif.jpg" class="lazyload" title></a></td>
+<tbody><tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1619218cyzy5ymeimwllif.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1619218cyzy5ymeimwllif.jpg" class="lazyload"></a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161921a8abz2u94tugell4.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161921a8abz2u94tugell4.jpg" class="lazyload" title></a></td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161921a8abz2u94tugell4.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161921a8abz2u94tugell4.jpg" class="lazyload"></a></td>
 </tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161922z3d3zdt7v4dd4utb.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161922z3d3zdt7v4dd4utb.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162138zvtirbvotycmrxrl.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162138zvtirbvotycmrxrl.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162139epw5n5cmxe24cfm8.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162139epw5n5cmxe24cfm8.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1621400v971l0l0lelln0v.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1621400v971l0l0lelln0v.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162213fg4fozu4uf5fwf54.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162213fg4fozu4uf5fwf54.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622141ll135vlc3ml9mzb.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622141ll135vlc3ml9mzb.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162215k1rykzlhpnklplto.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162215k1rykzlhpnklplto.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622432qzbmdpg2dpfp1zp.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622432qzbmdpg2dpfp1zp.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16224421ob8s5sy21t1f2x.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16224421ob8s5sy21t1f2x.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162244zc9zesjffccsss9u.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162244zc9zesjffccsss9u.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162319ljl7exjeegvzl7l5.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162319ljl7exjeegvzl7l5.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162320moifs6ir9fy9456r.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162320moifs6ir9fy9456r.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16232121jsmnhd0wtthaer.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16232121jsmnhd0wtthaer.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1624339kd2de89d9i2kgen.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1624339kd2de89d9i2kgen.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162434gk70omebg7aaoo0j.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162434gk70omebg7aaoo0j.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162435lcqsmafu2qfscogu.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162435lcqsmafu2qfscogu.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162509llziu9b7i9uucrdz.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162509llziu9b7i9uucrdz.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251014nnao6k49844mao.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251014nnao6k49844mao.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1625109wlxszoyeleiyntw.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1625109wlxszoyeleiyntw.jpg" class="lazyload" title></a>|<br>| <a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251192lycceqycs1oyon.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251192lycceqycs1oyon.jpg" class="lazyload" title></a>|</p>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161922z3d3zdt7v4dd4utb.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/161922z3d3zdt7v4dd4utb.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162138zvtirbvotycmrxrl.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162138zvtirbvotycmrxrl.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162139epw5n5cmxe24cfm8.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162139epw5n5cmxe24cfm8.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1621400v971l0l0lelln0v.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1621400v971l0l0lelln0v.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162213fg4fozu4uf5fwf54.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162213fg4fozu4uf5fwf54.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622141ll135vlc3ml9mzb.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622141ll135vlc3ml9mzb.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162215k1rykzlhpnklplto.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162215k1rykzlhpnklplto.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622432qzbmdpg2dpfp1zp.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1622432qzbmdpg2dpfp1zp.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16224421ob8s5sy21t1f2x.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16224421ob8s5sy21t1f2x.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162244zc9zesjffccsss9u.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162244zc9zesjffccsss9u.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162319ljl7exjeegvzl7l5.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162319ljl7exjeegvzl7l5.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162320moifs6ir9fy9456r.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162320moifs6ir9fy9456r.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16232121jsmnhd0wtthaer.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16232121jsmnhd0wtthaer.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1624339kd2de89d9i2kgen.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1624339kd2de89d9i2kgen.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162434gk70omebg7aaoo0j.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162434gk70omebg7aaoo0j.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162435lcqsmafu2qfscogu.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162435lcqsmafu2qfscogu.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162509llziu9b7i9uucrdz.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/162509llziu9b7i9uucrdz.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251014nnao6k49844mao.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251014nnao6k49844mao.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1625109wlxszoyeleiyntw.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1625109wlxszoyeleiyntw.jpg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251192lycceqycs1oyon.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16251192lycceqycs1oyon.jpg" class="lazyload"></a></td>
+</tr>
+</tbody></table>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>Computer</tag>
+      </tags>
   </entry>
   <entry>
     <title>ARK</title>
