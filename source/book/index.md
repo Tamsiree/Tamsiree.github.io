@@ -19,5 +19,12 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/w
 |《墨菲定律》|[美] 阿瑟·布洛赫|<img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/s8958835.jpg" height="20" width="15" alt="墨菲定律 - [美] 阿瑟·布洛赫" title="墨菲定律 - [美] 阿瑟·布洛赫" >|
 |《鬼谷子》|王诩|<img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" height="20" width="15" alt="鬼谷子 - 王诩" title="鬼谷子 - 王诩" >|
 
+
+# 推荐
+
+朋友推荐的书单
+
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/mmexport1577620625088.jpg)
+
 ---
 > to be continued...
