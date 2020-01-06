@@ -135,29 +135,6 @@
   </entry>
   
   <entry>
-    <title>随机获取在线壁纸</title>
-    <link href="https://tamsiree.com/Tool/%E9%9A%8F%E6%9C%BA%E8%8E%B7%E5%8F%96%E5%9C%A8%E7%BA%BF%E5%A3%81%E7%BA%B8/"/>
-    <id>https://tamsiree.com/Tool/%E9%9A%8F%E6%9C%BA%E8%8E%B7%E5%8F%96%E5%9C%A8%E7%BA%BF%E5%A3%81%E7%BA%B8/</id>
-    <published>2019-12-30T08:06:16.000Z</published>
-    <updated>2019-12-30T08:22:54.618Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某日的我，望着桌面发呆，看着这个一成不变的桌面，总想添加点变化的东西，想来想去忽然觉得个把壁纸换一下，而且每次都不同的壁纸才有新鲜感嘛。</p><h1 id="随机占位图"><a href="#随机占位图" class="headerlink" title="随机占位图"></a>随机占位图</h1><p><a href="https://picsum.photos/1920/1080" target="_blank" rel="noopener">https://picsum.photos/1920/1080</a><br><a href="https://placeimg.com/1920/1080/any" target="_blank" rel="noopener">https://placeimg.com/1920/1080/any</a><br><a href="https://placekitten.com/1920/1080" target="_blank" rel="noopener">https://placekitten.com/1920/1080</a></p><p><a href="https://picsum.photos/1920/1080" data-fancybox="group" data-caption="picsum.photos随机占位图" class="fancybox"><img alt="picsum.photos随机占位图" title="picsum.photos随机占位图" data-src="https://picsum.photos/1920/1080" class="lazyload"></a></p><p>通过修改图片尺寸来获取不同大小的随机图片，尺寸可以修改，<code>/1920/1080</code> 可以修改</p><p>更多尺寸及参数设定请看</p><ul><li><a href="https://picsum.photos" target="_blank" rel="noopener">https://picsum.photos</a></li><li><a href="https://placeimg.com" target="_blank" rel="noopener">https://placeimg.com</a></li><li><a href="https://placekitten.com" target="_blank" rel="noopener">https://placekitten.com</a></li></ul><h1 id="随机-flickr-图片"><a href="#随机-flickr-图片" class="headerlink" title="随机 flickr 图片"></a>随机 flickr 图片</h1><p><a href="https://loremflickr.com/1920/1080/cat" target="_blank" rel="noopener">https://loremflickr.com/1920/1080/cat</a></p><p><a href="https://loremflickr.com/1920/1080/cat" data-fancybox="group" data-caption="随机flickr图片" class="fancybox"><img alt="随机flickr图片" title="随机flickr图片" data-src="https://loremflickr.com/1920/1080/cat" class="lazyload"></a></p><p>通过修改图片尺寸来获取知名图库 <strong>flickr</strong> 不同大小的随机图片，尺寸可以修改，<code>/1920/1080</code> <code>/cat</code> 可以修改</p><p>更多尺寸及参数设定请看</p><p><a href="https://loremflickr.com" target="_blank" rel="noopener">https://loremflickr.com</a></p><h1 id="随机-pixel-图片"><a href="#随机-pixel-图片" class="headerlink" title="随机 pixel 图片"></a>随机 pixel 图片</h1><p><a href="https://lorempixel.com/1920/1080/" target="_blank" rel="noopener">https://lorempixel.com/1920/1080/</a></p><p><a href="https://lorempixel.com/1920/1080/" data-fancybox="group" data-caption="随机pixel图片" class="fancybox"><img alt="随机pixel图片" title="随机pixel图片" data-src="https://lorempixel.com/1920/1080/" class="lazyload"></a></p><p>通过修改图片尺寸来获取知名无版权图片库 <strong>pixel</strong> 不同大小的随机图片，尺寸可以修改，<code>/1920/1080</code> 可以修改</p><p>更多尺寸及参数设定请看</p><p><a href="https://loremflickr.com" target="_blank" rel="noopener">https://loremflickr.com</a></p><h1 id="随机-unsplash-图片"><a href="#随机-unsplash-图片" class="headerlink" title="随机 unsplash 图片"></a>随机 unsplash 图片</h1><p><a href="https://source.unsplash.com/random/1920x1080" target="_blank" rel="noopener">https://source.unsplash.com/random/1920x1080</a></p><p><a href="https://images.weserv.nl/?url=https://source.unsplash.com/random/1920x1080" data-fancybox="group" data-caption="unsplash.com随机图片" class="fancybox"><img alt="unsplash.com随机图片" title="unsplash.com随机图片" data-src="https://images.weserv.nl/?url=https://source.unsplash.com/random/1920x1080" class="lazyload"></a></p><p>通过修改图片尺寸来获取不同大小的随机图片，尺寸可以修改，<code>random/</code> 后面进行修改图片尺寸</p><p>更多尺寸及参数设定请看</p><p><a href="https://source.unsplash.com" target="_blank" rel="noopener">https://source.unsplash.com</a></p><p>可以利用下方图片代理服务加速，直接在这些服务后面加上图片地址即可，该方法可解决防盗链、速度慢、无证书等问题。</p><ul><li><a href="https://image.baidu.com/search/down?tn=download&url=" target="_blank" rel="noopener">https://image.baidu.com/search/down?tn=download&amp;url=</a></li><li><a href="https://imageproxy.pimg.tw/resize?url=" target="_blank" rel="noopener">https://imageproxy.pimg.tw/resize?url=</a></li><li><a href="https://images.weserv.nl/?url=" target="_blank" rel="noopener">https://images.weserv.nl/?url=</a></li><li><a href="https://pic1.xuehuaimg.com/proxy/" target="_blank" rel="noopener">https://pic1.xuehuaimg.com/proxy/</a></li></ul><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      某日的我，望着桌面发呆，看着这个一成不变的桌面，总想添加点变化的东西，想来想去忽然觉得个把壁纸换一下，而且每次都不同的壁纸才有新鲜感嘛。
-    
-    </summary>
-    
-    
-      <category term="Tool" scheme="https://tamsiree.com/categories/Tool/"/>
-    
-    
-      <category term="Tool" scheme="https://tamsiree.com/tags/Tool/"/>
-    
-  </entry>
-  
-  <entry>
     <title>TA是怎样炼成的</title>
     <link href="https://tamsiree.com/TechnicalResearch/TA/TA%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84/"/>
     <id>https://tamsiree.com/TechnicalResearch/TA/TA%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84/</id>
@@ -581,6 +558,31 @@
       <category term="Research" scheme="https://tamsiree.com/tags/Research/"/>
     
       <category term="软件工程" scheme="https://tamsiree.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo重新部署</title>
+    <link href="https://tamsiree.com/TechnicalResearch/Hexo/Hexo%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2/"/>
+    <id>https://tamsiree.com/TechnicalResearch/Hexo/Hexo%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2/</id>
+    <published>2019-10-18T02:00:12.000Z</published>
+    <updated>2020-01-05T10:44:17.387Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为折腾Manjaro的NVIDIA卡的驱动程序，导致系统只能显示ttf界面，只好重装系统，因此Hexo也需要重新部署。</p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/183634-1568716594f366.jpg" class="lazyload"></a></p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="首先安装依赖环境"><a href="#首先安装依赖环境" class="headerlink" title="首先安装依赖环境"></a>首先安装依赖环境</h1><ol><li><p>安装nodejs</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S nodejs</span><br></pre></td></tr></table></figure></div></li><li><p>安装npm</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S npm</span><br></pre></td></tr></table></figure></div></li><li><p>生成ssh秘钥<br>配置git个人信息和生成ssh密钥</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;xxxxx&quot;</span><br><span class="line">git config --global user.email &quot;xxxxxx@xx.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxxxx@xx.com&quot;</span><br></pre></td></tr></table></figure></div></li><li><p>设置Github的ssh密钥<br>因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 <a href="https://tamsiree.com/TechnicalResearch/Git/Git/#创建SSH秘钥">设置Github的ssh密钥</a></p></li><li><p>Git Clone Hexo from github<br>如果clone失败或者clone的速度太慢，可以参考我的这两篇文章 <a href="https://tamsiree.com/TechnicalResearch/GitHub/Github提速方案/">[Github提速方案]</a> 与 <a href="https://tamsiree.com/TechnicalResearch/Git/Git/#Git的妙用">[Git的妙用]</a> </p></li><li><p>安装Hexo<br>打开你原有的 blog文件夹,在 git bash 上 输入 </p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></div></li><li><p>安装依赖文件</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></div><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure></div></li><li><p>启动Hexo</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server -d</span><br></pre></td></tr></table></figure></div></li></ol><p>不要用hexo init初始化，部分文件已经拷贝生成，如果不慎使用，则站点配置文件_config.yml会被初始化为默认值</p><blockquote><p>到此为止，重新配置已经完成</p></blockquote><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      因为折腾Manjaro的NVIDIA卡的驱动程序，导致系统只能显示ttf界面，只好重装系统，因此Hexo也需要重新部署。
+    
+    </summary>
+    
+    
+      <category term="TechnicalResearch" scheme="https://tamsiree.com/categories/TechnicalResearch/"/>
+    
+      <category term="Hexo" scheme="https://tamsiree.com/categories/TechnicalResearch/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://tamsiree.com/tags/Hexo/"/>
     
   </entry>
   
