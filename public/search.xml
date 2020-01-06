@@ -8949,6 +8949,21 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <p>VMWare (Virtual Machine ware)是一个“虚拟PC”软件公司.它的产品可以使你在一台机器上同时运行二个或更多Windows、DOS、LINUX系统。<br>与“多启动”系统相比，VMWare采用了完全不同的概念。多启动系统在一个时刻只能运行一个系统，在系统切换时需要重新启动机器。VMWare是真正“同时”运行，多个操作系统在主系统的平台上，就象标准Windows应用程序那样切换。而且每个操作系统你都可以进行虚拟的分区、配置而不影响真实硬盘的数据，你甚至可以通过网卡将几台虚拟机用网卡连接为一个局域网，极其方便。安装在VMware操作系统性能上比直接安装在硬盘上的系统低不少，因此，比较适合学习和测试。</p>
 </blockquote>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/68b3ad0a9b0fee6f58a540f8d3c13158_r.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/68b3ad0a9b0fee6f58a540f8d3c13158_r.jpg" class="lazyload"></a></p>
+<hr>
+<h1 id="Oracle-VM-VirtualBox安装增强功能和共享文件夹的方法"><a href="#Oracle-VM-VirtualBox安装增强功能和共享文件夹的方法" class="headerlink" title="Oracle VM VirtualBox安装增强功能和共享文件夹的方法"></a>Oracle VM VirtualBox安装增强功能和共享文件夹的方法</h1><h2 id="安装增强功能"><a href="#安装增强功能" class="headerlink" title="安装增强功能"></a>安装增强功能</h2><p>选择安装增强功能的安装包有2种方法，分别如下：<br><strong>第一种</strong>：找到设备-&gt;安装增强功能<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230218065.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230218065.png" class="lazyload"></a>  </p>
+<p><strong>第二种</strong>  </p>
+<ol>
+<li>找到设备-&gt;点击选择虚拟盘。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230706814.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230706814.png" class="lazyload"></a>  </li>
+<li>找到VirtualBox-&gt;VBoxGuestAdditions.iso文件。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230805853.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230805853.png" class="lazyload"></a>  </li>
+</ol>
+<h2 id="共享文件夹"><a href="#共享文件夹" class="headerlink" title="共享文件夹"></a>共享文件夹</h2><p>下载地址：<a href="http://download.virtualbox.org/virtualbox/" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox/</a></p>
+<ol>
+<li>找到菜单栏上的设备-&gt;选择共享文件夹-&gt;创建共享文件夹(共享文件夹就是本电脑共享文件夹，该文件夹设置自动挂载分配，这样每次启动虚拟机就可以进行共享文件。)<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234425405.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234425405.png" class="lazyload"></a>  </li>
+<li>重新进入虚拟Ubuntu，在命令行终端下输入：<br>sudo mkdir /mnt/sharing 新创建一个挂载点；<br>sudo mount -t vboxsf Share /mnt/sharing 进行挂载<br>执行下ls 看下有没有挂载成功。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234646693.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234646693.png" class="lazyload"></a>  </li>
+<li>如果不想每次启动后都进行挂载的话，可以设置为自动挂载，如果有选中“Auto-mount”的选项的话,可在/media/目录下看到你共享的名字sf_name;例如共享的文件夹名字为share，那就看到sf_share。  </li>
+</ol>
+<h2 id="在本系统关联虚拟机上的系统，进行文件共享"><a href="#在本系统关联虚拟机上的系统，进行文件共享" class="headerlink" title="在本系统关联虚拟机上的系统，进行文件共享"></a>在本系统关联虚拟机上的系统，进行文件共享</h2><p>点击桌面上的网络右击鼠标，选择映射网络驱动器，其中的文件夹的路径，为共享文件夹的路径，最后在电脑中的网络位置，出现共享文件的图标，双击该文件夹，显示了共享的内容。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235507873.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235507873.png" class="lazyload"></a><br><strong>最后，实现的结果如下图：</strong><br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235551025.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235551025.png" class="lazyload"></a></p>
+<hr>
 <h1 id="VMware-所有版本永久许可证"><a href="#VMware-所有版本永久许可证" class="headerlink" title="VMware 所有版本永久许可证"></a>VMware 所有版本永久许可证</h1><blockquote>
 <p>注：如果是WinXP或32位系统请用 10.0 版本；11.0 版本之后支持Win7或更高版64位系统。</p>
 </blockquote>
@@ -8973,20 +8988,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VMware Workstation v6 ACE Edition for Windows </span><br><span class="line"></span><br><span class="line">TK08J-ADW6W-PGH7V-4F8FP </span><br><span class="line">YJ8YH-6D4F8-9EPGV-4DZNA </span><br><span class="line">YCX8N-4MDD2-G130C-4GR4L</span><br></pre></td></tr></table></figure></div>
 
-<hr>
-<h1 id="Oracle-VM-VirtualBox安装增强功能和共享文件夹的方法"><a href="#Oracle-VM-VirtualBox安装增强功能和共享文件夹的方法" class="headerlink" title="Oracle VM VirtualBox安装增强功能和共享文件夹的方法"></a>Oracle VM VirtualBox安装增强功能和共享文件夹的方法</h1><h2 id="安装增强功能"><a href="#安装增强功能" class="headerlink" title="安装增强功能"></a>安装增强功能</h2><p>选择安装增强功能的安装包有2种方法，分别如下：<br><strong>第一种</strong>：找到设备-&gt;安装增强功能<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230218065.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230218065.png" class="lazyload"></a>  </p>
-<p><strong>第二种</strong>  </p>
-<ol>
-<li>找到设备-&gt;点击选择虚拟盘。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230706814.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230706814.png" class="lazyload"></a>  </li>
-<li>找到VirtualBox-&gt;VBoxGuestAdditions.iso文件。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230805853.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402230805853.png" class="lazyload"></a>  </li>
-</ol>
-<h2 id="共享文件夹"><a href="#共享文件夹" class="headerlink" title="共享文件夹"></a>共享文件夹</h2><p>下载地址：<a href="http://download.virtualbox.org/virtualbox/" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox/</a></p>
-<ol>
-<li>找到菜单栏上的设备-&gt;选择共享文件夹-&gt;创建共享文件夹(共享文件夹就是本电脑共享文件夹，该文件夹设置自动挂载分配，这样每次启动虚拟机就可以进行共享文件。)<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234425405.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234425405.png" class="lazyload"></a>  </li>
-<li>重新进入虚拟Ubuntu，在命令行终端下输入：<br>sudo mkdir /mnt/sharing 新创建一个挂载点；<br>sudo mount -t vboxsf Share /mnt/sharing 进行挂载<br>执行下ls 看下有没有挂载成功。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234646693.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402234646693.png" class="lazyload"></a>  </li>
-<li>如果不想每次启动后都进行挂载的话，可以设置为自动挂载，如果有选中“Auto-mount”的选项的话,可在/media/目录下看到你共享的名字sf_name;例如共享的文件夹名字为share，那就看到sf_share。  </li>
-</ol>
-<h2 id="在本系统关联虚拟机上的系统，进行文件共享"><a href="#在本系统关联虚拟机上的系统，进行文件共享" class="headerlink" title="在本系统关联虚拟机上的系统，进行文件共享"></a>在本系统关联虚拟机上的系统，进行文件共享</h2><p>点击桌面上的网络右击鼠标，选择映射网络驱动器，其中的文件夹的路径，为共享文件夹的路径，最后在电脑中的网络位置，出现共享文件的图标，双击该文件夹，显示了共享的内容。<br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235507873.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235507873.png" class="lazyload"></a><br><strong>最后，实现的结果如下图：</strong><br><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235551025.png" data-fancybox="group" data-caption="这里写图片描述" class="fancybox"><img alt="这里写图片描述" title="这里写图片描述" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20170402235551025.png" class="lazyload"></a></p>
+
 <hr>
 <blockquote>
 <p>to be continued…</p>
@@ -10245,6 +10247,47 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VLC使用技巧</title>
+    <url>/Tool/Windows/Software/VLC/VLC%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>VLC 是一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件，以及 DVD、音频 CD、VCD 及各类流媒体协议。</p>
+<p>VLC多媒体播放器（最初命名为VideoLAN客户端）是VideoLAN计划的多媒体播放器。它支持众多音频与视频解码器及文件格式，并支持DVD影音光盘，VCD影音光盘及各类流式协议。它也能作为unicast或 multicast的流式服务器在IPv4或 IPv6的高速网络连接下使用。它融合了FFmpeg计划的解码器与libdvdcss程序库使其有播放多媒体文件及加密DVD影碟的功能。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="VLC播放器将m3u8链接视频下载到本地"><a href="#VLC播放器将m3u8链接视频下载到本地" class="headerlink" title="VLC播放器将m3u8链接视频下载到本地"></a>VLC播放器将m3u8链接视频下载到本地</h2><p>m3u8格式链接在浏览器上打开，没有插件的情况下你会得到长得跟下面差不多的一个文本列表</p>
+<p><a href="https://img-blog.csdnimg.cn/20181225112120286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://img-blog.csdnimg.cn/20181225112120286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" class="lazyload"></a></p>
+<p>有基础的同学可能知道，以.ts 结尾的那些就是视频连接的实际播放地址，当然你还要拼上前面的前缀。</p>
+<p>在浏览器上安装过插件的情况，你可以直接在线预览影片，但是如果你想下载到本地却很麻烦，在浏览器上传好看网络请求你会发现一部60分钟的影片可能被切成了几百上千个片段，每个片段不到10秒，难道我们要下一千个片段，然后用格式工厂拼起来？</p>
+<p>其实我们有更好的选择，最终结果还是要落在万能的vlc播放器上  </p>
+<blockquote>
+<p>首先打开vlc播放器–&gt;媒体–&gt;打开网络串流<br>在URL输入栏输入m3u8链接后<br>点击播放按钮旁边的下拉箭头<br>点击串流</p>
+</blockquote>
+<p><a href="https://img-blog.csdnimg.cn/2018122511353722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://img-blog.csdnimg.cn/2018122511353722.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" class="lazyload"></a></p>
+<p>下一个页面直接点击下一步，再下一个页面点击添加按钮（前面的选项保持默认的文件即可）  </p>
+<p><a href="https://img-blog.csdnimg.cn/20181225113815292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://img-blog.csdnimg.cn/20181225113815292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" class="lazyload"></a></p>
+<p>在弹出的页面的点击浏览选择文件保存位置</p>
+<p><a href="https://img-blog.csdnimg.cn/20181225113913992.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://img-blog.csdnimg.cn/20181225113913992.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" class="lazyload"></a></p>
+<p>设置完毕以后其他页面直接点击下一步，到最后页面点击 “流” 按钮开始串流</p>
+<p><a href="https://img-blog.csdnimg.cn/20181225114031323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://img-blog.csdnimg.cn/20181225114031323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" class="lazyload"></a></p>
+<p>串流之后VLC播放器页面不会播放视频，但是下面的进度条会动，等进度条加载完毕以后，影片就下载好了，然后就可以在你之前保存的位置看到下载好的文件，VLC会自动帮你把所有ts文件拼接成一个完整的视频，是不是很贴心</p>
+<p><a href="https://img-blog.csdnimg.cn/20181225114350845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://img-blog.csdnimg.cn/20181225114350845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhZGR5eXVu,size_16,color_FFFFFF,t_70" class="lazyload"></a></p>
+<p> 也有在网上看到其他教程不过都相对麻烦，需要先提取ts文件下载地址，批量下载后再用工具自己拼成一个完整的视频，操作流程比较繁琐，用VLC操作就没有那么多流程了，对新手来说还是vlc播放器比较友好。</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Tool</category>
+        <category>Windows</category>
+        <category>Software</category>
+        <category>VLC</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Windows</tag>
+        <tag>Software</tag>
+        <tag>VLC</tag>
       </tags>
   </entry>
   <entry>
