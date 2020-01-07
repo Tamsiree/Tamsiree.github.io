@@ -57,6 +57,9 @@ Adblock Plus 知名的浏览器去广告工具
 12. [[**`谷歌上网助手`**]](https://tamsiree.com/Google/Chrome/谷歌上网助手/)  
 谷歌上网助手是一款支持直接使用谷歌搜索的上网插件，支持在不开启加速上网软件的情况下，正常使用谷歌搜索、gmail和chrome商店。
 
+13. [[**`Custom Cursor for Chrome`**]](https://chrome.google.com/webstore/detail/custom-cursor-for-chrome/ogdlpmhglpejoiomcodnpjnfgcpmgale)  
+浏览器的鼠标光标样式, 可以通过css中的cursor属性进行定义, 也可以通过Chrome扩展程序《Custom Cursor for Chrome™》进行更换
+
 
 ---
 > to be continued...

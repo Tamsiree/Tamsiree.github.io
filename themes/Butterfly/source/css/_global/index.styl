@@ -10,12 +10,19 @@ body
   font-size: $font-size
   font-family: $font-family
   line-height: $text-line-height
+  cursor: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.0.0.png),auto!important
 
   if !hexo-config('copy.enable')
     user-select: none
     -moz-user-select: none
     -webkit-user-select: none
     -ms-user-select: none
+
+a 
+  &:hover
+    cursor: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.0.png),pointer;
+  &:active
+    cursor: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png),pointer;
 
 #body-wrap
   position: relative
