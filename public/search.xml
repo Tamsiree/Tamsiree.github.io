@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Unity动态加载Prefab</title>
+    <url>/Tool/DevelopmentTool/Unity/Unity%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDPrefab/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在进行一些功能开发的时候，我们常常将一些能够复用的对象制作成 <code>.prefab</code> 的预设物体，然后将预设体存放到 <code>Resources</code> 目录之下，使用时再动态加载到场景中并进行实例化。例如：子弹、特效甚至音频等，都能制作成预设体。</p>
+<h1 id="预设动态加载到场景"><a href="#预设动态加载到场景" class="headerlink" title="预设动态加载到场景"></a>预设动态加载到场景</h1><p>一个预设体要能够通过代码控制在场景中进行显示，需要三个步骤，这里我们以动态加载怪物血条为例子分析一个常见的误区：</p>
+<h2 id="预设体资源加载"><a href="#预设体资源加载" class="headerlink" title="预设体资源加载"></a>预设体资源加载</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">csharp</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//加载预设体资源</span></span><br><span class="line">GameObject bulletPrefab = (GameObject)Resources.Load(<span class="string">"Prefabs/BulletPrefab"</span>);</span><br></pre></td></tr></table></figure></div>
+
+<p>通过上述操作，实现从资源目录下载入 <code>Prefabs\BulletPreFab.prefab</code> 预设体，用一个 GameObject 对象来存放，此时该预设物体并未真正载入到场景中，因为还未进行实例化操作。</p>
+<h2 id="预设体实例化"><a href="#预设体实例化" class="headerlink" title="预设体实例化"></a>预设体实例化</h2><p>在第一步中我们已经将预设体资源加载完毕，但是为实例化的资源不会出现在场景中，所以第二不我们需要对资源进行实例化，实例化使用的是 MonoBehaviour.Instantiate 函数来完成的，其实质就是从预设体资源中克隆出一个对象，它具有与预设体完全相同的属性，并且被加载到当前场景中：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">csharp</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//实例化预设体</span></span><br><span class="line">Instantiate(bulletPrefab);</span><br></pre></td></tr></table></figure></div>
+
+<p>因为我们没有对此实例化后的对象进行任何的属性设置，所以其属性与预设体最初的属性保持一致，并且其父节点默认为当场的场景对外层。</p>
+<h2 id="实例化对象属性设置（可选）"><a href="#实例化对象属性设置（可选）" class="headerlink" title="实例化对象属性设置（可选）"></a>实例化对象属性设置（可选）</h2><p>完成上述步骤之后，我们已经可以在场景中看到实例化之后的对象，但是通常情况下我们喜欢我们的对象之间层次感分明，而且这样也方便我们进行对象统一管理，而不是在Hierarchy中看到一大堆并排散乱对象，所以我们需要为对象设置名称已经父节点等属性。</p>
+<p>（常见错误：对未初始化的hp_bar进行属性设置，设置之后的属性在实例化之后无法生效。这是因为我们最后在场景中显示的其实并非实例化前的资源对象，而是一个克隆对象，所以假如希望设置的属性在最后显示出来的对象中生效，我们需要对实例化之后的对象进行设置。）</p>
+<p>正确的设置代码如下，可以看到实例化对象已成功挂在到父节点Canvas上：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">csharp</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">GameObject bulletPrefab = (GameObject)Resources.Load(<span class="string">"Prefabs/bulletPrefab"</span>);GameObject mUICanvas = GameObject.Find(<span class="string">"Canvas"</span>);</span><br><span class="line">bullet = Instantiate(bulletPrefab);</span><br><span class="line">bullet.transform.parent = mUICanvas.transform;</span><br></pre></td></tr></table></figure></div>
+
+<p>其实前两个步骤可以在一起完成，简化后的写法如下：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">csharp</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">GameObject bullet = (GameObject)Instantiate(Resources.Load(<span class="string">"Prefabs/bulletPrefab"</span>));</span><br><span class="line">GameObject mUICanvas = GameObject.Find(<span class="string">"Canvas"</span>);</span><br><span class="line">bullet.transform.parent = mUICanvas.transform;</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Tool</category>
+        <category>DevelopmentTool</category>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>DevelopmentTool</tag>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VisualStudioCode开发Unity</title>
+    <url>/Tool/DevelopmentTool/VisualStudioCode/VisualStudioCode%E5%BC%80%E5%8F%91Unity/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为我的Alienware更换成了Manjaro系统，想要在Manjaro下开发是Unity,但是运行环境还是需要折腾一番。</p>
+<h1 id="安装Unity"><a href="#安装Unity" class="headerlink" title="安装Unity"></a>安装Unity</h1><p>在 AUR 市场搜索下载 UnityHub 程序，然后通过UnityHub安装最新版本的Unity编辑器。</p>
+<h1 id="配置VSCode"><a href="#配置VSCode" class="headerlink" title="配置VSCode"></a>配置VSCode</h1><p>VsCode安装完成后，我们就可以在我们在unity3d中配置我们编写代码的工具了。  </p>
+<blockquote>
+<p>打开unity3d软件，在edit菜单栏中点击Preferences,弹出Unity Preferences面板，<br>在Unity Preferences面板中选择第二项External Tools，<br>在右侧第一项External Script Editor 中选择Browser,<br>然后选择桌面的VsCode快捷方式即可，<br>此时我们再在列表中选择我们需要的 Visual Studio Code 即可完成编辑器的配置。</p>
+</blockquote>
+<p><a href="https://i0.hdslb.com/bfs/article/3073f913268b5c652ae2c5a40efa328340f035a2.png@1320w_716h.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://i0.hdslb.com/bfs/article/3073f913268b5c652ae2c5a40efa328340f035a2.png@1320w_716h.webp" class="lazyload"></a></p>
+<h1 id="测试VSCode打开代码的响应速度"><a href="#测试VSCode打开代码的响应速度" class="headerlink" title="测试VSCode打开代码的响应速度"></a>测试VSCode打开代码的响应速度</h1><p>下面我们测试一下，我们在unity3d中创建一个脚本，然后第一次双击打开，VsCode从软件响应到打开我们要编辑的代码文件，在我的机器上仅仅用了5秒钟，比之前vs打开响应速度提升了好几个量级。虽然还谈不上绝对秒开，却也是拖拖的爽了一把。</p>
+<p><a href="https://i0.hdslb.com/bfs/article/ab84a73fb58b489119d9b2adb2ca46055c773be6.png@1320w_698h.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://i0.hdslb.com/bfs/article/ab84a73fb58b489119d9b2adb2ca46055c773be6.png@1320w_698h.webp" class="lazyload"></a></p>
+<h1 id="VSCode开发Unity必备插件"><a href="#VSCode开发Unity必备插件" class="headerlink" title="VSCode开发Unity必备插件"></a>VSCode开发Unity必备插件</h1><p>前面提到，VsCode本身只提供一个最基本的框架和最基本功能，把所有需要的功能插件化，按需索取，由插件来丰富和扩展它的功能。增加的软件的灵活性和可持续扩展性，为软件的高效开发奠定的良好的基础，VSCode很像一个根据现实需要随时更换铠甲装备去迎接战斗的战士，活脱脱的现在装甲兵，机动性超强。</p>
+<h2 id="Chinese-Simplified-Language-Pack"><a href="#Chinese-Simplified-Language-Pack" class="headerlink" title="Chinese (Simplified) Language Pack"></a>Chinese (Simplified) Language Pack</h2><p>此中文（简体）语言包为 VS Code 提供本地化界面。针对刚刚上手的英文不是很好的同学们，应该是一个不错的选择</p>
+<h2 id="C-powered-by-OmniSharp"><a href="#C-powered-by-OmniSharp" class="headerlink" title="C# (powered by OmniSharp)"></a>C# (powered by OmniSharp)</h2><p>大家都知道最新版的Unity取消了JS(Unityscript)、Boo语言。未来将仅支持C#，所以必需安装安装C# 扩展以便让 VS Code 支持C#的开发,此款插件还附加很多其它功能的加持，效果杠杠的。亮点功能有智能感知、C＃的片段、搜索符号、引用参考。</p>
+<h2 id="Debugger-for-Unity"><a href="#Debugger-for-Unity" class="headerlink" title="Debugger for Unity"></a>Debugger for Unity</h2><p>在实际的项目中，我们会频繁的调试程序来排查程序的错误点，安装Debugger for Unity扩展可以让我们使用VsCode代码调试Unity C＃项目。</p>
+<p>通过在脚本中设置断点，切换到调试视图并单击绿色三角形按钮以附加到Unity，在VS Code中调试C＃脚本。在Unity中进入播放模式，断点应该在VS代码中停止。如果想修改代码，无须停止调试，直接在编辑器中修改即可。</p>
+<p><a href="https://i0.hdslb.com/bfs/article/b27d3e8fbec666d351c13592d9a854718e39a670.png@1320w_688h.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://i0.hdslb.com/bfs/article/b27d3e8fbec666d351c13592d9a854718e39a670.png@1320w_688h.webp" class="lazyload"></a></p>
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DUnity.unity-debug" target="_blank" rel="noopener">安装地址</a></p>
+<h2 id="Unity-Tools"><a href="#Unity-Tools" class="headerlink" title="Unity Tools"></a>Unity Tools</h2><p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DTobiah.unity-tools" target="_blank" rel="noopener">安装地址</a></p>
+<h2 id="Unity-Snippets"><a href="#Unity-Snippets" class="headerlink" title="Unity Snippets"></a>Unity Snippets</h2><p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DYclepticStudios.unity-snippets" target="_blank" rel="noopener">安装地址</a></p>
+<h2 id="Unity-Code-Snippets"><a href="#Unity-Code-Snippets" class="headerlink" title="Unity Code Snippets"></a>Unity Code Snippets</h2><p>此款插件扩展为VS Code创建了Unity里的代码集合，它利用最新的代码段功能为你轻松创建Unity类和方法。特别是我们常用的MonoBehaviour类中所有方法，都可以快速创建，极大提高了程序猿写代码的速度。</p>
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dkleber-swf.unity-code-snippets" target="_blank" rel="noopener">安装地址</a></p>
+<h2 id="C-XML-Documentation-Comments"><a href="#C-XML-Documentation-Comments" class="headerlink" title="C# XML Documentation Comments"></a>C# XML Documentation Comments</h2><p>快速生成代码注释头</p>
+<h1 id="安装SDK环境"><a href="#安装SDK环境" class="headerlink" title="安装SDK环境"></a>安装SDK环境</h1><p>安装 <code>.Net SDK</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S dotnet-sdk</span><br></pre></td></tr></table></figure></div>
+
+<p>安装 <code>.Net Runtime</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S dotnet-runtime</span><br></pre></td></tr></table></figure></div>
+
+<p>安装 <code>msbuild</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S msbuild</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="https://code.visualstudio.com/docs/other/unity" target="_blank" rel="noopener">https://code.visualstudio.com/docs/other/unity</a><br><a href="https://www.bilibili.com/read/cv3620568/" target="_blank" rel="noopener">https://www.bilibili.com/read/cv3620568/</a><br><a href="https://github.com/OmniSharp/omnisharp-vscode/issues/2011" target="_blank" rel="noopener">https://github.com/OmniSharp/omnisharp-vscode/issues/2011</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Tool</category>
+        <category>DevelopmentTool</category>
+        <category>VisualStudioCode</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>DevelopmentTool</tag>
+        <tag>Unity</tag>
+        <tag>VisualStudioCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DeepLearning</title>
     <url>/TechnicalResearch/MachineLearning/DeepLearning/DeepLearning/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>深度学习(DL, Deep Learning)是机器学习(ML, Machine Learning)领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能(AI, Artificial Intelligence)。</p>
@@ -11444,7 +11534,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>在前端开发中，有一个非常好用的工具，Visual Studio Code，简称VS code。<br>都不用我安利VS code，大家就会乖乖的去用，无数个大言不惭的攻城狮，都被VS code比德芙还丝滑的强大功能所折服。我是来给大家安利插件的，想做个比较全面的插件集合给大家。网上的我也看过一些，但是都比较零散，时间也久了一些，我结合最近的情况，总结一下<br>造福大家，才是我想做的。手动比心❤。</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/80a971b6-ee33-4030-b581-ad6773517a30.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/80a971b6-ee33-4030-b581-ad6773517a30.png" class="lazyload"></a></p>
+<p><a href="https://i0.hdslb.com/bfs/article/2fe510ffb902bb090588f8fe6b00a44b96093b28.png@1320w_740h.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://i0.hdslb.com/bfs/article/2fe510ffb902bb090588f8fe6b00a44b96093b28.png@1320w_740h.webp" class="lazyload"></a></p>
 <h1 id="日常安利"><a href="#日常安利" class="headerlink" title="日常安利"></a>日常安利</h1><p>VS code特点：</p>
 <blockquote>
 <ul>

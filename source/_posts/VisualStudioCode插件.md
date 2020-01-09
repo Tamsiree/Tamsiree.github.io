@@ -19,7 +19,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wal
 > 都不用我安利VS code，大家就会乖乖的去用，无数个大言不惭的攻城狮，都被VS code比德芙还丝滑的强大功能所折服。我是来给大家安利插件的，想做个比较全面的插件集合给大家。网上的我也看过一些，但是都比较零散，时间也久了一些，我结合最近的情况，总结一下
 > 造福大家，才是我想做的。手动比心❤。
 
-![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/80a971b6-ee33-4030-b581-ad6773517a30.png)
+![](https://i0.hdslb.com/bfs/article/2fe510ffb902bb090588f8fe6b00a44b96093b28.png@1320w_740h.webp)
 
 # 日常安利
 
