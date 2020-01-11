@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tamsiree.com/"/>
-  <updated>2020-01-09T16:08:31.256Z</updated>
+  <updated>2020-01-11T08:41:05.949Z</updated>
   <id>https://tamsiree.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity的Canvas组件</title>
+    <link href="https://tamsiree.com/Tool/DevelopmentTool/Unity/Unity%E7%9A%84Canvas%E7%BB%84%E4%BB%B6/"/>
+    <id>https://tamsiree.com/Tool/DevelopmentTool/Unity/Unity%E7%9A%84Canvas%E7%BB%84%E4%BB%B6/</id>
+    <published>2020-01-11T08:29:18.000Z</published>
+    <updated>2020-01-11T08:41:05.949Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h1><p>Canvas组件在Unity UI系统中表示画布，任何UI元素都是基于这一张画布，通过不同的UI Widget组合，设计出一个漂亮的UI。下面我们来认识这一组件。</p><h1 id="Render-Mode"><a href="#Render-Mode" class="headerlink" title="Render Mode"></a>Render Mode</h1><p>Unity4.6 发布的New GUI 有三种渲染模式，下面一一介绍：</p><ol><li><p>ScreenSpace－Overlay 通常这种模式下，我们不需要相机，也可以讲UI Widget渲染在屏幕上面。它好像在我们的摄像机上面添了一层薄薄的膜，也就是说，在这种模式下，当场景中存在其他物体时，首先看到的将是UI上面的Widget。</p></li><li><p>ScreenSpace－Camera 通常在这种模式下，我们可以使得3D场景中的物体夹在摄像机 和 我们的UI 之间，这样我们可以将场景中的物体，比如一些特效之类的渲染在UI的上面，使得画面更炫。<br>当我们设置为Camera模式时，我们需要指定一相机，这样Unity系统会通过该相机来渲染与之相关的UI和场景中的GameObject. 另外，我们发现相机 和 我们的Canvas保存固定的相对位置，当改变Camera位置时，Canvas的坐标也跟着变化，而Canvas中的UI Widget 和 Canvas保持相对位置不变。</p></li><li><p>WorldSpace 这时UI是相对于世界空间的，和其他场景里的物体一样有世界位置、遮挡关系。此时相机为透视投影模式，UI离摄像机越远，则越小，反之越大。</p></li></ol><p>Canvas有三个组件：Canvas组件，Canvas Scaler组件，Graphic Raycaster组件</p><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      Canvas组件在Unity UI系统中表示画布，任何UI元素都是基于这一张画布，通过不同的UI Widget组合，设计出一个漂亮的UI。下面我们来认识这一组件。
+    
+    </summary>
+    
+    
+      <category term="Tool" scheme="https://tamsiree.com/categories/Tool/"/>
+    
+      <category term="DevelopmentTool" scheme="https://tamsiree.com/categories/Tool/DevelopmentTool/"/>
+    
+      <category term="Unity" scheme="https://tamsiree.com/categories/Tool/DevelopmentTool/Unity/"/>
+    
+    
+      <category term="Tool" scheme="https://tamsiree.com/tags/Tool/"/>
+    
+      <category term="DevelopmentTool" scheme="https://tamsiree.com/tags/DevelopmentTool/"/>
+    
+      <category term="Unity" scheme="https://tamsiree.com/tags/Unity/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity动态加载Prefab</title>
@@ -564,37 +595,6 @@
     
     
       <category term="Daily" scheme="https://tamsiree.com/tags/Daily/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro卸载显卡驱动黑屏问题解决</title>
-    <link href="https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro%E5%8D%B8%E8%BD%BD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro%E5%8D%B8%E8%BD%BD%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</id>
-    <published>2019-10-21T05:27:07.000Z</published>
-    <updated>2019-12-25T07:12:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>大晚上的滚动更新了Manjaro的内核之后，突然发现无法播放声音了，一系列的排查下来，发现是NVIDIA显卡驱动导致的问题，于是乎便卸载了<code>video-hybrid-intel-nvidia-430xx-bumblebee</code> 显卡驱动。<br>结果，重启之后黑屏无法进入桌面了，于是乎便开始了修复之旅。</p></blockquote><p><a href="https://w.wallhaven.cc/full/1j/wallhaven-1jjo99.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://w.wallhaven.cc/full/1j/wallhaven-1jjo99.jpg" class="lazyload"></a></p><h1 id="开始修复"><a href="#开始修复" class="headerlink" title="开始修复"></a>开始修复</h1><ol><li>第一步，使用 <code>Ctrl</code> + <code>Alt</code> + <code>F3</code> 进入 <code>ttf3</code> 命令行界面。（庆幸还有这个回天之术 (˶˚  ᗨ ˚˶)）  </li><li>第二步，使用 <code>root</code> 用户登录（不用考虑操作的权限了）</li><li>第三步，在终端输入 <code>sudo mhwd</code> ，查看可用驱动（mhwd是Manjaro自带的驱动程序管理器）  </li><li>第四步，在终端输入 <code>sudo mhwd --install pci video-hybrid-intel-nvidia-430xx-bumblebee</code> ,安装闭源显卡驱动.  </li><li>第五步，如果不出意外的话，此时会发现安装失败啦，哈哈哈，不要急，听我说，因为默认是没有连接网络的，当然安装失败啦，所以接下来我们要连接无线网络  </li><li>第六步，通过 <code>ip link</code> 查看无线的设备 (设备名[broken link: invalid section]，通常是类似 wlp2s1，我的设备是wlp60s0)  </li><li>第七步，启用无线设备 <code>ip link set &lt;设备名&gt; up</code> (就是上一步你所看到的设备名)  </li><li>第八步，在终端输入 <code>iw dev &lt;设备名&gt; link</code> 获取连接状态<br>一般会看到 <code>Not connected.</code> 的显示结果  </li><li>第九步，在终端输入 <code>iw dev &lt;设备名&gt; scan</code> 扫描可用WIFI热点  </li><li>第十步，就要根据这个连接的WIFI类型来操作啦！<br>　　(1). 如果 WIFI 无需密码，则输入 <code>iw dev &lt;设备名&gt; connect &lt;WIFI名称&gt;</code> 即可<br>　　(2). 如果 WIFI 是加密的，又要分两种情况啦：<br>　　　　A. 如果 WIFI 是 <code>WEP</code> 加密方式，就输入 <code>iw dev &lt;设备名&gt; connect &lt;WIFI名称&gt; key 0:&lt;WIFI密码&gt;</code> （这里需要注意的是 WIFI密码要13位）<br>　　　　B. 如果 WIFI 是 <code>WPA/WPA2</code> 加密方式的话，则输入 <code>wpa_supplicant -i &lt;设备名&gt; -c &lt;(wpa_passphrase &lt;WIFI名称&gt; &lt;WIFI密码&gt;)</code><br>　　　　　　a. 如果没有异常就再次输入 <code>wpa_supplicant -i &lt;设备名&gt; -c &lt;(wpa_passphrase &lt;WIFI名称&gt; &lt;WIFI密码&gt;) -B</code> 就好啦,<br>　　　　　　b. 如果出现异常 <code>ul80211: Could not set interface &lt;设备名&gt;</code> 此类的错误，就先输入 <code>killall wpa_supplicant</code> 后，再重复<code>WPA/WPA2</code> 加密方式的连接  </li><li>第十一步，在终端输入 <code>dhcpcd &lt;设备名&gt;</code> 获取动态 IP 地址</li><li>第十二步，重复 <strong>[第八步]</strong> 查看 无线网络连接状态  </li><li>第十三步，重复 <strong>[第四步]</strong> 安装 显卡驱动<br>　　如果更新失败，提示 <code>error:pacman failed</code> 或者 <code>/var/lib/pacman/db.lck</code>，则是 pacman 被锁住了，需要执行命令 <code>rm /var/lib/pacman/db.lck</code> 删除 <code>db.lck</code> 文件</li><li>第十四步，驱动安装成功之后，在终端输入 <code>reboot</code> 重新启动  </li><li>第十五步，期待你的Manjaro桌面的重新出现吧～</li></ol><blockquote><p>如果你卡在了网络连接这一步，跟我的情况有出入的话，可以查看下这个 <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">Arch Linux 官方的无线网络连接配置</a></p></blockquote><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      大晚上的滚动更新了Manjaro的内核之后，突然发现无法播放声音了，一系列的排查下来，发现是NVIDIA显卡驱动导致的问题，于是乎便卸载了video-hybrid-intel-nvidia-430xx-bumblebee 显卡驱动。结果，重启之后黑屏无法进入桌面了，于是乎便开始了修复之旅。
-    
-    </summary>
-    
-    
-      <category term="OperationSystem" scheme="https://tamsiree.com/categories/OperationSystem/"/>
-    
-      <category term="Linux" scheme="https://tamsiree.com/categories/OperationSystem/Linux/"/>
-    
-      <category term="Manjaro" scheme="https://tamsiree.com/categories/OperationSystem/Linux/Manjaro/"/>
-    
-    
-      <category term="OperationSystem" scheme="https://tamsiree.com/tags/OperationSystem/"/>
-    
-      <category term="Linux" scheme="https://tamsiree.com/tags/Linux/"/>
-    
-      <category term="Manjaro" scheme="https://tamsiree.com/tags/Manjaro/"/>
     
   </entry>
   

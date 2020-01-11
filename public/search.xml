@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Unity的Canvas组件</title>
+    <url>/Tool/DevelopmentTool/Unity/Unity%E7%9A%84Canvas%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h1><p>Canvas组件在Unity UI系统中表示画布，任何UI元素都是基于这一张画布，通过不同的UI Widget组合，设计出一个漂亮的UI。下面我们来认识这一组件。</p>
+<h1 id="Render-Mode"><a href="#Render-Mode" class="headerlink" title="Render Mode"></a>Render Mode</h1><p>Unity4.6 发布的New GUI 有三种渲染模式，下面一一介绍：</p>
+<ol>
+<li><p>ScreenSpace－Overlay 通常这种模式下，我们不需要相机，也可以讲UI Widget渲染在屏幕上面。它好像在我们的摄像机上面添了一层薄薄的膜，也就是说，在这种模式下，当场景中存在其他物体时，首先看到的将是UI上面的Widget。</p>
+</li>
+<li><p>ScreenSpace－Camera 通常在这种模式下，我们可以使得3D场景中的物体夹在摄像机 和 我们的UI 之间，这样我们可以将场景中的物体，比如一些特效之类的渲染在UI的上面，使得画面更炫。<br>当我们设置为Camera模式时，我们需要指定一相机，这样Unity系统会通过该相机来渲染与之相关的UI和场景中的GameObject. 另外，我们发现相机 和 我们的Canvas保存固定的相对位置，当改变Camera位置时，Canvas的坐标也跟着变化，而Canvas中的UI Widget 和 Canvas保持相对位置不变。</p>
+</li>
+<li><p>WorldSpace 这时UI是相对于世界空间的，和其他场景里的物体一样有世界位置、遮挡关系。此时相机为透视投影模式，UI离摄像机越远，则越小，反之越大。</p>
+</li>
+</ol>
+<p>Canvas有三个组件：Canvas组件，Canvas Scaler组件，Graphic Raycaster组件</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Tool</category>
+        <category>DevelopmentTool</category>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>DevelopmentTool</tag>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity动态加载Prefab</title>
     <url>/Tool/DevelopmentTool/Unity/Unity%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDPrefab/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在进行一些功能开发的时候，我们常常将一些能够复用的对象制作成 <code>.prefab</code> 的预设物体，然后将预设体存放到 <code>Resources</code> 目录之下，使用时再动态加载到场景中并进行实例化。例如：子弹、特效甚至音频等，都能制作成预设体。</p>
