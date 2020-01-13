@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>路由器固件</title>
+    <url>/HardWare/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>目前路由器折腾刷机，除了采用各品牌的原厂固件外，第三方路由器固件，基本就是：Tomato、<a href="https://www.luyouwang.net/tag/dd-wrt/" target="_blank" rel="noopener" title="查看与 DD-WRT 相关的文章">DD-WRT</a>、OpenWRT三种。 当然还有其他一些更加小众的版本, 和很多从这三大固件衍生出来的修改版固件。这篇文章, 可以让大家对这些知识有一个相对比较全面的理解, 使你更容易入门一些。</p>
+<p>本文转载自 <a href="https://www.luyouwang.net/1237.html" target="_blank" rel="noopener">路由网</a> 。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="固件分类"><a href="#固件分类" class="headerlink" title="固件分类"></a>固件分类</h3><p>第三方路由器固件，基本就是：Tomato、<a href="https://www.luyouwang.net/tag/dd-wrt/" target="_blank" rel="noopener" title="查看与 DD-WRT 相关的文章">DD-WRT</a>、OpenWRT三种.</p>
+<h3 id="前端和后端"><a href="#前端和后端" class="headerlink" title="前端和后端"></a>前端和后端</h3><p>基本上所有第三方路由器固件的架构上可分为前端（Frontend）和后端（Backend），后端一般情况下是一个不带界面的Linux系统, 前端一般指图形用户接口，即GUI，主要体现为Web管理界面。 比较流行的OpenWRT自身默认编译出来是不带前端的。</p>
+<h3 id="OpenWRT的在国内常见的前端有"><a href="#OpenWRT的在国内常见的前端有" class="headerlink" title="OpenWRT的在国内常见的前端有"></a>OpenWRT的在国内常见的前端有</h3><p>LuCI：基于Apache License，现在主流，是自行编译的OpenWRT最佳搭配；</p>
+<p>X-WRT：基于GPL，不太活跃，不太流行，好像没怎么更新了；</p>
+<p>Gargoyle：基于GPL，提供完整的全套路由功能，流量监控强悍，带宽管理和QoS很是强大，不比Tomato逊色，如果不想自己动 手编译或设置，但是又想要用版权规范的OpenWRT，且想一步到位的话，Gargoyle是最好的选择，很适合追求稳定的普通用户或小微企业用户，默认 界面风格传统，但有时尚风格的主题可更换，不支持多国语言，国内不流行，但已有汉化的补丁出现了；</p>
+<h3 id="其它两大固件的前端"><a href="#其它两大固件的前端" class="headerlink" title="其它两大固件的前端"></a>其它两大固件的前端</h3><p>Tomato前端部分：私有，非GPL（有源码供自编译，不能随便修改），版权模糊，有免费版，但也有很多付费增强功能的版本，界面简约，运行稳定，QoS很强大，机型的支持比较少；</p>
+<p>DD-WRT前端部分：版权模糊，部分私有，非GPL（有提供源码，不能随便修改），有免费版，也有增强功能的付费版，界面美观，中继能力强大，支持语言众多，对机型的支持最广泛，但免费版QoS性能一般；</p>
+<h3 id="Tomato-DualWAN"><a href="#Tomato-DualWAN" class="headerlink" title="Tomato DualWAN"></a>Tomato DualWAN</h3><p>Tomato DualWAN 使那些能刷Tomato或DD-WRT固件的路由器由原来的单WAN口变成双WAN口，而这一切不需要在路由器上增加任何硬件，只需要刷一下 Tomato DualWAN 固件就可以。刷了Tomato DualWAN之后转变出来的第二个WAN口可以接有线网络也可以接无线网络，双WAN模式支持带宽合并或智能路由。</p>
+<p>DualWan前端部分：私有，非GPL（有源码供自编译，不能随便修改源码），版权模糊，有免费版，也有增强功能的付费版，基于Tomato前端部分的衍生，算是中文Tomato的典型代表，多拨功能强大，对机型的支持比较少；</p>
+<h2 id="三大固件的介绍和对比"><a href="#三大固件的介绍和对比" class="headerlink" title="三大固件的介绍和对比"></a>三大固件的介绍和对比</h2><h3 id="DDWRT"><a href="#DDWRT" class="headerlink" title="DDWRT"></a>DDWRT</h3><p>界面美观,设置简单直观,易用性比较好,官方固件自带的功能是三大固件中最为丰富的,对新路由的支持也十分迅速,可支持迅速的同时,由于新代码的加入,导致 DDWRT经常出现一些bug,一些可能之前已经解决的bug,往往又会在之后的某次更新中原地满状态复活 ,着实让人喷血,最让人呕病的,是孱弱的QOS功能,DDWRT的qos功能只能说聊胜于无吧.功能的话到时还挺多,PPTP openvpn qos 上网控制 mac过滤等等功能都很使用,还能调节官方版本一般不提供的无线信号功率,当然还有中继,说中继可能有些人不敏感,说CW,很多人估计会会心一笑。DDWRT绝对是最适合新手入手的第三方固件,功能丰富,大部分机子的reset都是有效的,路由设置变砖后轻抚菊花即可涅磐重生 ,所以可以放心折腾~</p>
+<h3 id="Tomato"><a href="#Tomato" class="headerlink" title="Tomato"></a>Tomato</h3><p>界面尚可,设置也算简单,易用性还行,流量的统计查看等功能是三个固件中做的最好的.官版Tomato是所有第三方路由固件中最为稳定的, 它的稳定源自于它的保守,官方版本的Tomato好几个版本之前就已经没有再加入什么新功能. 在这里我要补充几句,泰迪熊TT也好,国内的DWTT也好,这些都不是官方Tomato,只是根据官方原版Tomato进行修改和功能扩充的MOD版本</p>
+<h3 id="OpenWRT"><a href="#OpenWRT" class="headerlink" title="OpenWRT"></a>OpenWRT</h3><p>Openwrt是三大固件中扩展性最好的固件,通过扩展,可以实现很多超过路由本职工作的事情,比如脱机下载,网站,论坛,qos功能也十分强大,不逊 色于Tomato的QOS,设置得当后网络表现会让人偷着乐~而且openwrt对新路由的支持也是十分迅速,个人认为是最有前途的固件,因为可以在新路由强劲CPU的支持下获得很好的性能表现,比那些老古董和洋垃圾的性能强大太多.各种功能的软件扩展包比比皆是,而且还有飞翔的天空开发的nwan多 wan和限速qos。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果想玩路由的话，推荐从DD-WRT入手最方便；</p>
+<p>过后若想用折腾QoS，就用Tomato</p>
+<p>要多拨用DualWan；</p>
+<p>注重版权意识又想功能丰富的就自编译OpenWRT去集成LuCI等各种组件——自由自主，功能强大，应有尽有，这或许是很多路由器玩家的最终选择。</p>
+<h3 id="OpenWrt的来历"><a href="#OpenWrt的来历" class="headerlink" title="OpenWrt的来历"></a><a href="https://www.luyouwang.net/tag/openwrt/" target="_blank" rel="noopener" title="查看与 OpenWrt 相关的文章">OpenWrt</a>的来历</h3><p>Cisco/Linksys 在2003 年发行的WRT54G这款无线路由器非常“经典”。</p>
+<p>同年有好事者在 Linux Kernel Mailing List 搜索 WRT54G，发现它的IOS 是基于Linux，然而Linux 基于GPL 发布许可证，就是 GNU General Public License. 该许可证规定Cisco 应该把WRT54G 的IOS 的源代码公开。</p>
+<p>本来Cisco 拒绝公开源代码，最后，03年三月份的时候，基于公众压力Linksys 公开了WRT54G 的源代码。</p>
+<p>故事本来到这里就结束了，然而相反，结果越闹越大：</p>
+<p>有了源代码以后，开发者便清楚知道代码如何控制路由器的硬件，并且掌握了一些通过增加新的代码到原有的IOS 当中去 —— 使得硬件支持更多的Feature 的技术。这些开发者组成了一个项目开发团队，不断对原来的IOS 进行更新，编码，加入新的特性…… 现在他们手上的WRT54G 无线路由器的能力已经大大超过了原来Cisco 设计的地摊货的设计思路。</p>
+<p>不但如此，随着这两年互联网Web2.0 技术的发展，不同的开发团队之间找到了更好的协同工作平台，其规模不亚于TAC. 他们最近建立了一个DD-WRT 项目的Wiki 站点将全套文档以及代码公开发布。使用DD-WRT 项目提供的源代码，重新升级WRT54G 以后你就能够获得一台相当于$600 左右的中端无线路由器了。</p>
+<p>当Linksys 释放 WRT54G/GS 的源码后，网上出现了很多不同版本的 Firmware 去增强原有的功能。大多数的 Firmware 都是99%使用 Linksys的源码，只有1%是加上去的，每一种 Firmware 都是针对特定的市场而设计，这样做有2个缺点，第一个是难以集合各版本Firmware的长处，第二个是这版本距离 Linux 正式发行版越来越远。</p>
+<p>OpenWrt 选择了另一条路，它从零开始，一点一点的把各软件加入去，使其接近 Linksys 版 Firmware的功能，而OpenWrt 的成功之处是它的文件系统是可写的，开发者无需在每一次修改后重新编译，另它更像一个小型的 Linux 电脑系统，也加快了开发速度。</p>
+<p>简化总结</p>
+<ul>
+<li>从前有个路由器公司，突然有一天想在Linux基础上开发固件，结果后来被捅出来了，于是要求他们公开源代码，于是他们就被迫公开了。</li>
+<li>于是大家很兴奋，做了很多修改版出来～</li>
+<li>有一个团队基于上述开源的代码从零开始加入各种软件, 结果一不小心做成了此行业的狡狡者, 他们给自己的产品起名叫OpenWrt</li>
+</ul>
+<h3 id="OpenWrt的衍生版本-PandoraBox"><a href="#OpenWrt的衍生版本-PandoraBox" class="headerlink" title="OpenWrt的衍生版本-PandoraBox"></a>OpenWrt的衍生版本-PandoraBox</h3><ul>
+<li>PandoraBox是OpenWrt的一条分支，前身是DreamBox，由OpenWrt中国创始人之一的Lintel所带领的技术团队维护。</li>
+<li>PandoraBox是基于OpenWrt深度定制的路由器系统，系统底层部分采用了原厂原生驱动，而非开源驱动，使其相比OpenWrt有更好的稳定性。由于OpenWrt配置及二次开发的方便性，加上Lintel根据中国网络环境对PandoraBox作出的调整及优化，受到不少互联网大咖的关注（听说还有橄榄枝）。</li>
+<li>在中国深圳，不少公司厂家推出的“基于OpenWrt深度定制的系统”，使用的是当时开源的DreamBox源码或者泄漏的早期PandoraBox源码。</li>
+</ul>
+<h3 id="OpenWrt介绍"><a href="#OpenWrt介绍" class="headerlink" title="OpenWrt介绍"></a>OpenWrt介绍</h3><p>OpenWrt社区聚集了一大批纯正的Linux各个方向的死忠级专家,从而使OpenWrt具备了如下与传统NorFlash嵌入式Linux截然不同的高级特征。</p>
+<h3 id="SquashFS与JFFS2文件系统的整合形成的overlayfs机制"><a href="#SquashFS与JFFS2文件系统的整合形成的overlayfs机制" class="headerlink" title="SquashFS与JFFS2文件系统的整合形成的overlayfs机制"></a><strong>SquashFS与JFFS2文件系统的整合形成的overlayfs机制</strong></h3><p>对用户而言,OpenWrt的整个文件系统是完全动态可读写的,而其中的固件部分是用SquashFS实施的只读压缩文件系统,而用户所有的对文件系统的增删改都是用类似“差值”的形态存储在JFFS2文件系统中的,二者用overlayfs机制黏合,对用户完全透明。</p>
+<p>因此我们可以在文件系统中肆意发挥、随便折腾,出现任何问题则可像手机一样恢复出厂设置,并提供fail-safe模式帮助用户修复系统。</p>
+<p>而在传统的嵌入式Linux里,固件是静态的,对系统做任何一点与可运行程序相关的变动,比如增加一个模块,删除一个应用程序,都要重新编译全部固件,并重新刷写,就好比你一个Android手机要升级微信就要重新刷机。这种反人类的传统文件系统完全阻挡了非专业爱好者进入嵌入式Linux这一领域。</p>
+<h3 id="UCI（Unified-Configuration-Interface）"><a href="#UCI（Unified-Configuration-Interface）" class="headerlink" title="UCI（Unified Configuration Interface）"></a><strong>UCI（Unified Configuration Interface）</strong></h3><p>帮助用户在任何平台的OpenWrt上用同样的方法配置系统、网络和应用。在Boardcom的平台上,在Atheros的平台上,甚至x86的平台上,修改系统配置均为同样的命令。</p>
+<p>而UCI的机制并不是二进制硬件虚拟层实现的,是由Linux shell脚本实现的。</p>
+<p>这毫无疑问是一种别致的创新,比Android来的轻巧得多。OpenWrt里的Linux shell脚本用得很帅很高端,那种感觉怎么形容呢？就好像精通十八般武艺的高手有一天特别复古地拿起铅笔刀在硬盘上刻出来了系统,就是这种感觉。</p>
+<h3 id="Opkg包管理系统与丰富的软件源"><a href="#Opkg包管理系统与丰富的软件源" class="headerlink" title="Opkg包管理系统与丰富的软件源"></a><strong>Opkg包管理系统与丰富的软件源</strong></h3><p>是一个与桌面级Linux使用的apt-get、yum等同级别的包管理系统,使用形如：opkg install xxxx-app的命令从互联网软件源中安装大约3000余种各种软件。</p>
+<p>3000款软件,数量没法跟手机的应用市场比,但是要知道,这里头的任何一个软件都来头不小,是经过Linux社区千锤百炼的东西,一个应用折腾一个月都玩不够。</p>
+<p>类型覆盖网络、音频、视频、编程开发、Linux系统管理等。当然,如果是专业比较偏的东西OpenWrt的软件源里还是不够完善,比如笔者团队用到的OpenCV的东西,源里就没有,就靠自己交叉编译了。</p>
+<h3 id="Luci-WEB界面系统"><a href="#Luci-WEB界面系统" class="headerlink" title="Luci WEB界面系统"></a><strong>Luci WEB界面系统</strong></h3><p>除CLI命令行终端界面外,不同于桌面级Linux使用屏幕GUI作为交互界面,OpenWrt使用WEB界面交互。而不同于传统路由器web管理界面的是,luci是用户可订制的,安装了支持luci的软件后,WEB界面系统就中出现了新的模块,而opkg本身也web化了。这个特征让用户感觉很像手机的app store。</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>HardWare</category>
+        <category>Router</category>
+      </categories>
+      <tags>
+        <tag>HardWare</tag>
+        <tag>Router</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity的Canvas组件</title>
     <url>/Tool/DevelopmentTool/Unity/Unity%E7%9A%84Canvas%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h1><p>Canvas组件在Unity UI系统中表示画布，任何UI元素都是基于这一张画布，通过不同的UI Widget组合，设计出一个漂亮的UI。下面我们来认识这一组件。</p>
