@@ -3,12 +3,11 @@ title: AndroidStudio问题归纳
 date: 2017-11-21 08:59:15
 description: 整理归纳使用AndroidStudio过程中遇到的问题，并记录解决办法。
 tags:
-  - Tool
+  - Software
   - AndroidStudio
   - Android
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - AndroidStudio
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/5wg9y3.jpg
 ---

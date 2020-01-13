@@ -3,6 +3,7 @@ title: Hexo插入Bilibili视频自适应
 date: 2019-03-18 13:06:24
 description: 在Hexo插入Bilibili视频的时候，发现视频的播放器大小好小，于是决定解决一番。
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch
@@ -14,8 +15,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wal
 
 # 原版分享视频
 
-![Bilibili分享视频](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191118130727.png
-)
+![Bilibili分享视频](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191118130727.png)
 
 ```html
 <iframe src="//player.bilibili.com/player.html?aid=47115841&cid=82509825&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

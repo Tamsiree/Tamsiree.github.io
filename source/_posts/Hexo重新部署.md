@@ -3,6 +3,7 @@ title: Hexo重新部署
 date: 2019-10-18 10:00:12
 description: 因为折腾Manjaro的NVIDIA卡的驱动程序，导致系统只能显示ttf界面，只好重装系统，因此Hexo也需要重新部署。
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch

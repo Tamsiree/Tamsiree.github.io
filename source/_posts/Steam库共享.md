@@ -4,6 +4,7 @@ date: 2019-03-27 23:25:08
 description: 自己的Steam库里的游戏太少，可以寻求小伙伴获取他的Steam库授权，这样就可以玩到小伙伴账号的游戏了。
 tags:
   - Game
+  - GamePlatform
   - Steam
 categories:
   - Game

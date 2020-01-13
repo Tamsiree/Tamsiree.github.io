@@ -3,13 +3,9 @@ title: UltraISO
 author: Tamsiree
 description: UltraISO软碟通是一款功能强大、方便实用、老牌优秀的光盘映像文件制作/编辑/转换工具：可直接编辑ISO文件，从ISO中提取文件和目录；也可从CD – ROM制作光盘映像或者将硬盘上的文件制作成ISO文件；还可处理ISO的启动信息，制作可引导光盘。使用UltraISO，可随心所欲地制作/编辑/转换光盘映像文件。
 tags:
-  - Tool
-  - Windows
   - Software
   - UltraISO
 categories:
-  - Tool
-  - Windows
   - Software
   - UltraISO
 date: 2018-04-10 14:05:00

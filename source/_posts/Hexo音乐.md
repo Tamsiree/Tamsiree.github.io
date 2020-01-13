@@ -3,6 +3,7 @@ title: Hexo音乐
 date: 2019-01-11 22:08:37
 description: 正所谓不愿研究的程序员不是好厨子，所以我想研究的点是给博客中插入音乐。分享是一种精神，无法接受被传播，就不要分享了。
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch

@@ -2,12 +2,10 @@
 title: VisualStudio高级保存选项不存在解决方案
 author: Tamsiree
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudio
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudio
 date: 2019-07-18 13:30:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-495wxx.jpg

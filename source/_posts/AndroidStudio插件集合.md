@@ -3,12 +3,11 @@ title: AndroidStudio插件集合
 date: 2016-11-19 23:00:48
 description: 想要更高效的使用AndroidStudio，当然插件是必不可少的，这里收集了平时觉得不错的插件。
 tags:
-  - Tool
+  - Software
   - AndroidStudio
   - Android
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - AndroidStudio
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01cf099416056cb243.jpg
 ---

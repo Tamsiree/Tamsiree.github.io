@@ -3,12 +3,10 @@ title: VisualStudioCode插件
 author: Tamsiree
 description: 在前端开发中，有一个非常好用的工具，Visual Studio Code，简称VS code。
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudioCode
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudioCode
 date: 2018-09-16 22:58:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-y47kyn.jpg

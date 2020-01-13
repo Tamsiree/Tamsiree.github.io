@@ -2,6 +2,7 @@
 title: Hexo问题归纳
 date: 2018-04-20 11:14:11
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch

@@ -4,8 +4,10 @@ date: 2019-03-12 20:20:04
 description: 为了得到更加「多元化」的搜索结果，虽然 Google 目前访问起来并不是那么方便，但是仍然有很多人把它作为常用搜索引擎在使用。
 tags:
   - Google
+  - Google搜索
 categories:
   - Google
+  - Google搜索
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01d2624f1672570e70.jpg
 ---
 # 前言

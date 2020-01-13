@@ -3,12 +3,10 @@ title: Unity动态加载Prefab
 date: 2020-01-09 23:49:13
 description: 在进行一些功能开发的时候，我们常常将一些能够复用的对象制作成 `.prefab` 的预设物体，然后将预设体存放到 `Resources` 目录之下，使用时再动态加载到场景中并进行实例化。例如：子弹、特效甚至音频等，都能制作成预设体。
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg6d49cc2.png
 ---

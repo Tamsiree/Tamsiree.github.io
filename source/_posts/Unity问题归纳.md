@@ -2,12 +2,10 @@
 title: Unity3d问题归纳
 author: Tamsiree
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 date: 2019-08-14 22:22:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/v2-bb4cb7afa870bd5aff95f0326f0bac63_hd.jpg

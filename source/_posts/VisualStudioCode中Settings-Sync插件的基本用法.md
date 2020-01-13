@@ -3,12 +3,10 @@ title: VisualStudioCode中Settings Sync插件的基本用法
 date: 2019-12-26 23:12:08
 description: 自己平常工作生活中偶尔折腾系统，或许是因为驱动或者其他原因导致系统重装了，vscode的插件与配置等每次都需要单独记录一下然后再重新配置一遍，发现可以使用Settings Sync插件可以直接同步配置和插件。
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudioCode
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudioCode
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cyqwanp87xgm.jpg
 ---

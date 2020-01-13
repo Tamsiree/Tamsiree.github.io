@@ -3,6 +3,7 @@ title: Android单元测试
 date: 2016-10-28 11:52:02
 description: 介绍单元测试与Android单元测试的意义与运用。
 tags:
+  - TechnicalResearch
   - UnitTest
   - Android
 categories:

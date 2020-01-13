@@ -3,13 +3,9 @@ title: VLC使用技巧
 date: 2018-12-20 20:18:49
 description: VLC 是一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件，以及 DVD、音频 CD、VCD 及各类流媒体协议。
 tags:
-  - Tool
-  - Windows
   - Software
   - VLC
 categories:
-  - Tool
-  - Windows
   - Software
   - VLC
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg038cd77.jpg

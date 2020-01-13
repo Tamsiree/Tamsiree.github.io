@@ -3,6 +3,7 @@ title: TA是怎样炼成的
 date: 2019-12-29 23:56:12
 description: TA 是 Technical Artist 的缩写，就是游戏行业的技术美术岗位。TA 是为项目解决问题的岗位,它的职责是节省项目成本，缩短项目周期，提升项目效果等。也为技术与美术作为沟通桥梁，所以才有的岗位细分方向。
 tags:
+  - TechnicalResearch
   - TA
 categories:
   - TechnicalResearch

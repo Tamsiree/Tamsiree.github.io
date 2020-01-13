@@ -3,6 +3,7 @@ title: Hexo自定义网页
 date: 2018-10-21 20:36:51
 description: Hexo 博客中所见文章都是经由渲染的静态网页，而静态网页的样式都直接由 Hexo 的主题控制，所以 Hexo 博客大部分都呈现出一种高度的统一化与规范化。不过 Hexo 提供了跳过渲染功能，使得我们可以直接在博客中放入自定义网页。比如在博客中放入图片、自定义 404.html 、自定义 About 页面等。
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch

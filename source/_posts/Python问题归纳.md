@@ -3,6 +3,7 @@ title: Python问题归纳
 author: Tamsiree
 description: 整理平时使用Python时遇到的问题。
 tags:
+  - TechnicalResearch
   - Python
 categories:
   - TechnicalResearch

@@ -3,15 +3,9 @@ title: Thunderbird问题归纳
 date: 2019-12-24 22:08:04
 description: Mozilla Thunderbird 非常的好用的邮件客户端，虽然很多人都习惯在网页上收发邮件，不过还是有很多资深网民喜欢用本地邮件客户端收发邮件，这款Thunderbird推荐给大家使用。它是经过对 Mozilla 的邮件组件的进行重新设计后的产品，它可整合多个网络邮箱于一体，随时都能拉取邮件到本地处理，或者随时发送邮件。简单易用，功能强大，个性化配置，Thunderbird 邮件客户端带给你全方位的体验。Thunderbird 支持 IMAP 、POP 邮件协议以及 HTML 邮件格式。轻松导入您已有的邮件账号和信息。内置 RSS 技术, 功能强大的快速搜索, 自动拼写检查等。
 tags:
-  - Tool
-  - Linux
-  - Manjaro
   - Software
   - Thunderbird
 categories:
-  - Tool
-  - Linux
-  - Manjaro
   - Software
   - Thunderbird
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/45w1y5.png

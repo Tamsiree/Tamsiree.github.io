@@ -3,6 +3,7 @@ title: Hexo博客美化
 date: 2018-10-25 11:13:36
 description: 收集美化Hexo的各种方案
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch

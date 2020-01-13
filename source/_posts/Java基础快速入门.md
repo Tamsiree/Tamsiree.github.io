@@ -3,6 +3,7 @@ title: Java基础快速入门
 author: Tamsiree
 description: 前些日子有朋友想要了解一下JAVA，于是便整理了这篇文章。
 tags:
+  - TechnicalResearch
   - Java
 categories:
   - TechnicalResearch

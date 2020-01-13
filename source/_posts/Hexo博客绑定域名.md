@@ -3,6 +3,7 @@ title: Hexo博客绑定域名
 date: 2018-11-03 00:06:19
 description: 当我们在用hexo搭建了个人博客之后，用username.github.io访问难免有些奇怪，下面就花3分钟时间对如何绑定个人域名进行描述。
 tags:
+  - TechnicalResearch
   - Hexo
 categories:
   - TechnicalResearch

@@ -3,13 +3,11 @@ title: VisualStudioCode开发Unity
 date: 2020-01-08 23:22:15
 description: 因为我的Alienware更换成了Manjaro系统，想要在Manjaro下开发是Unity,但是运行环境还是需要折腾一番。
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudioCode
   - Unity
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - VisualStudioCode
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bgf7b2a19.jpg
 ---

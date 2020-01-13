@@ -3,12 +3,10 @@ title: Unity使用技巧
 date: 2019-12-27 10:17:53
 description: 掌握一些Unity编辑器的小技巧，会让你开发以及使用更加快捷有效。
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhavenlmj76.png
 ---

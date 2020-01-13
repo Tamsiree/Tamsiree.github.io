@@ -3,6 +3,8 @@ title: Contributor
 date: 2018-04-11 22:34:11
 description: 非常感谢列表中的朋友，你们的肯定和支持是我前进的最大动力！
 tags:
+  - TechnicalResearch
+  - Android
   - RxTool
   - Contributor
 categories:

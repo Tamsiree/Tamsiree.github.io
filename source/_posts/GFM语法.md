@@ -3,6 +3,7 @@ title: GFM语法
 author: Tamsiree
 description: GitHub 的 Markdown 语法在其标准的语法基础上做了扩充，称之为 GitHub Flavored Markdown ; 简称 GFM。 
 tags:
+  - TechnicalResearch
   - Markdown
   - GFM
 categories:

@@ -4,13 +4,13 @@ date: 2020-01-03 19:35:36
 description: ARK全名是ARK:Survival Evolved，中文名为 `方舟：生存进化`，是由独立工作室Wildcard旗下由虚幻引擎4（Unreal Engine 4）打造的生存类开放世界游戏。
 tags:
   - Game
+  - GamePlatform
   - Steam
   - ARK
 categories:
   - Game
   - GamePlatform
   - Steam
-  - ARK
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven2krer9.png
 ---
 # 前言

@@ -3,12 +3,10 @@ title: Unity的Canvas组件
 date: 2020-01-11 16:29:18
 description: Canvas组件在Unity UI系统中表示画布，任何UI元素都是基于这一张画布，通过不同的UI Widget组合，设计出一个漂亮的UI。下面我们来认识这一组件。
 tags:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 categories:
-  - Tool
-  - DevelopmentTool
+  - Software
   - Unity
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg4068a18.jpg
 ---

@@ -3,6 +3,7 @@ title: GitHub提速方案
 date: 2019-11-23 23:58:18
 description: Github 是程序员必备的代码托管平台，上面有许多公开项目资源可以供学习者免费下载学习，但有时候在github用git clone 下载公开项目的文件时，速度特别慢，因此Github提速迫在眉睫。
 tags:
+  - TechnicalResearch
   - GitHub
 categories:
   - TechnicalResearch

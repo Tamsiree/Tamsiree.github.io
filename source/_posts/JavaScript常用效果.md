@@ -2,6 +2,7 @@
 title: JavaScript常用效果
 date: 2018-10-23 03:43:52
 tags:
+  - TechnicalResearch
   - JavaScript
 categories:
   - TechnicalResearch

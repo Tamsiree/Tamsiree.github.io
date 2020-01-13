@@ -3,6 +3,7 @@ title: CDN
 date: 2016-10-25 00:31:26
 description: CDN旨在解决因分布、带宽、服务器性能带来的访问延迟问题，适用于站点加速、点播、直播等场景。使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度和成功率。
 tags:
+  - TechnicalResearch
   - CDN
 categories:
   - TechnicalResearch

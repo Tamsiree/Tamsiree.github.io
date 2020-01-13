@@ -4,6 +4,7 @@ date: 2018-12-18 11:34:00
 tags:
   - Game
   - Steam
+  - GamePlatform
   - CSGO
 categories:
   - Game
