@@ -53,7 +53,12 @@ sudo pacman -Syy
 ```bash
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+#中国科技大学
+#Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+#上海交大
+#Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
+#清华大学
+Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
 
 升级系统
