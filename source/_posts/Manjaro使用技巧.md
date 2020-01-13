@@ -1,5 +1,5 @@
 ---
-title: Manjaro使用技巧与问题归纳
+title: Manjaro使用技巧
 date: 2019-09-23 14:52:03
 description: 在日常使用Manjaro系统的过程中，总会遇到这样或者那样的问题，也会遇到需要有某种需求的时候，特此记录。
 tags:
@@ -91,23 +91,23 @@ gpg --gen-key
 ### 使用 debtap 工具进行解包  
 
 1. 首先查看电脑上是否安装过 debtap
-```
+```bash
 sudo pacman -Q debtap
 ```
 2. 安装解包打包工具 debtap
-```
+```bash
 yay -S debtap
 ```
 3. 升级 debtap
-```
+```bash
 sudo debtap -u
 ```
 4. 将deb解包
-```
+```bash
 sudo debtap  xxxx.deb
 ```
 5. 上述操作完成后会在deb包同级目录生成 ×.tar.xz 文件，直接用 `pacman` 安装即可
-```
+```bash
 sudo pacman -U x.tar.xz
 ```
 > 安装时会提示输入包名，以及 `license`。  
@@ -131,9 +131,9 @@ Dolphin 是 KDE 下默认的文件管理器，整体来说做的很不错，但�
 
 在默认情况下我们打开 grub 引导菜单以后只有5秒钟的时间选择系统，这个能会带来些许不便。可以通过以下命令来修改 grub 配置：
 
-```
+```bash
 sudo vim /etc/default/grub   # 修改为 GRUB_TIMEOUT=30  
-sudo update-grub             # 更新 grub 配置  
+sudo update-grub             # 更新 GRUB 配置  
 ```
 
 ---
@@ -202,12 +202,12 @@ reboot
 
 电脑重启后，用命令行：
 测试集显的FPS
-```
+```bash
 glxgears  
 ```
 
 测试独显的FPS
-```
+```bash
 optirun glxgears  
 ```
 
@@ -241,7 +241,7 @@ primusrun android-studio
 
 ### 挂载新硬盘
 
-```
+```bash
 sudo mount /dev/sda1 /home/tamsiree/Disk1/ 
 ```
 
@@ -271,7 +271,7 @@ UUID=xxx  /[挂载目录]  ext4[文件格式]  defaults  0  0
 ## 中文字体显示问题
 ### 解决 中文字体 乱码方块
 
-中文字体推荐使用：文泉驿、思源字体。
+中文字体推荐使用：文泉驿、思源字体。  
 文泉系列字体：
 
 ```bash
@@ -285,21 +285,26 @@ adobe 系列字体及其他：
 ```bash
 yay -S adobe-source-han-sans-cn-fonts  
 yay -S adobe-source-han-serif-cn-fonts  
-yay -S noto-fonts-cjk
 ```
 
-西文字体推荐使用dejavu、noto字体。
+西文字体推荐使用 `dejavu` 、`noto` 字体。
 
 ```bash
-sudo pacman -S ttf-dejavu
+sudo pacman -S ttf-dejavu ttf-roboto
 sudo pacman -S noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk
 ```
+
+配置字体效果非常耗费时间，如果想仔细折腾，可以参考如下几个网页：
+
+1. [Localization/Simplified Chinese (简体中文)](https://wiki.archlinux.org/index.php/Localization/Simplified_Chinese_%28简体中文%29)  
+2. [Font configuration (简体中文)](https://wiki.archlinux.org/index.php/Font_configuration_%28简体中文%29)  
+3. [Font Configuration/Chinese (简体中文)](https://wiki.archlinux.org/index.php/Font_Configuration/Chinese_%28简体中文%29)  
 
 ---
 
 #### 字体设置
 在使用winfonts之后，电脑默认中文字体编程宋体，并不是很好看，我们把它转变成文泉驿正黑。操作如下：
-在 ~/.config/fontconfig 目录下的fonts.conf中添加以下内容  
+在 ~/.config/fontconfig 目录下的 `fonts.conf` 中添加以下内容  
 
 ```conf
 <?xml version='1.0'?>
@@ -400,7 +405,7 @@ fc-cache -fv
 ## 解决 网易云音乐 无法输入中文
 经过我自己探索，终于找到解决办法，分享给大家：
 1.先安装 `qcef` 这个软件包
-```
+```bash
 pacman -S qcef
 ```
 
@@ -415,7 +420,7 @@ exec "${HERE}"/netease-cloud-music $@
 ```
 
 3.安装 `vlc` 这个包
-```
+```bash
 pacman -S vlc
 ```
 
@@ -424,7 +429,7 @@ pacman -S vlc
 ## sudo 免密操作
 
 开机启动和平时一些操作难免使用sudo命令。
-```
+```bash
 # 切换到root用户
 su root  
 nano /etc/sudoers/  下面一个文件 或者新建一个文件都可以
@@ -439,7 +444,7 @@ tamsiree       ALL=(ALL)       NOPASSWD:ALL
 ## 解决 安装显卡驱动后 或者 更新内核后 `无法播放声音的问题`
 在 `~/.asoundrc` 中(如果没有则新建)[此文件为隐藏文件]  
 
-```
+```bash
 defaults.pcm.card 0
 defaults.pcm.device 0
 defaults.ctl.card 0
