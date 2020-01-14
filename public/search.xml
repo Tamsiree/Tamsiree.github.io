@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Anbox</title>
+    <url>/Software/Anbox/Anbox/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>听说最近出了一个软件<a href="http://anbox.io/" target="_blank" rel="noopener" title="http://anbox.io/">anbox</a>，可以在Linux上原生运行Andriod程序，于是迫不及待想试一试。AUR已经有人打了包，所以装起来还算方便，只是系统镜像有点大，以及要编译的包稍微有点多。安装方法主要来自<a href="https://github.com/anbox/anbox/issues/3#issuecomment-294023515" target="_blank" rel="noopener" title="https://github.com/anbox/anbox/issues/3#issuecomment-294023515">artex-files在GitHub上的评论</a>。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>先安装所有需要的软件包 (anbox-image要单独先装，不然一直显示’cannot resolve anbox-image’)</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yaourt -S linux-headers dkms anbox-image</span><br><span class="line">yaourt -S anbox-modules-dkms-git anbox-git</span><br></pre></td></tr></table></figure></div>
+<p>然后加载所需要的内核模块</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo modprobe binder_linux</span><br><span class="line">sudo modprobe ashmem_linux</span><br></pre></td></tr></table></figure></div>
+<p>再启动相关服务 (这里用start，如果你想开机自启可以再enable)</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start anbox-container-manager.service</span><br><span class="line">systemctl --user start anbox-session-manager.service</span><br></pre></td></tr></table></figure></div>
+<p>最后在菜单中寻找anbox即可打开APP管理器。内置的一些程序如日历、设置等也会显示在菜单中，可以直接打开。目前内置程序还没有Google Play等，只能用ADB安装。</p>
+<p>如果anbox还是不能运行，可以试试重启 (?)，以及试试用下面这句启动session-manager</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">anbox session-manager --gles-driver=host</span><br></pre></td></tr></table></figure></div>
+<p>我的台式机上不需要上述操作，但笔记本需要，可能和显卡有关。如果还有其它问题，可以看看AUR里和GitHub上的一些评论：</p>
+<p><a href="https://aur.archlinux.org/pkgbase/anbox-git/?comments=all" target="_blank" rel="noopener" title="https://aur.archlinux.org/pkgbase/anbox-git/?comments=all">https://aur.archlinux.org/pkgbase/anbox-git/?comments=all</a></p>
+<p><a href="https://github.com/anbox/anbox/issues/3" target="_blank" rel="noopener" title="https://github.com/anbox/anbox/issues/3">https://github.com/anbox/anbox/issues/3</a></p>
+<hr>
+<blockquote>
+<p>参考链接 <a href="https://www.lainme.com/doku.php/blog/2017/04/%E5%9C%A8archlinux%E4%B8%8A%E5%AE%89%E8%A3%85anbox" target="_blank" rel="noopener">在Archlinux上安装Anbox</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Software</category>
+        <category>Anbox</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Linux</tag>
+        <tag>Manjaro</tag>
+        <tag>Software</tag>
+        <tag>Anbox</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>路由器固件</title>
     <url>/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近偶然原因需要刷机，潜水研究，开始也是搞不清各种固件区别，后来慢慢整理了下整理的资料。</p>
@@ -220,6 +257,74 @@
       </tags>
   </entry>
   <entry>
+    <title>五险一金</title>
+    <url>/Daily/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>身在职场，还是需要了解一些关于五险一金的基本知识，特意记录下来，供参考。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>什么是五险一金？相信很多人，只知道什么养老保险，医疗保险，公积金，有些还没认全所有的成员吧。</p>
+<p><a href="https://pic4.zhimg.com/v2-b264a75e2ca1ca4f42f502746927692f_b.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://pic4.zhimg.com/v2-b264a75e2ca1ca4f42f502746927692f_b.png" class="lazyload"></a></p>
+<p><strong>五险</strong>  </p>
+<blockquote>
+<p>1、养老保险。<br>2、医疗保险。<br>3、生育保险。<br>4、失业保险。<br>5、工伤保险。</p>
+</blockquote>
+<p><strong>一金</strong>  </p>
+<blockquote>
+<p>公积金</p>
+</blockquote>
+<hr>
+<h2 id="养老保险"><a href="#养老保险" class="headerlink" title="养老保险"></a>养老保险</h2><p>养老保险就是等你退休之后才可以领到的资金啦。需要你在退休之前不断地累积交齐15年了，就可以坐等退休后享受了。</p>
+<p>怎么交：个人缴纳当地年度职工平均工资的8%，进入个人账户，单位缴纳20%，进入统筹账户。</p>
+<p>领多少：基础养老金+个人养老金=你所领到每月的养老金。</p>
+<p>基础养老金=上一年度全市职工月工资的M%（M为个人缴费年限）</p>
+<p>个人账户养老金=本人养老保险账户储存额/N(N是一个数值，可以上网进行搜索查询，不同退休年纪，N值不同。50岁退休，N为195,55岁退休，N为170，60岁退休，N为139,)</p>
+<p>如果在不同城市缴纳，需要办理异地转移五险一金。只要去到原参保所在地社保局，开具参保缴费凭证，并转交到新的地方社保局就行啦。</p>
+<hr>
+<h2 id="医疗保险"><a href="#医疗保险" class="headerlink" title="医疗保险"></a>医疗保险</h2><p>注意：医保的一个重要问题，就是如果医保停止缴纳后3个月就不再享受医疗报销的待遇。需要再次缴纳后连续缴纳6个月之后，才能再次享受住院报销等待遇。</p>
+<p>所以没什么事情千万不要停了缴纳医保的哦小伙伴们。如果长时间没有缴纳，建议自己去社保个人缴纳社保。或者直接购买一份商业医疗保险。</p>
+<p>交多久：不同地区，有不同的要求累计年限。例如是有些地区退休前必须累计缴纳20年，退休后才能享受医保待遇。</p>
+<p>怎么交：个人缴纳约2%+还有几块钱的大病保险+单位缴纳8%-10%</p>
+<p>领多少：个人的全部缴纳医保+部分单位缴纳的医保，每年会返还进个人医保卡中，可以刷卡买药看门诊。</p>
+<hr>
+<h2 id="生育保险"><a href="#生育保险" class="headerlink" title="生育保险"></a>生育保险</h2><p>交多久：大部分城市来说，需要在所在单位缴满1年的时间，女性生小孩，或者男性同胞的妻子生小孩，都可以享受这个待遇。</p>
+<p>怎么交：全部由企业缴纳，0.5%-1%</p>
+<p>领多少：生小孩的相关检查费、接生费、手术费、住院费、药费都可以用。</p>
+<p>注意：如果中断缴纳了生育保险，必须在连续缴费半年/一年，才能重新享受。</p>
+<hr>
+<h2 id="失业保险"><a href="#失业保险" class="headerlink" title="失业保险"></a>失业保险</h2><p>怎么交：个人缴0.2%-1%，单位缴2%、不同地方有不同规定。</p>
+<p>交多久：失业前需要在之前所在单位累计缴纳失业保险满1年，并且是非本人意愿的失业，主动辞职就不能领取啦。在失业后60天内进行失业登记，满足这三个条件才能享受哦。</p>
+<p>领多久：最多就2年啦。所以小伙伴还是乖乖搬砖吧。</p>
+<p>如果被迫失业的话，需要进行的流程是：</p>
+<p>(1)首先要先到当地的就业服务中心（人才中心）进行失业登记。</p>
+<p>提供的资料：解除合同证明书，身份证复印件。领取登记表填写并申请按规定享受失业救济金待遇。同时办理《再就业优惠证》享受相关的政策优惠待遇。</p>
+<p>(2)然后，提供《失业证》《再就业优惠证》、身份证、单位出具的参加医疗保险时限证明书到医保中心办理医疗保险参保手续。</p>
+<p>(3)另外，待业期间所欠缴费用，必须到社保中心（就业中心）个人缴费窗口，提供《养老保险手册》《养老保险个人账户登记卡片》《养老保险个人账户封存单》《失业证》《再就业优惠证》等，按照手续参加办理城乡居民养老保险。</p>
+<p>流程之复杂，只能到时候多咨询工作人员吧。</p>
+<hr>
+<h2 id="工伤保险"><a href="#工伤保险" class="headerlink" title="工伤保险"></a>工伤保险</h2><p>包括了：工作期间，上下班路上也算咯哦。遭受了意外伤害或者得了职业病，暂时或者永久丧失了劳动能力，甚至不幸死亡。</p>
+<p>不过，因工死亡必须是在被救治后48小时内死亡才能算在工伤保险范围内。</p>
+<p>怎么交：全部由单位缴纳，0.5%-2%</p>
+<p>领多少：根据工伤不同来领取。</p>
+<hr>
+<h2 id="住房公积金"><a href="#住房公积金" class="headerlink" title="住房公积金"></a>住房公积金</h2><p>买房、装修、租房、离职、退休都可以领回家的。</p>
+<p>怎么交：个人12%+单位缴纳12%,不同根据不同地区，有些地区可以有得挑选比例。基本就是你交多少，公司对应也交多少的。</p>
+<p>领多少：个人缴的全部归我们自己所有，可以领取。</p>
+<hr>
+<p>不过因为不同地区的社保情况还是有挺大的区别的，本篇不代表权威性的各地五险一金的区别比较大，建议打电话咨询更为准确哦。  </p>
+<p>根据社保法，企业必须为员工缴纳社保，如果未缴纳的企业，是要缴纳滞纳金并罚款的。可以去社保的检察部门进行投诉，或者建议换一份工作。</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Daily</category>
+        <category>五险一金</category>
+      </categories>
+      <tags>
+        <tag>Daily</tag>
+        <tag>五险一金</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DeepLearning</title>
     <url>/TechnicalResearch/MachineLearning/DeepLearning/DeepLearning/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>深度学习(DL, Deep Learning)是机器学习(ML, Machine Learning)领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能(AI, Artificial Intelligence)。</p>
@@ -417,6 +522,196 @@
       <tags>
         <tag>Computer</tag>
         <tag>Alienware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人所得税</title>
+    <url>/Daily/%E4%B8%AA%E4%BA%BA%E6%89%80%E5%BE%97%E7%A8%8E/%E4%B8%AA%E4%BA%BA%E6%89%80%E5%BE%97%E7%A8%8E/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>工作的这些时间，对于自己工资的个人所得税部分还是有些雾里探花，所以找些资料详细的了解一下。</p>
+<hr>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="居民工资薪金所得"><a href="#居民工资薪金所得" class="headerlink" title="居民工资薪金所得"></a>居民工资薪金所得</h2><p>（1）有住所居民个人正常工资薪金所得</p>
+<p>正常工资薪金所得是指个人因任职或者受雇而取得的工资、薪金、奖金、年终加薪、劳动分红、津贴、补贴以及与任职或者受雇有关的其他所得。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应预扣预缴税额=（累计预扣预缴应纳税所得额×税率－速算扣除数）－累计减免税额－累计已预扣预缴税额</p>
+<p>累计预缴应纳税所得额=累计收入－累计免税收入－累计减除费用－累计专项扣除－累计专项附加扣除－累计依法确定的其它扣除</p>
+</blockquote>
+<p>（2）无住所居民个人正常工资薪金所得</p>
+<p>无住所居民个人在境内居住累计满183天的年度连续不满六年（含无住所居民个人为高级管理人员人员）</p>
+<blockquote>
+<p>应纳税所得额=当月境内外工资薪金总额×〔1－（当月境外支付工资薪金数额÷当月境内外工资薪金总额）×（当月工资薪金所属工作期间境外工作天数÷当月工资薪金所属工作期间公历天数）〕－减除费用</p>
+<p>应纳税额=应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>无住所居民个人在境内居住累计满183天的年度连续满六年（含无住所居民个人为高级管理人员人员）</p>
+<blockquote>
+<p>应纳税所得额=当月境内外工资薪金总额－减除费用</p>
+<p>应纳税额=应纳税所得额×税率－速算扣除数</p>
+</blockquote>
+<p>无住所个人此前六年的任一年在中国境内累计居住天数不满183天或者单次离境超过30天。该纳税年度来源于中国境外且由境外单位或者个人支付的所得，免予缴纳个人所得税。重新计算连续居住年限。</p>
+<hr>
+<h2 id="居民个人全年一次性奖金收入"><a href="#居民个人全年一次性奖金收入" class="headerlink" title="居民个人全年一次性奖金收入"></a>居民个人全年一次性奖金收入</h2><p>居民个人取得全年一次性奖金，符合《国家税务总局关于调整个人取得全年一次性奖金等计算征收个人所得税方法问题的通知》（国税发〔2005〕9号）规定的，在2021年12月31日前，不并入当年综合所得，以全年一次性奖金收入除以12个月得到的数额，按照本通知所附按月换算后的综合所得税率表（以下简称月度税率表），确定适用税率和速算扣除数，单独计算纳税。计算公式为：</p>
+<blockquote>
+<p>应纳税额=全年一次性奖金×适用税率－速算扣除数</p>
+</blockquote>
+<p>居民个人取得全年一次性奖金，也可以选择并入当年综合所得计算纳税。</p>
+<p>自2022年1月1日起，居民个人取得全年一次性奖金，应并入当年综合所得计算缴纳个人所得税。</p>
+<hr>
+<h2 id="居民个人劳务报酬所得"><a href="#居民个人劳务报酬所得" class="headerlink" title="居民个人劳务报酬所得"></a>居民个人劳务报酬所得</h2><p>（1）劳务报酬所得－保险营销员、证券经纪人</p>
+<p>保险营销员、证券经纪人取得的佣金收入，属于劳务报酬所得，以不含增值税的收入减除20%的费用后的余额为收入额，收入额减去展业成本以及附加税费后，并入当年综合所得，计算缴纳个人所得税。保险营销员、证券经纪人展业成本按照收入额的25%计算。</p>
+<p>（2）劳务报酬所得－一般劳务、其他劳务</p>
+<p>劳务报酬所得以每次收入减除费用后的余额为收入额；每次收入不超过四千元的，费用按八百元计算；每次收入四千元以上的，费用按百分之二十计算。计算公式为：</p>
+<blockquote>
+<p>应预扣预缴税额=预扣预缴应纳税所得额×预扣率－速算扣除数</p>
+</blockquote>
+<hr>
+<h2 id="居民个人稿酬所得"><a href="#居民个人稿酬所得" class="headerlink" title="居民个人稿酬所得"></a>居民个人稿酬所得</h2><p>稿酬所得，是指个人因其作品以图书、报刊等形式出版、发表而取得的所得。以收入减除费用后的余额为收入额，收入额减按百分之七十计算。每次收入不超过四千元的，减除费用按八百元计算；每次收入四千元以上的，减除费用按百分之二十计算。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应预扣预缴税额=预扣预缴应纳税所得额×适用税率（20%）</p>
+</blockquote>
+<hr>
+<h2 id="居民个人特许权使用费所得"><a href="#居民个人特许权使用费所得" class="headerlink" title="居民个人特许权使用费所得"></a>居民个人特许权使用费所得</h2><p>特许权使用费所得以每次收入减除费用后的余额为收入额。每次收入不超过四千元的，减除费用按八百元计算；每次收入四千元以上的，减除费用按百分之二十计算。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应预扣预缴税额=预扣预缴应纳税所得额×适用税率（20%）</p>
+</blockquote>
+<hr>
+<h2 id="非居民纳税人工资薪金所得"><a href="#非居民纳税人工资薪金所得" class="headerlink" title="非居民纳税人工资薪金所得"></a>非居民纳税人工资薪金所得</h2><p>（1）非高层管理人员应纳税额：</p>
+<p>1）非居民个人境内居住时间累积不超过90天</p>
+<blockquote>
+<p>应纳税所得额=当月境内外工资薪金总额×（当月境内支付工资薪金数额÷当月境内外工资薪金总额）×（当月工资薪金所属工作期间境内工作天数÷当月工资薪金所属工作期间公历天数）－减除费用</p>
+<p>应纳税额=应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>2）非居民个人境内居住时间累积超过90天不满183天</p>
+<blockquote>
+<p>应纳税所得额=当月境内外工资薪金总额×（当月工资薪金所属工作期间境内工作天数÷当月工资薪金所属工作期间公历天数）－减除费用</p>
+<p>应纳税额=应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>（2）高级管理人员人员应纳税额：</p>
+<p>1）高级管理人员人员在境内居住时间累积不超过90天</p>
+<p>应纳税所得额=当月境内外工资薪金总额×（当月境内支付工资÷当月境内外支付工资总额）－减除费用</p>
+<blockquote>
+<p>应纳税额=应纳税所得额×税率－速算扣除数</p>
+</blockquote>
+<p>2）高级管理人员人员在境内居住时间累积超过90天不满183天</p>
+<p>应纳税所得额=当月境内外工资薪金总额×〔1－（当月境外支付工资薪金数额÷当月境内外工资薪金总额）×（当月工资薪金所属工作期间境外工作天数÷当月工资薪金所属工作期间公历天数）〕－减除费用</p>
+<blockquote>
+<p>应纳税额=应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>注：非居民个人在一个纳税年度内税款扣缴方法保持不变，达到居民个人条件时，应当告知扣缴义务人基础信息变化情况，年度终了后按照居民个人有关规定办理汇算清缴。</p>
+<hr>
+<h2 id="非居民人员数月奖金所得"><a href="#非居民人员数月奖金所得" class="headerlink" title="非居民人员数月奖金所得"></a>非居民人员数月奖金所得</h2><p>非居民个人一个月内取得数月奖金，单独计算当月收入额，不与当月其他工资薪金合并，按6个月分摊计税，不减除费用，在一个公历年度内，对每一个非居民个人，该计税办法只允许适用一次。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税额=〔（数月奖金收入额÷6）×税率－速算扣除数〕×6</p>
+</blockquote>
+<hr>
+<h2 id="非居民个人股权激励所得"><a href="#非居民个人股权激励所得" class="headerlink" title="非居民个人股权激励所得"></a>非居民个人股权激励所得</h2><p>非居民个人一个月内取得股权激励所得，单独计算当月收入额，不与当月其他工资薪金合并，按6个月分摊计税（一个公历年度内的股权激励所得应合并计算），不减除费用。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税额=〔（本公历年度内股权激励所得合计额）÷6）×税率－速算扣除数〕×6－本公历年度内股权激励所得已纳税额</p>
+</blockquote>
+<hr>
+<h2 id="非居民个人劳务报酬所得"><a href="#非居民个人劳务报酬所得" class="headerlink" title="非居民个人劳务报酬所得"></a>非居民个人劳务报酬所得</h2><p>劳务报酬所得以每次收入减除百分之二十的费用后的余额为应纳税所得额，适用个人所得税税率表三计算应纳税额。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税所得额=每次收入×（1－20%）</p>
+<p>应纳税额＝应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>其中适用税率和速算扣除数：按照综合所得适用的个人所得税税率按月换算</p>
+<hr>
+<h2 id="非居民个人稿酬所得"><a href="#非居民个人稿酬所得" class="headerlink" title="非居民个人稿酬所得"></a>非居民个人稿酬所得</h2><p>稿酬所得以每次收入减除费用后的余额为收入额，收入额减按百分之七十计算为应纳税所得额。适用个人所得税税率表三计算应纳税额。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税所得额=每次收入×（1－20%）×70%</p>
+<p>应纳税额＝应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>其中适用税率和速算扣除数：按照综合所得适用的个人所得税税率按月换算</p>
+<hr>
+<h2 id="非居民个人特许权使用费所得"><a href="#非居民个人特许权使用费所得" class="headerlink" title="非居民个人特许权使用费所得"></a>非居民个人特许权使用费所得</h2><p>特许权使用费所得以收入减除百分之二十的费用后的余额为应纳税所得额，适用个人所得税税率表三计算应纳税额。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税所得额=每次收入×（1－20%）</p>
+<p>应纳税额＝应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<p>其中适用税率和速算扣除数：按照综合所得适用的个人所得税税率按月换算</p>
+<hr>
+<h2 id="解除劳动合同一次性补偿金"><a href="#解除劳动合同一次性补偿金" class="headerlink" title="解除劳动合同一次性补偿金"></a>解除劳动合同一次性补偿金</h2><p>个人与用人单位解除劳动关系取得一次性补偿收入（包括用人单位发放的经济补偿金、生活补助费和其他补助费），在当地上年职工平均工资3倍数额以内的部分，免征个人所得税；超过3倍数额的部分，不并入当年综合所得，单独适用综合所得税率表，计算纳税。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税所得额=一次性补偿收入－当地社平工资×3</p>
+<p>应纳税额=应纳税所得额×适用税率－速算扣除数</p>
+</blockquote>
+<hr>
+<h2 id="个人股权激励收入"><a href="#个人股权激励收入" class="headerlink" title="个人股权激励收入"></a>个人股权激励收入</h2><p>居民个人取得股票期权、股票增值权、限制性股票、股权奖励等股权激励（以下简称股权激励），符合《财政部国家税务总局关于个人股票期权所得征收个人所得税问题的通知》（财税〔2005〕35号）、《财政部国家税务总局关于股票增值权所得和限制性股票所得征收个人所得税有关问题的通知》（财税〔2009〕5号）、《财政部国家税务总局关于将国家自主创新示范区有关税收试点政策推广到全国范围实施的通知》（财税〔2015〕116号）第四条、《财政部国家税务总局关于完善股权激励和技术入股有关所得税政策的通知》（财税〔2016〕101号）第四条第（一）项规定的相关条件的，在2021年12月31日前，不并入当年综合所得，全额单独适用综合所得税率表，计算纳税。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税额＝应纳税所得额×适用税率－速算扣除数</p>
+<p>股票期权应纳税所得额=（行权股票的每股市场价－员工取得该股票期权支付的每股施权价）×股票数量</p>
+<p>股票增值权应纳税所得额=（行权日股票价格－授权日股票价格）×行权股票份数</p>
+<p>限制性股票应纳税所得额=（股票登记日股票市价+本批次解禁股票当日市价）÷2×本批次解禁股票份数－被激励对象实际支付的资金总额×（本批次解禁股票份数÷被激励对象获取的限制性股票总份数）</p>
+</blockquote>
+<hr>
+<h2 id="年金领取"><a href="#年金领取" class="headerlink" title="年金领取"></a>年金领取</h2><p>个人达到国家规定的退休年龄，领取的企业年金、职业年金，符合《财政部人力资源社会保障部国家税务总局关于企业年金职业年金个人所得税有关问题的通知》（财税〔2013〕103号）规定的，不并入综合所得，全额单独计算应纳税额。按月领取的，适用月度税率表计算纳税；按季领取的，平均分摊计入各月，按每月领取额适用月度税率表计算纳税；按年领取的，适用综合所得税率表计算纳税。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税额=年金领取收入额×适用税率－速算扣除数</p>
+</blockquote>
+<hr>
+<h2 id="提前退休一次性补贴"><a href="#提前退休一次性补贴" class="headerlink" title="提前退休一次性补贴"></a>提前退休一次性补贴</h2><p>个人办理提前退休手续而取得的一次性补贴收入，应按照办理提前退休手续至法定离退休年龄之间实际年度数平均分摊，确定适用税率和速算扣除数，单独适用综合所得税率表，计算纳税。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税额={〔（一次性补贴收入÷办理提前退休手续至法定退休年龄的实际年度数）－费用扣除标准〕×适用税率－速算扣除数} × 办理提前退休手续至法定退休年龄的实际年度数</p>
+</blockquote>
+<hr>
+<h2 id="利息、股息、红利所得"><a href="#利息、股息、红利所得" class="headerlink" title="利息、股息、红利所得"></a>利息、股息、红利所得</h2><p>利息、股息、红利所得，以支付利息、股息、红利时取得的收入为一次。所得适用比例税率，税率为百分之二十。、</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税额=利息、股息、红利所得收入×适用税率</p>
+</blockquote>
+<hr>
+<h2 id="财产租赁所得"><a href="#财产租赁所得" class="headerlink" title="财产租赁所得"></a>财产租赁所得</h2><p>财产租赁所得，是指个人出租不动产、机器设备、车船以及其他财产取得的所得。财产租赁所得适用比例税率，税率为百分之二十，以一个月内取得的收入为一次。每次收入不超过四千元的，减除费用八百元；四千元以上的，减除百分之二十的费用，其余额为应纳税所得额，乘以百分之二十的比例税率计算税款。</p>
+<p>计算公式为：</p>
+<p>（1）每次收入不超过4000元：</p>
+<blockquote>
+<p>应纳税额=〔每次（月）收入额－准予减除费用800元〕×20%</p>
+</blockquote>
+<p>（2）每次（月）收入在4000元以上：</p>
+<blockquote>
+<p>应纳税额=每次（月）收入额×（1－20%）×20%</p>
+</blockquote>
+<hr>
+<h2 id="财产转让所得（含股权转让所得）"><a href="#财产转让所得（含股权转让所得）" class="headerlink" title="财产转让所得（含股权转让所得）"></a>财产转让所得（含股权转让所得）</h2><p>财产转让所得，是指个人转让有价证券、股权、合伙企业中的财产份额、不动产、机器设备、车船以及其他财产取得的所得。财产转让所得适用比例税率，税率为百分之二十，按照一次转让财产的收入额减除财产原值和合理费用后的余额计算纳税。</p>
+<p>计算公式：</p>
+<blockquote>
+<p>应纳税所得额=收入总额－财产原值－合理费用<br>应纳税额=应纳税所得额×适用税率</p>
+</blockquote>
+<hr>
+<h2 id="偶然所得"><a href="#偶然所得" class="headerlink" title="偶然所得"></a>偶然所得</h2><p>偶然所得，是指个人得奖、中奖、中彩以及其他偶然性质的所得。适用比例税率，税率为百分之二十，以每次取得该项收入为一次，以每次收入额为应纳税所得额。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税所得额=每次收入额</p>
+<p>应纳税额=应纳税所得额×适用税率</p>
+</blockquote>
+<hr>
+<h2 id="限售股转让所得"><a href="#限售股转让所得" class="headerlink" title="限售股转让所得"></a>限售股转让所得</h2><p>限售股转让所得适用比例税率，税率为百分之二十。按照一次限售股转让收入减除股票原值和合理税费后的余额计算纳税。限售股原值，是指限售股买入时的买入价及按照规定缴纳的有关费用。合理税费，是指转让限售股过程中发生的印花税、佣金、过户费等与交易相关的税费。</p>
+<p>计算公式为：</p>
+<blockquote>
+<p>应纳税所得额＝限售股转让收入－限售股原值－合理税费</p>
+<p>应纳税额=应纳税所得额×适用税率</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Daily</category>
+        <category>个人所得税</category>
+      </categories>
+      <tags>
+        <tag>Daily</tag>
+        <tag>个人所得税</tag>
       </tags>
   </entry>
   <entry>
