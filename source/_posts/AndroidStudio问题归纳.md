@@ -50,11 +50,11 @@ compileOptions {
 1. 修改代码内报错的 import 语句  
 2. 修改布局中的标签头,例如
 
-| 名称 | 变化之前 | Android X |
-| :---: | :---: | :---: |
-| RecyclerView | android.support.v7.widget.RecyclerView | androidx.recyclerview.widget.RecyclerView |
+|       名称       |                  变化之前                   |                     Android X                     |
+|:----------------:|:-------------------------------------------:|:-------------------------------------------------:|
+|   RecyclerView   |   android.support.v7.widget.RecyclerView    |     androidx.recyclerview.widget.RecyclerView     |
 | ConstraintLayout | android.support.constraint.ConstraintLayout | androidx.constraintlayout.widget.ConstraintLayout |
-| CardView | android.support.v7.widget.CardView | androidx.cardview.widget.CardView |
+|     CardView     |     android.support.v7.widget.CardView      |         androidx.cardview.widget.CardView         |
 
 ---
 
@@ -104,6 +104,63 @@ AAPT: error: <item> inner element must either be a resource reference or empty�
 ```
 <item name="about_version_code" type="id" />
 ```
+
+## Android Studio编译问题-Error:Could not find org.jetbrains.trove4j:trove4j:20160824
+
+今天早上打开AS，发现项目编译不通过了。。。提示
+```bash
+Error:Could not find org.jetbrains.trove4j:trove4j:20160824
+
+Error:SSL peer shut down incorrectly
+```
+真莫名其妙。。。
+
+查阅资料，提供的解决方式大致有以下几种：
+
+1. 在buildscript中加上这个 jcenter()
+```gradle
+buildscript {
+    repositories {   
+       jcenter()//       在这里加
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+```
+但是，一般项目都有这个属性了，仍然是报上面的错。
+
+2. 修改gradle-wrapper.properties文件  
+将distributionUrl=https\\://services.gradle.org/distributions/gradle-4.1-all.zip  
+修改为：distributionUrl=http://services.gradle.org/distributions/gradle-4.1-all.zip  
+有的同志，说这样调整之后，重新编译就通过了。但我的仍然是编译不过。
+
+3. 项目build文件中repositories和allprojects括号中加上mavenCentral()  
+然后将 jcenter() 改成
+```gradle
+maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+
+maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+```
+最后是这个样子：
+
+```gradle
+buildscript {
+  repositories {
+    mavenCentral()
+    google()
+    //jcenter()
+    maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+    dependencies {
+      classpath 'com.android.tools.build:gradle:3.0.1'
+  }
+}
+```
+这样就编译通过了。
+
+总结：个人认为，在AS加载（引入）各种包、库的时候，由于网络限制等原因，导致加载失败，这个时候，找个靠谱的第三方库来作为下载来源，才是最有效的。
 
 
 ---
