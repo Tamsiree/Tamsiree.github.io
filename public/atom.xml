@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tamsiree.com/"/>
-  <updated>2020-01-14T11:24:16.240Z</updated>
+  <updated>2020-01-15T04:39:20.731Z</updated>
   <id>https://tamsiree.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lutris使用技巧</title>
+    <link href="https://tamsiree.com/Game/GamePlatform/Lutris/Lutris%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://tamsiree.com/Game/GamePlatform/Lutris/Lutris%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
+    <published>2020-01-15T04:30:07.000Z</published>
+    <updated>2020-01-15T04:39:20.731Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>这里是讲述正文。</p><h2 id="运行战网"><a href="#运行战网" class="headerlink" title="运行战网"></a>运行战网</h2><p>在Lutris上运行战网，需要在设置中调整部分选项。</p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123401.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123401.png" class="lazyload"></a></p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123048.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123048.png" class="lazyload"></a></p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123058.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123058.png" class="lazyload"></a></p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123107.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123107.png" class="lazyload"></a></p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123115.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200115123115.png" class="lazyload"></a></p><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="Game" scheme="https://tamsiree.com/categories/Game/"/>
+    
+      <category term="GamePlatform" scheme="https://tamsiree.com/categories/Game/GamePlatform/"/>
+    
+      <category term="Lutris" scheme="https://tamsiree.com/categories/Game/GamePlatform/Lutris/"/>
+    
+    
+      <category term="Game" scheme="https://tamsiree.com/tags/Game/"/>
+    
+      <category term="GamePlatform" scheme="https://tamsiree.com/tags/GamePlatform/"/>
+    
+      <category term="Lutris" scheme="https://tamsiree.com/tags/Lutris/"/>
+    
+  </entry>
   
   <entry>
     <title>Anbox</title>
@@ -552,33 +586,6 @@
       <category term="软件工程" scheme="https://tamsiree.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="PseudoCode" scheme="https://tamsiree.com/tags/PseudoCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub提速方案</title>
-    <link href="https://tamsiree.com/TechnicalResearch/GitHub/GitHub%E6%8F%90%E9%80%9F%E6%96%B9%E6%A1%88/"/>
-    <id>https://tamsiree.com/TechnicalResearch/GitHub/GitHub%E6%8F%90%E9%80%9F%E6%96%B9%E6%A1%88/</id>
-    <published>2019-11-23T15:58:18.000Z</published>
-    <updated>2020-01-13T12:07:17.106Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Github 是程序员必备的代码托管平台，上面有许多公开项目资源可以供学习者免费下载学习，但有时候在github用git clone 下载公开项目的文件时，速度特别慢，因此Github提速迫在眉睫。</p><h1 id="Github提速方案"><a href="#Github提速方案" class="headerlink" title="Github提速方案"></a>Github提速方案</h1><p>为了解决上项目文件上传、下载速度慢的问题，翻越万里长城查阅资料，发现解决办法可以从 git clone 的域名入手。  </p><blockquote><p>实际上用 git clone 下载项目文件时使用的域名是 <a href="http://github.global.ssl.fastly.net" target="_blank" rel="noopener">http://github.global.ssl.fastly.net</a> ，非 <a href="http://github.com/" target="_blank" rel="noopener">http://github.com/</a> 。  </p></blockquote><p>因此，我们可以修改本地的 <strong>hosts</strong> 文件，在 <strong>hosts</strong> 文件中增加域名及域名解析对应的 ip，给该域名指定 ip 。</p><h2 id="获取域名-IP"><a href="#获取域名-IP" class="headerlink" title="获取域名 IP"></a>获取域名 IP</h2><p>有两种方法可以查询 <code>github.global.ssl.fastly.net</code> 该域名对应的 IP：  </p><ol><li>登录域名  的 ip 地址查询网页<blockquote><p><a href="http://github.global.ssl.fastly.net.ipaddress.com/" target="_blank" rel="noopener">http://github.global.ssl.fastly.net.ipaddress.com/</a></p></blockquote></li></ol><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191124001009.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191124001009.png" class="lazyload" title></a></p><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191124001225.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191124001225.png" class="lazyload" title></a></p><p>找到域名 <code>github.global.ssl.fastly.net</code> 对应的 IP: <code>199.232.5.194</code> 。  </p><ol start="2"><li>利用第三方 DNS 域名解析网站，查询响应 IP<br>常用的第三方 DNS 域名解析网站 <a href="http://tool.chinaz.com/dns" target="_blank" rel="noopener">http://tool.chinaz.com/dns</a></li></ol><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191124002601.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20191124002601.png" class="lazyload" title></a></p><p>不同地方对应该域名的响应ip不一样，网页解析速度也就不一样。选择TTL值最小的ip即可。</p><ol start="3"><li>查询CDN IP<br>前往<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">ipaddress</a>找到最近的github的CDN IP</li></ol><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/owzawzjyse.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/owzawzjyse.png" class="lazyload" title></a></p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">github-cloud.s3.amazonaws.com</span><br><span class="line">github.com</span><br><span class="line">assets-cdn.github.com</span><br><span class="line">github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure></div><h2 id="修改-Hosts"><a href="#修改-Hosts" class="headerlink" title="修改 Hosts"></a>修改 Hosts</h2><p>修改 hosts 文件，给域名绑定访问 IP。<br>例如： </p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">151.101.185.194 github.global-ssl.fastly.net</span><br><span class="line">192.30.253.112 github.com</span><br></pre></td></tr></table></figure></div><blockquote><p>此hosts更新时间为 2019-07-08 18:32</p></blockquote><p>每个系统下 hosts 文件的路径有点差异。</p><blockquote><ul><li>Windows<br>  C:\Windows\System32\drivers\etc\hosts</li><li>mac<br>  /etc/hosts</li><li>Linux<br>  /etc/hosts</li></ul></blockquote><h2 id="刷新dns"><a href="#刷新dns" class="headerlink" title="刷新dns"></a>刷新dns</h2><p>为了使修改的hosts文件生效，需要刷新DNS缓存。</p><p>每个系统下刷新DNS缓存的方式有点差异。</p><blockquote><ul><li>Windows:<br>　　ipconfig /flushdns</li></ul></blockquote><blockquote><ul><li>Mac OS X:<br>　　sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder</li></ul></blockquote><blockquote><ul><li>Debian/Ubuntu:<br>　　sudo /etc/rc.d/init.d/nscd restart</li></ul></blockquote><blockquote><ul><li>Linux with systemd:<br>　　sudo systemctl restart network.service</li></ul></blockquote><blockquote><ul><li>Fedora Linux:<br>　　sudo systemctl restart NetworkManager.service</li></ul></blockquote><blockquote><ul><li>Arch Linux/Manjaro with Network Manager:<br>　　sudo systemctl restart NetworkManager.service</li></ul></blockquote><blockquote><ul><li>Arch Linux/Manjaro with Wicd:<br>　　sudo systemctl restart wicd.service</li></ul></blockquote><p>我使用的是Manjaro，所以我的方法是：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager.service</span><br></pre></td></tr></table></figure></div><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      Github 是程序员必备的代码托管平台，上面有许多公开项目资源可以供学习者免费下载学习，但有时候在github用git clone 下载公开项目的文件时，速度特别慢，因此Github提速迫在眉睫。
-    
-    </summary>
-    
-    
-      <category term="TechnicalResearch" scheme="https://tamsiree.com/categories/TechnicalResearch/"/>
-    
-      <category term="GitHub" scheme="https://tamsiree.com/categories/TechnicalResearch/GitHub/"/>
-    
-    
-      <category term="GitHub" scheme="https://tamsiree.com/tags/GitHub/"/>
-    
-      <category term="TechnicalResearch" scheme="https://tamsiree.com/tags/TechnicalResearch/"/>
     
   </entry>
   
