@@ -1,7 +1,7 @@
 ---
 title: Manjaro问题解决
 author: Tamsiree
-date: 2020-09-26 18:36:21
+date: 2019-09-26 18:36:21
 description: 在使用Manjaro系统时，总会遇到一些奇奇怪怪的问题，特此记录。
 tags:
   - OperationSystem
