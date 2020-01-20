@@ -153,7 +153,7 @@ fc-cache -fv
 ---
 
 ## 解决 网易云音乐 无法输入中文
-经过我自己探索，终于找到解决办法，分享给大家：
+经过我自己探索，终于找到解决办法：
 1.先安装 `qcef` 这个软件包
 ```bash
 pacman -S qcef
@@ -163,8 +163,10 @@ pacman -S qcef
 ```bash
 #!/bin/sh
 HERE="$(dirname "$(readlink -f "${0}")")"
-export LD_LIBRARY_PATH=/usr/lib
-export QT_PLUGIN_PATH="${HERE}"/plugins
+#export LD_LIBRARY_PATH="${HERE}"/libs
+#注释原有的LD_LIBRARY_PATH，以下是修改过的
+export LD_LIBRARY_PATH=/usr/libs
+export QT_PLUGIN_PATH="${HERE}"/plugins 
 export QT_QPA_PLATFORM_PLUGIN_PATH="${HERE}"/plugins/platforms
 exec "${HERE}"/netease-cloud-music $@
 ```
