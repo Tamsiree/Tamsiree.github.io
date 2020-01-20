@@ -211,6 +211,16 @@ defaults.ctl.card 0
 
 ---
 
+# 折腾NVIDIA显卡驱动
+
+[`[Arch及其分支下Intel+Nvidia双显卡的一种解决方案]`](http://tieba.baidu.com/p/6340530678)
+
+[`[ManJaro 安装 NVIDIA 430驱动 （ManJaro install nvidia 430 Drivers）]`](https://www.jianshu.com/p/6f7c56c8d0f0)
+
+[`[Manjaro Linux 安装1060显卡驱动]`](https://www.jianshu.com/p/b7c9a2345bbf)
+
+---
+
 ## 通过pacman-manager安装软件失败
 
 通过pacman-manager安装软件失败,并提示以下信息：
@@ -225,7 +235,7 @@ defaults.ctl.card 0
 ```
 
 解决方案：  
-前往 `/var/tmp/pamac-build-xxx/`目录，删除缓存的临时文件即可。
+> 前往 `/var/tmp/pamac-build-xxx/` 目录，删除缓存的临时文件即可。
 
 ---
 
