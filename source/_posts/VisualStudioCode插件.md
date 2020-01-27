@@ -371,7 +371,7 @@ VS Code 使用的 Electron 版本不包含 ffmpeg，需替換自帶的 ffmpeg �
 ```bash
 下載 electron-%version%-win32-%arch%.zip  
 替換 ./ffmpeg.dll  
-```  
+```
 
 ##### macOS
 
@@ -409,24 +409,28 @@ curl https://gist.githubusercontent.com/nondanee/f157bbbccecfe29e48d87273cd02e21
 
 插件用法
 
-按**F1**或者**Ctrl Shift P**打開命令面板
+按 **F1** 或者 **Ctrl Shift P** 打開命令面板
 
 輸入命令前綴 `網易雲音樂` 或 `NeteaseMusic`就可以使用。  
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/4.png)  
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/5.png)  
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/6.png)
+
+![4.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/4.png)
+
+![5.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/5.png)
+
+![6.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/6.png)
 
 界面底部還會顯示歌詞和操作欄  
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/7.png)
+![7.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/7.png)
 
-# Tips
+## Tips
 
-**Linux下配置vscode终端字体： **
+Linux下配置vscode终端字体：
 
 在Ubuntu 18.04.1LTS 下的解决方案（亲测可用），其他版本linux做参考。
 
 下载字体
-```
+
+```bash
 # clone
 cd /usr/share/fonts/truetype/
 sudo git clone https://github.com/powerline/fonts.git
@@ -435,7 +439,8 @@ sudo git clone https://github.com/powerline/fonts.git
 刷新字体$sudo fc-cache -f -v
 
 安装字体
-```
+
+```bash
 # install
 cd fonts
 ./install.sh
@@ -446,27 +451,27 @@ rm -rf fonts
 
 在`文件`/`首选项`/`设置中`，选择`工作区`，搜索`终端`字体，改成 `Source Code Pro for Powerline`
 
- 效果：
+效果：
 
 ![](https://upload-images.jianshu.io/upload_images/12673212-3c962019f822a396.png?imageMogr2/auto-orient/strip|imageView2/2/w/442/format/webp)
 
-**Mac下配置vscode终端字体： ** 
+**Mac下配置vscode终端字体**
 
 在Mac 10.13.6下的解决方案（亲测可用），其他版本做参考。
 
-```
+```bash
 下载安装字体$cd /Library/Fonts$sudo git clone https://github.com/abertsch/Menlo-for-Powerline.git
 ```
 
 在vscode中设置字体：
 
-```
+```bash
 ​"terminal.integrated.fontFamily": "Menlo for Powerline"
 ```
 
 效果：
 
-![](https://img-blog.csdn.net/20180805011654667?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5naGFpMzc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![I0JBQkFCMA](https://img-blog.csdn.net/20180805011654667?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5naGFpMzc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 > Visual Studio Code的插件功能真的是强大到爆裂，还有仕么有意思的插件，欢迎大家在评论区补充
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tamsiree.com/"/>
-  <updated>2020-01-20T08:42:01.696Z</updated>
+  <updated>2020-01-23T16:25:40.976Z</updated>
   <id>https://tamsiree.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Manjaro安装NVIDIA闭源驱动</title>
+    <link href="https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro%E5%AE%89%E8%A3%85NVIDIA%E9%97%AD%E6%BA%90%E9%A9%B1%E5%8A%A8/"/>
+    <id>https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro%E5%AE%89%E8%A3%85NVIDIA%E9%97%AD%E6%BA%90%E9%A9%B1%E5%8A%A8/</id>
+    <published>2020-01-23T13:21:20.000Z</published>
+    <updated>2020-01-23T16:25:40.976Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在我的环境（NVIDIA 970M，Intel核显，Manjaro18.1.2，KDE）下安装 NVIDIA 的闭源驱动调试成功，依据知乎上的 <a href="https://www.zhihu.com/question/353534899/answer/884086339" target="_blank" rel="noopener">介绍</a> 此种方法使用了较长时间后也没问题。</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>在 screenfetch 下展示我的配置信息</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">██████████████████  ████████     tamsiree@tamsiree-alienware</span><br><span class="line">██████████████████  ████████     OS: Manjaro 18.1.5 Juhraya</span><br><span class="line">██████████████████  ████████     Kernel: x86_64 Linux 5.4.13-3-MANJARO</span><br><span class="line">██████████████████  ████████     Uptime: 3h 56m</span><br><span class="line">████████            ████████     Packages: 1262</span><br><span class="line">████████  ████████  ████████     Shell: zsh 5.7.1</span><br><span class="line">████████  ████████  ████████     Resolution: 1920x1080</span><br><span class="line">████████  ████████  ████████     DE: KDE 5.66.0 / Plasma 5.17.5</span><br><span class="line">████████  ████████  ████████     WM: KWin</span><br><span class="line">████████  ████████  ████████     GTK Theme: Breath [GTK2/3]</span><br><span class="line">████████  ████████  ████████     Icon Theme: maia</span><br><span class="line">████████  ████████  ████████     Font: Noto Sans Regular</span><br><span class="line">████████  ████████  ████████     Disk: 731G / 1.2T (68%)</span><br><span class="line">████████  ████████  ████████     CPU: Intel Core i7-6700HQ @ 8x 3.5GHz [98.0°C]</span><br><span class="line">                                 GPU: GeForce GTX 970M</span><br><span class="line">                                 RAM: 5569MiB / 15758MiB</span><br></pre></td></tr></table></figure></div><p>optimus-switch-sddm是用于SDDM的，对应KDE桌面，如果你安装的是Gnome可以看同作者的GDM，作者还有对应lightdm的脚本。</p><p>安装方法：<br>主要参考<a href="https://github.com/dglt1/optimus-switch-sddm" target="_blank" rel="noopener">Github安装脚本</a>的说明<br>我的安装步骤大体如下，可能有所疏漏或者没更新的地方，建议同时参考上面的Github原作者的README</p><ol><li><p>删除Bumblebee或者开源驱动</p><ul><li><p>方法一： 使用mhwd命令删除即可<br>开源驱动：<code>sudo mhwd -i pci video-nvidia</code><br>删除Bumblebee就把video-nvidia改成系统设置-›硬件设定里Bumblebee驱动的名字</p></li><li><p>方法二：直接在硬件设定里右键选移除</p></li></ul></li><li><p>安装nvidia私有闭源驱动<br>在系统设置-›硬件设定里直接右键安装下面的驱动中的一个，我的是video-nvidia-440xx</p></li></ol><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">video-nvidia-340xx</span><br><span class="line">video-nvidia-390xx</span><br><span class="line">video-nvidia-418xx</span><br><span class="line">video-nvidia-430xx</span><br><span class="line">video-nvidia-435xx</span><br><span class="line">video-nvidia-440xx</span><br></pre></td></tr></table></figure></div><p>此时千万不能重启！否则会卡死！<a href="https://img-blog.csdnimg.cn/20191121235550778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoZXJwYWh1,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption="在这里插入图片描述" class="fancybox"><img alt="在这里插入图片描述" title="在这里插入图片描述" data-src="https://img-blog.csdnimg.cn/20191121235550778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoZXJwYWh1,size_16,color_FFFFFF,t_70" class="lazyload"></a><br>上面是我完成后的驱动配置。<br>3.  安装依赖<br><code>sudo pacman -S linuxXXX-headers acpi_call-dkms xorg-xrandr xf86-video-intel git</code><br>linuxXXX-headers的名字换成你自己内核版本的名字，系统设置-›内核里查看正在运行的内核，我的是<code>linux35-headers</code><br>下图红色的即是 <a href="https://img-blog.csdnimg.cn/20191121234823105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoZXJwYWh1,size_16,color_FFFFFF,t_70" data-fancybox="group" data-caption="在这里插入图片描述" class="fancybox"><img alt="在这里插入图片描述" title="在这里插入图片描述" data-src="https://img-blog.csdnimg.cn/20191121234823105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoZXJwYWh1,size_16,color_FFFFFF,t_70" class="lazyload"></a><br>4.  <code>sudo modprobe acpi_call</code><br>5.  清理之前的文件<br>在脚本里其实会帮我们删，为了保险也可以直接查看一下.</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;etc&#x2F;X11&#x2F;</span><br><span class="line">&#x2F;etc&#x2F;X11&#x2F;mhwd.d&#x2F;</span><br><span class="line">&#x2F;etc&#x2F;X11&#x2F;xorg.conf.d&#x2F;</span><br><span class="line">&#x2F;etc&#x2F;modprobe.d&#x2F;</span><br><span class="line">&#x2F;etc&#x2F;modules-load.d&#x2F;</span><br></pre></td></tr></table></figure></div><ol start="6"><li>安装<br>执行<code>install.sh</code>之前可以修改一下switch/nvidia文件夹下的nvidia-xorg.conf文件取消<code>#Option &quot;DPI&quot; &quot;96 x 96&quot; #adjust this value as needed to fix scaling</code>的注释，否则在Nvidia Prime模式下字体可能会过小。<br>在~/目录下输入以下命令</li></ol><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;dglt1&#x2F;optimus-switch-sddm.git  </span><br><span class="line">cd ~&#x2F;optimus-switch-sddm  </span><br><span class="line">chmod +x install.sh</span><br><span class="line">sudo .&#x2F;install.sh</span><br></pre></td></tr></table></figure></div><ol start="7"><li>一行命令切换Nvidia Prime和Intel核显模式<br><code>sudo set-intel.sh</code>换Intel核显<br><code>sudo set-nvidia.sh</code>换Nvidia Prime</li><li>重启<br><code>reboot</code></li></ol><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>没有独显驱动会导致关机卡死，Bumblebee切换性能不佳，只安装Nvidia Prime耗电过多，目前这种方式是我遇到的最合理最完美的。</p><hr><blockquote><p>参考来源：<br><a href="https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225/33" target="_blank" rel="noopener">Manjaro论坛</a><br><a href="https://github.com/dglt1/optimus-switch-sddm" target="_blank" rel="noopener">Github安装脚本</a></p></blockquote><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      在我的环境（NVIDIA 970M，Intel核显，Manjaro18.1.2，KDE）下安装 NVIDIA 的闭源驱动调试成功，依据知乎上的 [介绍](https://www.zhihu.com/question/353534899/answer/884086339) 此种方法使用了较长时间后也没问题。
+    
+    </summary>
+    
+    
+      <category term="OperationSystem" scheme="https://tamsiree.com/categories/OperationSystem/"/>
+    
+      <category term="Linux" scheme="https://tamsiree.com/categories/OperationSystem/Linux/"/>
+    
+      <category term="Manjaro" scheme="https://tamsiree.com/categories/OperationSystem/Linux/Manjaro/"/>
+    
+    
+      <category term="OperationSystem" scheme="https://tamsiree.com/tags/OperationSystem/"/>
+    
+      <category term="Linux" scheme="https://tamsiree.com/tags/Linux/"/>
+    
+      <category term="Manjaro" scheme="https://tamsiree.com/tags/Manjaro/"/>
+    
+  </entry>
   
   <entry>
     <title>Emoji符号</title>
@@ -546,39 +577,6 @@
       <category term="Software" scheme="https://tamsiree.com/tags/Software/"/>
     
       <category term="VisualStudioCode" scheme="https://tamsiree.com/tags/VisualStudioCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SteamOS</title>
-    <link href="https://tamsiree.com/OperationSystem/Linux/SteamOS/SteamOS/"/>
-    <id>https://tamsiree.com/OperationSystem/Linux/SteamOS/SteamOS/</id>
-    <published>2019-12-24T18:18:14.000Z</published>
-    <updated>2019-12-30T06:08:14.804Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SteamOS Beta 是 Steam 团队研发的 Linux 架构操作系统。该操作系统基于代号为 Debian Jessie 的 Debian 8 系统。它的工作始于 Debian 系统强劲的核心，并尽可能对其进行优化，使其拥有良好的客厅体验。最重要的是，它是开源的 Linux 平台，一切尽在您的掌控之内。您可以掌控您的系统，并且随心所欲地安装您想要的新软件或内容。</p><blockquote><p>可以查看这个 <a href="https://store.steampowered.com/steamos/buildyourown?l=schinese" target="_blank" rel="noopener">SteamOS官方描述</a>。</p></blockquote><hr><h1 id="安装和自定义-SteamOS"><a href="#安装和自定义-SteamOS" class="headerlink" title="安装和自定义 SteamOS"></a>安装和自定义 SteamOS</h1><h2 id="SteamOS-硬件需求如何？"><a href="#SteamOS-硬件需求如何？" class="headerlink" title="SteamOS 硬件需求如何？"></a>SteamOS 硬件需求如何？</h2><blockquote><p>处理器： <code>Intel</code> 或 AMD 64 位性能处理器<br>内存： <code>4GB</code> 或更多内存<br>硬盘驱动器： <code>200GB</code> 或更大磁盘空间<br>显卡： <code>NVIDIA</code> 显卡<br>　　　AMD 显卡（RADEON 8500 和更新）<br>　　　Intel 显卡<br>附注事项： 安装需要 USB 端口<br><code>UEFI</code> 固件（推荐）  </p></blockquote><hr><h2 id="我该如何安装-SteamOS？"><a href="#我该如何安装-SteamOS？" class="headerlink" title="我该如何安装 SteamOS？"></a>我该如何安装 SteamOS？</h2><p>您可以通过两种不同的方式安装 SteamOS。推荐方式就是自动安装方式：使用默认的磁盘配置进行安装。专业安装方式会使用 Debian 安装程序，允许您在经过自动安装步骤后进行自定义安装。请在以下安装方式中选择一种。</p><blockquote><p>警告：两种安装方式都将清除目标计算机上的所有内容</p></blockquote><h3 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h3><ol><li><a href="https://store.steampowered.com/steamos/download/?ver=custom" target="_blank" rel="noopener">下载 SteamOS 安装</a></li><li>解压 SteamOS.zip 到一个空的 FAT32 格式 U 盘。确保使用的是 MBR 分区。</li><li>将 U 盘插入您的目标机器。启动您的机器并在 BIOS 中选择从 U 盘启动。（通常在启动界面按下 F8、F11 或 F12 可以进入 BIOS 的启动菜单）。</li><li>确保您选择的是 UEFI 启动，该选项可能看起来是类似“UEFI: Patriot Memory PMAP”。如果没有 UEFI 启动的选项，您可能需要在 BIOS 设置中启用 UEFI 支持。</li><li>从菜单中选择“Automated install（会清除磁盘数据！）”。</li><li>剩余的安装设置将自动完成，之后会给驱动器重新分区并安装 SteamOS。</li><li>安装完成后，系统会重启，自动登入并安装 Steam。此时需要有互联网接入。如果您有互联网接入，Steam 会自动安装。如果您没有接入互联网（例如您需要连接至一个 WiFi 接入点），您将收到弹出提示告诉您接入互联网。关闭弹出的提示您将进入网络设置界面，在此设置您的网络。一旦您连接至互联网，关闭网络设置界面后 Steam 将开始安装。</li><li>在 Steam 完成安装后，您的系统将自动重启并创建一个系统分区的备份。</li><li>备份完成后，选择“reboot”来进入您全新安装好的 SteamOS</li></ol><h3 id="专业安装"><a href="#专业安装" class="headerlink" title="专业安装"></a>专业安装</h3><ol><li><a href="https://store.steampowered.com/steamos/download/?ver=custom" target="_blank" rel="noopener">下载 SteamOS 安装</a></li><li>解压 SteamOS.zip 到一个空的 FAT32 格式 U 盘。确保使用的是 MBR 分区。</li><li>将 U 盘插入您的目标机器。启动您的机器并在 BIOS 中选择从 U 盘启动。（通常在启动界面按下 F8、F11 或 F12 可以进入 BIOS 的启动菜单）。</li><li>确保您选择的是 UEFI 启动，该选项可能看起来是类似“UEFI: Patriot Memory PMAP”。如果没有 UEFI 启动的选项，您可能需要在 BIOS 设置中启用 UEFI 支持。</li><li>从菜单中选择“Expert install”。</li><li>选择您的首选语言，位置和键盘布局。</li><li>您可以选择更改默认的磁盘分区。</li><li>剩余的安装设置将自动完成，并且会安装 SteamOS。</li><li>安装完成后，系统会重启，自动登入并安装 Steam。此时需要有互联网接入。如果您有互联网接入，Steam 会自动安装。如果您没有接入互联网（例如您需要连接至一个 WiFi 接入点），您将收到弹出提示告诉您接入互联网。关闭弹出的提示您将进入网络设置界面，在此设置您的网络。一旦您连接至互联网，关闭网络设置界面后 Steam 将开始安装。</li><li>在 Steam 完成安装后，您的系统将自动重启并创建一个系统分区的备份。</li><li>备份完成后，选择“reboot”来进入您全新安装好的 SteamOS</li></ol><hr><h1 id="我的操作"><a href="#我的操作" class="headerlink" title="我的操作"></a>我的操作</h1><p>因为我本身的 <code>Alienware</code> 安装的是 <code>Manjaro</code> 系统，所以我便选择了 <code>VMWare</code> 虚拟机安装。<br>因此，此时需要 <code>SteamOS</code> 的 <code>ISO</code> 文件，因为<a href="https://store.steampowered.com/steamos/download/?ver=custom" target="_blank" rel="noopener">下载 SteamOS 安装</a>下载的是 <code>.zip</code> 文件,因此我先将其解压，然后再将其打包成 <code>ISO</code> 文件：</p><ol><li><p>首先安装 <code>cdrkit</code> 工具</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S cdrkit</span><br></pre></td></tr></table></figure></div></li><li><p>然后将目标文件夹打包成为 <code>ISO</code> 文件</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkisofs -r -o &#x2F;home&#x2F;tamsiree&#x2F;Tam1T&#x2F;SteamOS.iso &#x2F;home&#x2F;tamsiree&#x2F;Tam1T&#x2F;系统镜像&#x2F;SteamOSInstaller&#x2F;</span><br></pre></td></tr></table></figure></div></li><li><p>最后用 <code>VMWare</code> 安装 <code>SteamOS</code> 系统。</p></li></ol><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      SteamOS Beta 是Steam团队研发的 Linux 架构操作系统。该操作系统基于代号为 Debian Jessie 的 Debian 8 系统。它的工作始于 Debian 系统强劲的核心，并尽可能对其进行优化，使其拥有良好的客厅体验。最重要的是，它是开源的 Linux 平台，一切尽在您的掌控之内。您可以掌控您的系统，并且随心所欲地安装您想要的新软件或内容。
-    
-    </summary>
-    
-    
-      <category term="OperationSystem" scheme="https://tamsiree.com/categories/OperationSystem/"/>
-    
-      <category term="Linux" scheme="https://tamsiree.com/categories/OperationSystem/Linux/"/>
-    
-      <category term="SteamOS" scheme="https://tamsiree.com/categories/OperationSystem/Linux/SteamOS/"/>
-    
-    
-      <category term="Steam" scheme="https://tamsiree.com/tags/Steam/"/>
-    
-      <category term="OperationSystem" scheme="https://tamsiree.com/tags/OperationSystem/"/>
-    
-      <category term="Linux" scheme="https://tamsiree.com/tags/Linux/"/>
-    
-      <category term="SteamOS" scheme="https://tamsiree.com/tags/SteamOS/"/>
     
   </entry>
   
