@@ -15,6 +15,7 @@
     "bcrypt": "^3.0.7",
     "boom": "^7.3.0",
     "bunyan": "^1.8.12",
+    "cheerio": "^1.0.0-rc.3",
     "clean-css": "^4.2.1",
     "connect": "^3.7.0",
     "constantinople": "^4.0.1",
