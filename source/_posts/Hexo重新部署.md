@@ -40,7 +40,7 @@ ssh-keygen -t rsa -C "xxxxxx@xx.com"
 因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [设置Github的ssh密钥](https://tamsiree.com/TechnicalResearch/Git/Git/#创建SSH秘钥)
 
 5. Git Clone Hexo from github
-如果clone失败或者clone的速度太慢，可以参考我的这两篇文章 [[Github提速方案]](https://tamsiree.com/TechnicalResearch/GitHub/Github提速方案/) 与 [[Git的妙用]](https://tamsiree.com/TechnicalResearch/Git/Git/#Git的妙用) 
+如果clone失败或者clone的速度太慢，可以参考我的这两篇文章 [[Github提速方案]](https://tamsiree.com/TechnicalResearch/GitHub/GitHub提速方案/) 与 [[Git的妙用]](https://tamsiree.com/TechnicalResearch/Git/Git/#Git的妙用)  
 
 6. 安装Hexo
 打开你原有的 blog文件夹,在 git bash 上 输入 

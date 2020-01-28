@@ -271,7 +271,7 @@ sudo pacman -S gtk2
 sudo pacman -S linuxqq
 ```
 
-> [deepin-wine的Tim或wechat字体发虚问题的临时解决办法](https://tamsiree.com/操作系统/Linux/Manjaro/Manjaro使用技巧与问题归纳/#deepin-wine的Tim或wechat字体发虚问题的临时解决办法)
+> [deepin-wine的Tim或wechat字体发虚问题的临时解决办法](https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro问题解决/#deepin-wine的Tim或wechat字体发虚问题的临时解决办法)
 
 ---
 

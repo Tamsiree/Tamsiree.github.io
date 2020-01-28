@@ -77,18 +77,18 @@ sduo pacman -Syy
 
 # Manjaro常用软件
 
-因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [[ `Manjaro常用软件` ]](https://tamsiree.com/操作系统/Linux/Manjaro/Manjaro常用软件/)
+因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [[ `Manjaro常用软件` ]](https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro常用软件/)
 
 ---
 
 # Manjaro美化
-因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [[ `Manjaro美化` ]](https://tamsiree.com/操作系统/Linux/Manjaro/Manjaro美化/)
+因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [[ `Manjaro美化` ]](https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro美化/)
 
 ---
 
 ## Manjaro使用技巧与问题归纳
 
-因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [[ `Manjaro使用技巧与问题归纳` ]](https://tamsiree.com/操作系统/Linux/Manjaro/Manjaro使用技巧与问题归纳/)
+因为篇幅较多，所以独立整理了一篇文章，请移步我的这篇文章 [[ `Manjaro使用技巧与问题归纳` ]](https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro使用技巧与问题归纳/)
 
 ---
 

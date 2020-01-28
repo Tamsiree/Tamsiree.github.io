@@ -209,7 +209,7 @@ defaults.ctl.card 0
 
 ## Manjaro卸载显卡驱动黑屏问题解决
 
-移步前往我写的另外一篇文章吧 [**[Manjaro 卸载显卡驱动黑屏问题解决]**](https://tamsiree.com/操作系统/Linux/Manjaro/Manjaro卸载显卡驱动黑屏问题解决)
+移步前往我写的另外一篇文章吧 [**[Manjaro 卸载显卡驱动黑屏问题解决]**](https://tamsiree.com/OperationSystem/Linux/Manjaro/Manjaro卸载显卡驱动黑屏问题解决)
 
 ---
 

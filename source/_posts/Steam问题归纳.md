@@ -21,7 +21,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 
 # 正文
 ## Steam中文支持
-请移步查阅我的这篇文章 [[Steam中文支持]](https://tamsiree.com/第九艺术/GamePlatform/Steam/Steam中文支持/)
+请移步查阅我的这篇文章 [[Steam中文支持]](https://tamsiree.com/Game/GamePlatform/Steam/Steam中文支持/)
 
 ---
 

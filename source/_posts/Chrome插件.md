@@ -54,7 +54,7 @@ Adblock Plus 知名的浏览器去广告工具
 11. [云盘万能钥匙](https://ypsuperkey.meek.com.cn/)  
 自动识别百度网盘提取密码，标识已失效的网盘链接，网盘分享从此更加简单。
 
-12. [[**`谷歌上网助手`**]](https://tamsiree.com/Google/Chrome/谷歌上网助手/)  
+12. [[**`谷歌上网助手`**]](https://tamsiree.com/Google/Chrome/Chrome上网助手/)  
 谷歌上网助手是一款支持直接使用谷歌搜索的上网插件，支持在不开启加速上网软件的情况下，正常使用谷歌搜索、gmail和chrome商店。
 
 13. [[**`Custom Cursor for Chrome`**]](https://chrome.google.com/webstore/detail/custom-cursor-for-chrome/ogdlpmhglpejoiomcodnpjnfgcpmgale)  
