@@ -9,6 +9,7 @@ categories:
   - Research
   - Math
   - MathJax
+mathjax: true
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/longsahidsa.jpeg
 ---
 # 关于 MathJax

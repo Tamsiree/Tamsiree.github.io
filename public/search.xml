@@ -3995,18 +3995,24 @@
     <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>数据结构(data structure)是带有结构特性的数据元素的集合，它研究的是数据的 <code>逻辑结构</code> 和数据的 <code>物理结构</code> 以及它们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍保持原来的结构类型。<br>简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为 <code>逻辑结构</code> 和 <code>存储结构</code> 。</p>
 <p>数据的 <code>逻辑结构</code> 和 <code>物理结构</code> 是数据结构的两个密切相关的方面，同一逻辑结构可以对应不同的存储结构。算法的设计取决于数据的 <code>逻辑结构</code> ，而算法的实现依赖于指定的 <code>存储结构</code> 。</p>
 <p>数据结构的研究内容是构造复杂软件系统的基础，它的核心技术是 <code>分解</code> 与 <code>抽象</code> 。通过 <code>分解</code> 可以划分出数据的3个层次；再通过 <code>抽象</code> ，舍弃数据元素的具体内容，就得到 <code>逻辑结构</code> 。类似地，通过 <code>分解</code> 将处理要求划分成各种功能，再通过抽象舍弃实现细节，就得到运算的定义。上述两个方面的结合可以将问题变换为 <code>数据结构</code> 。这是一个从具体（即具体问题）到抽象（即数据结构）的过程。然后，通过增加对实现细节的考虑进一步得到 <code>存储结构</code> 和 <code>实现运算</code> ，从而完成设计任务。这是一个从抽象（即数据结构）到具体（即具体实现）的过程。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="生活中的例子"><a href="#生活中的例子" class="headerlink" title="生活中的例子"></a>生活中的例子</h2><h3 id="例子1：-如何在书架上摆放图书？"><a href="#例子1：-如何在书架上摆放图书？" class="headerlink" title="例子1： 如何在书架上摆放图书？"></a>例子1： 如何在书架上摆放图书？</h3><p>方法1：随便放<br>操作1：新书怎么插入？<br>哪里有空放哪里，一步到位。<br>操作2：怎么找到某本指定的书？<br>……累死</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="生活中的例子"><a href="#生活中的例子" class="headerlink" title="生活中的例子"></a>生活中的例子</h2><h3 id="例子1：-如何在书架上摆放图书？"><a href="#例子1：-如何在书架上摆放图书？" class="headerlink" title="例子1： 如何在书架上摆放图书？"></a>例子1： 如何在书架上摆放图书？</h3><p><code>关于数据组织</code></p>
+<p>方法1：随便放<br>操作1：新书怎么插入？<br>哪里有空放哪里，一步到位。<br>操作2：怎么找到某本指定的书？<br>……累死</p>
 <p>方法2：按照书名的拼音字母顺序排放<br>操作1：新书怎么插入？<br>新买进一本《阿Q正传》<br>操作2：怎么找到某本指定的书？<br>二分查找！</p>
 <p>方法3：把书架划分成几块区域，每块区域指定摆放某种类别的图书；在每种类别内，按照书名的拼音字母顺序排放<br>操作1：新书怎么插入？<br>先定类别，二分查找确定位置，移出空位<br>操作2：怎么找到某本指定的书？<br>先定类别，再二分查找<br>问题：空间如何分配？类别应该分多细？</p>
 <blockquote>
 <p>解决问题方法的效率，跟数据的组织方式有关</p>
 </blockquote>
-<h3 id="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"><a href="#例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数" class="headerlink" title="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"></a>例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数</h3><p>代码块1：使用for循环实现</p>
+<h3 id="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"><a href="#例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数" class="headerlink" title="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"></a>例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数</h3><p><code>关于空间使用</code></p>
+<p>代码块1：使用for循环实现</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">1</span>;i<=N;i++){</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>代码块2：使用递归实现</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">  <span class="keyword">if</span>(N){</span><br><span class="line">    PrintN(N<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,N);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
 
+<blockquote>
+<p>解决问题方法的效率，跟空间的利用效率有关</p>
+</blockquote>
+<h3 id="例子3：写程序计算给定多像是在给定点x处的值"><a href="#例子3：写程序计算给定多像是在给定点x处的值" class="headerlink" title="例子3：写程序计算给定多像是在给定点x处的值"></a>例子3：写程序计算给定多像是在给定点x处的值</h3><p>$f(x)=a_0$</p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
@@ -9705,7 +9711,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>MathJax 引擎数学符号说明</title>
     <url>/Research/Math/MathJax/MathJax%E5%BC%95%E6%93%8E%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="关于-MathJax"><a href="#关于-MathJax" class="headerlink" title="关于 MathJax"></a>关于 MathJax</h1><blockquote>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="关于-MathJax"><a href="#关于-MathJax" class="headerlink" title="关于 MathJax"></a>关于 MathJax</h1><blockquote>
 <p>使用 MathJax 渲染 <code>LaTex</code> 数学公式，详见 <a href="http://math.stackexchange.com/" target="_blank" rel="noopener">math.stackexchange.com</a>，在 Markdown 中输入数学公式需要 <code>LaTeX</code> 语法的支持。</p>
 </blockquote>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-0wy2z7.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-0wy2z7.jpg" class="lazyload"></a></p>
@@ -10288,12 +10294,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>基本说明</p>
 <ul>
 <li>起始标记：<code>\begin{matrix}</code> ；结束标记：<code>\end{matrix}</code></li>
-<li>每一行以 <code>\\</code> 结尾，行间元素以 <code>&amp;</code> 隔开<br>  例如：<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$$\\begin&#123;matrix&#125;  </span><br><span class="line">1&amp;0&amp;0&amp;1&amp;1\\  </span><br><span class="line">0&amp;1&amp;0&amp;0&amp;1\\  </span><br><span class="line">1&amp;1&amp;0&amp;1&amp;1\\  </span><br><span class="line">0&amp;1&amp;0&amp;1&amp;1\\  </span><br><span class="line">\end&#123;matrix&#125;$$</span><br></pre></td></tr></table></figure></div>
+<li>每一行以 <code>\\</code> 结尾，行间元素以 <code>&</code> 隔开<br>  例如：<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">$$\\begin{matrix}  </span><br><span class="line">1&0&0&1&1\\  </span><br><span class="line">0&1&0&0&1\\  </span><br><span class="line">1&1&0&1&1\\  </span><br><span class="line">0&1&0&1&1\\  </span><br><span class="line">\end{matrix}$$</span><br></pre></td></tr></tbody></table></figure></div>
 
 </li>
 </ul>
 <p>显示为</p>
-<p>$$\begin{matrix}<br>1&amp;0&amp;0&amp;1&amp;1\\<br>0&amp;1&amp;0&amp;0&amp;1\\<br>1&amp;1&amp;0&amp;1&amp;1\\<br>0&amp;1&amp;0&amp;1&amp;1\\<br>\end{matrix}$$</p>
+<p>$$\begin{matrix}<br>1&0&0&1&1\\<br>0&1&0&0&1\\<br>1&1&0&1&1\\<br>0&1&0&1&1\\<br>\end{matrix}$$</p>
 <blockquote>
 <p><strong>Note:</strong>一般情况下可用 <code>\</code> 来作转义，但如果想要表示 <code>\</code> 本身，需要用 <code>$\backslash$</code>，因为<code>\\</code> 表示换行。</p>
 </blockquote>
@@ -10311,9 +10317,9 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <li>斜省略号：<code>\ddots</code>,例如 $\ddots$</li>
 </ul>
 <p><em>实例</em></p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$$\begin&#123;bmatrix&#125;</span><br><span class="line">&#123;a_&#123;11&#125;&#125;&amp;&#123;a_&#123;12&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_&#123;1n&#125;&#125;\\</span><br><span class="line">&#123;a_&#123;21&#125;&#125;&amp;&#123;a_&#123;22&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_&#123;2n&#125;&#125;\\</span><br><span class="line">&#123;\vdots&#125;&amp;&#123;\vdots&#125;&amp;&#123;\cdots&#125;&amp;&#123;\vdots&#125;\\</span><br><span class="line">&#123;a_&#123;m1&#125;&#125;&amp;&#123;a_&#123;m2&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_&#123;mn&#125;&#125;\\</span><br><span class="line">\end&#123;bmatrix&#125;$$</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">$$\begin{bmatrix}</span><br><span class="line">{a_{11}}&{a_{12}}&{\cdots}&{a_{1n}}\\</span><br><span class="line">{a_{21}}&{a_{22}}&{\cdots}&{a_{2n}}\\</span><br><span class="line">{\vdots}&{\vdots}&{\cdots}&{\vdots}\\</span><br><span class="line">{a_{m1}}&{a_{m2}}&{\cdots}&{a_{mn}}\\</span><br><span class="line">\end{bmatrix}$$</span><br></pre></td></tr></tbody></table></figure></div>
 <p>显示  </p>
-<p>$$\begin{bmatrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\cdots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{mn}}\\<br>\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}<br>{a_{11}}&{a_{12}}&{\cdots}&{a_{1n}}\\<br>{a_{21}}&{a_{22}}&{\cdots}&{a_{2n}}\\<br>{\vdots}&{\vdots}&{\cdots}&{\vdots}\\<br>{a_{m1}}&{a_{m2}}&{\cdots}&{a_{mn}}\\<br>\end{bmatrix}$$</p>
 <h2 id="阵列"><a href="#阵列" class="headerlink" title="阵列"></a>阵列</h2><ul>
 <li>需要 array 环境：起始、结束处以 <code>{array}</code> 声明</li>
 <li>对齐方式：在 <code>{array}</code> 后以 <code>{}</code> 逐行统一声明  <ul>
@@ -10324,12 +10330,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <li>插入水平线：<code>\hline</code></li>
 </ul>
 <p><em>例如</em></p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$$\begin&#123;array&#125;&#123;c|lll&#125;</span><br><span class="line">&#123;↓&#125;&amp;&#123;a&#125;&amp;&#123;b&#125;&amp;&#123;c&#125;\\</span><br><span class="line">\hline</span><br><span class="line">&#123;R_1&#125;&amp;&#123;c&#125;&amp;&#123;b&#125;&amp;&#123;a&#125;\\</span><br><span class="line">&#123;R_2&#125;&amp;&#123;b&#125;&amp;&#123;c&#125;&amp;&#123;c&#125;\\</span><br><span class="line">\end&#123;array&#125;$$</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">$$\begin{array}{c|lll}</span><br><span class="line">{↓}&{a}&{b}&{c}\\</span><br><span class="line">\hline</span><br><span class="line">{R_1}&{c}&{b}&{a}\\</span><br><span class="line">{R_2}&{b}&{c}&{c}\\</span><br><span class="line">\end{array}$$</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>显示为</p>
-<p>$$\begin{array}{c|lll}<br>{↓\\}&amp;{a}&amp;{b}&amp;{c}\\<br>\hline<br>{R_1}&amp;{c}&amp;{b}&amp;{a}\\<br>{R_2}&amp;{b}&amp;{c}&amp;{c}\\<br>\end{array}$$</p>
+<p>$$\begin{array}{c|lll}<br>{↓\\}&{a}&{b}&{c}\\<br>\hline<br>{R_1}&{c}&{b}&{a}\\<br>{R_2}&{b}&{c}&{c}\\<br>\end{array}$$</p>
 <h2 id="方程组"><a href="#方程组" class="headerlink" title="方程组"></a>方程组</h2><p>需要 <code>cases</code> 环境：起始、结束处以 <code>{cases}</code> 声明<br><em>例如</em></p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$$\begin&#123;cases&#125;</span><br><span class="line">a_1x+b_1y+c_1z&#x3D;d_1\\</span><br><span class="line">a_2x+b_2y+c_2z&#x3D;d_2\\</span><br><span class="line">a_3x+b_3y+c_3z&#x3D;d_3\\</span><br><span class="line">\end&#123;cases&#125;$$</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">$$\begin{cases}</span><br><span class="line">a_1x+b_1y+c_1z=d_1\\</span><br><span class="line">a_2x+b_2y+c_2z=d_2\\</span><br><span class="line">a_3x+b_3y+c_3z=d_3\\</span><br><span class="line">\end{cases}$$</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>显示为</p>
 <p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1\\<br>a_2x+b_2y+c_2z=d_2\\<br>a_3x+b_3y+c_3z=d_3\\<br>\end{cases}$$  </p>
@@ -10337,7 +10343,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-]]></content>
+</body></html>]]></content>
       <categories>
         <category>Research</category>
         <category>Math</category>
