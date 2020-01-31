@@ -49,6 +49,7 @@ sudo pacman -S noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk
 1. [Localization/Simplified Chinese (简体中文)](https://wiki.archlinux.org/index.php/Localization/Simplified_Chinese_%28简体中文%29)  
 2. [Font configuration (简体中文)](https://wiki.archlinux.org/index.php/Font_configuration_%28简体中文%29)  
 3. [Font Configuration/Chinese (简体中文)](https://wiki.archlinux.org/index.php/Font_Configuration/Chinese_%28简体中文%29)  
+4. [Fonts (简体中文)](https://wiki.archlinux.org/index.php/Fonts_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 ---
 
