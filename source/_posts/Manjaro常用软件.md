@@ -278,7 +278,13 @@ sudo pacman -S linuxqq
 ## wps-office
 ```bash
 # 安装wps
-sudo pacman -S wps-office	
+sudo pacman -S wps-office  
+
+# 安装wps确实的字体
+sudo pacman -S ttf-wps-fonts  
+
+# 安装中文语言包
+sudo pacman -S wps-office-mui-zh-cn  
 ```
 
 ---

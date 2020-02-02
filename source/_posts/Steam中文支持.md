@@ -58,8 +58,9 @@ CSGO 社区服务器的字体在游戏中独立设置的，与系统无关。
 当然 `Helvetica` 字体也就不能用了。但是，你不用担心这个，因为基本上是没有预装这个字体，而且我们经常是用它的替代字体 `Arial` 。  
 
 安装文泉驿正黑字体
+
 ```bash
-sudo pacman -S wqy-zenhei 
+sudo pacman -S wqy-zenhei  
 ```
 
 # Dota2中文支持
