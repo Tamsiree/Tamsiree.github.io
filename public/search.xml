@@ -229,6 +229,35 @@
 <li>吃普通的感冒药或抗生素对该病毒有效吗？<br>答：无效。</li>
 </ol>
 <hr>
+<h1 id="知识拓展"><a href="#知识拓展" class="headerlink" title="知识拓展"></a>知识拓展</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图解</th>
+<th style="text-align:center">图解</th>
+<th style="text-align:center">图解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783182.jpeg" data-fancybox="group" data-caption="图解1" class="fancybox"><img alt="图解1" title="图解1" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783182.jpeg" class="lazyload"></a></td>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783183.jpeg" data-fancybox="group" data-caption="图解2" class="fancybox"><img alt="图解2" title="图解2" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783183.jpeg" class="lazyload"></a></td>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783184.jpeg" data-fancybox="group" data-caption="图解3" class="fancybox"><img alt="图解3" title="图解3" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783184.jpeg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783185.jpeg" data-fancybox="group" data-caption="图解4" class="fancybox"><img alt="图解4" title="图解4" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783185.jpeg" class="lazyload"></a></td>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783186.jpeg" data-fancybox="group" data-caption="图解5" class="fancybox"><img alt="图解5" title="图解5" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783186.jpeg" class="lazyload"></a></td>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783187.jpeg" data-fancybox="group" data-caption="图解6" class="fancybox"><img alt="图解6" title="图解6" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783187.jpeg" class="lazyload"></a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783189.jpeg" data-fancybox="group" data-caption="图解7" class="fancybox"><img alt="图解7" title="图解7" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783189.jpeg" class="lazyload"></a></td>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783190.jpeg" data-fancybox="group" data-caption="图解8" class="fancybox"><img alt="图解8" title="图解8" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783190.jpeg" class="lazyload"></a></td>
+<td style="text-align:center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783191.jpeg" data-fancybox="group" data-caption="图解9" class="fancybox"><img alt="图解9" title="图解9" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/965783191.jpeg" class="lazyload"></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
 <blockquote>
 <p>参考链接：<br><a href="https://baike.baidu.com/item/2019%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92/24267858" target="_blank" rel="noopener">百度百科 - 2019新型冠状病毒</a><br><a href="https://baike.baidu.com/medicine/disease/%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E6%84%9F%E6%9F%93%E7%9A%84%E8%82%BA%E7%82%8E/24282048" target="_blank" rel="noopener">百度百科医典 - 新型冠状病毒感染的肺炎</a><br><a href="https://zh.wikipedia.org/wiki/2019%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8B%80%E7%97%85%E6%AF%92" target="_blank" rel="noopener">维基百科 - 新型冠状病毒肺炎全球疫情病例</a><br><a href="https://zh.wikipedia.org/wiki/%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8B%80%E7%97%85%E6%AF%92%E8%82%BA%E7%82%8E%E5%85%A8%E7%90%83%E7%96%AB%E6%83%85%E7%97%85%E4%BE%8B" target="_blank" rel="noopener">维基百科 - 2019新型冠状病毒</a><br><a href="http://wh.bendibao.com/live/2020121/106788.shtm" target="_blank" rel="noopener">武汉肺炎口罩选择（含穿戴指南）</a></p>
 </blockquote>
@@ -11758,19 +11787,17 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>Manjaro美化</title>
     <url>/OperationSystem/Linux/Manjaro/Manjaro%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Manjaro美化"><a href="#Manjaro美化" class="headerlink" title="Manjaro美化"></a>Manjaro美化</h1><p>俗话说颜值是第一生产力（真的假的？）。但毋庸置疑一个漂亮的学习工作环境是会提高人的生产效率的。这里我就推荐一些桌面美化方案给大家参考。</p>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="Manjaro美化"><a href="#Manjaro美化" class="headerlink" title="Manjaro美化"></a>Manjaro美化</h1><p>俗话说颜值是第一生产力（真的假的？）。但毋庸置疑一个漂亮的学习工作环境是会提高人的生产效率的。这里我就推荐一些桌面美化方案给大家参考。</p>
 <p><a href="https://i.loli.net/2018/09/16/5b9e51de18248.png" target="_blank" rel="noopener"><img alt data-src="https://i.loli.net/2018/09/16/5b9e51de18248.png" class="lazyload"></a></p>
 <hr>
-<h2 id="Breezemite"><a href="#Breezemite" class="headerlink" title="Breezemite"></a>Breezemite</h2><p><code>Breezemite</code> 是一款模仿 MacOS 窗口按钮的 KDE 按钮主题。<br>可以在 <code>系统设置 =&gt; 应用程序风格 =&gt; 窗口装饰</code> 里获取新主题安装它。<br>注意你也可以在按钮选项中把窗口按钮调到左上角。</p>
+<h2 id="Breezemite"><a href="#Breezemite" class="headerlink" title="Breezemite"></a>Breezemite</h2><p><code>Breezemite</code> 是一款模仿 MacOS 窗口按钮的 KDE 按钮主题。<br>可以在 <code>系统设置 => 应用程序风格 => 窗口装饰</code> 里获取新主题安装它。<br>注意你也可以在按钮选项中把窗口按钮调到左上角。</p>
 <hr>
 <h2 id="Cairo-dock"><a href="#Cairo-dock" class="headerlink" title="Cairo-dock"></a>Cairo-dock</h2><p>顾名思义，所谓<code>cairo-dock</code> 就是模仿 MacOS 做的一个 dock，效果见屏幕底端。可以使用三维也可以平面化，包括特效、主题都可以在图形界面里设置，还是比较方便的。安装方法如下：</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果尚未安装 yay  </span></span><br><span class="line"><span class="comment"># sudo pacman -S yay  </span></span><br><span class="line">yay -S cairo-dock cairo-dock-plug-ins</span><br></pre></td></tr></table></figure></div>
-
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 如果尚未安装 yay  </span></span><br><span class="line"><span class="comment"># sudo pacman -S yay  </span></span><br><span class="line">yay -S cairo-dock cairo-dock-plug-ins</span><br></pre></td></tr></tbody></table></figure></div>
 <p>注意右键 dock 可以选择开机自启动。</p>
 <hr>
 <h2 id="Conky"><a href="#Conky" class="headerlink" title="Conky"></a>Conky</h2><p><code>conky</code> 就是屏幕左侧的那个面板。使用<code>conky</code> 可以帮助你实时监测系统的一些有关信息，当然主要是看起来很酷[/捂脸]。在 Manjaro 上你可以直接一行命令安装： </p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S conky   \<span class="comment"># 安装  </span></span><br><span class="line">conky -C               \<span class="comment"># 默认配置  </span></span><br><span class="line">conky -c ~/.conkyrc    \<span class="comment"># 用户设定配置文件路径</span></span><br></pre></td></tr></table></figure></div>
-
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo pacman -S conky   \<span class="comment"># 安装  </span></span><br><span class="line">conky -C               \<span class="comment"># 默认配置  </span></span><br><span class="line">conky -c ~/.conkyrc    \<span class="comment"># 用户设定配置文件路径</span></span><br></pre></td></tr></tbody></table></figure></div>
 <p>官方 <a href="https://github.com/brndnmtthws/conky" target="_blank" rel="noopener">repo</a> 里提供了不少用户配置文件（User Configs），大家可以下载下来直接使用。</p>
 <hr>
 <h2 id="Minimal-Clock"><a href="#Minimal-Clock" class="headerlink" title="Minimal Clock"></a>Minimal Clock</h2><p>KDE 一个鲜明的特色就是在它的桌面上一切都是组件化的。通常情况下你可以在自带的部件里找到很多好看有使用的部件，但在时钟这方面的表现不尽如人意，于是乎我就在 <a href="https://store.kde.org/" target="_blank" rel="noopener">store.kde.org</a> 上找到了 <a href="https://store.kde.org/p/1173746/" target="_blank" rel="noopener">Minimal Clock</a> 组件（效果见上图）。<br>当然你也可以在这个网站上找到大量其他组件和主题来美化自己的桌面。</p>
@@ -11781,17 +11808,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <hr>
 <h2 id="screenfetch"><a href="#screenfetch" class="headerlink" title="screenfetch"></a>screenfetch</h2><p><code>screenfetch</code> 命令能在你的终端打印出你的系统信息，甚至图标（很酷不是吗）！同样可以使用 pacman 直接安装。当然你也可以考虑使用 <code>neofetch</code> 作为替代品。</p>
 <hr>
-<h2 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h2><p><code>ranger</code> 是一款终端下的文件夹管理器，并且支持 vim 快捷键。善用它可以大量减少你在终端与 dolphin（KDE 默认图形界面文件夹管理器）之间的不必要切换。同样可以一行命令安装：  </p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">`sudo pacman -S ranger` 。</span><br></pre></td></tr></table></figure></div>
-
+<h2 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h2><p><code>ranger</code> 是一款终端下的文件夹管理器，并且支持 vim 快捷键。善用它可以大量减少你在终端与 dolphin（KDE 默认图形界面文件夹管理器）之间的不必要切换。同样可以一行命令安装：<br></p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">`sudo pacman -S ranger` 。</span><br></pre></td></tr></tbody></table></figure></div><p></p>
 <hr>
-<h2 id="thefuck"><a href="#thefuck" class="headerlink" title="thefuck"></a>thefuck</h2><p>这个神奇的包是用 python 编写的，它的作用就是 —— 当你在终端输入了错误命令时，只要再输入<code>fuck</code> 就能自动纠错并执行。可以说是很符合人机工程学了[ /笑哭 ]。<br>安装方式为：  </p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install thefuck</span><br></pre></td></tr></table></figure></div>
-
+<h2 id="thefuck"><a href="#thefuck" class="headerlink" title="thefuck"></a>thefuck</h2><p>这个神奇的包是用 python 编写的，它的作用就是 —— 当你在终端输入了错误命令时，只要再输入<code>fuck</code> 就能自动纠错并执行。可以说是很符合人机工程学了[ /笑哭 ]。<br>安装方式为：<br></p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install thefuck</span><br></pre></td></tr></tbody></table></figure></div><p></p>
 <hr>
-<h2 id="vim-amp-vimtutor"><a href="#vim-amp-vimtutor" class="headerlink" title="vim &amp; vimtutor"></a>vim &amp; vimtutor</h2><p>无需多说，vim 绝对是文本编辑界的神器。据说甚至有巨佬全 vim 开发，真是令我等瑟瑟发抖。不过话说回来，vim 也绝对是提效神器，免去了你在终端与其他文本编辑器之间切换的痛苦——再加上一定的插件，写起代码来都是毫无压力。<br>安装命令如下：</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S vim。</span><br></pre></td></tr></table></figure></div>
-
+<h2 id="vim-amp-vimtutor"><a href="#vim-amp-vimtutor" class="headerlink" title="vim & vimtutor"></a>vim & vimtutor</h2><p>无需多说，vim 绝对是文本编辑界的神器。据说甚至有巨佬全 vim 开发，真是令我等瑟瑟发抖。不过话说回来，vim 也绝对是提效神器，免去了你在终端与其他文本编辑器之间切换的痛苦——再加上一定的插件，写起代码来都是毫无压力。<br>安装命令如下：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo pacman -S vim。</span><br></pre></td></tr></tbody></table></figure></div>
 <p>但 vim 的学习曲线也是无比陡峭，新手打开 vim 以后甚至可能都不会退出。这时候就需要 <code>vimtutor</code> 命令来帮助啦。如果你的 vim 正常安装成功，你就能在终端直接打开 vimtutor， 然后开始你的 vim 之旅吧！</p>
 <hr>
 <h2 id="w3m"><a href="#w3m" class="headerlink" title="w3m"></a>w3m</h2><p><code>w3m</code> 是一款运行在终端界面下的网页浏览器。对的你没听错，就是浏览器。如果有必要的话它甚至可以在终端显示图片。对于我这样一个 Zen Mode 重度患者来说，写代码的时候退出 Zen Mode 切换浏览器是件很麻烦的事情，这时候结合 w3m 和 yakuake 我就能直接简单浏览网页。怎么下载？问 pacman 去。</p>
@@ -11799,30 +11821,38 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h2 id="yakuake"><a href="#yakuake" class="headerlink" title="yakuake"></a>yakuake</h2><p>堪称 KDE 下的终端神器。如果你安装的是 Manjaro + KDE，那么 yakuake 已经预安装在你的系统里了，只要按<code>F12</code> 就能唤醒。其他 Linux 发行版的同学可以手动安装，一般在官方源里都有提供。</p>
 <p>Gnome 或 Xfce 桌面的用户可以考虑使用 Tilda 或 Guake。</p>
 <hr>
-<h2 id="zsh-amp-oh-my-zsh"><a href="#zsh-amp-oh-my-zsh" class="headerlink" title="zsh &amp; oh-my-zsh"></a>zsh &amp; oh-my-zsh</h2><p>号称终极 Shell，拥有远超 bash 的高效功能。</p>
+<h2 id="zsh-amp-oh-my-zsh"><a href="#zsh-amp-oh-my-zsh" class="headerlink" title="zsh & oh-my-zsh"></a>zsh & oh-my-zsh</h2><p>号称终极 Shell，拥有远超 bash 的高效功能。</p>
 <p>当然，尽管 zsh 功能强大无比，但初期由于配置困难复杂，大多数人对其望而却步。直到有一天一位叫 Robby Russell 的程序员写出了 oh-my-zsh 这一 zsh 配置和插件管理器。可以参考官方网站 <a href="https://ohmyz.sh/" target="_blank" rel="noopener">ohmyz.sh</a> 。这里贴出 Arch 下的安装方法：</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh               <span class="comment"># 安装zsh  </span></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)             <span class="comment"># 修改默认shell  </span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span>    <span class="comment"># 使用curl安装oh-my-zsh</span></span><br></pre></td></tr></table></figure></div>
-
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo pacman -S zsh               <span class="comment"># 安装zsh  </span></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)             <span class="comment"># 修改默认shell  </span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span>    <span class="comment"># 使用curl安装oh-my-zsh</span></span><br></pre></td></tr></tbody></table></figure></div>
 <p>可以考虑安装一些主题和插件，例如：</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ～/.zshrc  </span><br><span class="line"><span class="comment"># ZSH\_THEME="agnoster"  </span></span><br><span class="line"><span class="comment"># plugins=(  </span></span><br><span class="line"><span class="comment">#     autojump  </span></span><br><span class="line"><span class="comment">#     extract  </span></span><br><span class="line"><span class="comment">#     git  </span></span><br><span class="line"><span class="comment">#     zsh-syntax-highlighting  </span></span><br><span class="line"><span class="comment"># )</span></span><br></pre></td></tr></table></figure></div>
-
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">vim ～/.zshrc  </span><br><span class="line"><span class="comment"># ZSH\_THEME="agnoster"  </span></span><br><span class="line"><span class="comment"># plugins=(  </span></span><br><span class="line"><span class="comment">#     autojump  </span></span><br><span class="line"><span class="comment">#     extract  </span></span><br><span class="line"><span class="comment">#     git  </span></span><br><span class="line"><span class="comment">#     zsh-syntax-highlighting  </span></span><br><span class="line"><span class="comment"># )</span></span><br></pre></td></tr></tbody></table></figure></div>
 <p>其中<code>autojump</code> 和 <code>zsh-syntax-highlighting</code> 需要手动安装： </p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 autojump  </span></span><br><span class="line">sudo pacman -S autojump  </span><br><span class="line"><span class="comment"># 安装 zsh-syntax-highlighting  </span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH\_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting  </span><br><span class="line">zsh</span><br></pre></td></tr></table></figure></div>
-
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 autojump  </span></span><br><span class="line">sudo pacman -S autojump  </span><br><span class="line"><span class="comment"># 安装 zsh-syntax-highlighting  </span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">${ZSH\_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting  </span><br><span class="line">zsh</span><br></pre></td></tr></tbody></table></figure></div>
 <blockquote>
 <p>推荐主题 <code>powerlevel10k</code></p>
 </blockquote>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Manjaro/plasmashell_20191114001128.png" data-fancybox="group" data-caption="powerlevel10k主题" class="fancybox"><img alt="powerlevel10k主题" title="powerlevel10k主题" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Manjaro/plasmashell_20191114001128.png" class="lazyload"></a></p>
 <p>powerlevel10k的配置方法</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></table></figure></div>
-
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></tbody></table></figure></div>
 <p>powerline字体安装 <a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">powerline fonts</a></p>
 <p>安装配置就此大功告成啦！</p>
+<hr>
+<h1 id="manjaro-kde主题"><a href="#manjaro-kde主题" class="headerlink" title="manjaro kde主题"></a>manjaro kde主题</h1><h2 id="手动安装主题"><a href="#手动安装主题" class="headerlink" title="手动安装主题"></a>手动安装主题</h2><p>首先manjaro安装主题，有两种方法：<br>通过“系统设置“-”全局主题“-”获取新的全局主题“，同样可以在”外观“中的Plasma样式、应用程序风格、颜色等当中”获取新的全局主题“。<br>通过manjaro kde store下载主题，然后将主题导入系统。</p>
+<p>但是由于一些原因，方法1在我的电脑上是行不通的，加载速度极慢，下载速极慢，据说可以通过proxychain设置终端代理，据说可以行得通，但是我也没有尝试，所以也就不清楚了，所以方法1h是行不通的。</p>
+<p>首先介绍下对应的主题，在以上链接的网站，可以搜索到很多的主题，但是能否适用于自己的桌面这就需要注意了，如果你的桌面是KDE的，那么就不能使用GTK主题，GTK主题适配于Gnome桌面。这里说说两个一个是 Global Themes这个是全局主题，也就对应与于设置中的全局主题 ;另外 Plasma Themes这是Plasma 样式，对应设置中的plasma样式。</p>
+<p>第一步，下载 ocs-url 通过 yay -S ocs-url下载;</p>
+<p>第二步，点击主题边上的 install按钮，之后会跳出是否打开 xdg-open，点击打开xdg-open,然后就会调用 ocs-url 下载安装主题，ocs-url可以自动下载主题，安装主题，同样适用于插件、plasma等;</p>
+<p>另外：如果不使用以上方法，你也可以点击主题旁边的”download“按钮，下载对应的压缩包，解压之后移动到对应的目录：</p>
+<p>￼<code>bash
+/home/hzt/.local/share/plasma/desktoptheme 这是存放plasma主题
+/home/hzt/.local/share/plasma/look-and-feel/ 存放全局主题
+/home/hzt/.local/share/plasma/plasmoids/ 存放插件</code></p>
+<p>以上目录如果没有就自行创建。</p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-]]></content>
+</body></html>]]></content>
       <categories>
         <category>OperationSystem</category>
         <category>Linux</category>
@@ -12416,6 +12446,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <blockquote>
 <p>要说起为什么刘海柱叫法师，这还要从一期《开心剧乐部》的节目开始说起，在一期节目中，主持人采访刘海柱是什么学历，刘海柱说初二那年不上学，去网吧包了三年宿，而问到他的职业的时候，刘海柱说自己的职业是法师，而刘海柱表达的职业，其实是自己在网吧玩游戏的时候，游戏中人物的角色。而说自己是法师，也是刘海柱搞笑的一种方式。所以从那以后，刘海柱就被人称为法师。</p>
 </blockquote>
+<h2 id="我执"><a href="#我执" class="headerlink" title="我执"></a>我执</h2><p>我执是佛教用语，小乘佛法认为这是痛苦的根源，是轮回的原因。我执可以说是无明的同义语，一般以内容分类，为人我执、法我执；以缘起分类，名分别我执、俱生我执。</p>
 <hr>
 <h1 id="电视剧"><a href="#电视剧" class="headerlink" title="电视剧"></a>电视剧</h1><h2 id="亮剑"><a href="#亮剑" class="headerlink" title="亮剑"></a>亮剑</h2><h3 id="孔过瘾、丁炸桥、楚帮场、李开炮"><a href="#孔过瘾、丁炸桥、楚帮场、李开炮" class="headerlink" title="孔过瘾、丁炸桥、楚帮场、李开炮"></a>孔过瘾、丁炸桥、楚帮场、李开炮</h3><p><a href="https://tamsiree.com/Teleplay/亮剑/晋西北铁三角/">[ 晋西北铁三角 ]</a> > 孔过瘾、丁炸桥、李开炮</p>
 <p><code>孔过瘾</code><br>孔捷 在帮助李云龙部队攻打平安县城的时候，听到太原的小鬼子都出动时，孔捷兴奋的说道：“过瘾呐，过瘾！这仗打的。”</p>
