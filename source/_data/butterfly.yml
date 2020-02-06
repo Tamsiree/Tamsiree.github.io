@@ -23,7 +23,7 @@ menu:
 
 # Favicon
 # ---------------
-favicon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
+favicon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
@@ -32,11 +32,11 @@ pwa:
   enable: true
   manifest: /manifest.json
   theme_color: "#fff"
-  apple_touch_icon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
-  favicon_32_32: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
-  favicon_16_16: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
-  mask_icon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
-  shortcut_icon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
+  apple_touch_icon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
+  favicon_32_32: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
+  favicon_16_16: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
+  mask_icon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
+  shortcut_icon: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
 
 
 # Highlight theme
@@ -108,7 +108,7 @@ katex:
 # Post info settings
 # ---------------
 # avatar: /img/avatar.png
-avatar: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome11.png
+avatar: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
 
 
 # the banner image of index
@@ -288,7 +288,7 @@ Flink:
   info_headline: 我的Blog資料
   name: Blog 名字： Tamsiree
   address: Blog 地址： https://tamsiree.github.io/
-  avatar: Blog 頭像： https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome11.png
+  avatar: Blog 頭像： https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/1533137967uMSfAHrJRE.jpg
   info: Blog 簡介： 勇于尝试才有可能迈向成功
   comment: 发现有趣的网站,就留言给我吧
 
