@@ -2,7 +2,7 @@
 title: PT站
 author: Tamsiree
 date: 2020-02-06 20:28:35
-description: 记录PT站相关的知识。
+description: PT（Private Tracker）是一种改良自 BitTorrent 协定的 P2P 下载方式，“Private Tracker”指私有种子服务器。与 BT 最大的不同点分别为可进行私密范围下载，及可统计每个用户的上载及下载量。
 tags:
   - TechnicalResearch
   - PT站
@@ -12,7 +12,7 @@ categories:
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/d439b6003af33a8735fa4ebac05c10385243b5ff.jpg
 ---
 # 前言
-记录PT站相关的知识。
+PT（Private Tracker）是一种改良自 BitTorrent 协定的 P2P 下载方式，“Private Tracker”指私有种子服务器。与 BT 最大的不同点分别为可进行私密范围下载，及可统计每个用户的上载及下载量。
 
 # PT站的架构
 ## NexusPHP

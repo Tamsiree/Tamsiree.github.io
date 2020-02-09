@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Shadowsocks对检测和封锁的探究</title>
+    <url>/TechnicalResearch/Shadowsocks/Shadowsocks%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E7%9A%84%E6%8E%A2%E7%A9%B6/</url>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在中国，<a href="https://shadowsocks.org/en/" target="_blank" rel="noopener"><em>Shadowsocks</em></a> 是最流行的翻墙软件之一。<br>从2019年5月起，大量的中国网民反馈他们的Shadowsocks服务器被封锁了。<br>这篇报告是我们对中国的防火长城（GFW）是如何检测和封锁 Shadowsocks 及其衍生翻墙软件的初步调查结果。<br>通过网络测量实验，我们发现GFW会<strong>被动的监视网络流量</strong>从而识别出疑似Shadowsocks的网络流量；然后对对应的Shadowsocks服务器进行<strong>主动探测</strong>已验证其怀疑的正确与否。Shadowsocks的封锁程度可能受<strong>人为因素</strong>在政治敏感时期的控制。<br>我们提出一种<strong>规避方法</strong>，即改变网络数据包在Shadowsocks握手阶段的大小。这种方法被证明可以在现阶段有效减少主动探测。我们会继续与开发者合作让Shadowsocks及其衍生工具变得更加难以封锁。  </p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="主要发现"><a href="#主要发现" class="headerlink" title="主要发现"></a><a href="#主要发现" title="主要发现"></a>主要发现</h2><ul>
+<li>防火长城（GFW）已经启用主动探测的手段来识别Shadowsocks服务器。GFW采用被动监测与主动探测相结合的方式：其首先监测网络连接找出疑似Shadowsocks的连接，然后再把自己伪装成一个客户端，尝试对疑似Shadowsocks的服务器进行连接，从而验证自己的猜测。<a href="https://ensa.fi/active-probing/" target="_blank" rel="noopener"><em>我们知道GFW可以对多种翻墙工具进行主动探测</em></a>，现在Shadowsocks也成了其中一员。</li>
+<li>主动探测系统可以发送多种不同类型的探测。其中一些探测是基于对之前合法客户端建立的连接的<strong>重放</strong>；而另一些探测则似乎与之前的合法连接并不相关。</li>
+<li>如同之前的研究发现，主动探测来自<strong>大量不同的源IP地址</strong>。这使得基于源IP来过滤GFW探测包不太可行。亦如之前的研究发现，网络层面的侧通道显示这些来自数以千计的IP地址的主动探测并非完全相互独立，而是源于GFW的集中控制。</li>
+<li>很少量的（大于13个）合法连接即足以触发对于Shadowsocks服务器的主动探测。只要合法客户端还在使用服务器，主动探测就会持续下去。GFW通常在合法连接到达服务器后的数秒内发送第一个主动探测。</li>
+<li>一旦GFW主动识别出Shadowsocks服务器，GFW可能会丢弃所有发送自服务器IP地址，或服务器Shadowsocks端口的数据包。但GFW也可能不立即采取封锁措施。Shadowsocks的封锁程度可能受人为因素在政治敏感时期的控制。</li>
+<li>GFW的被动监测模块至少会根据网络数据包的长度来怀疑可疑流量。改变数据包的长度，比如所在服务端安装<a href="https://github.com/NullHypothesis/brdgrd" target="_blank" rel="noopener"><em>brdgrd</em></a>，即可通过干扰被动监测模块对Shadowsocks流量的识别，进而显著减少主动探测的数量。</li>
+</ul>
+<h2 id="我们怎么知道的？"><a href="#我们怎么知道的？" class="headerlink" title="我们怎么知道的？"></a><a href="#我们怎么知道的？" title="我们怎么知道的？"></a>我们怎么知道的？</h2><p>我们在境外搭建了自己的Shadowsocks服务器并从中国用客户端连接它们，与此同时，在服务器和客户端两端抓包进行分析。所有的实验都是在2019年7月5号到2019年11月11号之间进行的。其中的绝大部分实验都是在<a href="https://github.com/net4people/bbs/issues/16" target="_blank" rel="noopener"><em>2019年9月16日开始的一次大规模封锁</em></a>后进行的。</p>
+<p>在绝大部分实验中，我们使用了<a href="https://github.com/shadowsocks/shadowsocks-libev" target="_blank" rel="noopener"><em>shadowsocks-libev</em></a> <a href="https://github.com/shadowsocks/shadowsocks-libev/tree/v3.3.1" target="_blank" rel="noopener"><em>v3.3.1</em></a>作为客户端和服务端，因为它是一个被积极维护且具有代表性的Shadowsocks实现。我们相信我们所发现的这些弱点在其他Shadowsocks及其衍生工具，如<a href="https://getoutline.org/" target="_blank" rel="noopener"><em>Outline VPN</em></a>，中同样存在。</p>
+<p>若非明确指出，我们未对任何实验中的客户端及服务器的网络功能进行修改，比如更改防火墙的设置。Shadowsocks可以使用不同的加密设置，我们对<a href="https://shadowsocks.org/en/spec/Stream-Ciphers.html" target="_blank" rel="noopener"><em>Stream ciphers</em></a>和<a href="https://shadowsocks.org/en/spec/AEAD-Ciphers.html" target="_blank" rel="noopener"><em>AEAD ciphers</em></a>都进行了测试。</p>
+<h2 id="主动探测的一些细节"><a href="#主动探测的一些细节" class="headerlink" title="主动探测的一些细节"></a><a href="#主动探测的一些细节" title="主动探测的一些细节"></a>主动探测的一些细节</h2><p>Shadowsocks是一项加密通讯协议，其数据包的内容被设计得（应）不包含任何固定特征。其两种加密模式都基于一个主密码，两种模式分别为：<a href="https://shadowsocks.org/en/spec/Stream-Ciphers.html" target="_blank" rel="noopener"><em>Stream</em></a>(不推荐使用) 和 <a href="https://shadowsocks.org/en/spec/AEAD-Ciphers.html" target="_blank" rel="noopener"><em>AEAD</em></a> (推荐)。这两种加密模式虽都要求客户端事先知道主密码；但是Stream加密模式的服务器仅能对客户端进行较弱的验证。除非使用额外的技术手段，两种模式都不能防御对之前发送过的验证数据包的重放攻击。</p>
+<h3 id="主动探测的类型及审查者意图"><a href="#主动探测的类型及审查者意图" class="headerlink" title="主动探测的类型及审查者意图"></a><a href="#主动探测的类型及审查者意图" title="主动探测的类型及审查者意图"></a>主动探测的类型及审查者意图</h3><p>我们目前观察到五种不同的主动探测荷载。</p>
+<p>基于重放的探测：</p>
+<ol>
+<li>重放某一合法连接中第一个携带数据的数据包中的荷载。</li>
+<li>重放某一合法连接中第一个携带数据的数据包中的荷载，但更改第0字节。</li>
+<li>重放某一合法连接中第一个携带数据的数据包中的荷载，但更改第0–7和第62–63字节。</li>
+</ol>
+<p>看似随机的探测（并非基于我们所观察到的合法连接）：</p>
+<ol>
+<li>荷载长度为7到50字节，占所有看似随机的主动探测的70%。</li>
+<li>荷载长度为221字节，占所有看似随机的主动探测的30%。</li>
+</ol>
+<p><a href="https://gfw.report/blog/gfw_shadowsocks/images/image1.png" data-fancybox="group" data-caption="CDF: Payload Lengths of PSH/ACKs Received by Outline Server" class="fancybox"><img alt="CDF: Payload Lengths of PSH/ACKs Received by Outline Server" title="CDF: Payload Lengths of PSH/ACKs Received by Outline Server" data-src="https://gfw.report/blog/gfw_shadowsocks/images/image1.png" class="lazyload"></a></p>
+<p>我们怀疑GFW的主动探测系统根据服务器对这几种不同类型的主动探测的反馈来判定其是否为Shadowsocks服务器。</p>
+<p>Shadowsocks-libev有一个<a href="https://github.com/shadowsocks/shadowsocks-org/issues/44" target="_blank" rel="noopener"><em>重放过滤器</em></a>; 但是大多数的Shadowsocks实现则没有。重放过滤器可以防御一模一样的重放（类型1），如果载荷的最初几字节被改变了（类型2和3）那么过滤器就无法防御了。过滤器本身也不够阻止主动探测模块去比较服务器对多种探测的反应。</p>
+<h3 id="多少次合法连接就能触发主动探测"><a href="#多少次合法连接就能触发主动探测" class="headerlink" title="多少次合法连接就能触发主动探测"></a><a href="#多少次合法连接就能触发主动探测" title="多少次合法连接就能触发主动探测"></a>多少次合法连接就能触发主动探测</h3><p>对主动探测的触发似乎需要达到一定的阀值。比如在一项实验中，仅仅13次连接就足以引起GFW的怀疑并触发主动探测。初步结果显示，使用了AEAD的Shadowsocks，可能需要稍微多一点点的连接才会触发主动探测。</p>
+<h3 id="合法连接与主动探测的关系"><a href="#合法连接与主动探测的关系" class="headerlink" title="合法连接与主动探测的关系"></a><a href="#合法连接与主动探测的关系" title="合法连接与主动探测的关系"></a>合法连接与主动探测的关系</h3><p>我们让客服端每5分钟对Shadowsocks服务器进行16次连接。虽然我们的服务器触发了大量的主动探测，但不知为何，其并未被GFW封锁。</p>
+<p><a href="https://gfw.report/blog/gfw_shadowsocks/images/image6.png" data-fancybox="group" data-caption="Number of SYN Received Across Time" class="fancybox"><img alt="Number of SYN Received Across Time" title="Number of SYN Received Across Time" data-src="https://gfw.report/blog/gfw_shadowsocks/images/image6.png" class="lazyload"></a></p>
+<p>上图显示在客户端与服务器有通讯的时间里，服务器会收到主动探测。当合法客户端与服务器的通讯停止下来后，大部分的主动探测也停了。值得指出的是，每小时中主动探测的数量并非固定值，与合法客服端的连接数目比也并非1:1。</p>
+<h3 id="主动探测的延迟性"><a href="#主动探测的延迟性" class="headerlink" title="主动探测的延迟性"></a><a href="#主动探测的延迟性" title="主动探测的延迟性"></a>主动探测的延迟性</h3><p>GFW的主动探测系统可以将合法连接的载荷保存下来，然后延迟一段时间再发起一个新的连接进行重放。下图显示了合法连接与重放攻击之间的延时关系。由于一个合法的载荷可能被多次重放（某一次实验中观察到的最大值为47次），我们呈现两组关系：桔黄色的线代表基于一个合法载荷的第一次重放；蓝色的线代表所有基于重放的探测（不限定为第一次）。</p>
+<p>结果显示多于90%的重放攻击发生在合法连接发送后的一小时之内。观察到的最短的延迟仅有0.4秒，而最长延迟竟有大约400小时。</p>
+<p><a href="https://gfw.report/blog/gfw_shadowsocks/images/image2.png" data-fancybox="group" data-caption="CDF: Delay of Replay-based Probes" class="fancybox"><img alt="CDF: Delay of Replay-based Probes" title="CDF: Delay of Replay-based Probes" data-src="https://gfw.report/blog/gfw_shadowsocks/images/image2.png" class="lazyload"></a></p>
+<h3 id="主动探测的源"><a href="#主动探测的源" class="headerlink" title="主动探测的源"></a><a href="#主动探测的源" title="主动探测的源"></a>主动探测的源</h3><p>我们在目前所有实验中总计观察到3,5477次主动探测。它们来自1,0547个不同的IP地址，IP地址均属于中国。</p>
+<p><strong>源自治系统</strong>。主动探测来源占比最多的两个自治系统 AS 4837 (CHINA169-BACKBONE CNCGROUP China169 Backbone,CN) 和 AS 4134 (CHINANET-BACKBONE No.31,Jin-rong Street,CN)，分别为中国联通和中国电信的主干网。这一结果与之前对<a href="https://ensa.fi/active-probing/imc2015.pdf#page=8" target="_blank" rel="noopener"><em>主动探测的研究</em></a>一致。</p>
+<p><a href="https://gfw.report/blog/gfw_shadowsocks/images/image3.png" data-fancybox="group" data-caption="ASN of unique probing IPs throughout all experiments" class="fancybox"><img alt="ASN of unique probing IPs throughout all experiments" title="ASN of unique probing IPs throughout all experiments" data-src="https://gfw.report/blog/gfw_shadowsocks/images/image3.png" class="lazyload"></a></p>
+<p><strong>中心化结构。</strong>尽管这些主动探测来源于上千个不同的IP地址，有迹象显示它们的行为均受到一小撮进程的集中管控。下图显示了每个主动探测的SYN包所携带的<a href="https://tools.ietf.org/html/rfc7323#section-3" target="_blank" rel="noopener"><em>TCP timestamp</em></a>值。TCP timestamp是一个32位的计数器，其以固定的速度进行增长。其不是一个绝对值，而是一个取决于TCP实现和系统上次重启时间的相对值。下图显示这些来源于上千个独立的IP地址的主动探测，共享着很少量的TCP timestamp序列。在这次实验中，至少观察到9个不同的物理系统或进程，而绝大多数主动探测似乎来源于同一进程。我们说“至少”和“似乎”是因为如果两个或以上的独立进程的截距非常相近，那么我们可能把它们误认为一个进程。序列的斜率显示timestamp的增长速度为250HZ。</p>
+<p><a href="https://gfw.report/blog/gfw_shadowsocks/images/image5.png" data-fancybox="group" data-caption="TCP TSval of SYN Segments from Probers" class="fancybox"><img alt="TCP TSval of SYN Segments from Probers" title="TCP TSval of SYN Segments from Probers" data-src="https://gfw.report/blog/gfw_shadowsocks/images/image5.png" class="lazyload"></a></p>
+<h2 id="如何规避针对Shadowsocks的封锁？"><a href="#如何规避针对Shadowsocks的封锁？" class="headerlink" title="如何规避针对Shadowsocks的封锁？"></a><a href="#如何规避针对Shadowsocks的封锁？" title="如何规避针对Shadowsocks的封锁？"></a>如何规避针对Shadowsocks的封锁？</h2><p>GFW对于Shadowsocks的检测需要两步：</p>
+<ol>
+<li>第一步，被动监测并识别疑似Shadowsocks的连接。</li>
+<li>第二步，主动探测疑似Shadowsocks的服务器。</li>
+</ol>
+<p>因此，为避免封锁，我们可以（1）设法避免被监测模块怀疑到，或者（2）让服务器以不被怀疑的方式回应主动探测。我们将展示如何通过安装改变数据包大小的软件来达到目标（1）。</p>
+<p><a href="https://github.com/NullHypothesis/brdgrd" target="_blank" rel="noopener"><em>Brdgrd</em></a>是一款可以被安装在Shadowsocks服务器上，从而导致Shadowsocks客服端发送较小的数据包的软件。它设计之初衷是用来干扰GFW识别Tor节点，因为它迫使GFW在检测之前首先对TCP流进行复杂的重组。但这里我们利用它可以改变从客户端到服务器的数据包大小的功能。改变数据包的大小可以干扰流量识别环节，从而在极大程度上缓解主动探测。</p>
+<p><a href="https://gfw.report/blog/gfw_shadowsocks/images/image4.png" data-fancybox="group" data-caption="Effectiveness of brdgrd on Server" class="fancybox"><img alt="Effectiveness of brdgrd on Server" title="Effectiveness of brdgrd on Server" data-src="https://gfw.report/blog/gfw_shadowsocks/images/image4.png" class="lazyload"></a></p>
+<p>上图显示了一个受到主动探测的Shadowsocks服务器，在开启brdgrd后的数小时内不再收到主动探测。而当我们关闭brdgrd，主动探测立刻继续。我们第二次开启brdgrd，主动探测在之后的40小时里完全停止，但之后又有些许主动探测。</p>
+<p>另一组实验显示，在第一次运行Shadowoscks之初就启用brdgrd也许更加的有效。</p>
+<p>Brdgrd的原理是将TCP Window Size改写为一个小得罕见的值。因此，审查者可能可以检测出brdgrd被使用了。因此，尽管brdgrd可以在现阶段有效的减少主动探测，其不能被看作是一个一劳永逸的解决方案。</p>
+<h2 id="尚未解决的问题"><a href="#尚未解决的问题" class="headerlink" title="尚未解决的问题"></a><a href="#尚未解决的问题" title="尚未解决的问题"></a>尚未解决的问题</h2><p>尽管我们已经清楚GFW会主动探测Shadowsocks服务器，我们仍不清楚主动探测与Shadowsocks服务器被封之间的关系。我们有33组Shadowsocks服务器分布于世界各地。尽管它们中的大多数都遭受到了大量的主动探测，但是仅有3台服务器被封锁。更有趣的是，其中一台被封锁的服务器只被使用了很短的一段时间，因此受到的主动探测数量应该比很多未被封锁的服务器要少得多。</p>
+<p>我们提出3种假设试图解释这一有趣的现象：</p>
+<ul>
+<li><p>Shadowsocks服务器的封锁是由人为的因素控制的。也就是说，GFW也许维护了一份在不同程度上被怀疑为Shadowsocks服务器的清单，然后根据人工因素来决定对服务器进行封锁还是解封。这一假设可以解释为什么更多的服务器是在政治敏感时期被封锁的。</p>
+</li>
+<li><p>另一个假设是GFW的主动探测对于一些我们实验采用的Shadowsocks实现无效。确实，我们被封锁的那3台服务器都是使用了与其他实验中的Shadowsocks不同的实现。如果GFW是根据某些Shadowsocks服务器实现对主动探测的特有反应来识别判断的话，那么这一假设更有可能为真。</p>
+</li>
+<li><p>第三个假设是对于Shadowsocks的封锁在地理上存在着不一致性。我们被封锁的那3台服务器所在的数据中心不同于其他大多数实验，使用的客服端也是位于一般的居民网络，而非数据中心。如果GFW更注意属于某些数据中心的IP地址，抑或更注意来自一般居民网络的客户端连接，那么这一假设更有可能为真。</p>
+</li>
+</ul>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a><a href="#致谢" title="致谢"></a>致谢</h2><p>我们想在此感谢以下人员对此主题的讨论和研究：</p>
+<ul>
+<li>Shadowsocks-libev 的开发者们</li>
+<li>OutlineVPN 的开发者们</li>
+<li>Eric Wustrow以及其他多名来自科罗拉多大学博尔德分校的研究人员</li>
+</ul>
+<h2 id="联系我们"><a href="#联系我们" class="headerlink" title="联系我们"></a><a href="#联系我们" title="联系我们"></a>联系我们</h2><p>这篇报告首发于GFW Report。我们还在<a href="https://github.com/net4people/bbs/issues/22" target="_blank" rel="noopener">net4people</a>和<a href="https://ntc.party/t/how-china-detects-and-blocks-shadowsocks/289" target="_blank" rel="noopener">ntc.party</a>同步更新了这篇报告。</p>
+<p>我们鼓励您公开或私下地分享与报告中的发现和假设相关的问题、评论或证据。我们私下的联系方式可见<a href="https://gfw.report/" target="_blank" rel="noopener">GFW Report</a>的页脚。</p>
+<hr>
+<blockquote>
+<p>参考来源：<a href="https://gfw.report/blog/gfw_shadowsocks" target="_blank" rel="noopener"><code>[English Version: How China Detects and Blocks Shadowsocks]</code></a><br>日期: 2019年12月29日，星期日<br><strong>作者:</strong> 匿名作者A, 匿名作者B, 匿名作者C, 大卫·菲尔德 [David Fifield] , 阿米尔 [Amir Houmansadr]</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</body></html>]]></content>
+      <categories>
+        <category>TechnicalResearch</category>
+        <category>Shadowsocks</category>
+      </categories>
+      <tags>
+        <tag>TechnicalResearch</tag>
+        <tag>Shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity合理导入模型</title>
+    <url>/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%90%88%E7%90%86%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信在游戏中，模型相当于游戏必要的元素，例如游戏的一个人物角色，我们可以称它为一个模型，今天和小编一起学习一下，导入 Unity 3d 模型，我们应该注意哪些细节！当然我们知道常用的模型都可以通过 Maya/3D Max 等三维动画软件制作的。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>官方学习文档：<a href="https://docs.unity3d.com/Manual/FBXImporter-Model.html" target="_blank" rel="noopener">https://docs.unity3d.com/Manual/FBXImporter-Model.html</a><br>1、模型自身规范：<br>        1.0 所有的模型在原点创建，没有具体的特定要求下，需要以物体对象中心为轴心；<br>        1.1 模型面数：移动端（ 300-1500 个多边形达到比较好的效果） PC端（ 1500-4000 比较适宜）正常的单个物体最好控制在 1000 面以下，所有的物体面数不超过20000 个三角面；<br>        1.2 模型大小：模型文件做到最大的优化，对于看不到的面，我们可以采用直接删除，合并断开的点，移除孤立的点；<br>        1.3 模型命名：命名最好做到规范化，模型在给绑定之前必须做一次重置变换；<br>        1.4 模型复制：如果物体可以复制的话，就尽量复制；例如一个 500 面的物体，烘培好之后复制出去 50 个，那么他所消耗资源基本和一个物体消耗的资源基本是一样；<br>        1.5 模型单位：在建模型之前设定好单位，在 Unity3d 中用到的单位设置必须要一样，模型和模型之间的比例要正确，和程序导入的单位要一致，如果到程序中单位需要缩放也尽可能统一调整缩放比例，统一单位为米；<br> 2、模型导入中的规范：<br>        2.0 模型使用的材质，首先在 3d Max 和 Maya 中，不是所有的材质在 Unity3d 中都可以支持使用，只有 Standard（标准材质）和 Multi/Sub-Object（多维/子物体材质）被 Unity3d 软件所支持。<br>        2.1 模型贴图格式和尺寸：常用的图片格式是 .tga 和  .png (带透明通道) 、不带通道为 .jpg ，贴图的尺寸最好为 2 的 N 次方,最大的贴图尺寸不能超过 1024X1024 ，当然特定的要求，尺寸可以根据具体的需求而定。<br>        2.2 模型贴图其他注意点：<br>              2.2.0 贴图命名不要有中文字命名，并且不能有重名；<br>              2.2.1 材质命名和物体名称最好保持一致，易于整理，材质球的父子层级的命名尽可能一致；<br>              2.2.2 同种贴图可以使用同一个材质球；<br>              2.2.3 带Alpha 通道贴图图片格式最好为 tga 和 png 格式，在命名可以加 _al 加以区分；<br>              2.2.4 模型需要通过通道处理时，在制作通道纹理，最好将透明部分改成模型的主色，这样渲染可以使有效边缘部分大颜色正确，通道纹理在程序渲染占用的资源同尺寸大普通纹理要多，通道命名也最好以 _al 结尾；<br>        2.3 Unity资源导入：<br>        对于游戏中资源导入可以导入图片，网格等，Project 面板右键（ Import New Asset ）。<br>              2.3.0 图片设置：<br>              TextureType：贴图类型。<br>              AlphafromGrayscal :使用灰度创建 Alpha，当需要unity为贴图创建一条 alpha 通道，使用它转换得到的灰度值来渲染透明度，可以开启它。<br>              WrapMode：所谓的包裹模式，决定贴图会无限次平铺还是只绘制一次。Repeat 就是重复平铺。Clamp 会让贴图的边缘拉升并在改变大小时候填满任何缝隙。<br>              FilterMode：所谓的图像过滤模式，在拉伸时候对贴图过滤，比如 [Point] 点过滤，在很近看贴图时候，可能感觉不均。Bilinear 它会时近看贴图显得模糊。Trilinear 它会在不同 mipmap 层次之间模糊。<br>              AnisoLevel：设置各项异性过滤器的级别，同属的可以理解为当你从一个比较陡的角度来看，贴图现实的可以有多细腻，渲染的等级越高，越占内存。想要确定贴图页面会占用多大内存，可以长X宽，再乘以他的位深度 [bpp,每像素位数] ，如果贴图包含 mipmap ，还需要扩大 1.33 倍。<br>              2.3.1 网格设置：<br>              网格就是那些 Maya ，C4D，3DSMAX，C3D，LW 等软件导出的文件。比如导入一个 .fbx 文件。选中后，在Inspector面板中，我们能看到下面的属性：<br>              ScaleFactor：缩放系数，使用这个属性在导入资源后设置其大小，调整资源在场景现实过大，或者过小的问题。<br>              MeshCompression：网格压缩的比例（ Off，Low，Medium，High ）不可否认，压缩时可以节约内存的。<br>              OptimizeMesh：为提高 GPU 性能记录网格顶点和索引。<br>               GenerateColliders：是否在场景中让网格对象具有碰状体表现，通俗的说就是实心的，不可以穿体而过。<br>              SwapUVs：交换 UV ，当你导入一个网格对象时候，着色器可能会使用错误的 UV 通道，如果发现资源异常（比如带光照图时候），可以选中这个复选框。<br>              Generate Lightmap UVs：为UV2生成光照贴图。<br>              Normals&Tangents：该项设置计算法线切线<br>              Normals：计算法线，import 表示使用导入的网格法线，Calculate 表示从新计算网格法线。<br>              Tangents：计算切线，import 表示使用导入的网格切线，Calculate 表示从新计算切线。<br>              Smoothing angle：法线平滑角度，告诉引擎在角度值为多少时候把一个边缘视为硬边缘。<br>              Split Tangents：是否分离切线,如果模型在场景渲染后现实 UV 缝隙，要开启它。<br>              Materials：<br>              Import Materials:是否导入材质，默认选中。<br>              Material Naming:材质名字生成模式。<br>              Material Search：材质搜索方案。<br>3、模型在制作软件中具体设置：<br>        3.0 贴图烘培设置：在进行Completemap 烘培方式，贴图通道和物体 UV 坐标通道必须为1 通道。<br>        3.1 lightingMap 烘培设置时，和 completemap 设置有些不同，贴图通道和物体 UV 坐标必须为 3 通道，烘培时灯光的阴影方式为 adv.raytraced 高级光线跟踪阴影，背景色要改白色，可以避免黑边的情况，主要物件的贴图 UV 必须手动展开；<br>        3.2 模型绑定及动画<br>              3.2.0 骨骼必须为 IK 、CAT、BIP 三类，Unity 不认虚拟动画，单个物体骨骼数量不超过 60 个；<br>              3.2.1 动画帧率、帧数的控制，一般情况下每秒 10 帧，一个动画尽量控制 1 秒内完成；<br>        3.3 模型导出<br>              3.3.0 将烘培材质改为标准材质球，通道为 1 ，自发光 100% ；<br>              3.3.1 合并顶点，删除多余的材质球（不重要贴图缩小）;<br>              3.3.2 物体名称、材质球名、贴图名保持一致；<br>              3.3.3 按要求导出的 .fbx （检查是否要按组导出，导出 fbx 后，再重新导入 3D Max／Maya 中动画是否正确）<br>                 …..</p>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="https://connect.unity.com/p/unity3d-shi-yong-ji-qiao-kuai-su-xue-hui-mo-xing-he-li-dao-ru-unity3d-yin-qing" target="_blank" rel="noopener">Unity3D 实用技巧 - 快速学会模型合理导入 Unity3D 引擎</a><br><a href="http://www.manew.com/thread-108019-1-1.html" target="_blank" rel="noopener">Unity3D 模型导入的注意事项</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</body></html>]]></content>
+  </entry>
+  <entry>
     <title>PT站</title>
     <url>/TechnicalResearch/PT%E7%AB%99/PT%E7%AB%99/</url>
-    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录PT站相关的知识。</p>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>PT（Private Tracker）是一种改良自 BitTorrent 协定的 P2P 下载方式，“Private Tracker”指私有种子服务器。与 BT 最大的不同点分别为可进行私密范围下载，及可统计每个用户的上载及下载量。</p>
 <h1 id="PT站的架构"><a href="#PT站的架构" class="headerlink" title="PT站的架构"></a>PT站的架构</h1><h2 id="NexusPHP"><a href="#NexusPHP" class="headerlink" title="NexusPHP"></a>NexusPHP</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>根据其代码中的介绍（<code>aboutnexus.php</code> 页面）来看：</p>
 <blockquote>
 <p>NexusPHP由来自浙江大学的Nexus团队发起并开发完成。主要是提供一个完整的、有序的、重视用户信誉和知识的资源分享社区的解决方案，是一个PT（Private Tracker，即私有的Tracker服务器，是BT下载的一种）开源软件。</p>
 </blockquote>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/4003688781.jpg" data-fancybox="group" data-caption="aboutnexus.jpg" class="fancybox"><img alt="aboutnexus.jpg" title="aboutnexus.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/4003688781.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/4003688781.jpg" data-fancybox="group" data-caption="aboutnexus.jpg" class="fancybox"><img alt="aboutnexus.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/4003688781.jpg" class="lazyload" title="aboutnexus.jpg"></a></p>
 <p>（当然也有人和我说，这是某浙大生毕业设计作品Orz）</p>
 <p>虽然一遍一遍的在群里鄙视着NexusPHP的垃圾代码，但不得不承认就目前来看国内PT圈依然在大量使用NP（这里应该不用做详细数据统计了吧2333）。</p>
 <p>而其他一些尝试，诸如：</p>
@@ -16,14 +121,14 @@
 <li><a href="https://github.com/WhatCD/Gazelle" target="_blank" rel="noopener">Gazelle</a>：国外著名PT架构，然而部署安装略麻烦，且纯英文界面。国内曾有人尝试翻译并建站，然而该主比我还不靠谱，以致于在17年度被人提及是开站狂魔2333。此外就目前看TVPlay这个基于Gazelle的国内剧集站点现状比一滩死水还不如。</li>
 <li><a href="https://gitee.com/mojie126/YoRHa" target="_blank" rel="noopener">YoRHa</a>：根本没有人知道的国内构架，主要原因是因为基于ThinkPHP的构架并没有完成23333，作者曾在PT吧发过主贴 <a href="https://tieba.baidu.com/p/5363288147" target="_blank" rel="noopener">【20171009】开源一个国产PT项目…【pt吧】_百度贴吧</a> ，而且目前demo还存活（并开放debug模式），但已经有一段时间没有进行更新了Orz。</li>
 <li><a href="https://github.com/taobataoma/meanTorrent" target="_blank" rel="noopener">meanTorrent</a>：同样是一个国内开源框架，基于Node.js，同样部署安装麻烦（后面会具体讲~）。目前主站被人戏称（实际是官方简称）是<a href="http://mean.im/" target="_blank" rel="noopener">地雷站</a> ，但就我目前感觉，迈的步子有些大——一方面，过于绚丽的前端对于PT是否需要值得思榷；另一方面，主站目前只接受1080P的一些规定是否在站点初期有利于发展。此外，该站积分策略、上传方式中的一些不同与NP的新形势新方法，对于已经在NP惯性中的使用者来说是不是能很快适应。这些都要经过时间的考验，毕竟今年6月（2018年6月）也才正式上线。</li>
-<li><a href="https://github.com/QwertyRider/TBSource" target="_blank" rel="noopener">TBsource</a>：基于PHP，是NP的前身，应该也就只有CFFBits以及TTG这种_远古_站点在使用了吧~</li>
+<li><a href="https://github.com/QwertyRider/TBSource" target="_blank" rel="noopener">TBsource</a>：基于PHP，是NP的前身，应该也就只有CFFBits以及TTG这种<em>远古</em>站点在使用了吧~</li>
 <li><a href="https://sourceforge.net/projects/xbnbt/" target="_blank" rel="noopener">XBNBT</a>： 一个基于C++的构架，国内就只有紫荆PT在使用。</li>
 <li>其他一些在Discuz基础上修改的tracker：这块多为自己写的，而且未能找到公开repo，在此仅作站点列举：六维空间、北交知行、天雪PT。</li>
 </ul>
 <p>所以，面对众多的 <code>NP改</code> 站点来说，其实这个古老的（甚至连官网都挂了的）架构依然在支撑着国内PT网站的运行。</p>
 <h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><p>但是从现代的角度来看NP，我们其实能发现很多问题。</p>
 <p>有些属于已经被发现漏洞，多为跨站请求类以及SQL注入类。截止目前（2018/7/19），在 <a href="http://www.cnnvd.org.cn/web/vulnerability/querylist.tag" target="_blank" rel="noopener">国家信息安全漏洞库</a> 中以 NexusPHP 为关键词搜索可以找出近26条记录 。</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/721100080.jpg" data-fancybox="group" data-caption="CNNVD.jpg" class="fancybox"><img alt="CNNVD.jpg" title="CNNVD.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/721100080.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/721100080.jpg" data-fancybox="group" data-caption="CNNVD.jpg" class="fancybox"><img alt="CNNVD.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/721100080.jpg" class="lazyload" title="CNNVD.jpg"></a></p>
 <p>而更多被诟病的其实是其代码架构过于老旧也不宜于维护。下面列几点我印象比较深刻的：</p>
 <ul>
 <li>使用这个mysql已经被抛弃的库（PHP 5.5.0起废弃，PHP 7.0.0起移除），而不是mysqli库或PDO库。而PHP 7至少从评测上看，执行效率比PHP 5优秀很多~</li>
@@ -36,12 +141,12 @@
 <li><strong>基本没怎么动</strong>： 不得不说，很多站点对原始NP模板并没有进行修改（这是句瞎话，比如BYR看起来和原版似乎一模一样，但是后端的修改还是挺多的；又如二娘，修改了种子的BUFF系统。）。但其实不管该站Sysop到底出力没出力，都可以将对应站点视为一个模板。</li>
 <li><strong>葡萄</strong>：该前端模板将个人信息做成置顶栏，而不是和基本模板一样放在导航栏之下。种子搜索增加“随意看看”。</li>
 </ul>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/3085673525.jpg" data-fancybox="group" data-caption="putao_group.jpg" class="fancybox"><img alt="putao_group.jpg" title="putao_group.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/3085673525.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/3085673525.jpg" data-fancybox="group" data-caption="putao_group.jpg" class="fancybox"><img alt="putao_group.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/3085673525.jpg" class="lazyload" title="putao_group.jpg"></a></p>
 <ul>
 <li><strong>蝴蝶</strong>：以蝴蝶和珞樱为代表，对搜索词的词长存在限制，拥有用户自定义Javascript以及自定义css。</li>
-<li><strong>蚂蚁</strong>：虽然蚂蚁因为一些原因已经停止运营，但是模板并没有消失2333。目前仍有很多新站使用蚂蚁的模板进行建站，如_高清街_以及_美盒子_（都是小站）。我个人不是很喜欢蚂蚁的模板，它将一个种子的所有信息使用两个tr加一堆rowspan进行合并展示，在我看来其实增加后期维护的困难程度，尤其是在没有模板引擎的NP构架之下。</li>
+<li><strong>蚂蚁</strong>：虽然蚂蚁因为一些原因已经停止运营，但是模板并没有消失2333。目前仍有很多新站使用蚂蚁的模板进行建站，如<em>高清街</em>以及<em>美盒子</em>（都是小站）。我个人不是很喜欢蚂蚁的模板，它将一个种子的所有信息使用两个tr加一堆rowspan进行合并展示，在我看来其实增加后期维护的困难程度，尤其是在没有模板引擎的NP构架之下。</li>
 </ul>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1294908463.jpg" data-fancybox="group" data-caption="mayi_tamp.jpg" class="fancybox"><img alt="mayi_tamp.jpg" title="mayi_tamp.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1294908463.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1294908463.jpg" data-fancybox="group" data-caption="mayi_tamp.jpg" class="fancybox"><img alt="mayi_tamp.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1294908463.jpg" class="lazyload" title="mayi_tamp.jpg"></a></p>
 <blockquote>
 <p>截图为他人提供的美盒子截图。</p>
 </blockquote>
@@ -66,11 +171,9 @@
 </blockquote>
 <h3 id="Linux下搭建"><a href="#Linux下搭建" class="headerlink" title="Linux下搭建"></a>Linux下搭建</h3><h4 id="LNMP环境及Memcache"><a href="#LNMP环境及Memcache" class="headerlink" title="LNMP环境及Memcache"></a>LNMP环境及Memcache</h4><p>网上的教程真心啰嗦，<code>lnmp</code>一个一个的写过去，我个人还是喜欢用一键包来配置。<code>lnmp1.5</code>的自动值守命令为</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">screen -S lnmp</span><br><span class="line">wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz -cO lnmp1.5.tar.gz && tar zxf lnmp1.5.tar.gz && <span class="built_in">cd</span> lnmp1.5  && LNMP_Auto=<span class="string">"y"</span>  DBSelect=<span class="string">"2"</span> DB_Root_Password=<span class="string">"lnmp.org"</span>  InstallInnodb=<span class="string">"y"</span>  PHPSelect=<span class="string">"4"</span>  SelectMalloc=<span class="string">"1"</span>  ./install.sh lnmp</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>复制粘贴，然后接杯奶茶等编译完成，我们基础的<code>lnmp</code>环境就搭建好了。（注意：这样安装后主<code>PHP</code>版本为<code>5.5</code>，如果希望主版本用<code>7.x</code>的请自己使用 <a href="https://lnmp.org/auto.html" target="_blank" rel="noopener">LNMP一键安装包无人值守命令生成器</a> 生成值守命令或者交互式安装，然后<code>./install.sh mphp</code> 添加多PHP支持）</p>
 <p>然后安装<code>memcache</code>，在<code>lnmp1.5</code>文件夹中进入lnmp解压后的目录，执行：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">./addons.sh install memcached</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>选择<code>php-memcache</code>即会安装软件及<code>PHP</code>扩展。</p>
 <h4 id="NP源码及数据库"><a href="#NP源码及数据库" class="headerlink" title="NP源码及数据库"></a>NP源码及数据库</h4><p><code>NP</code>源码个人建议从<code>SourceForge</code>中获取，而不是从<code>Github</code>仓库。（之前Blog也说过，Github上的建表语句有问题）故，依次进行：</p>
 <ol>
@@ -82,20 +185,18 @@
 </li>
 </ol>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">‘SITENAME’  =>  ‘站点名称’</span><br><span class="line">‘baseURL’  =>  ‘网站URL’</span><br><span class="line">‘announce_url’  =>  ‘localhost/announce.php’（announce的url地址）</span><br><span class="line">‘mysql_host’  =>  ‘MySQL主机’</span><br><span class="line">‘mysql_user’  =>  ‘数据库用户名’</span><br><span class="line">‘mysql_pass’  =>  ‘数据库密码’</span><br><span class="line">‘mysql_db’  =>  ‘数据库名’</span><br></pre></td></tr></tbody></table></figure></div>
-
-<ol start="4">
+<ol>
 <li>设置目录权限777，因为NP的站点配置是通过操作config目录下文件的修改完成的。</li>
 </ol>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo chmod 777  /dir/to/your/nexusphp</span><br><span class="line">sudo chmod 777  /dir/to/your/nexusphp/config</span><br></pre></td></tr></tbody></table></figure></div>
-
-<ol start="5">
+<ol>
 <li>自己访问网站然后注册一个用户名，接着进入数据库管理（phpMyAdmin），在users表里面找到你注册的用户，编辑它的class属性为16</li>
 </ol>
 <h3 id="Windows下搭建"><a href="#Windows下搭建" class="headerlink" title="Windows下搭建"></a>Windows下搭建</h3><p>Windows下搭建我个人推荐使用Laragon作为基础环境，因为相比其他WNMP、WAMP、XAMPP，环境管理更加方便，内置软件更为齐全。例如我选择的就包含了几乎全套我想要使用的工具2333</p>
 <blockquote>
 <p>官网下载地址：<a href="https://laragon.org/download/" target="_blank" rel="noopener">https://laragon.org/download/</a></p>
 </blockquote>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/3158755942.jpg" data-fancybox="group" data-caption="laragon.jpg" class="fancybox"><img alt="laragon.jpg" title="laragon.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/3158755942.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/3158755942.jpg" data-fancybox="group" data-caption="laragon.jpg" class="fancybox"><img alt="laragon.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/3158755942.jpg" class="lazyload" title="laragon.jpg"></a></p>
 <p>然而需要注意的是，默认Laragon提供的是PHP 7.x，我们需要额外到PHP官网上下载PHP 5.5版本的Portable以及Memcache扩展。下载位置分别如下：</p>
 <ul>
 <li>PHP 5.5：到PHP官网的历史发布页面存档 <a href="https://windows.php.net/downloads/releases/archives/" target="_blank" rel="noopener">https://windows.php.net/downloads/releases/archives/</a> 中找到<em>php-5.5.38-Win32-VC11-x64.zip</em> 下载并将解压到<code>laragon\bin\php</code> 目录</li>
@@ -118,68 +219,55 @@
 <p>相比已经停止开发维护的NP框架，一个有正经团队维护的项目从好的看，出现问题能统一修复解决，但从另一方面，有点剥离站点个性化的需求——从目前项目列出来的几个站点来看，站点雷同程度<strong>有过之而无不及</strong> 。反正国人擅长建站，小站死了又是一批，能活成大站就是可以收割的时候2333）</p>
 <p>同样考虑到更新频繁这一点，本处的搭建手记也仅做示例，具体还是请参见项目主页README的介绍。</p>
 <blockquote>
-<p>2018.08.27 请注意meanTorrent自 <code>v1.8</code> 停止开源维护。且该版本存在_严重_的信息暴露漏洞，<strong>不建议使用该框架建站</strong>。<br>2019.07.24 MINE站已经长时间522，而本月的18号另外一个用meanTorrent建站的中型站点PTDream+也宣布重新回到NPHP框架，实际也意味着meanTorrent框架的失败了。</p>
+<p>2018.08.27 请注意meanTorrent自 <code>v1.8</code> 停止开源维护。且该版本存在<em>严重</em>的信息暴露漏洞，<strong>不建议使用该框架建站</strong>。<br>2019.07.24 MINE站已经长时间522，而本月的18号另外一个用meanTorrent建站的中型站点PTDream+也宣布重新回到NPHP框架，实际也意味着meanTorrent框架的失败了。</p>
 </blockquote>
 <h3 id="依赖分析"><a href="#依赖分析" class="headerlink" title="依赖分析"></a>依赖分析</h3><p>meanTorrent其所用的依赖十分基础：Git（版本管理）、Node.js（运行程序）、MongoDB（数据库） 、Bower （浏览器包管理器）。</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1822414240.jpg" data-fancybox="group" data-caption="2018-07-25_152451.jpg" class="fancybox"><img alt="2018-07-25_152451.jpg" title="2018-07-25_152451.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1822414240.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1822414240.jpg" data-fancybox="group" data-caption="2018-07-25_152451.jpg" class="fancybox"><img alt="2018-07-25_152451.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1822414240.jpg" class="lazyload" title="2018-07-25_152451.jpg"></a></p>
 <h2 id="开机及环境准备"><a href="#开机及环境准备" class="headerlink" title="开机及环境准备"></a>开机及环境准备</h2><p>按照本人惯例，开一台 <a href="https://www.vultr.com/?ref=6944263" target="_blank" rel="noopener">Vultr</a> (←这里有个很生硬的afflink) 的$5虚拟机进行搭建测试，系统为Ubuntu 16.04，地点随意。</p>
 <p>同样，对基础依赖不大，所以全部程序直接包管理安装即可，喜欢折腾的可以通过源代码编译安装，但这里只是测试（踩坑），所以一切就简。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80  --recv 9DA31620334BD75D9DCB49F368818C72E52529D4</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse"</span>  | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list</span><br><span class="line">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -</span><br><span class="line">sudo apt-get update && sudo apt-get upgrade</span><br><span class="line">sudo apt-get install -y git nodejs mongodb-org</span><br><span class="line">sudo service mongod start</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>然后安装npm的包管理器bower （话说现在不应该都用Webpack或者Yarn了嘛？）</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npm install -g bower</span><br></pre></td></tr></tbody></table></figure></div>
-
 <h2 id="安装meanTorrent"><a href="#安装meanTorrent" class="headerlink" title="安装meanTorrent"></a>安装meanTorrent</h2><blockquote>
 <p><strong>建议使用非root账户进行安装！请使用adduser以及visudo创建新账户并赋予新账号超级用户权限。</strong></p>
 </blockquote>
 <p>首先从Github上clone一份源代码来</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">git clone https://github.com/taobataoma/meanTorrent.git</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>然后使用npm安装依赖（过程中一堆WARNING都可以不用管233）</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> meanTorrent</span><br><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>但似乎还是有问题，报错如下。在安装node-gyp、iconv以及sharp的时候报错。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">rhilip@vultr:~/meanTorrent$ npm install</span><br><span class="line"></span><br><span class="line">> iconv@2.2.3 install /root/meanTorrent/node_modules/iconv</span><br><span class="line">> node-gyp rebuild</span><br><span class="line"></span><br><span class="line">Traceback  (most recent call last):</span><br><span class="line">File  <span class="string">"/usr/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py"</span>, line 13,  <span class="keyword">in</span>  <module></module></span><br><span class="line">import gyp</span><br><span class="line">File  <span class="string">"/usr/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/__init__.py"</span>, line 8,  <span class="keyword">in</span>  <module></module></span><br><span class="line">import gyp.input</span><br><span class="line">File  <span class="string">"/usr/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/input.py"</span>, line 5,  <span class="keyword">in</span>  <module></module></span><br><span class="line">from compiler.ast import Const</span><br><span class="line">ImportError:  No module named compiler.ast</span><br><span class="line">gyp ERR! configure error</span><br><span class="line">`gyp ERR! stack Error:  `gyp` failed with <span class="built_in">exit</span> code:  1`</span><br><span class="line">gyp ERR! stack     at ChildProcess.onCpExit (/usr/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:336:16)</span><br><span class="line">gyp ERR! stack     at emitTwo (events.js:126:13)</span><br><span class="line">gyp ERR! stack     at ChildProcess.emit (events.js:214:7)</span><br><span class="line">gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:198:12)</span><br><span class="line">gyp ERR!  System  Linux  4.4.0-127-generic</span><br><span class="line">gyp ERR! <span class="built_in">command</span> <span class="string">"/usr/bin/node"</span>  <span class="string">"/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js"</span>  <span class="string">"rebuild"</span></span><br><span class="line">gyp ERR! cwd /root/meanTorrent/node_modules/iconv</span><br><span class="line">gyp ERR! node -v v8.11.3</span><br><span class="line">gyp ERR! node-gyp -v v3.6.2</span><br><span class="line">gyp ERR! not ok</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>很明显的，还是出现了依赖缺失的情况，根据项目自身的介绍、 <a href="https://github.com/nodejs/node-gyp#installation" target="_blank" rel="noopener">node-gyp</a> 以及 <a href="https://github.com/lovell/sharp/issues/1087" target="_blank" rel="noopener">lovell/sharp#1087</a> 的相关提醒，安装<code>libicu-dev</code>、<code>GCC</code>编译库（主要是<code>c++</code>以及<code>make</code>这两个会被<code>node-gyp</code>调用）以及<code>python-dev</code>。然后重新安装依赖。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install libicu-dev build-essential python-dev python-pip</span><br><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>使用 <code>npm start</code> 运行。过程中如果出现以下报错，说明bower以及相关浏览器端依赖没有正确安装（特别是在root账户下，这里直接使用新用户解决）。按照作者的建议是使用<code>bower install --allow-root && bower prune --allow-root</code>手动装一下。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">rhilip@vultr:~/meanTorrent$ npm start</span><br><span class="line"></span><br><span class="line">> meanTorrent@0.1.0 start /root/meanTorrent</span><br><span class="line">> gulp</span><br><span class="line"></span><br><span class="line">[08:54:34]  Using gulpfile ~/meanTorrent/gulpfile.js</span><br><span class="line">[08:54:34]  Starting  <span class="string">'default'</span>...</span><br><span class="line">[08:54:34]  Starting  <span class="string">'env:dev'</span>...</span><br><span class="line">[08:54:34]  Starting  <span class="string">'copyLocalEnvConfig'</span>...</span><br><span class="line">[08:54:34]  Starting  <span class="string">'makeUploadsDir'</span>...</span><br><span class="line">[08:54:34]  Finished  <span class="string">'makeUploadsDir'</span> after 835  μs</span><br><span class="line">[08:54:34]  Finished  <span class="string">'copyLocalEnvConfig'</span> after 14 ms</span><br><span class="line">[08:54:34]  Starting  <span class="string">'lint'</span>...</span><br><span class="line">[08:54:34]  Starting  <span class="string">'less'</span>...</span><br><span class="line">Potentially unhandled rejection [2]  <span class="string">'../../../../public/lib/bootstrap/less/mixins/text-emphasis.less'</span> wasn<span class="string">'t found. Tried - /root/meanTorrent/public/lib/bootstrap/less/mixins/text-emphasis.less,../../../../public/lib/bootstrap/less/mixins/text-emphasis.less in file /root/meanTorrent/modules/core/client/less/mt-var.less line no. 4</span></span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>如果一切没有问题，那么在运行<code>npm start</code>后会提示一下信息：</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/706347362.jpg" data-fancybox="group" data-caption="TIM截图20180725190508.jpg" class="fancybox"><img alt="TIM截图20180725190508.jpg" title="TIM截图20180725190508.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/706347362.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/706347362.jpg" data-fancybox="group" data-caption="TIM截图20180725190508.jpg" class="fancybox"><img alt="TIM截图20180725190508.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/706347362.jpg" class="lazyload" title="TIM截图20180725190508.jpg"></a></p>
 <h2 id="Nginx反代以及开机自启"><a href="#Nginx反代以及开机自启" class="headerlink" title="Nginx反代以及开机自启"></a>Nginx反代以及开机自启</h2><p>通过以上环节，我们已经把所有的软件都基本配置齐全了，并启用了meanTorrent的开发环境。但是默认监听在localhost而不是0.0.0.0上，同样这个程序会因为ssh的断开而终止。所以我们需要安装Nginx以配置反代，同时使用systemctl或者其他守护工具（如作者使用多个bashscript脚本以及forever进行管理，如果你要使用forever的话，请先全局安装<code>npm i forever -g</code>）使其能开机运行并崩溃重启。</p>
 <p>安装Nginx也直接用包管理器吧，lnmp1.5也提供单Nginx安装方式，反正怎么方便怎么来就ok~</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install -y nginx-extras</span><br><span class="line">vi /etc/nginx/sites-available/default</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>然后将默认的信息全部替换为以下常见反代配置（无SSL）</p>
 <blockquote>
 <p>如果是在CloudFlare后，建议参照本人之前教程进行设置。（<a href="https://blog.rhilip.info/archives/256/" target="_blank" rel="noopener">Cloudflare 下 Nginx 获取用户真实 IP 地址</a>）</p>
 </blockquote>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen 80 default_server;</span><br><span class="line">    listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">    server_name _;</span><br><span class="line"></span><br><span class="line">    location /  {</span><br><span class="line">        proxy_pass          http://localhost:3000/;</span><br><span class="line">        proxy_redirect default;</span><br><span class="line">        proxy_set_header Accept-Encoding  <span class="string">""</span>;</span><br><span class="line">        proxy_set_header    X-Real-IP       <span class="variable">$remote_addr</span>;</span><br><span class="line">        proxy_set_header    X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    location ~  /\.ht {</span><br><span class="line">        deny all;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>然后重新载入Nginx配置信息并重启npm，你就可以直接使用 ip 或者域名 来进行访问了。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br><span class="line">npm start</span><br></pre></td></tr></tbody></table></figure></div>
-
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1885535522.jpg" data-fancybox="group" data-caption="TIM截图20180725201334.jpg" class="fancybox"><img alt="TIM截图20180725201334.jpg" title="TIM截图20180725201334.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1885535522.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1885535522.jpg" data-fancybox="group" data-caption="TIM截图20180725201334.jpg" class="fancybox"><img alt="TIM截图20180725201334.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1885535522.jpg" class="lazyload" title="TIM截图20180725201334.jpg"></a></p>
 <p>先不进行注册，退出我们来先写个service文件来使用Systemd进行守护管理。<code>sudo vi /etc/systemd/system/meantorrent.service</code>。并填入以下内容：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=meanTorrent</span><br><span class="line">Documentation=https://github.com/taobataoma/meanTorrent/wiki</span><br><span class="line">After=network-online.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=rhilip</span><br><span class="line">Group=rhilip</span><br><span class="line">UMask=007</span><br><span class="line">Environment=NODE_ENV=production</span><br><span class="line">WorkingDirectory=/home/rhilip/meanTorrent</span><br><span class="line">ExecStart=/usr/bin/node server.js</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=10</span><br><span class="line">StandardOutput=syslog</span><br><span class="line">StandardError=syslog</span><br><span class="line">SyslogIdentifier=meanTorrent</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></tbody></table></figure></div>
-
 <blockquote>
 <p><strong>注意修改User、Group、WorkinDirectory为你自己的信息。</strong></p>
 </blockquote>
 <p>然后使用以下命令重载systemd配置以及实现开机启动等管理</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload <span class="comment"># 重载systemd配置</span></span><br><span class="line">sudo systemctl start meantorrent  <span class="comment"># 启动</span></span><br><span class="line">sudo systemctl stop meantorrent  <span class="comment"># 停止</span></span><br><span class="line">sudo systemctl restart meantorrent  <span class="comment"># 重启</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> meantorrent  <span class="comment"># 开机自动启动 （只需执行一次）</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> meantorrent  <span class="comment"># 取消开机启动</span></span><br></pre></td></tr></tbody></table></figure></div>
-
 <h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2><blockquote>
 <p>个人建议这部分参考作者介绍 <a href="https://github.com/taobataoma/meanTorrent#getting-started-with-meantorrent" target="_blank" rel="noopener">Getting Started With meanTorrent</a>，对<code>config/env/torrent.js</code>下文件进行配置修改。关于站点个性化设置，本处不再累述~</p>
 </blockquote>
 <p>配置好邮件系统和Tracker Announce部分后，重启meanTorrent，然后注册账号即可。如果你只是和我一样测试，不对邮件系统进行配置，默认情况下注册后因为无法发送邮件导致账号状态为<code>inactive</code>无法使用，需要进入mongo修改账户信息（其实我是默认config下进行账号注册的2333）。方法如下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">rhilip@vultr:~/meanTorrent$ mongo</span><br><span class="line">> use mean-v2</span><br><span class="line">switched to db mean-v2</span><br><span class="line">> db.users.update({<span class="string">'username'</span>:<span class="string">'admin1234567'</span>},{<span class="variable">$set</span>:{<span class="string">'status'</span>:<span class="string">'normal'</span>}})</span><br><span class="line">WriteResult({ <span class="string">"nMatched"</span> : 1, <span class="string">"nUpserted"</span> : 0, <span class="string">"nModified"</span> : 1 })</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>那么，就完事了~</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/983124934.jpg" data-fancybox="group" data-caption="success.jpg" class="fancybox"><img alt="success.jpg" title="success.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/983124934.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/983124934.jpg" data-fancybox="group" data-caption="success.jpg" class="fancybox"><img alt="success.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/983124934.jpg" class="lazyload" title="success.jpg"></a></p>
 <hr>
 <h1 id="框架结构及相关分析"><a href="#框架结构及相关分析" class="headerlink" title="框架结构及相关分析"></a>框架结构及相关分析</h1><p>在实质性的进入Tracker内部逻辑之前，让我先水一篇分析性的文章~</p>
 <h2 id="框架结构"><a href="#框架结构" class="headerlink" title="框架结构"></a>框架结构</h2><ul>
@@ -189,19 +277,19 @@
 <blockquote>
 <p>以下分类方式仅代表本人意见。</p>
 </blockquote>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1204826235.jpg" data-fancybox="group" data-caption="nexusphp_framework.jpg" class="fancybox"><img alt="nexusphp_framework.jpg" title="nexusphp_framework.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1204826235.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1204826235.jpg" data-fancybox="group" data-caption="nexusphp_framework.jpg" class="fancybox"><img alt="nexusphp_framework.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1204826235.jpg" class="lazyload" title="nexusphp_framework.jpg"></a></p>
 <p>当然，目前各站在这个基础上均增加了一些新的系统，比如（万恶的）勋章系统、发布预告系统、转种系统（含自引用与他站引用）、任务系统、考核系统；对原有系统也有些许扩展，例如Bangumi榜单、AniDB榜单等的添加。</p>
 <ul>
 <li><strong>meanTorrent</strong></li>
 </ul>
 <p>meanTorrent的可以在其modules下明确的了解其架构。撰稿时，架构如下：</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/2965044613.jpg" data-fancybox="group" data-caption="meantorrent_framwork.jpg" class="fancybox"><img alt="meantorrent_framwork.jpg" title="meantorrent_framwork.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/2965044613.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/2965044613.jpg" data-fancybox="group" data-caption="meantorrent_framwork.jpg" class="fancybox"><img alt="meantorrent_framwork.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/2965044613.jpg" class="lazyload" title="meantorrent_framwork.jpg"></a></p>
 <h2 id="Tracker请求生命周期"><a href="#Tracker请求生命周期" class="headerlink" title="Tracker请求生命周期"></a>Tracker请求生命周期</h2><p>从整个请求流程来看，用户的Bittorrent客户端使用HTTP GET的形式向Tracker服务器发起请求，Tracker服务器根据内部逻辑向数据库及缓存请求请求相关信息，并最终回复给用户。具体流程可见下方简图：</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/195623119.jpg" data-fancybox="group" data-caption="lifetime.jpg" class="fancybox"><img alt="lifetime.jpg" title="lifetime.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/195623119.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/195623119.jpg" data-fancybox="group" data-caption="lifetime.jpg" class="fancybox"><img alt="lifetime.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/195623119.jpg" class="lazyload" title="lifetime.jpg"></a></p>
 <p>当然上面的肯定过于简单了，没有对Tracker的内部逻辑进行分析，而就Tracker的内部逻辑来看，以NP这个面向流程的框架为例子，简图如下：</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1186911081.jpg" data-fancybox="group" data-caption="tracker_life.jpg" class="fancybox"><img alt="tracker_life.jpg" title="tracker_life.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1186911081.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/1186911081.jpg" data-fancybox="group" data-caption="tracker_life.jpg" class="fancybox"><img alt="tracker_life.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/1186911081.jpg" class="lazyload" title="tracker_life.jpg"></a></p>
 <p>而从整个Tracker网络（见下方图片示意）来看，用户在请求后，Tracker并不参与文件交换，同样，也不能真实的获取用户实际交换信息情况。（于是，我又可以就这个方向水一篇SP了）</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/3746969236.png" data-fancybox="group" data-caption="main-qimg-ff65100c115e14ddf6c606b3799e0ae7.png" class="fancybox"><img alt="main-qimg-ff65100c115e14ddf6c606b3799e0ae7.png" title="main-qimg-ff65100c115e14ddf6c606b3799e0ae7.png" data-src="https://blog.rhilip.info/usr/uploads/2018/07/3746969236.png" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/3746969236.png" data-fancybox="group" data-caption="main-qimg-ff65100c115e14ddf6c606b3799e0ae7.png" class="fancybox"><img alt="main-qimg-ff65100c115e14ddf6c606b3799e0ae7.png" data-src="https://blog.rhilip.info/usr/uploads/2018/07/3746969236.png" class="lazyload" title="main-qimg-ff65100c115e14ddf6c606b3799e0ae7.png"></a></p>
 <blockquote>
 <p>图片来自 <a href="https://www.quora.com/Why-is-BitTorrent-not-downloading" target="_blank" rel="noopener">Why is BitTorrent not downloading? - Quora</a></p>
 </blockquote>
@@ -222,62 +310,60 @@
 <hr>
 <p>首先从最简单的信息查询来看，BT客户端会在还未正式向 <code>/announce</code> 发送请求之前，会向 <code>/scrape</code> 先发送请求（一般在种子 添加或者校验的时候），请求头仅添加种子的<code>info_hash</code>信息，示例如下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">GET http://nexusphp.localhost/scrape.php?passkey=110099109e337b7e335aa368200d7907c&info_hash=%e4%40%ad%c6%27%db%02%40%f7%c8%ed%9e%7b%aab%a3%e1gFW HTTP/1.1</span><br><span class="line">Host: nexusphp.localhost</span><br><span class="line">User-Agent: uTorrent/2210(25302)</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">Connection:  Close</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>关于scrape的相关定义及返回信息在之前列出来的BEP 0048中，根据定义，这次<code>抓取(scrape)</code>会向用户返回一个字典描述对应种子的完成、未完成以及下载中的情况。本处直接引述定义：</p>
 <blockquote>
 <p>The response to a successful request is a bencoded dictionary containing one key-value pair: the key <code>files</code> with the value being a dictionary of the 20-byte string representation of an infohash paired with a dictionary of swarm metadata.</p>
 </blockquote>
 <p>根据NP的实现（见 <a href="https://github.com/ZJUT/NexusPHP/blob/master/scrape.php" target="_blank" rel="noopener">NexusPHP/scrape.php</a> ），会从param字段中搜索并匹配出来info_hash信息，如果param中没有能匹配出info_hash，则会直接返回站内<strong>所有</strong>种子的做种信息。（如下图）</p>
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/4091312727.jpg" data-fancybox="group" data-caption="TIM截图20180730165317.jpg" class="fancybox"><img alt="TIM截图20180730165317.jpg" title="TIM截图20180730165317.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/4091312727.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/07/4091312727.jpg" data-fancybox="group" data-caption="TIM截图20180730165317.jpg" class="fancybox"><img alt="TIM截图20180730165317.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/07/4091312727.jpg" class="lazyload" title="TIM截图20180730165317.jpg"></a></p>
 <blockquote>
 <p>以上问题修复patch见 <a href="https://github.com/zcqian/tjupt/pull/11" target="_blank" rel="noopener">:lock: Not allow empty info_hash when request scrape page by Rhilip · Pull Request #11 · zcqian/tjupt</a>，截止目前，多数站点未对该问题进行修复。</p>
 </blockquote>
 <p>而如果存在info_hash的话，则会对每一个提供的hash值进行数据库查找，如果查询结果不存在，则返回<code>Torrent not registered with this tracker.</code>的错误，而如果存在，则以一个benc编码的字典返回结果。其json格式如下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="string">"files"</span>: {</span><br><span class="line">    <span class="string">"xxxxxxxxxxxxxxxxxxxx"</span>: {<span class="string">"complete"</span>: 11, <span class="string">"downloaded"</span>: 13772, <span class="string">"incomplete"</span>: 19},</span><br><span class="line">    <span class="string">"yyyyyyyyyyyyyyyyyyyy"</span>: {<span class="string">"complete"</span>: 21, <span class="string">"downloaded"</span>: 206, <span class="string">"incomplete"</span>: 20}</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>此外，一个正常的客户端（例如<code>Transmission 2.94</code>）会定期向Tracker发送（announce）以下信息，并期望从tracker中获取回复以获取其他peer信息（这里仅指Private Tracker，其他的还有DHT网络、用户交换等方式）。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">GET http://nexusphp.localhost/announce.php?passkey=db534098baaaa68bd725aaaae3051518&info_hash=aaaaaaaaaaaaaaaaaaaa&peer_id=-TR2940-lhqkh1jtwjqp&port=21736&uploaded=0&downloaded=0&left=739573325&corrupt=0&key=DDDD2A2B&event=started&numwant=200&compact=1&no_peer_id=1 HTTP/1.1</span><br><span class="line">Host: nexusphp.localhost</span><br><span class="line">User-Agent: Transmission/2.94</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">Connection: Close</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>而tracker则会根据GET字段中的<code>compact</code>以及<code>no_peer_id</code>两个字段分别返回不同构造的结果，并设置相应头为</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/plain; charset=utf-8</span><br><span class="line">Pragma: no-cache</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>当<code>compact=0&no_peer_id=0</code>时，其返回的json格式如下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">"interval"</span>: 50,</span><br><span class="line">    <span class="string">"min interval"</span>: 20,</span><br><span class="line">    <span class="string">"complete"</span>: 6871,</span><br><span class="line">    <span class="string">"incomplete"</span>: 3,</span><br><span class="line">    <span class="string">"peer"</span>: [</span><br><span class="line">        {</span><br><span class="line">            <span class="string">"ip"</span>: <span class="string">"xxx.xxxx.xxx.xxx"</span>,</span><br><span class="line">            <span class="string">"peer_id"</span>: <span class="string">"-TR2940-lhqkh1j31jqp"</span>,</span><br><span class="line">            <span class="string">"port"</span>: 5698,</span><br><span class="line">        },</span><br><span class="line">        ....</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>其中， <code>peer_id</code> 视用户Requests字段这一项可以不要，而如果用户申请使用compact的形式返回，那么peer字段则会返回一个string而不是dict。</p>
 <p>如果发生错误，则会返回一个错误字段（string），JSON格式内容如下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">"failure reason"</span>: <span class="string">"Error msg"</span>,</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <h2 id="Bencode编码"><a href="#Bencode编码" class="headerlink" title="Bencode编码"></a>Bencode编码</h2><p>在上面的例子中，我都是以json格式的形式来展示tracker返回的Response信息，但实际上，返回的信息是以Bencode的形式进行编码的。关于Bencode的介绍，可以访问<a href="https://en.wikipedia.org/wiki/Bencode" target="_blank" rel="noopener">Bencode - Wikipedia</a>。这里我们只需要知道一下编码规则就行：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">data types</th>
+<th style="text-align:center">data types</th>
 <th>raw</th>
 <th>encoded</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">int</td>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
 <td>-42</td>
 <td>i-42e</td>
 </tr>
 <tr>
-<td align="center">string</td>
+<td style="text-align:center">string</td>
 <td>‘spam’</td>
 <td>4:spam</td>
 </tr>
 <tr>
-<td align="center">list</td>
+<td style="text-align:center">list</td>
 <td>[‘XYZ’, 4321]</td>
 <td>l3:XYZi4321ee</td>
 </tr>
 <tr>
-<td align="center">dict</td>
+<td style="text-align:center">dict</td>
 <td>{‘XYZ’: 4321}</td>
 <td>d3:XYZi4321ee</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>这些甚至不需要你自己一个一个拼合，现在有超多的库帮你进行拼合，你只需要构造好相应的字典，直接调用即可，例如：</p>
 <ul>
 <li>PHP：<a href="https://github.com/sandfoxme/bencode" target="_blank" rel="noopener">sandfoxme/bencode</a>、<a href="https://github.com/rchouinard/bencode" target="_blank" rel="noopener">rchouinard/bencode</a>、<a href="https://github.com/dsmithhayes/bencode" target="_blank" rel="noopener">dsmithhayes/bencode</a>、<a href="https://github.com/bhutanio/torrent-bencode" target="_blank" rel="noopener">bhutanio/torrent-bencode</a></li>
@@ -293,18 +379,14 @@
 <p>相关commit：<a href="https://github.com/Rhilip/Simple-Private-Tracker/commit/c2c37e668a3f63722b6d4d736e957c8cda76b2a8" target="_blank" rel="noopener">c2c37e668a3f63722b6d4d736e957c8cda76b2a8</a></p>
 <h2 id="基础准备"><a href="#基础准备" class="headerlink" title="基础准备"></a>基础准备</h2><p>首先，我们需要准备好PHP环境（建议为7.x）以及数据库，因为学习，所以缓存暂时使用文件缓存。并使用composer安装 ThinkPHP5以及bencode ，其命令分别如下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">composer create-project topthink/think=5.0.* tp5  --prefer-dist</span><br><span class="line"><span class="built_in">cd</span> pt</span><br><span class="line">composer require rych/bencode</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>准备相关数据表，分别用来存储 Torrent（种子信息）、User（用户信息）、Peer（做种人信息）、Snatch（做种完成情况），此处为了方便（偷懒）直接使用NP的建表语句（-> 见 <a href="https://github.com/ZJUT/NexusPHP/blob/master/_db/dbstructure.sql" target="_blank" rel="noopener">NexusPHP/_db/dbstructure.sql</a> 相关）就行（实际很多字段不需要）。顺带也方面后续兼容~</p>
 <p>而文件夹方面，依次添加以下文件：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">├─application</span><br><span class="line">│  ├─tracker</span><br><span class="line">│  │  ├─controllers</span><br><span class="line">│  │  │ └─Index.php</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>并在路由（<code>route\route.php</code>）中注册两个控制器</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">Route::get(<span class="string">'tracker/scrape'</span>,<span class="string">'tracker/Index/scrape'</span>);</span><br><span class="line">Route::get(<span class="string">'tracker/announce'</span>,<span class="string">'tracker/Index/announce'</span>);</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>并在设置中开启你的debug模式以及应用trace，准备postman或其他作为调试工具。</p>
 <h2 id="方法准备"><a href="#方法准备" class="headerlink" title="方法准备"></a>方法准备</h2><p>我们先要为<code>TrackerController</code> 准备一些公用方法，分别用于构造响应信息（包括正常的以及错误）、禁用浏览器访问。修改<code>app\Http\Controllers\TrackerController.php</code>为以下信息：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><!--?php</span--><br><span class="line">namespace app\tracker\controller;</span><br><span class="line">use think\Controller;</span><br><span class="line">use think\Db;</span><br><span class="line">use think\facade\Cache;</span><br><span class="line">use think\Request;</span><br><span class="line">use think\Response;</span><br><span class="line">use think\Validate;</span><br><span class="line">use Rych\Bencode\Bencode;</span><br><span class="line">class Index extends Controller</span><br><span class="line">{</span><br><span class="line">    private <span class="variable">$errormsg</span> = [</span><br><span class="line">        // Error message about requests params</span><br><span class="line">        // Error message about Bittorrent Client</span><br><span class="line">        // Error message about User Account</span><br><span class="line">        // Error message about Torrent</span><br><span class="line">        // Error message about Server</span><br><span class="line">    ];</span><br><span class="line">    private <span class="variable">$announce_param</span> = [];  // Announce Param HERE~</span><br><span class="line">    public <span class="keyword">function</span> announce(Request <span class="variable">$request</span>)</span><br><span class="line">    {</span><br><span class="line">    }</span><br><span class="line">    public <span class="keyword">function</span> scrape(Request <span class="variable">$request</span>)</span><br><span class="line">    {</span><br><span class="line">    }</span><br><span class="line">    private <span class="keyword">function</span> block_browser()</span><br><span class="line">    {</span><br><span class="line">        <span class="variable">$judge</span> = <span class="literal">false</span>;</span><br><span class="line">        <span class="variable">$request</span> = Request();</span><br><span class="line">        <span class="keyword">if</span> (preg_match(<span class="string">"/Mozilla|Opera|Links|Lynx/"</span>, <span class="variable">$request</span>->header(<span class="string">"user_agent"</span>))) {</span><br><span class="line">            <span class="variable">$judge</span> = <span class="literal">true</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable">$request</span>->isSSl()) {</span><br><span class="line">            <span class="keyword">if</span> (</span><br><span class="line">                (null !== <span class="variable">$request</span>->header(<span class="string">"Cookie"</span>, null)) ||</span><br><span class="line">                (null !== <span class="variable">$request</span>->header(<span class="string">"Accept-Language"</span>, null)) ||</span><br><span class="line">                (null !== <span class="variable">$request</span>->header(<span class="string">"Accept-Charset"</span>, null))</span><br><span class="line">            ) {</span><br><span class="line">                <span class="variable">$judge</span> = <span class="literal">true</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="built_in">return</span> <span class="variable">$judge</span>;</span><br><span class="line">    }</span><br><span class="line">    private <span class="keyword">function</span> sendErrorMsg(<span class="variable">$code</span> = 999, <span class="variable">$msg</span> = null)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$code</span> && !<span class="variable">$msg</span>) {</span><br><span class="line">            <span class="variable">$msg</span> = <span class="variable">$this</span>->makeErrorMsg(<span class="variable">$code</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="built_in">return</span> <span class="variable">$this</span>->bencResp([</span><br><span class="line">            <span class="string">"failure reason"</span> => <span class="variable">$msg</span>,</span><br><span class="line">        ]);</span><br><span class="line">    }</span><br><span class="line">    private <span class="keyword">function</span> makeErrorMsg(<span class="variable">$code</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">return</span> <span class="string">"<span class="variable">$code</span> - "</span> . <span class="variable">$this</span>->errormsg[<span class="variable">$code</span>];</span><br><span class="line">    }</span><br><span class="line">    private <span class="keyword">function</span> bencResp(<span class="variable">$obj</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="variable">$rep_benc</span> = Bencode::encode(<span class="variable">$obj</span>);</span><br><span class="line">        <span class="built_in">return</span> response(<span class="variable">$rep_benc</span>)</span><br><span class="line">            ->header(<span class="string">"Content-Type"</span>, <span class="string">"text/plain; charset=utf-8"</span>)</span><br><span class="line">            ->header(<span class="string">"Pragma"</span>, <span class="string">"no-cache"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></span></pre></td></tr></tbody></table></figure></div>
-
 <p>我们将在<code>$errormsg</code>中定义错误信息，并在<code>announce</code>以及<code>scrape</code>这两个公开方法中定义具体逻辑。<strong>而所有的响应应该使用<code>bencResp</code>构造。</strong></p>
 <h2 id="构建Scrape"><a href="#构建Scrape" class="headerlink" title="构建Scrape"></a>构建Scrape</h2><p>相比较为复杂的Announce逻辑，我们先来处理较为简单的Scrape逻辑：</p>
 <ol>
@@ -312,33 +394,27 @@
 <li>从数据库中匹配出来对应的做种内容，</li>
 <li>构造返回或错误信息。</li>
 </ol>
-<p>下面我们开始写Scrape的具体逻辑。首先我们先禁用掉 <code>非GET请求</code> 以及 <code>浏览器及非BT客户端请求</code>。代码如下，但实际上，因为已经设置的路由关系，我们其实已经禁止了非GET请求<del>，这里需要不需要都无所谓了</del></p>
+<p>下面我们开始写Scrape的具体逻辑。首先我们先禁用掉 <code>非GET请求</code> 以及 <code>浏览器及非BT客户端请求</code>。代码如下，但实际上，因为已经设置的路由关系，我们其实已经禁止了非GET请求~，这里需要不需要都无所谓了~</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">// 1. Block NON-GET requests, (though it should be block <span class="keyword">in</span> Router)</span><br><span class="line"><span class="keyword">if</span> (!<span class="variable">$request</span>->isGet()) <span class="built_in">return</span> <span class="variable">$this</span>->sendErrorMsg(100);</span><br><span class="line">// 2. Block Browser, Crawler or Cheater</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$this</span>->block_browser()) <span class="built_in">return</span> <span class="variable">$this</span>->sendErrorMsg(101);</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>然后我们从请求头中获取info_hash信息，并检查其是否存在（这里附加对各个info_hash的字节数进行检查也行）。当其不存在时，返回错误信息。</p>
 <p><strong>注意</strong>，根据<a href="http://www.bittorrent.org/beps/bep_0048.html" target="_blank" rel="noopener">BEP0048</a>规定 ，info_hash在url中是以<code>info_hash=xxxxx&info_hash=yyyyy</code>的形式存在的，故本人之前的写法是错误的（之前写法见<a href="https://web.archive.org/web/20181209113334/https://blog.rhilip.info/archives/988/" target="_blank" rel="noopener">Archive.org的备份</a>，只能匹配<code>info_hash[]=xxxx</code>的情况）</p>
 <p>应为：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">preg_match_all(<span class="string">'/info_hash=([^&]*)/i'</span>, urldecode(Request::server(<span class="string">'query_string'</span>)), <span class="variable">$info_hash_match</span>);</span><br><span class="line"><span class="variable">$info_hash</span> = <span class="variable">$info_hash_match</span>[1];</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>针对info_hash未找到的情况进行处理。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (count(<span class="variable">$info_hash</span>) < 1) {</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$this</span>->sendErrorMsg(null,</span><br><span class="line">        str_replace(<span class="string">':attribute'</span>, <span class="string">'info_hash'</span>, <span class="variable">$this</span>->makeErrorMsg(102)));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>使用查询构造器生成SQL语句并查询，并对查询结果进行检查；当数据库中未检查到该种子时，返回错误信息。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable">$res</span> = Db::table(<span class="string">"torrents"</span>)</span><br><span class="line">    ->field([<span class="string">'info_hash'</span>, <span class="string">'times_completed'</span>, <span class="string">'seeders'</span>, <span class="string">'leechers'</span>])</span><br><span class="line">    -><span class="built_in">where</span>(<span class="string">'info_hash'</span>, <span class="string">"IN"</span>, <span class="variable">$info_hash</span>)</span><br><span class="line">    ->select();</span><br><span class="line"><span class="keyword">if</span> (count(<span class="variable">$res</span>) < 1) {</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$this</span>->sendErrorMsg(131);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>如果没有任何问题，我们需要把原来数据库中查询的结果（如下）进行转换</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">array(1) {</span><br><span class="line">  [0] => array(4) {</span><br><span class="line">    [<span class="string">"info_hash"</span>] => string(20) <span class="string">"aaaaaaaaaaaaaaaaaaaaa"</span></span><br><span class="line">    [<span class="string">"times_completed"</span>] => int(0)</span><br><span class="line">    [<span class="string">"seeders"</span>] => int(0)</span><br><span class="line">    [<span class="string">"leechers"</span>] => int(0)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-
 <p>方法如下，并最后使用<code>bencResp($obj)</code>的方式进行编码并发送</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable">$rep</span> = [</span><br><span class="line">    <span class="string">'files'</span> => array_map(<span class="keyword">function</span> (<span class="variable">$item</span>) {</span><br><span class="line">        <span class="built_in">return</span> array (</span><br><span class="line">            <span class="variable">$item</span>[<span class="string">"info_hash"</span>] => [</span><br><span class="line">                <span class="string">"complete"</span> => <span class="variable">$item</span>[<span class="string">"seeders"</span>],</span><br><span class="line">                <span class="string">"downloaded"</span> => <span class="variable">$item</span>[<span class="string">"times_completed"</span>],</span><br><span class="line">                <span class="string">"incomplete"</span> => <span class="variable">$item</span>[<span class="string">"leechers"</span>],</span><br><span class="line">            ]</span><br><span class="line">        );</span><br><span class="line">    },<span class="variable">$res</span>)</span><br><span class="line">];</span><br><span class="line"><span class="built_in">return</span> <span class="variable">$this</span>->bencResp(<span class="variable">$rep</span>);</span><br></pre></td></tr></tbody></table></figure></div>
-
-<p><a href="https://blog.rhilip.info/usr/uploads/2018/08/1882544365.jpg" data-fancybox="group" data-caption="scrape_resp.jpg" class="fancybox"><img alt="scrape_resp.jpg" title="scrape_resp.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/08/1882544365.jpg" class="lazyload"></a></p>
+<p><a href="https://blog.rhilip.info/usr/uploads/2018/08/1882544365.jpg" data-fancybox="group" data-caption="scrape_resp.jpg" class="fancybox"><img alt="scrape_resp.jpg" data-src="https://blog.rhilip.info/usr/uploads/2018/08/1882544365.jpg" class="lazyload" title="scrape_resp.jpg"></a></p>
 <hr>
 <h1 id="PT站的做种和魔力值是如何增加换算的？"><a href="#PT站的做种和魔力值是如何增加换算的？" class="headerlink" title="PT站的做种和魔力值是如何增加换算的？"></a>PT站的做种和魔力值是如何增加换算的？</h1><p>PT站的做种和魔力值是如何增加换算的？<br>相信混了一段PT界的小伙伴，一定头疼一个问题，各大站点的PT魔力值是怎么计算的呢？<br>以下是整理的帮助理解PT网站的魔力值计算方法。</p>
 <p><strong>统计工具采用 PTTools 这款<a href="http://www.pttools.cn" target="_blank" rel="noopener">PT助手</a>的截图（隐私部分已做打码处理）</strong></p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly81YjA5ODhlNTk1MjI1LmNkbi5zb2h1Y3MuY29tL2ltYWdlcy8yMDE5MDkyMS8wN2ExYmI2MzIwODU0MzQyODczYjBkNjE4OGQ4YzQ1Yy5wbmc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly81YjA5ODhlNTk1MjI1LmNkbi5zb2h1Y3MuY29tL2ltYWdlcy8yMDE5MDkyMS8wN2ExYmI2MzIwODU0MzQyODczYjBkNjE4OGQ4YzQ1Yy5wbmc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly81YjA5ODhlNTk1MjI1LmNkbi5zb2h1Y3MuY29tL2ltYWdlcy8yMDE5MDkyMS8wN2ExYmI2MzIwODU0MzQyODczYjBkNjE4OGQ4YzQ1Yy5wbmc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly81YjA5ODhlNTk1MjI1LmNkbi5zb2h1Y3MuY29tL2ltYWdlcy8yMDE5MDkyMS8wN2ExYmI2MzIwODU0MzQyODczYjBkNjE4OGQ4YzQ1Yy5wbmc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>首先要说一下的是，国内PT站点基本上都是同一套魔力值公式，在计算魔力值的差异上基本不大。但是相信很多小伙伴还是云里雾里。下面上一张魔力值计算的公示图<strong>（国内90%的PT网站都采用的这套公式）</strong></p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2IzMTU4M2U5MjY5ZDQwY2U5YjgxMzdiOGRmZjE1NWU1LnBuZw?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2IzMTU4M2U5MjY5ZDQwY2U5YjgxMzdiOGRmZjE1NWU1LnBuZw?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2IzMTU4M2U5MjY5ZDQwY2U5YjgxMzdiOGRmZjE1NWU1LnBuZw?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2IzMTU4M2U5MjY5ZDQwY2U5YjgxMzdiOGRmZjE1NWU1LnBuZw?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>如图所示，很复杂的一套公式。文科生包括小编我在内，对这个公式真实“恨之入骨”~当然了，其实也不复杂。经过小编通过多种资料的查询，最终得出的结论如下（简易版）：</p>
 <p><strong>1.发布时间较长</strong></p>
 <p><strong>2.做种人数小于10个</strong></p>
@@ -346,8 +422,8 @@
 <p>只要在保种的同时满足以上3点，基本上跑满进度条是很有可能的！当然啦，如果小伙伴需要了解更加详细的资料，可以继续往下看。</p>
 <p><strong>魔力值分析</strong></p>
 <p>魔力值的A公式如下：</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2I5OWQxNjg1MWIxZDQxNmU4NTQ1MGIxYzFiN2QyZTZhLnBuZw?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2I5OWQxNjg1MWIxZDQxNmU4NTQ1MGIxYzFiN2QyZTZhLnBuZw?x-oss-process=image/format,png" class="lazyload"></a></p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzgxNzhmYmYyNmNlOTRlOWI4YTZkMzQ3ZjVlNGFhY2Q5LnBuZw?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzgxNzhmYmYyNmNlOTRlOWI4YTZkMzQ3ZjVlNGFhY2Q5LnBuZw?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2I5OWQxNjg1MWIxZDQxNmU4NTQ1MGIxYzFiN2QyZTZhLnBuZw?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2I5OWQxNjg1MWIxZDQxNmU4NTQ1MGIxYzFiN2QyZTZhLnBuZw?x-oss-process=image/format,png" class="lazyload" title></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzgxNzhmYmYyNmNlOTRlOWI4YTZkMzQ3ZjVlNGFhY2Q5LnBuZw?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzgxNzhmYmYyNmNlOTRlOWI4YTZkMzQ3ZjVlNGFhY2Q5LnBuZw?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>式中</p>
 <ul>
 <li><strong>A</strong>为中间变量</li>
@@ -366,28 +442,28 @@
 <p>（2）1+1.414*10^(-0.167*(i-1)) 当前做种人数影响</p>
 <p>其中i为变量，分别代表周期数（以周为单位）和种子数</p>
 <p>（1）函数图形如下</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzU0MmRjZWQ4ZDdkNTQwNTBiOTc1NmJkODgxMGRkYzU3LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzU0MmRjZWQ4ZDdkNTQwNTBiOTc1NmJkODgxMGRkYzU3LmpwZWc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzU0MmRjZWQ4ZDdkNTQwNTBiOTc1NmJkODgxMGRkYzU3LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzU0MmRjZWQ4ZDdkNTQwNTBiOTc1NmJkODgxMGRkYzU3LmpwZWc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>从图中我们可以很明显看到：8周后时间对函数值没有明显影响。</p>
 <p>（2）函数图形如下</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2U4MjU2NDM3OTNkZjQ2YmM5MTRmMGQ2YjJkMzAwYjQ0LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2U4MjU2NDM3OTNkZjQ2YmM5MTRmMGQ2YjJkMzAwYjQ0LmpwZWc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2U4MjU2NDM3OTNkZjQ2YmM5MTRmMGQ2YjJkMzAwYjQ0LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2U4MjU2NDM3OTNkZjQ2YmM5MTRmMGQ2YjJkMzAwYjQ0LmpwZWc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>从图中我们可以很明显看到：大于10个做种人数后时间对函数值没有明显影响。</p>
 <p>（3）（1）*（2）的函数图形为</p>
 <p>我们假设做种数和周期的数值相等，可得如下图像</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzA4M2RjNGQ2NWVjMzQ0NjU4ZTBmYWNkNTEyNThlMWQ4LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzA4M2RjNGQ2NWVjMzQ0NjU4ZTBmYWNkNTEyNThlMWQ4LmpwZWc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzA4M2RjNGQ2NWVjMzQ0NjU4ZTBmYWNkNTEyNThlMWQ4LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzA4M2RjNGQ2NWVjMzQ0NjU4ZTBmYWNkNTEyNThlMWQ4LmpwZWc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>从中可以看到，种子数计时间为5时 ，有最大值。</p>
 <p>（4）（1）*（2）*Si的图形</p>
 <p>我们让做种数、大小和周期的数值相等，可得如下图像</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzVhYWQzMmViMTNlODQwN2NiODc0OTYwOTYyMzIwZjAzLmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzVhYWQzMmViMTNlODQwN2NiODc0OTYwOTYyMzIwZjAzLmpwZWc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzVhYWQzMmViMTNlODQwN2NiODc0OTYwOTYyMzIwZjAzLmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzVhYWQzMmViMTNlODQwN2NiODc0OTYwOTYyMzIwZjAzLmpwZWc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p><strong>B值</strong></p>
 <p>B值（也即每小时魔力值）与A值关系见下图：</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzYwNDM5NmMwZjg5OTQ5NTJiMGIyNWE0MjVlMWYzOTk4LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzYwNDM5NmMwZjg5OTQ5NTJiMGIyNWE0MjVlMWYzOTk4LmpwZWc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzYwNDM5NmMwZjg5OTQ5NTJiMGIyNWE0MjVlMWYzOTk4LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxLzYwNDM5NmMwZjg5OTQ5NTJiMGIyNWE0MjVlMWYzOTk4LmpwZWc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>在0-300时基本是直线关系。</p>
 <p><strong>特殊情况分析</strong></p>
 <p>当周期大于8，种子数多于10，函数（1）（2）的值不再随他们的增加而明显改变，因此以此时的值代替周期大于8，种子数多于10的值是合理的。</p>
 <p>下面分析满足以上情况时的魔力值。</p>
 <p>首先周期等于8，种子数等于10时，函数（1）（2）的值分别为0.99和1.04，则A值为A=1.0296*Si ,B值为B= 31.85*atan(（1.0296*Si）/300)</p>
 <p>其图形如下</p>
-<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2Y4ZWNkNjBiNmYzNTQ4MmE5YzZjZDE3OTI1MzFhMjQ0LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2Y4ZWNkNjBiNmYzNTQ4MmE5YzZjZDE3OTI1MzFhMjQ0LmpwZWc?x-oss-process=image/format,png" class="lazyload"></a></p>
+<p><a href="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2Y4ZWNkNjBiNmYzNTQ4MmE5YzZjZDE3OTI1MzFhMjQ0LmpwZWc?x-oss-process=image/format,png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://imgconvert.csdnimg.cn/aHR0cDovLzViMDk4OGU1OTUyMjUuY2RuLnNvaHVjcy5jb20vaW1hZ2VzLzIwMTkwOTIxL2Y4ZWNkNjBiNmYzNTQ4MmE5YzZjZDE3OTI1MzFhMjQ0LmpwZWc?x-oss-process=image/format,png" class="lazyload" title></a></p>
 <p>重要结论：经拟合，以上线性方程为y=0.09658x+0.545，x为种子尺寸，y为一个种子每小时魔力值。相关系数为0.99867，标准偏差为0.2886。该方程适合周期大于8 ，做种数多于10的情况。</p>
 <p>同时我们还可以得到一个重要结论：占用同样的做种磁盘空间，多个种子和一个种子所获得的魔力值是相等的（不考虑0.6*12，适用于周期大于8，做种数多于10的情况），因为他们的A值是相等的，比如100g种子1个和1g种子100个，他们的A值可用A=1.0296*Si计算，显然二者相等。</p>
 <p><strong>结论</strong></p>
@@ -506,7 +582,7 @@
   <entry>
     <title>电脑设备</title>
     <url>/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="5d4937e667ce28d9ce046db48a283b29d26ebf76996424b2d4d23598beaebc96">83724d31f60fc337104c4cbd16e1b4b5473daa221b195d05a91c8ed91ab36ce23f4393b1230121f4de67885170bf93b3f007ffe95fbf9210613d92f63145ff04bc7ef61f274f605e77e9c41957fe3f0d77e4c55ca113e3a099ee22746fd98b87b1db5a329bc4105d2a12dfff2d4e3e3338a140b8d6bd2ba3b6569597c6bef91f2da8b8be017819264bc8f6295ac3a0c95789bb07e8fb70c1d02f5f909ef385245cf1850c06f30673ed511a6904ff68c5954885cf2570c0188fd27fb5f0367c2f3a176fadc77ccfc4114426b193d5745ecddeab7e317a125073431237007278b0c16333ff7d6989a957f06a418036b570001af314e795b6fd77e0876bf834c8b20f506807c1c5c1eec0c1759367783003a33ca1c76d4a6398c03614d7f7d376aafc605fd98a2f2cc622e47f994935664202ce3a73febb16babdbf652a22c5d7f4067701d575e3f801dbc3e3a73dc9d4395e2d943433be5fb142aa0f2c8cd149d84247387bf9f9d9ec94e906e0d69c267be197b02f43b052dd98d02f8c965426d23cfa895acec4fb8c960a1cc35fe857c61be1e2052cdbfba9bb9926a8231ec9e1f955e4896ac5b9fc54f69e6bb38a16a1b5ebd767428c07292c696e931e2d6130491eb56db79e5e53e061ecb96a4d40f3371f49131a265bb1448743aacaaf493c235e46f1d48ab96b3a96bb31313568300c9af30a3098983da78a48d89d68e30415e86b14111340a8bb7fd1fa068640c16eb71a3b246194513e4b1698fe68828c8a8c9fef0b860338940eca6c98b631c20e762f8e86c373dcf50d78da486824723b69597564438b51c0b2b46cba23d9b71d7522893d6b40a2cddfcac682a0ad21735b487ef2adf2fae826ddec8ce770bcc7b78cc4d88a6507daeb70876af2a7ce631559ccf21d1aec66985bf14283cf3c6107294b33e9f9d3d3dd8779c7fca8e0bbd18ee6c764fa75543a74b84e053dbe1920907160b091dba6bb57973942ede2304a6f9c31ba2689c6eb30e1c7ad61c0a144812d916be2ca82c713d92d37a8ceb8f9cedf60d81e63f989293970376a54c9727c41b4d9c0f4a31f572d9c86176c65f43765b4720e1b6713317ddf2f15e41d5f90a0c3b41e06fc085e9f62d9a23fe1555e0d0b088a842347e58d3e8de52741c0e4ea07626787d8e3d5c875c7d17bcebeecc4ff98d22c2ec858b47d57cebdacd3b9147c3ac7c40945db962d54991b697504b29a79861797bba6d242942c3e6e9c50702e2a98b6487b5f6065dd6a750fc9753e73f9b6533b075982198a58ad6116c246ccfd883f709cfe862dfbca8d68aa1e9615e33b7cc02da649e07ab6430c169e63f8f089fccfc58e4f624f132281e41de9fe87c4aa05ecbc0e080ea6971e89adc8a67c4ed7bed17134b0735a8e2c23d1a39ca8fb011e27070fc4159a8a8d5b7ba9defbb22c28c7d5b8f3fe4e1392926051ad06f1cc4cecbc95f7bf11098ced7e9f3e0cd9177b01dd64fe57219fb91b260e5846b55e8eb512fc10f136202cd70c8ea6c5d46f3250022e0f4826d6c0959b93bfdbb88843550036730339c97c9fefcabd2b4eeb67b709786735955b2cc3c159c512e7fd510ad0f1632a73ba7c25e165af2b3f7256e8c24452c0c1002411297cffd5d9385ea7ca647cde03504a9047aa84dcc6fff79dfe6e5e2eb05046c753b9dfa768948fe555173bd1aff7c5d7f29c9b0e620f404a494253a14548efaba49450ce55e541dedec7661304e82943a4aa2de26769ce0c66078a907c51c7122c030c488c21273a3a399f269b16f02512e6de7215ebf4cccd99d20d3448f99782ce7bce054fad6cd0dfe3fdd0077999b992daf753b34474112f09e976b55b86b29dd3ef68259b72338bf3123d90afd217fc182195b5dfea9d27d558dd39495f4e388795d4f6af3250e9c2e60dbfc2bd96f55d096974aabd737642eb8730fdf71b6d76cfa2300d2ade66b0f5686a936f3ba96a96809ace5c5e607325a38367771d4ccc155f5079fbb10990423a8b1dc669dd45845bbf63d98d215d146c1e059bb396a46314f31556cff59b8b2b93bd0aa2a39666b0398e83ad2a45e126921af746f1942069c5d6dc04f23925a6e114313178bd7e40da60401699433f7452abaaff542f82d7a86caf896931865a46da81143b87c3e93a445fcc32523cf0fc60294dd974a3df41386ea1aac604162d0b065c173734970edc0594777c16c52a385fc8b3836d3585099cf2fdfdde13fc8e64288b1c1f04fc81742d13a24a34a4839a88771343edea3d71c36b265463cb0da66cec66cf29ef34e38eaf62f3a6938936cba99f624746858538b17102a3a4f7810eb9455b774f707e7e5fc9004a57342eaef4bb869a1693a35ade93f7dc1d0be94eb0d7bcbf7eaca355abee024267c37d89bf6048b3c1629ae5baba34170ae199ff6bca1df1a0aae6861bf7d3add2c186f3377cfbcb50578ff908ce36a58743f332eb1cd5f396865f00ca1e2b79a9a5d9d3a07c72ce6dc1d0e727eb9962106bd4c36cb7e335ae92202ba5b4bcd25dc5f13aed434b1d7177507fa2996447e83a1c607dd47da78d6908e308ee4cd45362e7840763505a9f63bc2648859c51f078316fe11af5ab8f561d13e0cf23e4d326c0dee6cf627e03c80375fa643739066b15479e6cd4a21ffe5152690bdbbcb7935139f3368c7d73947b418df00635b508d27c1704ec2f7f68dda7cca6783e19bf8aac63d5b992cd079baf582af715d7ace0e23111cf31b927e038506dead6590215a2386e2bff44d20b5854b3f69ed6e24ff288e7d91ebbb7f82e7de9ad13a2ff73fa91f56cd5c9cafb46101513ade62f5942d0c954d019211c1019a08dfab5a4098b81b9bdb3d5a55f7d46c2ac831ca146de1fc159eb1eebddce307a3f02713d3d8df43b0a3484f382d16a59489779311d0ad4f5eb1a940ff39f4d3083c24002b16523c83f3569cd803f55e723e60a</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="0f11b194ad3e88e84281a38b538feff41166f7bd5588a5e636aba1614fa49c59">83724d31f60fc337104c4cbd16e1b4b5473daa221b195d05a91c8ed91ab36ce23f4393b1230121f4de67885170bf93b3f007ffe95fbf9210613d92f63145ff04bc7ef61f274f605e77e9c41957fe3f0d77e4c55ca113e3a099ee22746fd98b87b1db5a329bc4105d2a12dfff2d4e3e3338a140b8d6bd2ba3b6569597c6bef91f2da8b8be017819264bc8f6295ac3a0c95789bb07e8fb70c1d02f5f909ef385245cf1850c06f30673ed511a6904ff68c5954885cf2570c0188fd27fb5f0367c2f3a176fadc77ccfc4114426b193d5745ecddeab7e317a125073431237007278b0c16333ff7d6989a957f06a418036b570001af314e795b6fd77e0876bf834c8b20f506807c1c5c1eec0c1759367783003a33ca1c76d4a6398c03614d7f7d376aafc605fd98a2f2cc622e47f994935664202ce3a73febb16babdbf652a22c5d7f4067701d575e3f801dbc3e3a73dc9d4395e2d943433be5fb142aa0f2c8cd149d84247387bf9f9d9ec94e906e0d69c267be197b02f43b052dd98d02f8c965426d23cfa895acec4fb8c960a1cc35fe857c61be1e2052cdbfba9bb9926a8231ec9e1f955e4896ac5b9fc54f69e6bb38a16a1b5ebd767428c07292c696e931e2d6130491eb56db79e5e53e061ecb96a4d40f3371f49131a265bb1448743aacaaf493c235e46f1d48ab96b3a96bb31313568300c9af30a3098983da78a48d89d68e30415e86b14111340a8bb7fd1fa068640c16eb71a3b246194513e4b1698fe68828c8a8c9fef0b860338940eca6c98b631c20e762f8e86c373dcf50d78da486824723b69597564438b51c0b2b46cba23d9b71d7522893d6b40a2cddfcac682a0ad21735b487ef2adf2fae826ddec8ce770bcc7b78cc4d88a6507daeb70876af2a7ce631559ccf21d1aec66985bf14283cf3c6107294b33e9f9d3d3dd8779c7fca8e0bbd18ee6c764fa75543a74b84e053dbe1920907160b091dba6bb57973942ede2304a6f9c31ba2689c6eb30e1c7ad61c0a144812d916be2ca82c713d92d37a8ceb8f9cedf60d81e63f989293970376a54c9727c41b4d9c0f4a31f572d9c86176c65f43765b4720e1b6713317ddf2f15e41d5f90a0c3b41e06fc085e9f62d9a23fe1555e0d0b088a842347e58d3e8de52741c0e4ea07626787d8e3d5c875c7d17bcebeecc4ff98d22c2ec858b47d57cebdacd3b9147c3ac7c40945db962d54991b697504b29a79861797bba6d242942c3e6e9c50702e2a98b6487b5f6065dd6a750fc9753e73f9b6533b075982198a58ad6116c246ccfd883f709cfe862dfbca8d68aa1e9615e33b7cc02da649e07ab6430c169e63f8f089fccfc58e4f624f132281e41de9fe87c4aa05ecbc0e080ea6971e89adc8a67c4ed7bed17134b0735a8e2c23d1a39ca8fb011e27070fc4159a8a8d5b7ba9defbb22c28c7d5b8f3fe4e1301970bf6c92bffdad04c838e482cf1497897343bb4f3d54380139b29a710056a1504ac18033d7020f8a14c266e7fd54f162290689dc4f8ff78eabc25e4d7771361fbab4d3d380d95f392b74883bcb306f905e5f572b9c2f5e8679a154182f67357aaf5453989c82b209f05f533a85aaa670b09ef46c298b246909543b6787bb0289af42eff1f6a61be8a3b76338c2c22e44ec04d26798a92b33ce946725263fe5fb69c8044cc00159caba5562ee516f20871b64ec0481d05196e3c23eb2961a3feb16edf5321d752cf6a5edccaa907876f8751e37dd6aa81938ae381ba7f7c030e24153b9fab9a596da5c103409da2d335842107c4648865aa78aa5e152426a7fc24602b16893a5ed31742adb6c0e6d3da7d238c6eb1a31d82c47bdcf22d63bf4b73c5e57d36826040f392d234899bdcde56d66d42d00c0ecdd10d1739c082c231b79d936105755710b43c6cef6a49e98e2c940cbe5c08f40317638f0ea7ceddfcbafd577dcee0ae82ed8422c8887cd4c1724ac0dead31ec7ff6f716d97c8f6764b5717521012d962abde48c1046da56004f4dd788ad981d13f2cc7af10e69b5328308ce2f3e7a52dc3ad588def6311f94d56a83a25a8011717dbc894fac5bc350884fd9357c5620253ec20fa9449966939fe4e82a394d69b76f520cb95841144933f55833107baf3a9d6d533afc4b5b01f393b715205c3fee16e19cd4e5d930e3e3620d107ad970770eef3dbd23924b6c265bb5596a9f7414613652f9cf62047f722d22dba9f8c535d12eae4ff66915fbdead6460870a3ea60330a385c2e20adfdc26f3be99d56b1d3335b54562718468b67d70014e43f690d0f0d45f8f37a8c554132ea67705356e1525653901aeed3b60bfb0aab9686530119e8d30d5542e4518765b7dcb73a2c5610b7fd27a74b42ac498b1f00807f92a3dd59df083c828e1df228c30cbd527a89d9de1347f3dacff941b9d1402a306b450c29a8629f9f9fca64d3d6d3e21618c0c2c992b51dada9ea6a169e4342d1f591c1600287b55281fdbd918b1d6fd09e17dac2e47ee3d9272307b3cb16edbbae48b764761364c68ccd83006480458e010fa58e9c3d69592be52eaf03582d86fa95cbe94307ed4202476a6738e779e93438ba7e2cac74b5d0a04280c16be8341e6c3bd74eb51841293e5b290225e4763e7fff8015ebd3d94d5ed93a4ccce854b2455a9ede608e3bf83987c836b64089fb21c4a395f2a74e6799b31384adfedb6da46e77c5528104f6c7eaa78244f5b3de66556a1f6ddd2f5d6a683256005e19eb9c818e575193177292f158c0f659e837eaee8042e121c111c120c13819d2d3160a47a628aad8467002a06a5ba309ca424a504691c2d11d95e7ce7c61899ff3adb2fda3adfed26c70203d5b85e1b9256386487a6b27d2637f81446e478271f4080a8688326cd0e5185d821dc4e3c357ad1a26a2487243bf34bc3efc14c8bc2f6f55184bbbd784cdfe48d284cd70f7f4bfae5ac95f5e7a90dc751b9383ddcbccfc5b27bd01e6ade81</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>Hardware</category>
       </categories>
@@ -4837,25 +4913,33 @@
 <h2 id="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"><a href="#例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数" class="headerlink" title="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"></a>例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数</h2><p><code>关于空间使用</code></p>
 <p>代码块1：使用for循环实现</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">1</span>;i<=N;i++){</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>代码块2：使用递归实现</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">  <span class="keyword">if</span>(N){</span><br><span class="line">    PrintN(N<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,N);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>解决问题方法的效率，跟空间的利用效率有关</p>
 </blockquote>
-<h2 id="例子3：写程序计算给定多像是在给定点x处的值"><a href="#例子3：写程序计算给定多像是在给定点x处的值" class="headerlink" title="例子3：写程序计算给定多像是在给定点x处的值"></a>例子3：写程序计算给定多像是在给定点x处的值</h2><p>$f(x)=a<em>0+a_1x+\cdots + a</em>{n-1}x^{n-1}+a_nx^n.$</p>
+<h2 id="例子3：写程序计算给定多像是在给定点x处的值"><a href="#例子3：写程序计算给定多像是在给定点x处的值" class="headerlink" title="例子3：写程序计算给定多像是在给定点x处的值"></a>例子3：写程序计算给定多像是在给定点x处的值</h2><p>$f(x)=a_0+a_1x+\cdots + a_{n-1}x^{n-1}+a_nx^n.$</p>
 <p>代码块:</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i =<span class="number">1</span>; i<=n;i++)</span><br><span class="line">    p+=(a[i]*<span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-<p>使用秦九韶算法改良：<br>每一次把公因子提出来<br>$f(x)=a<em>0+x(a_1+x(\cdots(a</em>{n-1}+x(a_n))\cdots))$</p>
+
+<p>使用秦九韶算法改良：<br>每一次把公因子提出来<br>$f(x)=a_0+x(a_1+x(\cdots(a_{n-1}+x(a_n))\cdots))$</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-<p>clock(): 捕捉从程序开始运行到clock()被调用时所耗费的时间。这个时间单位是clock tick，即“时钟打点”。<br>常数CLK_TCK：机器时钟每秒所走的时钟打点数。</p>
+
+<p><code>clock()</code>: 捕捉从程序开始运行到<code>clock()</code>被调用时所耗费的时间。这个时间单位是<code>clock tick</code>，即“时钟打点”。<br>常数CLK_TCK：机器时钟每秒所走的时钟打点数。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><stdio.h></stdio.h></span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><time.h></time.h></span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* clock_t是clock()函数返回的变量类型 */</span></span><br><span class="line"><span class="keyword">clock_t</span> start,<span class="built_in">stop</span>;</span><br><span class="line"><span class="comment">/* 记录被测函数运行时间，以秒为单位 */</span></span><br><span class="line"><span class="keyword">double</span> duration;</span><br><span class="line"><span class="comment">/* 不在测试范围内的准备工作写在clock()调用之前 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 开始计时 */</span></span><br><span class="line">  start = clock();</span><br><span class="line">  <span class="comment">/* 把被测函数加在这里 */</span></span><br><span class="line">  MyFunction();</span><br><span class="line">  <span class="comment">/* 停止计时 */</span></span><br><span class="line">  <span class="built_in">stop</span> = clock();</span><br><span class="line">  duration = ((<span class="keyword">double</span>)(<span class="built_in">stop</span>-start))/CLK_TCK;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 其他不在测试范围的处理写在后面，例如输出duration的值 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>例子4： 写程序计算给定多项式$f(x)=\sum_{i=0}^9 i\bullet x^i$ 在给定点$x=1.1$处的值$f(1.1)$</p>
 <p>代码块1：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i<=n;i++)</span><br><span class="line">    p += (a[i] * <span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>代码块2：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>实测代码：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><stdio.h></stdio.h></span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><time.h></time.h></span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><math.h></math.h></span></span></span><br><span class="line"><span class="keyword">clock_t</span> start,<span class="built_in">stop</span>;</span><br><span class="line"><span class="keyword">double</span> duration;</span><br><span class="line"><span class="comment">/* 多项式最大项数，即多项式阶数+1 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 被测函数最大重复调用次数 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXK 1e7</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i<=n;i++)</span><br><span class="line">    p += (a[i] * <span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="comment">/* 存储多项式的系数 */</span></span><br><span class="line">  <span class="keyword">double</span> a[MAXN];</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i < MAXN;i++)</span><br><span class="line">    a[i] = (<span class="keyword">double</span>) i;</span><br><span class="line"></span><br><span class="line">  start = clock();</span><br><span class="line">  <span class="comment">/* 重复调用函数以获得充分多的时钟打点数 */</span></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< MAXK;i++)</span><br><span class="line">    f1(MAXN<span class="number">-1</span>,a,<span class="number">1.1</span>);</span><br><span class="line">  <span class="built_in">stop</span> = clock();</span><br><span class="line">  <span class="comment">/* 计算函数单次运行的时间 */</span></span><br><span class="line">  duration = ((<span class="keyword">double</span>)(<span class="built_in">stop</span> - start))/CLK_TCK/MAXK;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"ticks1=%f\n"</span>,(<span class="keyword">double</span>)(<span class="built_in">stop</span> - start));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"duration1=%6.2e\n"</span>,duration);</span><br><span class="line"></span><br><span class="line">  start = clock();</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< MAXK;i++)</span><br><span class="line">    f2(MAXN<span class="number">-1</span>,a,<span class="number">1.1</span>);</span><br><span class="line">  <span class="built_in">stop</span> = clock();</span><br><span class="line">  duration = ((<span class="keyword">double</span>)(<span class="built_in">stop</span> - start))/CLK_TCK/MAXK;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"ticks1=%f\n"</span>,(<span class="keyword">double</span>)(<span class="built_in">stop</span> - start));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"duration1=%6.2e\n"</span>,duration);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>如果测试出来的结果都是 <code>0</code>，可能是程序运行得太快，clock相隔时间太短。<br>可以让被测函数<code>重复运行</code>充分多次，使得测出的总的时钟打点间隔充分长，最后计算被测函数<code>平均每次</code>运行的时间即可。</p>
 <blockquote>
 <p>解决问题方法的效率，跟算法的巧妙程度有关</p>
@@ -4884,7 +4968,7 @@
 <li>与实现操作的算法和编程语言均无关</li>
 </ul>
 <p>只描述数据对象集和相关操作集“是什么”，并不涉及“如何做到”的问题</p>
-<h2 id="例子5：“矩阵”的抽象数据类型定义"><a href="#例子5：“矩阵”的抽象数据类型定义" class="headerlink" title="例子5：“矩阵”的抽象数据类型定义"></a>例子5：“矩阵”的抽象数据类型定义</h2><p>类型名称：矩阵(Matrix)<br>数据对象集：一个M × N的矩阵$A<em>{M×N}=(a</em>{ij})(i=1,\cdots,M;j=1,\cdots,N)$由M × N 个三元组<a,i,j>构成，其中a是矩阵元素的值，i是元素所在的行号，j是元素所在的列号。</a,i,j></p>
+<h2 id="例子5：“矩阵”的抽象数据类型定义"><a href="#例子5：“矩阵”的抽象数据类型定义" class="headerlink" title="例子5：“矩阵”的抽象数据类型定义"></a>例子5：“矩阵”的抽象数据类型定义</h2><p>类型名称：矩阵(Matrix)<br>数据对象集：一个M × N的矩阵$A_{M×N}=(a_{ij})(i=1,\cdots,M;j=1,\cdots,N)$由M × N 个三元组<a,i,j>构成，其中a是矩阵元素的值，i是元素所在的行号，j是元素所在的列号。</a,i,j></p>
 <p>操作集：对于任意矩阵$A、B、C\in Matrix,$以及整数$i、j、M、N$</p>
 <ul>
 <li>Matrix Create(int M,int N): 返回一个M × N 的空矩阵；</li>
@@ -4910,6 +4994,7 @@
 </ul>
 <p>例子1：选择排序算法的伪码描述</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span> List[] , <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 将N个整数List[0] ...List[N-1]进行非递减排序 */</span></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< N;i++){</span><br><span class="line">    <span class="comment">/* 从List[i]到List[N-1]中找到最小元，并将起位置赋给MinPosition */</span></span><br><span class="line">    MinPosition = ScanForMin(List,i,N<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 将未排序部分的最小元换到有序部分的最后位置 */</span></span><br><span class="line">    Swap(List[i],List[MinPosition]);</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <h2 id="什么是好的算法？"><a href="#什么是好的算法？" class="headerlink" title="什么是好的算法？"></a>什么是好的算法？</h2><p>空间复杂度S(n)——根据算法写成的程序在执行时<code>占用存储单元的长度</code>。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。</p>
 <p>时间复杂度T(n)——根据算法写成的程序在执行时<code>耗费时间的长度</code>。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行的结果。</p>
 <blockquote>
@@ -4917,6 +5002,7 @@
 </blockquote>
 <p>例子 1</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">  <span class="keyword">if</span>(N){</span><br><span class="line">    PrintN(N<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,N);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>这是个递归算法，如果取 N=10000 时，将会与占用内存的数量成正比。</p>
 </blockquote>
@@ -4926,17 +5012,19 @@
 </blockquote>
 <p>例子 2</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i<=n;i++)</span><br><span class="line">    p += (a[i] * <span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>上述算法中因为存在幂函数，幂函数的算法相当于幂的次方数，所以上述算法中转化之后存在 $(1+2+\cdots+n)=(n^2+n)/2$ 次乘法.<br>时间复杂度 $T(n)=C_1n^2+C_2n$</p>
 </blockquote>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>上述算法中只存在 n 次乘法.<br>时间复杂度 $T(n)=C\cdot n$</p>
 </blockquote>
 <ul>
 <li>在分析一般算法的效率时，我们经常关注下面两种复杂度<ul>
 <li>最坏情况复杂度 $T_{worst}(n)$</li>
-<li>平均复杂度 $T_{avg}(n)$  <script type="math/tex; mode=display">T_{avg}(n)\le T_{worst}(n)</script></li>
+<li>平均复杂度 $T_{avg}(n)$<br>$$T_{avg}(n)\le T_{worst}(n)$$</li>
 </ul>
 </li>
 </ul>
@@ -4959,8 +5047,9 @@
 <li>一个<code>for</code>循环的时间复杂度等于循环次数乘以循环体代码的复杂度</li>
 <li><code>if-else</code>结构的复杂度取决于<code>if</code>的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大</li>
 </ul>
-<h2 id="算法应用实例"><a href="#算法应用实例" class="headerlink" title="算法应用实例"></a>算法应用实例</h2><h3 id="最大子列和问题"><a href="#最大子列和问题" class="headerlink" title="最大子列和问题"></a>最大子列和问题</h3><p>例子 1:给定N个整数的序列{$A<em>1,A_2,\cdots,A_N$},求函数 $f(i,j)=max$ { ${0,\sum</em>{k=i}^jA_k}$ } 的最大值。</p>
+<h2 id="算法应用实例"><a href="#算法应用实例" class="headerlink" title="算法应用实例"></a>算法应用实例</h2><h3 id="最大子列和问题"><a href="#最大子列和问题" class="headerlink" title="最大子列和问题"></a>最大子列和问题</h3><p>例子 1:给定N个整数的序列{$A_1,A_2,\cdots,A_N$},求函数 $f(i,j)=max$ { ${0,\sum_{k=i}^jA_k}$ } 的最大值。</p>
 <h4 id="算法1"><a href="#算法1" class="headerlink" title="算法1"></a>算法1</h4><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubseqSum1</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> ThisSum,MaxSum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> i,j,k;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< N;i++)</span><br><span class="line">  {<span class="comment">/* i是子列左端位置 */</span></span><br><span class="line">    <span class="keyword">for</span>(j = i;j <  N;j++)</span><br><span class="line">    {<span class="comment">/* j是子列右端位置 */</span></span><br><span class="line">      ThisSum=<span class="number">0</span>;<span class="comment">/* ThisSum是从A[i]到A[j]的子列和 */</span></span><br><span class="line">      <span class="keyword">for</span>(k=i;k<=j;k++)</span><br><span class="line">      {</span><br><span class="line">        ThisSum += A[k];</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">if</span>(ThisSum > MaxSum)<span class="comment">/* 如果刚得到的这个子列和更大 */</span></span><br><span class="line">      {</span><br><span class="line">        MaxSum = ThisSum;<span class="comment">/* 则更新结果 */</span></span><br><span class="line">      }</span><br><span class="line">    }<span class="comment">/* j循环结束 */</span></span><br><span class="line">  }<span class="comment">/* i循环结束 */</span></span><br><span class="line">  <span class="keyword">return</span> MaxSum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>算法1的时间复杂度为 $T(N)=O(N^3)$</p>
 </blockquote>
@@ -4970,14 +5059,17 @@
 </blockquote>
 <h4 id="算法3：分而治之"><a href="#算法3：分而治之" class="headerlink" title="算法3：分而治之"></a>算法3：分而治之</h4><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204165248.png" data-fancybox="group" data-caption="分而治之" class="fancybox"><img alt="分而治之" title="分而治之" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204165248.png" class="lazyload"></a></p>
 <h4 id="算法4：-在线处理"><a href="#算法4：-在线处理" class="headerlink" title="算法4： 在线处理"></a>算法4： 在线处理</h4><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubseqSum4</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> ThisSum,MaxSum;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  ThisSum = MaxSum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i< N;i++)</span><br><span class="line">  {</span><br><span class="line">    ThisSum += A[i];<span class="comment">/* 向右累加 */</span></span><br><span class="line">    <span class="keyword">if</span>(ThisSum > MaxSum)</span><br><span class="line">    {</span><br><span class="line">      MaxSum = ThisSum;<span class="comment">/* 发现更大和则更新当前结果 */</span></span><br><span class="line">    }<span class="keyword">else</span> <span class="keyword">if</span>(ThisSum < <span class="number">0</span>){<span class="comment">/* 如果当前子列和为负 */</span></span><br><span class="line">      ThisSum = <span class="number">0</span>;<span class="comment">/* 则不可能使后面的部分和增大，则抛弃之 */</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> MaxSum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>算法4的时间复杂度为 $T(N)=O(N)$</p>
+</blockquote>
+<blockquote>
 <p>“<code>在线</code>”的意思是指每输入一个数据就进行<code>即时处理</code>，在任何一个地方中止输入，算法都能正确给出当前的解。</p>
 </blockquote>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204171312.png" data-fancybox="group" data-caption="运算时间比较(秒)" class="fancybox"><img alt="运算时间比较(秒)" title="运算时间比较(秒)" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204171312.png" class="lazyload"></a></p>
 <hr>
 <h2 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h2><h3 id="线性表及其实现"><a href="#线性表及其实现" class="headerlink" title="线性表及其实现"></a>线性表及其实现</h3><p>多项式的表示</p>
-<p>[例]一元多项式及其运算<br>一元多项式：$f(x)=a<em>0+a_1x+\cdots+a</em>{n-1}x^{n-1}+a_nx^n$<br>主要运算：多项式的相加、相减、相乘等</p>
+<p>[例]一元多项式及其运算<br>一元多项式：$f(x)=a_0+a_1x+\cdots+a_{n-1}x^{n-1}+a_nx^n$<br>主要运算：多项式的相加、相减、相乘等</p>
 <p>【分析】如何表示多项式？<br>多项式的关键数据：  </p>
 <ul>
 <li>多项式项数<code>n</code></li>
@@ -4996,12 +5088,121 @@
 <p>按照指数大小有序存储!</p>
 </blockquote>
 <p>相加过程： 从头开始，比较两个多项式当前对应项的指数</p>
-<p>P1:(9,12), (15,8), (3,2)</p>
-<p>P2:(26,19), (-4,8), (-13,6), (82,0)</p>
-<p>P3:(26,19), (9,12), (11,8), (-13,6), (82,0)</p>
+<p>$P1:(9,12), (15,8), (3,2)$</p>
+<p>$P2:(26,19), (-4,8), (-13,6), (82,0)$</p>
+<p>$P3:(26,19), (9,12), (11,8), (-13,6), (82,0)$</p>
 <p>$P_3(x)=26x^{19}+9x^{12}+11x^8-13x^6+x^2+82$</p>
-<p>方法3： 链表结构存储非零项<br>链表中每个<code>结点</code>存储多项式中的一个<code>非零项</code>，包括<code>系数和指数</code>两个数据域以及一个<code>指针域</code></p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">typedef strut PolyNode *Polynomial;</span><br><span class="line">struct PolyNode{</span><br><span class="line">  int coef;</span><br><span class="line">  int expon;</span><br><span class="line">  Polynomial link;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+<p>方法3： 链表结构存储非零项<br>链表中每个 <code>结点</code> 存储多项式中的一个 <code>非零项</code> ，包括 <code>系数</code> 和 <code>指数</code> 两个数据域以及一个 <code>指针域</code></p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> strut PolyNode *Polynomial;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PolyNode</span>{</span></span><br><span class="line">  <span class="keyword">int</span> coef;</span><br><span class="line">  <span class="keyword">int</span> expon;</span><br><span class="line">  Polynomial link;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>例如：<br>$P_1(x)=9x^{12}+15x^8+3x^2$<br>$P_2(x)=26x^{19}-4x^8-13x^6+82$<br>链表存储形式为:  </p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200207133411.png" data-fancybox="group" data-caption="链表存储形式" class="fancybox"><img alt="链表存储形式" title="链表存储形式" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200207133411.png" class="lazyload"></a></p>
+<h3 id="什么是线性表"><a href="#什么是线性表" class="headerlink" title="什么是线性表"></a>什么是线性表</h3><p>多项式表示问题的启示：  </p>
+<ol>
+<li>同一个问题可以有不同的表示（存储）方法</li>
+<li>有一类共性问题： 有序线性序列的组织和管理</li>
+</ol>
+<p>“线性表(Linear List)”: 由同类型<code>数据元素</code>构成<code>有序序列</code>的线性结构</p>
+<ul>
+<li>表中元素个数成为线性表的<code>长度</code></li>
+<li>线性表没有元素时，成为空表</li>
+<li>表起始位置称表头，表结束位置称表尾</li>
+</ul>
+<h4 id="线性表的抽象数据类型描述"><a href="#线性表的抽象数据类型描述" class="headerlink" title="线性表的抽象数据类型描述"></a>线性表的抽象数据类型描述</h4><p>类型名称： 线性表 (List) </p>
+<p>数据对象集： 线性表是 $n(\ge0)$ 个元素构成的有序序列 $(a_1,a_2,\cdots,a_n)$</p>
+<p>操作集： 线性表 $L\in List$, 整数 i 表示位置，元素 $X \in ElementType$,<br>  线性表基本操作主要有：  </p>
+<ol>
+<li>List MakeEmpty(): 初始化空线性表L;</li>
+<li>ElementType FindKth(int K,List L): 根据位序K，返回相应元素；</li>
+<li>int Find(ElementType X,List L): 在线性表L中查找X的第一次出现位置；</li>
+<li>void Insert(ElementType X,int i,List L): 在位序i前插入一个新元素X；</li>
+<li>void Delete(int i,List L): 删除指定位序i的元素；</li>
+<li>int Length(List L): 返回线性表L的长度n。</li>
+</ol>
+<h4 id="线性表的顺序存储实现"><a href="#线性表的顺序存储实现" class="headerlink" title="线性表的顺序存储实现"></a>线性表的顺序存储实现</h4><blockquote>
+<p>利用数组的<code>连续存储空间顺序存放</code>线性表的各元素</p>
+</blockquote>
+<h4 id="线性表的链式存储实现"><a href="#线性表的链式存储实现" class="headerlink" title="线性表的链式存储实现"></a>线性表的链式存储实现</h4><p>广义表</p>
+<p>多重链表</p>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>什么是堆栈？</p>
+<p>[例] 算术表达式5+6/2-3<em>4。 正常理解：<br>$$5+6/2-3</em>4=5+3-3<em>4=8-3</em>4=8-12=-4$$</p>
+<ul>
+<li>由两类对象构成的：  <ul>
+<li>运算数，如2\3\4</li>
+<li>运算符号，如+、-、×、/</li>
+</ul>
+</li>
+<li>不同运算符号优先级不一样</li>
+</ul>
+<h3 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h3><ul>
+<li>中缀表达式： 运算符号位于两个运算数之间。如，a+b*c-d/e</li>
+<li>后缀表达式： 运算符号位于两个运算数之后。如，abc*+de/-</li>
+</ul>
+<p>[例] 62/3-42*+=?</p>
+<p>后缀表达式求值策略： 从左往右“扫描”，逐个处理运算数与运算符号</p>
+<ol>
+<li>遇到运算数怎么办?如何“记住“目前还不未参与运算的数？</li>
+<li>遇到运算符号怎么办？对应的运算数是什么？</li>
+</ol>
+<blockquote>
+<p>启示： 需要有种存储方法，能够顺序存储运算数，并在需要是“倒序”输出！</p>
+</blockquote>
+<p>堆栈（stack）：具有一定操作约束的线性表</p>
+<ul>
+<li>只在一端（栈顶，Top）做 <code>插入、删除</code></li>
+</ul>
+<ul>
+<li>插入数据： 入栈（Push）</li>
+<li>删除数据： 出栈（Pop）</li>
+<li><code>后入先出</code>：Last In First Out (LIFO)</li>
+</ul>
+<h3 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h3><blockquote>
+<p>栈的顺序存储结构通常由一个<code>一维数组</code>和一个记录<code>栈顶</code>元素位置的变量组成。</p>
+</blockquote>
+<p>[例]请用一个数组实现两个堆栈，要求最大地利用数组空间，使数组只要有空间入栈操作就可以成功。</p>
+<p>【分析】一种比较聪明的方法是使这两个栈分别从数组的<code>两头开始向中间生长</code>；当两个栈的<code>栈顶指针相遇</code>时，表示两个栈都满了。</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize <span class="meta-string"><存储数据元素的最大个数></span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DStack</span>{</span></span><br><span class="line">ElementType Data[MaxSize];</span><br><span class="line"><span class="keyword">int</span> Top1;<span class="comment">/* 堆栈1的栈顶指针 */</span></span><br><span class="line"><span class="keyword">int</span> Top2;<span class="comment">/* 堆栈2的栈顶指针 */</span></span><br><span class="line">}S;</span><br><span class="line">S.Top1 = <span class="number">-1</span>;</span><br><span class="line">S.Top2 = MaxSize;</span><br></pre></td></tr></tbody></table></figure></div>
+
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(struct DStack *PtrS,ElementType item,<span class="keyword">int</span> Tag)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">if</span>(PtrS->Top2 - PtrS->Top1 == <span class="number">1</span>){<span class="comment">/*堆栈满*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"堆栈满"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">if</span>(Tag == <span class="number">1</span>)</span><br><span class="line">    PtrS->Data[++(PtrS->Top1)] = item;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    PtrS->Data[--(PtrS->Top2)] = item;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>中缀表达式如何转换为后缀表达式</p>
+<ul>
+<li>从头到尾读取<code>中缀表达式的每个对象</code>，对不同对象按不同的情况处理。  </li>
+</ul>
+<p>①运算数：直接输出；<br>②左括号：压入堆栈；<br>③右括号：将<code>栈顶的运算符弹出</code>并<code>输出</code>，<code>直到遇到左括号</code>（出栈，不输出）；<br>④运算符：</p>
+<ul>
+<li>若优先级大于栈顶运算符时，则把它压栈；</li>
+<li>若优先级小于等于栈顶运算符时，将栈顶运算符弹出并输出；再比较新的栈顶运算符，直到该运算符大于栈顶运算符优先级为止，然后将该运算符压栈；  </li>
+</ul>
+<p>⑤若各对象处理完毕，则把堆栈中存留的运算符一并输出。</p>
+<p>堆栈的其他应用：  </p>
+<ul>
+<li>函数调用及递归实现</li>
+<li>深度优先搜索</li>
+<li>回溯算法</li>
+</ul>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>树(Tree): $n(n\ge0)$ 个结点构成的有限集合。<br>当 $n=0$ 时，称为空树；<br>对于任一颗非空树 $n>0$ ,它具备以下性质：  </p>
+<ul>
+<li>树中有一个称为“根(Root)”的特殊结点，用r表示；</li>
+<li>其余结点可分为m(m>0)个互不相交的有限集 $T_1,T_2,\cdots,T_m$ ,其中每个集合本身又是一棵树，称为原来树的“子树(SubTree)”</li>
+</ul>
+<blockquote>
+<p>注意：树没有回路</p>
+</blockquote>
+<h3 id="树的一些基本术语"><a href="#树的一些基本术语" class="headerlink" title="树的一些基本术语"></a>树的一些基本术语</h3><ol>
+<li>结点的度(Degree):结点的子树个数</li>
+<li>树的度:树的所有结点中最大的度数</li>
+</ol>
+<h2 id="队列及实现"><a href="#队列及实现" class="headerlink" title="队列及实现"></a>队列及实现</h2><p>队列(Queue): 具有一定操作约束的线性表</p>
+<ul>
+<li>插入和删除操作： 只能在一端插入，而在另一端删除。</li>
+</ul>
+<ul>
+<li>数据插入：入队列（AddQ）</li>
+<li>数据删除：出队列（DeleteQ）</li>
+<li>先来先服务</li>
+<li>先进先出：FIFO</li>
+</ul>
 <hr>
 <blockquote>
 <p>to be continued…</p>
@@ -13004,18 +13205,21 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>Origin问题归纳</title>
     <url>/Game/GamePlatform/Origin/Origin%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用Origin平台时，总会遇到这样或者那样的问题，特此记录。</p>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用Origin平台时，总会遇到这样或者那样的问题，特此记录。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="Origin的下载速度改善方法"><a href="#Origin的下载速度改善方法" class="headerlink" title="Origin的下载速度改善方法"></a>Origin的下载速度改善方法</h2><p>我们在使用origin下载的时候难免会遇到下载速度慢的问题，很多人都说修改hosts，但是现在不能很好的解决，下面说一下一个新的方法:</p>
 <ol>
-<li>退出origin，在origin根目录找到 EACore.ini 这个文件  </li>
-<li>用记事本打开复制下面这段代码，保存退出  <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[connection]</span><br><span class="line">EnvironmentName&#x3D;production</span><br><span class="line"></span><br><span class="line">[Feature]</span><br><span class="line">CdnOverride&#x3D;akamai</span><br></pre></td></tr></table></figure></div></li>
+<li>退出origin，在origin根目录找到 EACore.ini 这个文件</li>
+<li>用记事本打开复制下面这段代码，保存退出  </li>
+</ol>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">ini</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight ini"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section">[connection]</span></span><br><span class="line"><span class="attr">EnvironmentName</span>=production</span><br><span class="line"></span><br><span class="line"><span class="section">[Feature]</span></span><br><span class="line"><span class="attr">CdnOverride</span>=akamai</span><br></pre></td></tr></tbody></table></figure></div>
+<ol>
 <li>重新登录origin享受下载速度吧(注:有些地区这方法不管用)</li>
 </ol>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-]]></content>
+</body></html>]]></content>
       <categories>
         <category>Game</category>
         <category>GamePlatform</category>
@@ -21261,6 +21465,8 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h2 id="显存"><a href="#显存" class="headerlink" title="显存"></a>显存</h2><p>显存全称显示存储器.</p>
 <h2 id="CPU三级缓存"><a href="#CPU三级缓存" class="headerlink" title="CPU三级缓存"></a>CPU三级缓存</h2><p>CPU缓冲（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存快得多。<br>缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。<br>在缓存中的数据是内存的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可避开内存直接从缓存中调用，从而加快读取速度。<br>由此可见，在CPU中加入缓冲是一种高效的解决方案，这样整个内存存储器（缓存+内存）就变成了既有缓存的高速度，又有内存的大容量的存储系统了。缓存对CPU的性能影响很大，主要是因为CPU的数据交换顺序和CPU与缓存间的带宽引起的。</p>
 <h2 id="缓存的工作原理"><a href="#缓存的工作原理" class="headerlink" title="缓存的工作原理"></a>缓存的工作原理</h2><p>　　缓存的工作原理是当CPU要读取一个数据时，首先从缓存中查找，如果找到就立即读取并送给CPU处理；<br>　　如果没有找到，就用相对慢的速度从内存中读取并送给CPU处理，同时把这个数据所在的数据块调入缓存中，可以使得以后对整块数据的读取都从缓存中进行，不必再调用内存。<br>　　正是这样的读取机制使CPU读取缓存的<code>命中率</code>非常高（大多数CPU可达90%左右），也就是说CPU下一次要读取的数据90%都在缓存中，只有大约10%需要从内存读取。<br>　　这大大节省了CPU直接读取内存的时间，也使CPU读取数据时基本无需等待。<br>　　总的来说，CPU读取数据的顺序是先缓存后内存。</p>
+<h2 id="PT"><a href="#PT" class="headerlink" title="PT"></a>PT</h2><p><a href="https://tamsiree.com/TechnicalResearch/PT%E7%AB%99/PT%E7%AB%99/"><code>[PT]</code></a>（Private Tracker）下载其实是原理类似BT下载的一种，但有两个明显的改进：一是私密的小范围下载，二是进行流量统计，其根据下载量决定你的权限。</p>
+<h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><p>NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“网络存储器”。它是一种专用数据存储服务器。它以数据为中心，将存储设备与服务器彻底分离，集中管理数据，从而释放带宽、提高性能、降低总拥有成本、保护投资。其成本远远低于使用服务器存储，而效率却远远高于后者。目前国际著名的NAS企业有Netapp、EMC、OUO等。</p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
