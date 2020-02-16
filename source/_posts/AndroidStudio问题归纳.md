@@ -62,8 +62,8 @@ compileOptions {
 老项目导入到最新版本的 AndroidStudio 时，发现无法同步，找不到 protobuf-java.jar 这个包，因为新版本有所改动
 
 解决方案：  
-我之前只有jcenter()，需要修改配置  
-修改一下整个项目的配置 build.gradle   
+我之前只有 jcenter()，需要修改配置  
+修改一下整个项目的配置 build.gradle  
 
 ```gradle
 jcenter() {

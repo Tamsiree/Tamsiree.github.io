@@ -26,5 +26,11 @@ top_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/w
 
 ![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/mmexport1577620625088.jpg)
 
+# 专业书籍
+
+|书名|作者|封面|
+| :---: | :---: | :---: |
+|数据结构与算法图解|[美]杰伊•温格罗|<img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" height="20" width="15" alt="数据结构与算法图解 - [美]杰伊•温格罗" title="数据结构与算法图解 - [美]杰伊•温格罗" >|
+
 ---
 > to be continued...

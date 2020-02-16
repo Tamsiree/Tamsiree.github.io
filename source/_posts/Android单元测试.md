@@ -4,12 +4,12 @@ date: 2016-10-28 11:52:02
 description: 介绍单元测试与Android单元测试的意义与运用。
 tags:
   - TechnicalResearch
-  - UnitTest
   - Android
+  - UnitTest
 categories:
   - TechnicalResearch
-  - UnitTest
   - Android
+  - UnitTest
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-nmdprk.jpg
 ---
 # 前言

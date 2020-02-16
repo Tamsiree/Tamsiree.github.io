@@ -112,7 +112,13 @@ pacman -U package.tar.zx      # 从本地文件安装
 pactree package_name          # 显示软件的依赖树
 ```
 
+# [`[yay]`](https://github.com/Jguer/yay)
 
+```bash
+yay -Yc #清理不需要的依赖
+yay -R <package_name> #删除软件包
+yay -Scc #清理缓存
+```
 
 ----
 > to be continued...

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Android强制关闭软键盘输入法</title>
+    <url>/TechnicalResearch/Android/Android%E5%BC%BA%E5%88%B6%E5%85%B3%E9%97%AD%E8%BD%AF%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在类似评论说说的这种界面中，输入评论内容后，点击发送按钮，小米手机的键盘有时候不消失,只是消失了自定义的输入框式样弹框，大概率出现的一种情况（即使你自己调用的关闭键盘也会出现无效的情况）。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>解决方法：</p>
+<blockquote>
+<p>在 <code>AndroidManifest</code> 配置 需要强制关闭软键盘输入法 的 <code>Activity</code>  </p>
+</blockquote>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag"><<span class="name">activity</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">".activity.ActivityLogin"</span></span></span><br><span class="line">    <!-- 新增这一行代码 --></span><br><span class="line">    android:windowSoftInputMode="stateAlwaysHidden"></span><br><span class="line">    <span class="tag"><<span class="name">intent-filter</span>></span></span><br><span class="line">        <span class="tag"><<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /></span></span><br><span class="line"></span><br><span class="line">        <span class="tag"><<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /></span></span><br><span class="line">    <span class="tag"><!--<span class="name"-->intent-filter</span>></span><br><span class="line"><span class="tag"><!--<span class="name"-->activity</span>></span><br></pre></td></tr></tbody></table></figure></div>
+
+
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</body></html>]]></content>
+      <categories>
+        <category>TechnicalResearch</category>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>TechnicalResearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Shadowsocks对检测和封锁的探究</title>
     <url>/TechnicalResearch/Shadowsocks/Shadowsocks%E5%AF%B9%E6%A3%80%E6%B5%8B%E5%92%8C%E5%B0%81%E9%94%81%E7%9A%84%E6%8E%A2%E7%A9%B6/</url>
     <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在中国，<a href="https://shadowsocks.org/en/" target="_blank" rel="noopener"><em>Shadowsocks</em></a> 是最流行的翻墙软件之一。<br>从2019年5月起，大量的中国网民反馈他们的Shadowsocks服务器被封锁了。<br>这篇报告是我们对中国的防火长城（GFW）是如何检测和封锁 Shadowsocks 及其衍生翻墙软件的初步调查结果。<br>通过网络测量实验，我们发现GFW会<strong>被动的监视网络流量</strong>从而识别出疑似Shadowsocks的网络流量；然后对对应的Shadowsocks服务器进行<strong>主动探测</strong>已验证其怀疑的正确与否。Shadowsocks的封锁程度可能受<strong>人为因素</strong>在政治敏感时期的控制。<br>我们提出一种<strong>规避方法</strong>，即改变网络数据包在Shadowsocks握手阶段的大小。这种方法被证明可以在现阶段有效减少主动探测。我们会继续与开发者合作让Shadowsocks及其衍生工具变得更加难以封锁。  </p>
@@ -4984,25 +5009,33 @@
 <h2 id="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"><a href="#例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数" class="headerlink" title="例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数"></a>例子2：写程序实现一个函数PrintN，使得传入一个正整数为N的参数后，能顺序打印1到N的全部正整数</h2><p><code>关于空间使用</code></p>
 <p>代码块1：使用for循环实现</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">1</span>;i<=N;i++){</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>代码块2：使用递归实现</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">  <span class="keyword">if</span>(N){</span><br><span class="line">    PrintN(N<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,N);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>解决问题方法的效率，跟空间的利用效率有关</p>
 </blockquote>
-<h2 id="例子3：写程序计算给定多像是在给定点x处的值"><a href="#例子3：写程序计算给定多像是在给定点x处的值" class="headerlink" title="例子3：写程序计算给定多像是在给定点x处的值"></a>例子3：写程序计算给定多像是在给定点x处的值</h2><p>$f(x)=a<em>0+a_1x+\cdots + a</em>{n-1}x^{n-1}+a_nx^n.$</p>
+<h2 id="例子3：写程序计算给定多像是在给定点x处的值"><a href="#例子3：写程序计算给定多像是在给定点x处的值" class="headerlink" title="例子3：写程序计算给定多像是在给定点x处的值"></a>例子3：写程序计算给定多像是在给定点x处的值</h2><p>$f(x)=a_0+a_1x+\cdots + a_{n-1}x^{n-1}+a_nx^n.$</p>
 <p>代码块:</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i =<span class="number">1</span>; i<=n;i++)</span><br><span class="line">    p+=(a[i]*<span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-<p>使用秦九韶算法改良：<br>每一次把公因子提出来<br>$f(x)=a<em>0+x(a_1+x(\cdots(a</em>{n-1}+x(a_n))\cdots))$</p>
+
+<p>使用秦九韶算法改良：<br>每一次把公因子提出来<br>$f(x)=a_0+x(a_1+x(\cdots(a_{n-1}+x(a_n))\cdots))$</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p><code>clock()</code>: 捕捉从程序开始运行到<code>clock()</code>被调用时所耗费的时间。这个时间单位是<code>clock tick</code>，即“时钟打点”。<br>常数CLK_TCK：机器时钟每秒所走的时钟打点数。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><stdio.h></stdio.h></span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><time.h></time.h></span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* clock_t是clock()函数返回的变量类型 */</span></span><br><span class="line"><span class="keyword">clock_t</span> start,<span class="built_in">stop</span>;</span><br><span class="line"><span class="comment">/* 记录被测函数运行时间，以秒为单位 */</span></span><br><span class="line"><span class="keyword">double</span> duration;</span><br><span class="line"><span class="comment">/* 不在测试范围内的准备工作写在clock()调用之前 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 开始计时 */</span></span><br><span class="line">  start = clock();</span><br><span class="line">  <span class="comment">/* 把被测函数加在这里 */</span></span><br><span class="line">  MyFunction();</span><br><span class="line">  <span class="comment">/* 停止计时 */</span></span><br><span class="line">  <span class="built_in">stop</span> = clock();</span><br><span class="line">  duration = ((<span class="keyword">double</span>)(<span class="built_in">stop</span>-start))/CLK_TCK;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 其他不在测试范围的处理写在后面，例如输出duration的值 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>例子4： 写程序计算给定多项式$f(x)=\sum_{i=0}^9 i\bullet x^i$ 在给定点$x=1.1$处的值$f(1.1)$</p>
 <p>代码块1：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i<=n;i++)</span><br><span class="line">    p += (a[i] * <span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>代码块2：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>实测代码：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><stdio.h></stdio.h></span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><time.h></time.h></span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string"><math.h></math.h></span></span></span><br><span class="line"><span class="keyword">clock_t</span> start,<span class="built_in">stop</span>;</span><br><span class="line"><span class="keyword">double</span> duration;</span><br><span class="line"><span class="comment">/* 多项式最大项数，即多项式阶数+1 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 被测函数最大重复调用次数 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXK 1e7</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i<=n;i++)</span><br><span class="line">    p += (a[i] * <span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="comment">/* 存储多项式的系数 */</span></span><br><span class="line">  <span class="keyword">double</span> a[MAXN];</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i < MAXN;i++)</span><br><span class="line">    a[i] = (<span class="keyword">double</span>) i;</span><br><span class="line"></span><br><span class="line">  start = clock();</span><br><span class="line">  <span class="comment">/* 重复调用函数以获得充分多的时钟打点数 */</span></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< MAXK;i++)</span><br><span class="line">    f1(MAXN<span class="number">-1</span>,a,<span class="number">1.1</span>);</span><br><span class="line">  <span class="built_in">stop</span> = clock();</span><br><span class="line">  <span class="comment">/* 计算函数单次运行的时间 */</span></span><br><span class="line">  duration = ((<span class="keyword">double</span>)(<span class="built_in">stop</span> - start))/CLK_TCK/MAXK;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"ticks1=%f\n"</span>,(<span class="keyword">double</span>)(<span class="built_in">stop</span> - start));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"duration1=%6.2e\n"</span>,duration);</span><br><span class="line"></span><br><span class="line">  start = clock();</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< MAXK;i++)</span><br><span class="line">    f2(MAXN<span class="number">-1</span>,a,<span class="number">1.1</span>);</span><br><span class="line">  <span class="built_in">stop</span> = clock();</span><br><span class="line">  duration = ((<span class="keyword">double</span>)(<span class="built_in">stop</span> - start))/CLK_TCK/MAXK;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"ticks1=%f\n"</span>,(<span class="keyword">double</span>)(<span class="built_in">stop</span> - start));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"duration1=%6.2e\n"</span>,duration);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>如果测试出来的结果都是 <code>0</code>，可能是程序运行得太快，clock相隔时间太短。<br>可以让被测函数<code>重复运行</code>充分多次，使得测出的总的时钟打点间隔充分长，最后计算被测函数<code>平均每次</code>运行的时间即可。</p>
 <blockquote>
 <p>解决问题方法的效率，跟算法的巧妙程度有关</p>
@@ -5031,7 +5064,7 @@
 <li>与实现操作的算法和编程语言均无关</li>
 </ul>
 <p>只描述数据对象集和相关操作集“是什么”，并不涉及“如何做到”的问题</p>
-<h2 id="例子5：“矩阵”的抽象数据类型定义"><a href="#例子5：“矩阵”的抽象数据类型定义" class="headerlink" title="例子5：“矩阵”的抽象数据类型定义"></a>例子5：“矩阵”的抽象数据类型定义</h2><p>类型名称：矩阵(Matrix)<br>数据对象集：一个M × N的矩阵$A<em>{M×N}=(a</em>{ij})(i=1,\cdots,M;j=1,\cdots,N)$由M × N 个三元组<a,i,j>构成，其中a是矩阵元素的值，i是元素所在的行号，j是元素所在的列号。</a,i,j></p>
+<h2 id="例子5：“矩阵”的抽象数据类型定义"><a href="#例子5：“矩阵”的抽象数据类型定义" class="headerlink" title="例子5：“矩阵”的抽象数据类型定义"></a>例子5：“矩阵”的抽象数据类型定义</h2><p>类型名称：矩阵(Matrix)<br>数据对象集：一个M × N的矩阵$A_{M×N}=(a_{ij})(i=1,\cdots,M;j=1,\cdots,N)$由M × N 个三元组<a,i,j>构成，其中a是矩阵元素的值，i是元素所在的行号，j是元素所在的列号。</a,i,j></p>
 <p>操作集：对于任意矩阵$A、B、C\in Matrix,$以及整数$i、j、M、N$</p>
 <ul>
 <li>Matrix Create(int M,int N): 返回一个M × N 的空矩阵；</li>
@@ -5057,6 +5090,7 @@
 </ul>
 <p>例子1：选择排序算法的伪码描述</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span> List[] , <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 将N个整数List[0] ...List[N-1]进行非递减排序 */</span></span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< N;i++){</span><br><span class="line">    <span class="comment">/* 从List[i]到List[N-1]中找到最小元，并将起位置赋给MinPosition */</span></span><br><span class="line">    MinPosition = ScanForMin(List,i,N<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 将未排序部分的最小元换到有序部分的最后位置 */</span></span><br><span class="line">    Swap(List[i],List[MinPosition]);</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <h2 id="什么是好的算法？"><a href="#什么是好的算法？" class="headerlink" title="什么是好的算法？"></a>什么是好的算法？</h2><p>空间复杂度S(n)——根据算法写成的程序在执行时<code>占用存储单元的长度</code>。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。</p>
 <p>时间复杂度T(n)——根据算法写成的程序在执行时<code>耗费时间的长度</code>。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行的结果。</p>
 <blockquote>
@@ -5064,6 +5098,7 @@
 </blockquote>
 <p>例子 1</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintN</span><span class="params">(<span class="keyword">int</span> N)</span></span>{</span><br><span class="line">  <span class="keyword">if</span>(N){</span><br><span class="line">    PrintN(N<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,N);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>这是个递归算法，如果取 N=10000 时，将会与占用内存的数量成正比。</p>
 </blockquote>
@@ -5073,17 +5108,19 @@
 </blockquote>
 <p>例子 2</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i<=n;i++)</span><br><span class="line">    p += (a[i] * <span class="built_in">pow</span>(x,i));</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>上述算法中因为存在幂函数，幂函数的算法相当于幂的次方数，所以上述算法中转化之后存在 $(1+2+\cdots+n)=(n^2+n)/2$ 次乘法.<br>时间复杂度 $T(n)=C_1n^2+C_2n$</p>
 </blockquote>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">double</span> a[],<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> p = a[n];</span><br><span class="line">  <span class="keyword">for</span>(i=n;i><span class="number">0</span>;i--)</span><br><span class="line">    p=a[i<span class="number">-1</span>]+x*p;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>上述算法中只存在 n 次乘法.<br>时间复杂度 $T(n)=C\cdot n$</p>
 </blockquote>
 <ul>
 <li>在分析一般算法的效率时，我们经常关注下面两种复杂度<ul>
 <li>最坏情况复杂度 $T_{worst}(n)$</li>
-<li>平均复杂度 $T_{avg}(n)$  <script type="math/tex; mode=display">T_{avg}(n)\le T_{worst}(n)</script></li>
+<li>平均复杂度 $T_{avg}(n)$<br>$$T_{avg}(n)\le T_{worst}(n)$$</li>
 </ul>
 </li>
 </ul>
@@ -5106,8 +5143,9 @@
 <li>一个<code>for</code>循环的时间复杂度等于循环次数乘以循环体代码的复杂度</li>
 <li><code>if-else</code>结构的复杂度取决于<code>if</code>的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大</li>
 </ul>
-<h2 id="算法应用实例"><a href="#算法应用实例" class="headerlink" title="算法应用实例"></a>算法应用实例</h2><h3 id="最大子列和问题"><a href="#最大子列和问题" class="headerlink" title="最大子列和问题"></a>最大子列和问题</h3><p>例子 1:给定N个整数的序列{$A<em>1,A_2,\cdots,A_N$},求函数 $f(i,j)=max$ { ${0,\sum</em>{k=i}^jA_k}$ } 的最大值。</p>
+<h2 id="算法应用实例"><a href="#算法应用实例" class="headerlink" title="算法应用实例"></a>算法应用实例</h2><h3 id="最大子列和问题"><a href="#最大子列和问题" class="headerlink" title="最大子列和问题"></a>最大子列和问题</h3><p>例子 1:给定N个整数的序列{$A_1,A_2,\cdots,A_N$},求函数 $f(i,j)=max$ { ${0,\sum_{k=i}^jA_k}$ } 的最大值。</p>
 <h4 id="算法1"><a href="#算法1" class="headerlink" title="算法1"></a>算法1</h4><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubseqSum1</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> ThisSum,MaxSum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> i,j,k;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i< N;i++)</span><br><span class="line">  {<span class="comment">/* i是子列左端位置 */</span></span><br><span class="line">    <span class="keyword">for</span>(j = i;j <  N;j++)</span><br><span class="line">    {<span class="comment">/* j是子列右端位置 */</span></span><br><span class="line">      ThisSum=<span class="number">0</span>;<span class="comment">/* ThisSum是从A[i]到A[j]的子列和 */</span></span><br><span class="line">      <span class="keyword">for</span>(k=i;k<=j;k++)</span><br><span class="line">      {</span><br><span class="line">        ThisSum += A[k];</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">if</span>(ThisSum > MaxSum)<span class="comment">/* 如果刚得到的这个子列和更大 */</span></span><br><span class="line">      {</span><br><span class="line">        MaxSum = ThisSum;<span class="comment">/* 则更新结果 */</span></span><br><span class="line">      }</span><br><span class="line">    }<span class="comment">/* j循环结束 */</span></span><br><span class="line">  }<span class="comment">/* i循环结束 */</span></span><br><span class="line">  <span class="keyword">return</span> MaxSum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>算法1的时间复杂度为 $T(N)=O(N^3)$</p>
 </blockquote>
@@ -5117,14 +5155,17 @@
 </blockquote>
 <h4 id="算法3：分而治之"><a href="#算法3：分而治之" class="headerlink" title="算法3：分而治之"></a>算法3：分而治之</h4><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204165248.png" data-fancybox="group" data-caption="分而治之" class="fancybox"><img alt="分而治之" title="分而治之" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204165248.png" class="lazyload"></a></p>
 <h4 id="算法4：-在线处理"><a href="#算法4：-在线处理" class="headerlink" title="算法4： 在线处理"></a>算法4： 在线处理</h4><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubseqSum4</span><span class="params">(<span class="keyword">int</span> A[],<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">int</span> ThisSum,MaxSum;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  ThisSum = MaxSum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i< N;i++)</span><br><span class="line">  {</span><br><span class="line">    ThisSum += A[i];<span class="comment">/* 向右累加 */</span></span><br><span class="line">    <span class="keyword">if</span>(ThisSum > MaxSum)</span><br><span class="line">    {</span><br><span class="line">      MaxSum = ThisSum;<span class="comment">/* 发现更大和则更新当前结果 */</span></span><br><span class="line">    }<span class="keyword">else</span> <span class="keyword">if</span>(ThisSum < <span class="number">0</span>){<span class="comment">/* 如果当前子列和为负 */</span></span><br><span class="line">      ThisSum = <span class="number">0</span>;<span class="comment">/* 则不可能使后面的部分和增大，则抛弃之 */</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> MaxSum;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <blockquote>
 <p>算法4的时间复杂度为 $T(N)=O(N)$</p>
+</blockquote>
+<blockquote>
 <p>“<code>在线</code>”的意思是指每输入一个数据就进行<code>即时处理</code>，在任何一个地方中止输入，算法都能正确给出当前的解。</p>
 </blockquote>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204171312.png" data-fancybox="group" data-caption="运算时间比较(秒)" class="fancybox"><img alt="运算时间比较(秒)" title="运算时间比较(秒)" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200204171312.png" class="lazyload"></a></p>
 <hr>
-<h2 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h2><h3 id="线性表及其实现"><a href="#线性表及其实现" class="headerlink" title="线性表及其实现"></a>线性表及其实现</h3><p>多项式的表示</p>
-<p>[例]一元多项式及其运算<br>一元多项式：$f(x)=a<em>0+a_1x+\cdots+a</em>{n-1}x^{n-1}+a_nx^n$<br>主要运算：多项式的相加、相减、相乘等</p>
+<h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><h2 id="线性表及其实现"><a href="#线性表及其实现" class="headerlink" title="线性表及其实现"></a>线性表及其实现</h2><p>多项式的表示</p>
+<p>[例]一元多项式及其运算<br>一元多项式：$f(x)=a_0+a_1x+\cdots+a_{n-1}x^{n-1}+a_nx^n$<br>主要运算：多项式的相加、相减、相乘等</p>
 <p>【分析】如何表示多项式？<br>多项式的关键数据：  </p>
 <ul>
 <li>多项式项数<code>n</code></li>
@@ -5149,9 +5190,10 @@
 <p>$P_3(x)=26x^{19}+9x^{12}+11x^8-13x^6+x^2+82$</p>
 <p>方法3： 链表结构存储非零项<br>链表中每个 <code>结点</code> 存储多项式中的一个 <code>非零项</code> ，包括 <code>系数</code> 和 <code>指数</code> 两个数据域以及一个 <code>指针域</code></p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> strut PolyNode *Polynomial;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PolyNode</span>{</span></span><br><span class="line">  <span class="keyword">int</span> coef;</span><br><span class="line">  <span class="keyword">int</span> expon;</span><br><span class="line">  Polynomial link;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>例如：<br>$P_1(x)=9x^{12}+15x^8+3x^2$<br>$P_2(x)=26x^{19}-4x^8-13x^6+82$<br>链表存储形式为:  </p>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200207133411.png" data-fancybox="group" data-caption="链表存储形式" class="fancybox"><img alt="链表存储形式" title="链表存储形式" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200207133411.png" class="lazyload"></a></p>
-<h3 id="什么是线性表"><a href="#什么是线性表" class="headerlink" title="什么是线性表"></a>什么是线性表</h3><p>多项式表示问题的启示：  </p>
+<h2 id="什么是线性表"><a href="#什么是线性表" class="headerlink" title="什么是线性表"></a>什么是线性表</h2><p>多项式表示问题的启示：  </p>
 <ol>
 <li>同一个问题可以有不同的表示（存储）方法</li>
 <li>有一类共性问题： 有序线性序列的组织和管理</li>
@@ -5162,7 +5204,7 @@
 <li>线性表没有元素时，成为空表</li>
 <li>表起始位置称表头，表结束位置称表尾</li>
 </ul>
-<h4 id="线性表的抽象数据类型描述"><a href="#线性表的抽象数据类型描述" class="headerlink" title="线性表的抽象数据类型描述"></a>线性表的抽象数据类型描述</h4><p>类型名称： 线性表 (List) </p>
+<h3 id="线性表的抽象数据类型描述"><a href="#线性表的抽象数据类型描述" class="headerlink" title="线性表的抽象数据类型描述"></a>线性表的抽象数据类型描述</h3><p>类型名称： 线性表 (List) </p>
 <p>数据对象集： 线性表是 $n(\ge0)$ 个元素构成的有序序列 $(a_1,a_2,\cdots,a_n)$</p>
 <p>操作集： 线性表 $L\in List$, 整数 i 表示位置，元素 $X \in ElementType$,<br>  线性表基本操作主要有：  </p>
 <ol>
@@ -5173,14 +5215,14 @@
 <li>void Delete(int i,List L): 删除指定位序i的元素；</li>
 <li>int Length(List L): 返回线性表L的长度n。</li>
 </ol>
-<h4 id="线性表的顺序存储实现"><a href="#线性表的顺序存储实现" class="headerlink" title="线性表的顺序存储实现"></a>线性表的顺序存储实现</h4><blockquote>
+<h3 id="线性表的顺序存储实现"><a href="#线性表的顺序存储实现" class="headerlink" title="线性表的顺序存储实现"></a>线性表的顺序存储实现</h3><blockquote>
 <p>利用数组的<code>连续存储空间顺序存放</code>线性表的各元素</p>
 </blockquote>
-<h4 id="线性表的链式存储实现"><a href="#线性表的链式存储实现" class="headerlink" title="线性表的链式存储实现"></a>线性表的链式存储实现</h4><p>广义表</p>
+<h3 id="线性表的链式存储实现"><a href="#线性表的链式存储实现" class="headerlink" title="线性表的链式存储实现"></a>线性表的链式存储实现</h3><p>广义表</p>
 <p>多重链表</p>
-<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>什么是堆栈？</p>
-<p>[例] 算术表达式5+6/2-3*4。 正常理解：  </p>
-<script type="math/tex; mode=display">5+6/2-3*4=5+3-3*4=8-3*4=8-12=-4</script><ul>
+<h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><p>什么是堆栈？</p>
+<p>[例] 算术表达式5+6/2-3<em>4。 正常理解：<br>$$5+6/2-3</em>4=5+3-3<em>4=8-3</em>4=8-12=-4$$</p>
+<ul>
 <li>由两类对象构成的：  <ul>
 <li>运算数，如2\3\4</li>
 <li>运算符号，如+、-、×、/</li>
@@ -5188,7 +5230,7 @@
 </li>
 <li>不同运算符号优先级不一样</li>
 </ul>
-<h3 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h3><ul>
+<h2 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h2><ul>
 <li>中缀表达式： 运算符号位于两个运算数之间。如，a+b*c-d/e</li>
 <li>后缀表达式： 运算符号位于两个运算数之后。如，abc*+de/-</li>
 </ul>
@@ -5210,13 +5252,15 @@
 <li>删除数据： 出栈（Pop）</li>
 <li><code>后入先出</code>：Last In First Out (LIFO)</li>
 </ul>
-<h3 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h3><blockquote>
+<h2 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h2><blockquote>
 <p>栈的顺序存储结构通常由一个<code>一维数组</code>和一个记录<code>栈顶</code>元素位置的变量组成。</p>
 </blockquote>
 <p>[例]请用一个数组实现两个堆栈，要求最大地利用数组空间，使数组只要有空间入栈操作就可以成功。</p>
 <p>【分析】一种比较聪明的方法是使这两个栈分别从数组的<code>两头开始向中间生长</code>；当两个栈的<code>栈顶指针相遇</code>时，表示两个栈都满了。</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize <span class="meta-string"><存储数据元素的最大个数></span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DStack</span>{</span></span><br><span class="line">ElementType Data[MaxSize];</span><br><span class="line"><span class="keyword">int</span> Top1;<span class="comment">/* 堆栈1的栈顶指针 */</span></span><br><span class="line"><span class="keyword">int</span> Top2;<span class="comment">/* 堆栈2的栈顶指针 */</span></span><br><span class="line">}S;</span><br><span class="line">S.Top1 = <span class="number">-1</span>;</span><br><span class="line">S.Top2 = MaxSize;</span><br></pre></td></tr></tbody></table></figure></div>
+
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(struct DStack *PtrS,ElementType item,<span class="keyword">int</span> Tag)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">if</span>(PtrS->Top2 - PtrS->Top1 == <span class="number">1</span>){<span class="comment">/*堆栈满*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"堆栈满"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">if</span>(Tag == <span class="number">1</span>)</span><br><span class="line">    PtrS->Data[++(PtrS->Top1)] = item;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    PtrS->Data[--(PtrS->Top2)] = item;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>中缀表达式如何转换为后缀表达式</p>
 <ul>
 <li>从头到尾读取<code>中缀表达式的每个对象</code>，对不同对象按不同的情况处理。  </li>
@@ -5233,7 +5277,7 @@
 <li>深度优先搜索</li>
 <li>回溯算法</li>
 </ul>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>树(Tree): $n(n\ge0)$ 个结点构成的有限集合。<br>当 $n=0$ 时，称为空树；<br>对于任一颗非空树 $n>0$ ,它具备以下性质：  </p>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树(Tree): $n(n\ge0)$ 个结点构成的有限集合。<br>当 $n=0$ 时，称为空树；<br>对于任一颗非空树 $n>0$ ,它具备以下性质：  </p>
 <ul>
 <li>树中有一个称为“根(Root)”的特殊结点，用r表示；</li>
 <li>其余结点可分为m(m>0)个互不相交的有限集 $T_1,T_2,\cdots,T_m$ ,其中每个集合本身又是一棵树，称为原来树的“子树(SubTree)”</li>
@@ -5246,31 +5290,46 @@
 <li>除了根结点外，每个结点有且仅有一个父结点；</li>
 <li>一颗N个结点的树有<code>N-1</code>条边</li>
 </ul>
-<h3 id="静态查找"><a href="#静态查找" class="headerlink" title="静态查找"></a>静态查找</h3><p>方法1：顺序查找  </p>
+<h2 id="静态查找"><a href="#静态查找" class="headerlink" title="静态查找"></a>静态查找</h2><p>方法1：顺序查找  </p>
 <p>顺序查找的一种实现(无”哨兵”)</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SequentialSearch</span><span class="params">(List Tb1,ElementType K)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 在Element[1]~Element[n]中查找关键字为K的数据元素 */</span></span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(i=Tb1->Length;i><span class="number">0</span>&&Tb1->Element[i]!=k;i--);</span><br><span class="line">  <span class="comment">/* 查找成功返回所在单元下标；不成功返回 0 */</span></span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>顺序查找的一种实现(“哨兵”)</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SequentialSearch</span><span class="params">(List Tb1,ElementType K)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 在Element[1]~Element[n]中查找关键字为K的数据元素 */</span></span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="comment">/* 建立哨兵 */</span></span><br><span class="line">  Tb1->Element[<span class="number">0</span>]=k;  </span><br><span class="line">  <span class="keyword">for</span>(i=Tb1->Length;Tb1->Element[i]!=k;i--);</span><br><span class="line">  <span class="comment">/* 查找成功返回所在单元下标；不成功返回 0 */</span></span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>{</span></span><br><span class="line">  ElementType Element[MAXSIZE];</span><br><span class="line">  <span class="keyword">int</span> Length;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
 <p>顺序查找算法的时间复杂度为 <code>O(n)</code></p>
 <p>方法2：二分查找(Binary Search)</p>
 <p>假设n个数据元素的关键字满足有序(比如：小到大)<br>$k_1<k_2<\cdots<k_n$<br>并且是连续存放(数组)，那么可以进行二分查找。</k_2<\cdots<k_n$<br></p>
-<p>二分查找算法</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinarySearch</span><span class="params">(List Tbl,ElementType K)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 在表Tb1中查找关键字为K的数据元素 */</span></span><br><span class="line">  <span class="keyword">int</span> left,right,mid,NoFound=<span class="number">-1</span>;</span><br><span class="line">  <span class="comment">/* 初始化左边界 */</span></span><br><span class="line">  left = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">/* 初始化右边界 */</span></span><br><span class="line">  right=Tbl->Length;</span><br><span class="line">  <span class="keyword">while</span>(left<=right)</span><br><span class="line">  {</span><br><span class="line">    mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
-<h3 id="树的一些基本术语"><a href="#树的一些基本术语" class="headerlink" title="树的一些基本术语"></a>树的一些基本术语</h3><ol>
+<h2 id="二分查找算法"><a href="#二分查找算法" class="headerlink" title="二分查找算法"></a>二分查找算法</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">c</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinarySearch</span><span class="params">(List Tbl,ElementType K)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">/* 在表Tb1中查找关键字为K的数据元素 */</span></span><br><span class="line">  <span class="keyword">int</span> left,right,mid,NoFound=<span class="number">-1</span>;</span><br><span class="line">  <span class="comment">/* 初始化左边界 */</span></span><br><span class="line">  left = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">/* 初始化右边界 */</span></span><br><span class="line">  right=Tbl->Length;</span><br><span class="line">  <span class="keyword">while</span>(left<=right)</span><br><span class="line">  {</span><br><span class="line">    <span class="comment">/* 计算中间元素坐标 */</span></span><br><span class="line">    mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(K<tbl->Element[mid])</tbl-></span><br><span class="line">      <span class="comment">/* 调整右边界 */</span></span><br><span class="line">      right = mid <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(K > Tbl->Element[mid])</span><br><span class="line">      <span class="comment">/* 调整左边界 */</span></span><br><span class="line">      left = mid +<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">      <span class="comment">/* 查找成功，返回数据元素的下标 */</span></span><br><span class="line">      <span class="keyword">return</span> mid;</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">/* 查找不成功，返回-1 */</span></span><br><span class="line">  <span class="keyword">return</span> NotFound;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div>
+
+<ul>
+<li>二分查找算法具有对数的时间复杂度 $O(logN)$</li>
+</ul>
+<p>11个元素的二分查找判定树</p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211222919.png" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211222919.png" class="lazyload"></a></p>
+<ul>
+<li>判定树上每个结点需要的查找次数刚好为该结点所在的层数；</li>
+<li>查找成功时查找次数不会超过判定树的深度</li>
+<li>n个结点的判定树的深度为 $[log_2N]+1$</li>
+<li>$ASL = (4<em>4+4</em>3+2*2+1)/11 = 3$</li>
+</ul>
+<h2 id="树的一些基本术语"><a href="#树的一些基本术语" class="headerlink" title="树的一些基本术语"></a>树的一些基本术语</h2><ol>
 <li>结点的度(Degree):结点的子树个数</li>
 <li>树的度:树的所有结点中最大的度数</li>
 <li>叶结点(Leaf):度为0的结点</li>
 <li>父结点(Parent):有子树的结点是其子树的根结点的父结点</li>
 <li>子结点(Child):若A结点是B结点的父结点，则称B结点是A结点的子结点；子结点也称孩子结点。</li>
 <li>兄弟结点(Sibling):具有同一父结点的各结点彼此是兄弟结点。</li>
-<li>路径和路径长度:从结点$n<em>1$到$n_K$的<code>路径</code>为一个结点序列$n_1,n_2,\cdots,n_k,n_i$是$n</em>{i+1}$的父结点。路径所包含边的个数为<code>路径的长度</code>。</li>
+<li>路径和路径长度:从结点$n_1$到$n_K$的<code>路径</code>为一个结点序列$n_1,n_2,\cdots,n_k,n_i$是$n_{i+1}$的父结点。路径所包含边的个数为<code>路径的长度</code>。</li>
 <li>祖先结点(Ancestor):沿树根到某一结点路径上的所有结点都是这个结点的祖先结点。</li>
 <li>子孙结点(Descendant):某一结点的子树中的所有结点是这个结点的子孙。</li>
 <li>结点的层次(Level):规定根结点在1层，其他任一结点的层数是其父结点的层数加1;。</li>
 <li>树的深度(Depth):树中所有结点中的最大层次是这棵树的深度。  </li>
 </ol>
-<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>二叉树T：一个有穷的结点集合。<br>这个集合可以为空<br>若不为空，则它是由根结点和称为其左子树$T_L$和右子树$T_R$的两个不相交的二叉树组成。</p>
+<h3 id="儿子-兄弟表示法"><a href="#儿子-兄弟表示法" class="headerlink" title="儿子-兄弟表示法"></a>儿子-兄弟表示法</h3><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211223812.png" data-fancybox="group" data-caption="儿子-兄弟表示法" class="fancybox"><img alt="儿子-兄弟表示法" title="儿子-兄弟表示法" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211223812.png" class="lazyload"></a></p>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><p>二叉树T：一个有穷的结点集合。<br>这个集合可以为空<br>若不为空，则它是由根结点和称为其左子树$T_L$和右子树$T_R$的两个不相交的二叉树组成。</p>
 <ul>
 <li>二叉树具体五种基本形态</li>
 </ul>
@@ -5279,7 +5338,57 @@
 <li>二叉树的子树有左右顺序之分</li>
 </ul>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200209165012.png" data-fancybox="group" data-caption="二叉树的子树有左右顺序之分" class="fancybox"><img alt="二叉树的子树有左右顺序之分" title="二叉树的子树有左右顺序之分" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200209165012.png" class="lazyload"></a></p>
-<h2 id="队列及实现"><a href="#队列及实现" class="headerlink" title="队列及实现"></a>队列及实现</h2><p>队列(Queue): 具有一定操作约束的线性表</p>
+<h2 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树"></a>特殊二叉树</h2><ul>
+<li>斜二叉树(Skewed Binary Tree)</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224305.png" data-fancybox="group" data-caption="斜二叉树" class="fancybox"><img alt="斜二叉树" title="斜二叉树" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224305.png" class="lazyload"></a></p>
+<ul>
+<li>完美二叉树(Perfect Binary Tree)<br>满二叉树(Full Binary Tree)</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224452.png" data-fancybox="group" data-caption="完美二叉树/满二叉树" class="fancybox"><img alt="完美二叉树/满二叉树" title="完美二叉树/满二叉树" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224452.png" class="lazyload"></a></p>
+<ul>
+<li>完全二叉树(Complete Binary Tree)<br>有n个结点的二叉树，对树中结点按从上至下、从左到右顺序进行编号，编号为 $i(1\le i\le n)$ 结点与满二叉树中编号为i结点在二叉树中位置相同</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>符合完美二叉树</th>
+<th>不符合完美二叉树</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224857.png" data-fancybox="group" data-caption="符合完美二叉树" class="fancybox"><img alt="符合完美二叉树" title="符合完美二叉树" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224857.png" class="lazyload"></a></td>
+<td><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224914.png" data-fancybox="group" data-caption="不符合完美二叉树" class="fancybox"><img alt="不符合完美二叉树" title="不符合完美二叉树" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/20200211224914.png" class="lazyload"></a></td>
+</tr>
+</tbody></table>
+<h2 id="二叉树几个重要性质"><a href="#二叉树几个重要性质" class="headerlink" title="二叉树几个重要性质"></a>二叉树几个重要性质</h2><ul>
+<li>一个二叉树第i层的最大结点数为：$2^{i-1},i\ge1$ 。</li>
+<li>深度为K的二叉树有最大结点总数为：$2^{k}-1,k\ge1$ 。</li>
+<li>对任何非空二叉树T，若 $n_0$ 表示叶结点的个数、 $n_2$ 是度为2的非叶结点个数，那么两者满足关系 $n_0=n_2+1$ 。</li>
+</ul>
+<h2 id="二叉树的抽象数据类型定义"><a href="#二叉树的抽象数据类型定义" class="headerlink" title="二叉树的抽象数据类型定义"></a>二叉树的抽象数据类型定义</h2><blockquote>
+<p>类型名称：二叉树<br>数据对象集：一个有穷的结点集合。<br>  若不为空，则由根结点和其左、右二叉子树组成。 </p>
+<p>操作机：$BT \in BinTree,Item \in ElementType,$ 重要操作有：  </p>
+<ol>
+<li>Boolean IsEmpty(BinTree BT): 判别BT是否为空；</li>
+<li>void Traversal(BinTree BT): 遍历，按某顺序访问每个结点；</li>
+<li>BinTree CreatBinTree(): 创建一个二叉树。</li>
+</ol>
+</blockquote>
+<p>常用的遍历方法有：</p>
+<ul>
+<li>void PreOrderTraversal(BinTree BT): 先序—-根、左子树、右子树；</li>
+<li>void InOrderTraversal(BinTree BT): 中序—-左子树、根、右子树；</li>
+<li>void PostOrderTraversal(BinTree BT): 后序—-左子树、右子树、根；</li>
+<li>void LevelOrderTraversal(BinTree BT): 层次遍历，从上到下、从左到右</li>
+</ul>
+<h2 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h2><p>1.顺序存储结构<br>完全二叉树：按从上至下、从左到右顺序存储，n个结点的完全二叉树的结点父子关系：  </p>
+<ul>
+<li>非根结点(序号i>1)的父结点的序号是[ i/2 ]；</li>
+<li>结点(序号为i)的左孩子结点的序号是2i，(若 $2i\le n,$ 否则没有左孩子)；</li>
+<li>结点(序号为i)的右孩子结点的序号是 2i+1,(若$2i+1\le n$,否则没有右孩子)；</li>
+</ul>
+<h1 id="队列及实现"><a href="#队列及实现" class="headerlink" title="队列及实现"></a>队列及实现</h1><p>队列(Queue): 具有一定操作约束的线性表</p>
 <ul>
 <li>插入和删除操作： 只能在一端插入，而在另一端删除。</li>
 </ul>
@@ -12477,36 +12586,40 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>Manjaro系统优化</title>
     <url>/OperationSystem/Linux/Manjaro/Manjaro%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Manjaro系统使用过程中，总会感觉有诸多不便，还是需要我们手动优化一下才更好的运行。</p>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Manjaro系统使用过程中，总会感觉有诸多不便，还是需要我们手动优化一下才更好的运行。</p>
 <hr>
-<h1 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h1><h2 id="Manjaro-清理垃圾"><a href="#Manjaro-清理垃圾" class="headerlink" title="Manjaro 清理垃圾"></a>Manjaro 清理垃圾</h2><h3 id="清除系统中无用的包"><a href="#清除系统中无用的包" class="headerlink" title="清除系统中无用的包"></a>清除系统中无用的包</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -R $(pacman -Qdtq)</span><br></pre></td></tr></table></figure></div>
+<h1 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h1><h2 id="Manjaro-清理垃圾"><a href="#Manjaro-清理垃圾" class="headerlink" title="Manjaro 清理垃圾"></a>Manjaro 清理垃圾</h2><h3 id="清除系统中无用的包"><a href="#清除系统中无用的包" class="headerlink" title="清除系统中无用的包"></a>清除系统中无用的包</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo pacman -R $(pacman -Qdtq)</span><br></pre></td></tr></tbody></table></figure></div>
 
-<h3 id="清除已下载的安装包"><a href="#清除已下载的安装包" class="headerlink" title="清除已下载的安装包"></a>清除已下载的安装包</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -Scc</span><br></pre></td></tr></table></figure></div>
+<h3 id="清除已下载的安装包"><a href="#清除已下载的安装包" class="headerlink" title="清除已下载的安装包"></a>清除已下载的安装包</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo pacman -Scc</span><br></pre></td></tr></tbody></table></figure></div>
 
 <h3 id="日志垃圾"><a href="#日志垃圾" class="headerlink" title="日志垃圾"></a>日志垃圾</h3><p>查看日志文件</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">du -t 100M /var</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">du -t 100M /var</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>或</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">journalctl --disk-usage</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">journalctl --disk-usage</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>删除指定大小日志文件</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo journalctl --vacuum-size=50M</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo journalctl --vacuum-size=50M</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>崩溃日志</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rm /var/lib/systemd/coredump/*</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">sudo rm /var/lib/systemd/coredump/*</span><br></pre></td></tr></tbody></table></figure></div>
 
 <hr>
 <h2 id="关闭baloo搜索服务"><a href="#关闭baloo搜索服务" class="headerlink" title="关闭baloo搜索服务"></a>关闭baloo搜索服务</h2><p>系统用着用着突然卡顿了起来，打开 系统卫士 查看系统进程，发现一个baloo系列的进程占用了过多的CPU跟内存资源，可能是某次系统更新打通了它的任督二脉，让我们来关他禁闭。</p>
 <p>打开目录 <code>/home/tamsiree/.config/</code> ，找到 <code>baloofilerc</code> 文件</p>
 <p>编辑修改选项 ：</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Basic Settings]</span><br><span class="line">Indexing-Enabled&#x3D;false</span><br></pre></td></tr></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">[Basic Settings]</span><br><span class="line">Indexing-Enabled=false</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h2 id="pacman开启多线程"><a href="#pacman开启多线程" class="headerlink" title="pacman开启多线程"></a>pacman开启多线程</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">XferCommand = /usr/bin/axel -n 16 %u -o %o</span><br></pre></td></tr></tbody></table></figure></div>
+
+<h2 id="yay开启多线程"><a href="#yay开启多线程" class="headerlink" title="yay开启多线程"></a>yay开启多线程</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">DLAGENTS=(<span class="string">'file::/usr/bin/axel -a -n 16 %u -o %o'</span></span><br><span class="line">	<span class="string">'ftp::/usr/bin/axel -a -n 16 %u -o %o'</span></span><br><span class="line">	<span class="string">'http::/usr/bin/axel -a -n 16 %u -o %o'</span></span><br><span class="line">	<span class="string">'https::/usr/bin/axel -a -n 16 %u -o %o'</span></span><br><span class="line">          <span class="string">'rsync::/usr/bin/rsync --no-motd -z %u %o'</span></span><br><span class="line">          <span class="string">'scp::/usr/bin/scp -C %u %o'</span>)</span><br></pre></td></tr></tbody></table></figure></div>
 
 
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-]]></content>
+</body></html>]]></content>
       <categories>
         <category>OperationSystem</category>
         <category>Linux</category>
@@ -12996,7 +13109,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <h1 id="pacman"><a href="#pacman" class="headerlink" title="pacman"></a>pacman</h1><p>包管理工具pacman非常强大，常见用法需要学习一下：</p>
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pacman -S package_name        <span class="comment"># 安装软件</span></span><br><span class="line">pacman -S extra/package_name  <span class="comment"># 安装不同仓库中的版本</span></span><br><span class="line">pacman -Syu                   <span class="comment"># 升级整个系统，y是更新数据库，yy是强制更新，u是升级软件</span></span><br><span class="line">pacman -Ss string             <span class="comment"># 在包数据库中查询软件</span></span><br><span class="line">pacman -Si package_name       <span class="comment"># 显示软件的详细信息</span></span><br><span class="line">pacman -Sc                    <span class="comment"># 清除软件缓存，即/var/cache/pacman/pkg目录下的文件</span></span><br><span class="line">pacman -R package_name        <span class="comment"># 删除单个软件</span></span><br><span class="line">pacman -Rs package_name       <span class="comment"># 删除指定软件及其没有被其他已安装软件使用的依赖关系</span></span><br><span class="line">pacman -Qs string             <span class="comment"># 查询已安装的软件包</span></span><br><span class="line">pacman -Qi package_name       <span class="comment"># 查询本地安装包的详细信息</span></span><br><span class="line">pacman -Ql package_name       <span class="comment"># 获取已安装软件所包含的文件的列表</span></span><br><span class="line">pacman -U package.tar.zx      <span class="comment"># 从本地文件安装</span></span><br><span class="line">pactree package_name          <span class="comment"># 显示软件的依赖树</span></span><br></pre></td></tr></tbody></table></figure></div>
 
-
+<h1 id="yay"><a href="#yay" class="headerlink" title="[yay]"></a><a href="https://github.com/Jguer/yay" target="_blank" rel="noopener"><code>[yay]</code></a></h1><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">yay -Yc <span class="comment">#清理不需要的依赖</span></span><br><span class="line">yay -R <package_name> <span class="comment">#删除软件包</span></package_name></span><br><span class="line">yay -Scc <span class="comment">#清理缓存</span></span><br></pre></td></tr></tbody></table></figure></div>
 
 <hr>
 <blockquote>
@@ -21568,11 +21681,11 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>Android单元测试</title>
-    <url>/TechnicalResearch/UnitTest/Android/Android%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+    <url>/TechnicalResearch/Android/UnitTest/Android%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>软件测试作为软件质量的保障，有着十分重要的意义。<br>按照不同的层次划分，测试也有着诸多的种类。<br>按照测试方式分，有白盒测试、黑盒测试、灰盒测试。<br>按照测试范围或流程来分，有单元测试、集成测试与系统测试等。<br>其中，应用覆盖面最广、也是最为基础的就是 <strong>单元测试</strong> 。</p>
 </blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/985329319719b5c142e7af27ab32eb41_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/985329319719b5c142e7af27ab32eb41_hd.jpg" class="lazyload" title></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/985329319719b5c142e7af27ab32eb41_hd.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/985329319719b5c142e7af27ab32eb41_hd.jpg" class="lazyload"></a></p>
 <hr>
 <h1 id="何为单元测试"><a href="#何为单元测试" class="headerlink" title="何为单元测试"></a>何为单元测试</h1><p>单元测试（Unit Test）又被称为模块测试，是针对程序中最小可测试单元来进行测试的活动。<br>一般来讲，在如今的软件开发工程中，是指对程序中方法（或称函数）的测试。<br>通过为这个方法构造初始化的条件，并运行这个方法，看这个方法的行为是否与预期的一致，以此来决定该方法是否正常。</p>
 <hr>
@@ -21635,10 +21748,10 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </ul>
 <p>实际上，在这类测试过程中是编译了一个额外的 <strong>Apk</strong> 文件，并安装到手机或模拟器中运行的。</p>
 <hr>
-<h1 id="测试框架"><a href="#测试框架" class="headerlink" title="测试框架"></a>测试框架</h1><h2 id="测试框架的介绍"><a href="#测试框架的介绍" class="headerlink" title="测试框架的介绍"></a>测试框架的介绍</h2><h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><p><a href="http://img.mp.itc.cn/upload/20170601/21bc4cc5fd924b16b29be4880f9cfeab_th.jpg" data-fancybox="group" data-caption="JUnit 5" class="fancybox"><img alt="JUnit 5" data-src="http://img.mp.itc.cn/upload/20170601/21bc4cc5fd924b16b29be4880f9cfeab_th.jpg" class="lazyload" title="JUnit 5"></a></p>
+<h1 id="测试框架"><a href="#测试框架" class="headerlink" title="测试框架"></a>测试框架</h1><h2 id="测试框架的介绍"><a href="#测试框架的介绍" class="headerlink" title="测试框架的介绍"></a>测试框架的介绍</h2><h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><p><a href="http://img.mp.itc.cn/upload/20170601/21bc4cc5fd924b16b29be4880f9cfeab_th.jpg" data-fancybox="group" data-caption="JUnit 5" class="fancybox"><img alt="JUnit 5" title="JUnit 5" data-src="http://img.mp.itc.cn/upload/20170601/21bc4cc5fd924b16b29be4880f9cfeab_th.jpg" class="lazyload"></a></p>
 <p>JUnit是为Java编程语言设计的单元测试框架。JUnit在测试驱动开发框架的开发中发挥了重要作用。它是单元测试框架之一，统称为由SUnit起源的xUnit。</p>
 <hr>
-<h3 id="Mockito"><a href="#Mockito" class="headerlink" title="Mockito"></a>Mockito</h3><p><a href="http://img.mp.itc.cn/upload/20170601/34c2bae3fea44fd9a2ec54c7447207d5.jpg" data-fancybox="group" data-caption="Mockito" class="fancybox"><img alt="Mockito" data-src="http://img.mp.itc.cn/upload/20170601/34c2bae3fea44fd9a2ec54c7447207d5.jpg" class="lazyload" title="Mockito"></a></p>
+<h3 id="Mockito"><a href="#Mockito" class="headerlink" title="Mockito"></a>Mockito</h3><p><a href="http://img.mp.itc.cn/upload/20170601/34c2bae3fea44fd9a2ec54c7447207d5.jpg" data-fancybox="group" data-caption="Mockito" class="fancybox"><img alt="Mockito" title="Mockito" data-src="http://img.mp.itc.cn/upload/20170601/34c2bae3fea44fd9a2ec54c7447207d5.jpg" class="lazyload"></a></p>
 <p>Mockito被设计为用于Java的开源测试框架，MIT许可证。Mockito允许程序员为了测试驱动开发（TDD）或行为驱动开发（BDD）而在自动化单元测试中创建和测试双对象（Mock对象）。</p>
 <hr>
 <h3 id="AndroidJUnitRunner"><a href="#AndroidJUnitRunner" class="headerlink" title="AndroidJUnitRunner"></a>AndroidJUnitRunner</h3><p>AndroidJUnitRunner，Google官方的android单元测试框架之一，适用于 Android 且与 JUnit 4 兼容的测试运行器！测试运行器可以将测试软件包和要测试的应用加载到设备、运行测试并报告测试结果。<br>此测试运行器的主要功能包括：</p>
@@ -21667,11 +21780,11 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-]]></content>
+</body></html>]]></content>
       <categories>
         <category>TechnicalResearch</category>
-        <category>UnitTest</category>
         <category>Android</category>
+        <category>UnitTest</category>
       </categories>
       <tags>
         <tag>Android</tag>
@@ -27537,7 +27650,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   <entry>
     <title>黄金屋</title>
     <url>/book/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><blockquote>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><blockquote>
 <p>现在的我们只要离开电脑和手机就六神无主坐立不安，需要下决心改变这种浮躁的心态，读书，是最快捷的成长方式。</p>
 </blockquote>
 <p><a href="http://5b0988e595225.cdn.sohucs.com/images/20170827/9d083b9299234c5c8df365f7139932ec.gif" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="http://5b0988e595225.cdn.sohucs.com/images/20170827/9d083b9299234c5c8df365f7139932ec.gif" class="lazyload"></a></p>
@@ -27577,11 +27690,25 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </tbody></table>
 <h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>朋友推荐的书单</p>
 <p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/mmexport1577620625088.jpg" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/mmexport1577620625088.jpg" class="lazyload"></a></p>
+<h1 id="专业书籍"><a href="#专业书籍" class="headerlink" title="专业书籍"></a>专业书籍</h1><table>
+<thead>
+<tr>
+<th align="center">书名</th>
+<th align="center">作者</th>
+<th align="center">封面</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">数据结构与算法图解</td>
+<td align="center">[美]杰伊•温格罗</td>
+<td align="center"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" data-fancybox="group" data-caption="数据结构与算法图解 - [美]杰伊•温格罗" class="fancybox"><img height="20" width="15" alt="数据结构与算法图解 - [美]杰伊•温格罗" title="数据结构与算法图解 - [美]杰伊•温格罗" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Book/20191229200936.png" class="lazyload"></a></td>
+</tr>
+</tbody></table>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-]]></content>
+</body></html>]]></content>
   </entry>
   <entry>
     <title>寻龙尺</title>

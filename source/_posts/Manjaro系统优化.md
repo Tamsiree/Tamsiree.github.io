@@ -66,6 +66,23 @@ sudo rm /var/lib/systemd/coredump/*
 Indexing-Enabled=false
 ```
 
+## pacman开启多线程
+
+```bash
+XferCommand = /usr/bin/axel -n 16 %u -o %o
+```
+
+## yay开启多线程
+
+```bash
+DLAGENTS=('file::/usr/bin/axel -a -n 16 %u -o %o'
+	'ftp::/usr/bin/axel -a -n 16 %u -o %o'
+	'http::/usr/bin/axel -a -n 16 %u -o %o'
+	'https::/usr/bin/axel -a -n 16 %u -o %o'
+          'rsync::/usr/bin/rsync --no-motd -z %u %o'
+          'scp::/usr/bin/scp -C %u %o')
+```
+
 
 ---
 > to be continued...
