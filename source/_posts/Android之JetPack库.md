@@ -6,6 +6,7 @@ description: 最近好几个小伙伴问我什么是**Android JetPack**，听说
 tags:
   - TechnicalResearch
   - Android
+  - JetPack
 categories:
   - TechnicalResearch
   - Android
@@ -24,7 +25,7 @@ Room: 官方的ORM库（个人认为比GreenDao好用）ViewModel/LiveData：生
 
 一张图来看看Google对JetPack有多看重
 
-![](https://upload-images.jianshu.io/upload_images/636954-4718fd5832dda024?imageMogr2/auto-orient/strip|imageView2/2/w/1006/format/webp)
+![](636954-4718fd5832dda024.webp)
 
 # 一、**那JetPack到底是啥呢？**
 
@@ -34,7 +35,7 @@ Jetpack 是一套库、工具和指南，可帮助开发者更轻松地编写优
 
 # 二、JetPack里的组件
 
-![](https://upload-images.jianshu.io/upload_images/636954-729fe067ddf62ef8?imageMogr2/auto-orient/strip|imageView2/2/w/640/format/webp)
+![](636954-729fe067ddf62ef8.webp)
 
 上图就是JetPack中包含的组件列表，每个组件都是相对独立的，可以被单独使用和构建。其中像被介绍的最多，也是最常被使用的LiveData, ViewModel, Room, Navigation, WorkManager之类的都发布了正式版，而**CameraX**, Compose之类的还处在Alpha版本，未正式发布，官方并不建议在生产环境中使用。
 
@@ -63,7 +64,7 @@ Android Jetpack组件围绕现代化设计实践构建而成，具有向后兼�
 
 下图是Jetpack的分类。
 
-![](https://upload-images.jianshu.io/upload_images/1417629-accd8be7a6cf03f0?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](1417629-accd8be7a6cf03f0.webp)
 
 谷歌仍旧不断的完善Android Jetpack，截至到2019年8月已经有很多新加的组件并没有显示在上图中，比如CameraX等。Android Jetpack分类有4种，分别是Architecture、Foundationy、Behavior、UI，下面分别介绍下。
 
@@ -88,7 +89,7 @@ Navigation:处理应用内导航。
 
 官方推荐的Android应用架构如下图所示。
 
-![](https://upload-images.jianshu.io/upload_images/1417629-5811fbd287c2f453?imageMogr2/auto-orient/strip|imageView2/2/w/960/format/webp)
+![](1417629-5811fbd287c2f453.webp)
 
 这些架构组件既可以配合使用，也可以单独使用，这里建议还是尽量按照官方推荐的来。
 
@@ -131,23 +132,21 @@ Navigation:处理应用内导航。
 
 在项目build.gradle中添加google() 库，如下所示。
 
-```undefined
+```gradle
   allprojects {
         repositories {
             google()
             jcenter()
         }
     }
-
 ```
 
 如果想引入Room，可以在模块build.gradle中这么写：
 
-```css
+```gradle
     implementation   "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor   "android.arch.persistence.room:compiler:1.1.1 "
     androidTestImplementation  "android.arch.persistence.room:testing:1.1.1"
-
 ```
 
 # **总结**

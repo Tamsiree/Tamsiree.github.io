@@ -17,7 +17,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1c3
 # 正文
 
 
-![](https://upload-images.jianshu.io/upload_images/1095900-b740026db5b545ba.png?imageMogr2/auto-orient/strip|imageView2/2/w/908/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-b740026db5b545ba.webp)
 
 > 当你好不容易学会了某个框架或者工具，觉得它很好用的时候，它或许就要过时了。
 
@@ -49,17 +49,17 @@ Android 原生开发的生态系统变化得非常快。至少在过去的五年
 
 看看例子，开发者“赞誉”：
 
-![](https://upload-images.jianshu.io/upload_images/1095900-6e09d340798bc752?imageMogr2/auto-orient/strip|imageView2/2/w/1080/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-6e09d340798bc752.webp)
 
 或者“信赖应用”列表：
 
-![](https://upload-images.jianshu.io/upload_images/1095900-57e748ebf4d4215f?imageMogr2/auto-orient/strip|imageView2/2/w/1080/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-57e748ebf4d4215f.webp)
 
 这些在市场公关层面更受关注，如果 Jetpack 在 2020 年申请独立 IPO，我都不会感到惊讶。
 
 不过，说真的，尝试向自己生态系统内的开发者“销售”API 的想法，我觉得存在一些问题，比如说，谁会想看搜索出来第一个就是 ViewModel 广告呢？
 
-![](https://upload-images.jianshu.io/upload_images/1095900-0f7fc726bc069f4f?imageMogr2/auto-orient/strip|imageView2/2/w/847/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-0f7fc726bc069f4f.webp)
 
 总而言之，Jetpack 只是 AndroidX 库的一个聚合，所以在前面写到的 AndroidX 的内容，在很大的程度上也适用于 Jetpack。在后面的内容中，我将单独讨论其中一些 API。
 
@@ -153,7 +153,7 @@ Gabor Varadi（又叫 Zhuinden）在 Reddit 论坛中描述了 ViewModel 引入�
 
 在帖子的末尾，Gabor 作了一些预测：
 
-![](https://upload-images.jianshu.io/upload_images/1095900-3e19af393ababcf5?imageMogr2/auto-orient/strip|imageView2/2/w/1080/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-3e19af393ababcf5.webp)
 
 你知道吗？Fragment 状态保存的方法已经被弃用了。
 
@@ -181,7 +181,7 @@ Gabor Varadi（又叫 Zhuinden）在 Reddit 论坛中描述了 ViewModel 引入�
 
 **RxJava，是一个 Andorid 中常见的多线程框架。但是它现在将逐渐退出历史的舞台。**从 StackOverflow 的趋势图可以看出：
 
-![](https://upload-images.jianshu.io/upload_images/1095900-5c34315e36b66374?imageMogr2/auto-orient/strip|imageView2/2/w/974/format/webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-5c34315e36b66374.webp)
 
 很多开发者对这个说法提出了质疑，他们反驳说这个数据不具有代表性，并且我们可以找到其它的理由来解释图上所发生的事情。他们所说可能是正确的，我个人本身也不是数据科学家。但是从图中我们可以看到，RxJava 与 AsnycTask 有相同的斜率。
 
@@ -246,7 +246,7 @@ Google 在 Android 框架中所做的事情，会导致大量的时间浪费。�
 ---
 
 > 作者：Vasiliy Zukanov，独立 Android 开发及软件顾问  
-> 链接：[https://www.techyourchance.com/the-state-of-native-android-development-november-2019/](https://links.jianshu.com/go?to=https%3A%2F%2Fwww.techyourchance.com%2Fthe-state-of-native-android-development-november-2019%2F)  
+> 链接：[https://www.techyourchance.com/the-state-of-native-android-development-november-2019](https://links.jianshu.com/go?to=https%3A%2F%2Fwww.techyourchance.com%2Fthe-state-of-native-android-development-november-2019)  
 > 译者：罗昭成，Android 开发者
 
 ---

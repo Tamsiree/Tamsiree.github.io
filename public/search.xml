@@ -4,7 +4,7 @@
     <title>Android原生开发现状分析</title>
     <url>/TechnicalResearch/Android/Android%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>许多 Android 开发者经常会问我，要学会哪些东西才能成为一个优秀的 Android 工程师？对于这个问题，他们的描述或多或少都有些差异。但是，总体来说，我们都需要学习一系列的技能，才能成为一个优秀的 Android 工程师。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><a href="https://upload-images.jianshu.io/upload_images/1095900-b740026db5b545ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/908/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1095900-b740026db5b545ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/908/format/webp" class="lazyload"></a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-b740026db5b545ba.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-b740026db5b545ba.webp" class="lazyload"></a></p>
 <blockquote>
 <p>当你好不容易学会了某个框架或者工具，觉得它很好用的时候，它或许就要过时了。</p>
 </blockquote>
@@ -20,12 +20,12 @@
 <h2 id="Jetpack"><a href="#Jetpack" class="headerlink" title="Jetpack"></a><strong>Jetpack</strong></h2><p>在讨论 AndroidX 过后，还必须要提到 Jetpack。在我的印象中，Jetpack 开始是作为“架构组件”的一把保护伞推出的。但是到后面，引入了几乎所有关于 AndroidX 的 API。因此，现在来看，我们看不到它与 AndroidX 之间的任何区别，除了 Marketing 和 PR（即市场和公关）。</p>
 <p>当你查看 Jetpack 主页[2]时，会发现，这个页面并不是一个技术文档页面。这个更像是一个早期的 SaaS 页面。</p>
 <p>看看例子，开发者“赞誉”：</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1095900-6e09d340798bc752?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1095900-6e09d340798bc752?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/format/webp" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-6e09d340798bc752.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-6e09d340798bc752.webp" class="lazyload"></a></p>
 <p>或者“信赖应用”列表：</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1095900-57e748ebf4d4215f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1095900-57e748ebf4d4215f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/format/webp" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-57e748ebf4d4215f.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-57e748ebf4d4215f.webp" class="lazyload"></a></p>
 <p>这些在市场公关层面更受关注，如果 Jetpack 在 2020 年申请独立 IPO，我都不会感到惊讶。</p>
 <p>不过，说真的，尝试向自己生态系统内的开发者“销售”API 的想法，我觉得存在一些问题，比如说，谁会想看搜索出来第一个就是 ViewModel 广告呢？</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1095900-0f7fc726bc069f4f?imageMogr2/auto-orient/strip%7CimageView2/2/w/847/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1095900-0f7fc726bc069f4f?imageMogr2/auto-orient/strip%7CimageView2/2/w/847/format/webp" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-0f7fc726bc069f4f.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-0f7fc726bc069f4f.webp" class="lazyload"></a></p>
 <p>总而言之，Jetpack 只是 AndroidX 库的一个聚合，所以在前面写到的 AndroidX 的内容，在很大的程度上也适用于 Jetpack。在后面的内容中，我将单独讨论其中一些 API。</p>
 <h2 id="后台作业"><a href="#后台作业" class="headerlink" title="后台作业"></a><strong>后台作业</strong></h2><p>在 Android 应用程序不在前台执行逻辑时，你可以有很多种方式来实现后台运行，这也是 Android 动态化的用例之一。如果你不引入 doze , SyncAdapter , CGMNetworkManager , FirebaseJobDispatcher , JobScheuler 和最近的 WorkManager，可以使用常规的启动服务（非绑定服务）来实现。这些都是 Google 提供的 API ， 我可以说出所有的使用方式。当然，还有一些第三方库可以使用， 例如：Android-Job。</p>
 <p>不过，Google 最近宣布，他们将围绕 WorkManager 来统一后台任务调度[3]。这听起来非常棒，我再也不用学习那么多后台调度的知识了，只是，不知道为什么，我好像以前在哪儿听到过这句话……</p>
@@ -69,7 +69,7 @@
 <h2 id="状态保存"><a href="#状态保存" class="headerlink" title="状态保存"></a><strong>状态保存</strong></h2><p>自从引入 ViewModel 架构组件以来，在 Android 应用程序中，当配置发生更改，保存与恢复状态的逻辑，就变成了一个烂摊子，没有人去管理。虽然这样子说有点过分，但是我觉得，这已经是我最温和的表达方式了。</p>
 <p>Gabor Varadi（又叫 Zhuinden）在 Reddit 论坛中描述了 ViewModel 引入带来的问题，我不需要再去写一遍了。再次强调，不推荐使用 onRetainCustomNonConfigurationInstance()，推荐使用 ViewModel。</p>
 <p>在帖子的末尾，Gabor 作了一些预测：</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1095900-3e19af393ababcf5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1095900-3e19af393ababcf5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/format/webp" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-3e19af393ababcf5.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-3e19af393ababcf5.webp" class="lazyload"></a></p>
 <p>你知道吗？Fragment 状态保存的方法已经被弃用了。</p>
 <p>在我看来，废弃 Fragment 状态保存的方法是非常好的主意，众所周知， Fragment 的 onAttach() 和 onDetach() 方法就是为了支持状态保存的，现在废弃了状态保存的方法，那这两个方法也可以被废弃掉，并且这样子可以简化 Fragment 的生命周期。我长期以来都建议不保存 Fragments 的状态，忽略掉 onAttach 和 onDetach 方法，和我之前写的处理 Framgent 生命周期方法一致[12]。</p>
 <p>尽管有很多理由表明，要废弃掉 Fragment 的状态保存，但是也不可能废弃掉 onRetainCustomNonConfigurationInstance()，这个可不是我说的，是 Jake Wharton 说的。在上面 Gabor 的帖子上，他的回复获得了最多的点赞。虽然我不太赞成 Jake 所说的话，但是我找不到更好的理由去说服自己。这个方法和 ViewModel 后台使用的原理完全一致，完全没有理由废弃掉它。</p>
@@ -82,7 +82,7 @@
 <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a><strong>并发</strong></h2><p>在 Android 并发编程中，一个重要的 API 就是 AsyncTask， 不过它现在已经被弃用掉了。我之前已经写过很详细的文章分析过它了[14]，在这里，将不再赘述。</p>
 <p>下面我要说的内容，有可能会伤害很多读者，但是，请不要“恨”我。</p>
 <p><strong>RxJava，是一个 Andorid 中常见的多线程框架。但是它现在将逐渐退出历史的舞台。</strong>从 StackOverflow 的趋势图可以看出：</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1095900-5c34315e36b66374?imageMogr2/auto-orient/strip%7CimageView2/2/w/974/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1095900-5c34315e36b66374?imageMogr2/auto-orient/strip%7CimageView2/2/w/974/format/webp" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-5c34315e36b66374.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-5c34315e36b66374.webp" class="lazyload"></a></p>
 <p>很多开发者对这个说法提出了质疑，他们反驳说这个数据不具有代表性，并且我们可以找到其它的理由来解释图上所发生的事情。他们所说可能是正确的，我个人本身也不是数据科学家。但是从图中我们可以看到，RxJava 与 AsnycTask 有相同的斜率。</p>
 <p><strong>如果你没有时间去学习 RxJava 如何使用，并且你的项目中也没有使用过 RxJava，我建议你不要在你的项目中使用 RxJava。</strong>事实上，我也一直不推荐使用 RxJava ，现在已经有数据支持我的这个观点了。</p>
 <p>如果你的项目中使用了 RxJava，你也不用慌张，不需要紧急去重构你的项目。如果你的项目只有你一个人，或者整个项目组成员基本不会变动，保持项目现状就好了。但是你需要记住，<strong>以后要招具有 RxJava 开发经验的人会越来越困难，新招开发人员可能需要学习使用 RxJava。</strong>广泛使用 RxJava 的项目，在以后也会被认为”不酷”，就像今天还在使用 AsyncTask 和 Loader 的项目一样。</p>
@@ -112,7 +112,7 @@
 <p>当程序员容易，当一个优秀的程序员是需要不断学习的，从初级程序员到高级程序员，从初级架构师到资深架构师，或者走向管理，从技术经理到技术总监，每个阶段都需要掌握不同的能力。早早确定自己的职业方向，才能在工作和能力提升中甩开同龄人。</p>
 <hr>
 <blockquote>
-<p>作者：Vasiliy Zukanov，独立 Android 开发及软件顾问<br>链接：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.techyourchance.com%2Fthe-state-of-native-android-development-november-2019%2F" target="_blank" rel="noopener">https://www.techyourchance.com/the-state-of-native-android-development-november-2019/</a><br>译者：罗昭成，Android 开发者</p>
+<p>作者：Vasiliy Zukanov，独立 Android 开发及软件顾问<br>链接：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.techyourchance.com%2Fthe-state-of-native-android-development-november-2019" target="_blank" rel="noopener">https://www.techyourchance.com/the-state-of-native-android-development-november-2019</a><br>译者：罗昭成，Android 开发者</p>
 </blockquote>
 <hr>
 <blockquote>
@@ -129,6 +129,46 @@
       </tags>
   </entry>
   <entry>
+    <title>Android之Room库的使用</title>
+    <url>/TechnicalResearch/Android/Room/Android%E4%B9%8BRoom%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近疫情待在家里，想着没事就做一个APP练练手，需要用到数据库的本地化方案，便尝试深入了解以下 Google官方的ORM库 <code>Room</code>，配置和使用还算比较简单，没用过的可以查看 <a href="https://developer.android.google.cn/training/data-storage/room/" target="_blank" rel="noopener">官方文档</a>,上手还算比较容易。可以参考Google官方在GitHub上的示例库 <a href="https://codelabs.developers.google.com/codelabs/android-room-with-a-view/" target="_blank" rel="noopener">[Android Room with a View]</a> ,一步一步非常清晰的展现了框架的架构与流程。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="问题归纳"><a href="#问题归纳" class="headerlink" title="问题归纳"></a>问题归纳</h1><blockquote>
+<p>新入手的库当然会遇到坑的啦！  </p>
+</blockquote>
+<h2 id="模糊查询的Sql语句拼写问题"><a href="#模糊查询的Sql语句拼写问题" class="headerlink" title="模糊查询的Sql语句拼写问题"></a>模糊查询的Sql语句拼写问题</h2><p>本来一切增删改查都进行的很顺利，然后 APP 中有一个模糊搜索的功能。<br>例如查找 person 表中 name 或者 name_pinyin 包含某字符串的所有用户，一般sql语句是这样</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">sql</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">From</span> person <span class="keyword">Where</span> <span class="keyword">Name</span> <span class="keyword">Like</span> %<span class="keyword">name</span>% <span class="keyword">OR</span> Name_Pinyin <span class="keyword">Like</span> %name_pinyin%</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>在Android端里面一般用的数据库都是注解 @query ，后面拼上需要查询的语句，当然每个数据库框架要求的格式可能不一样，但是最终编译成的最终语句肯定是上面那种格式的。</p>
+<p>终于，皇天不负有心人，最终经一个群里大佬提醒以及在Stack Overflow上面搜了一下，找到了最终答案，应该是这样的</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@Query</span>(<span class="string">"SELECT * FROM person WHERE Name LIKE '%' || :name || '%' OR Name_Pinyin LIKE '%' || :name_pinyin || '%'"</span>)</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>原来是用双竖杠去拼接，而不是加号,在sql语句拼接中:</p>
+<blockquote>
+<p>在SQL中的SELECT语句中，可使用一个特殊的操作符来拼接两个列。<br>根据你所使用的DBMS，此操作符可用加号（+）或两个竖杠（||）表示。<br>在MySQL和MariaDB中，必须使用特殊的函数。<br>说明：是+还是||？<br>Access和SQL Server使用+号。DB2、Oracle、PostgreSQL、SQLite和Open Office Base使用||。详细请参阅具体的DBMS文档。</p>
+</blockquote>
+<p><code>Stack Overflow</code>上的评论：  </p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/2998957-75ac0ad97fecc0c4.webp" data-fancybox="group" data-caption="Stack Overflow" class="fancybox"><img alt="Stack Overflow" title="Stack Overflow" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/2998957-75ac0ad97fecc0c4.webp" class="lazyload"></a></p>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="https://www.jianshu.com/p/cfde3535233d" target="_blank" rel="noopener">[<code>Android—Room数据库（介绍）</code>]</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</body></html>]]></content>
+      <categories>
+        <category>TechnicalResearch</category>
+        <category>Android</category>
+        <category>Room</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>TechnicalResearch</tag>
+        <tag>Room</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android之JetPack库</title>
     <url>/TechnicalResearch/Android/Android%E4%B9%8BJetPack%E5%BA%93/</url>
     <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近好几个小伙伴问我什么是<strong>Android JetPack</strong>，听说这个包好像有点牛，你会不？</p>
@@ -137,12 +177,12 @@
 <p>Room: 官方的ORM库（个人认为比GreenDao好用）ViewModel/LiveData：生命周期管理工具，自此Android才真正的应用上了MVVM（BTW，DataBinding也归到了JetPack里）</p>
 <p>在2018年，AndroidX横空出世，并且从1开始，意图取代经常自己打自己脸的Support Lib。</p>
 <p>一张图来看看Google对JetPack有多看重</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/636954-4718fd5832dda024?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/636954-4718fd5832dda024?imageMogr2/auto-orient/strip%7CimageView2/2/w/1006/format/webp" class="lazyload"></a></p>
+<p><a href="636954-4718fd5832dda024.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="636954-4718fd5832dda024.webp" class="lazyload"></a></p>
 <h1 id="一、那JetPack到底是啥呢？"><a href="#一、那JetPack到底是啥呢？" class="headerlink" title="一、那JetPack到底是啥呢？"></a>一、<strong>那JetPack到底是啥呢？</strong></h1><blockquote>
 <p>Jetpack is a suite of libraries, tools, and guidance to help developers write high-quality apps easier. These components help you follow best practices, free you from writing boilerplate code, and simplify complex tasks, so you can focus on the code you care about.</p>
 </blockquote>
 <p>Jetpack 是一套库、工具和指南，可帮助开发者更轻松地编写优质应用。这些组件可帮助您遵循最佳做法、让您摆脱编写样板代码的工作并简化复杂任务，以便您将精力集中放在所需的代码上。</p>
-<h1 id="二、JetPack里的组件"><a href="#二、JetPack里的组件" class="headerlink" title="二、JetPack里的组件"></a>二、JetPack里的组件</h1><p><a href="https://upload-images.jianshu.io/upload_images/636954-729fe067ddf62ef8?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/636954-729fe067ddf62ef8?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" class="lazyload"></a></p>
+<h1 id="二、JetPack里的组件"><a href="#二、JetPack里的组件" class="headerlink" title="二、JetPack里的组件"></a>二、JetPack里的组件</h1><p><a href="636954-729fe067ddf62ef8.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="636954-729fe067ddf62ef8.webp" class="lazyload"></a></p>
 <p>上图就是JetPack中包含的组件列表，每个组件都是相对独立的，可以被单独使用和构建。其中像被介绍的最多，也是最常被使用的LiveData, ViewModel, Room, Navigation, WorkManager之类的都发布了正式版，而<strong>CameraX</strong>, Compose之类的还处在Alpha版本，未正式发布，官方并不建议在生产环境中使用。</p>
 <p>然后说下，JetPack所有的组件都是基于AndroidX构建的，如果想在项目中使用JetPack需要先将项目中对Support Lib的依赖全部换成<strong>AndroidX</strong>。</p>
 <p>Android目前已经发展了11年，可以说是比较成熟的技术了，一开始时框架很少，也没有什么规范，所有的代码都是要自己写，比如网络请求，数据库请求，数据解析等等。后来出现了一些框架来帮助开发者快速进行开发，比如XUtils、Volley、OKHttp、EventBus等，随着框架越来越多，一个应用可以有多种技术选型，直接导致应用开发越来越不规范，导致做出来的应用质量参差不齐，这显然不是谷歌想看到的。谷歌随后推出了MVP和MVVM相关的官方例子，效果很一般，而且覆盖面只是在架构上，Goole I/O 2018大会上推出的Android Jetpack有望解决以上的问题。</p>
@@ -152,7 +192,7 @@
 <p><strong>2.消除样板代码</strong><br>Android Jetpack可管理繁琐的Activity（如后台任务、导航和生命周期管理）。</p>
 <p><strong>3.构建高质量的强大应用</strong><br>Android Jetpack组件围绕现代化设计实践构建而成，具有向后兼容性，可以减少崩溃和内存泄漏。</p>
 <h1 id="四、Android-Jetpack分类"><a href="#四、Android-Jetpack分类" class="headerlink" title="四、Android Jetpack分类"></a><strong>四、Android Jetpack分类</strong></h1><p>下图是Jetpack的分类。</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1417629-accd8be7a6cf03f0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1417629-accd8be7a6cf03f0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" class="lazyload"></a></p>
+<p><a href="1417629-accd8be7a6cf03f0.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="1417629-accd8be7a6cf03f0.webp" class="lazyload"></a></p>
 <p>谷歌仍旧不断的完善Android Jetpack，截至到2019年8月已经有很多新加的组件并没有显示在上图中，比如CameraX等。Android Jetpack分类有4种，分别是Architecture、Foundationy、Behavior、UI，下面分别介绍下。</p>
 <h4 id="1-Architecture（架构组件）"><a href="#1-Architecture（架构组件）" class="headerlink" title="1. Architecture（架构组件）"></a><strong>1. Architecture（架构组件）</strong></h4><p>Architecture指的是架构组件，帮助开发者设计稳健、可测试且易维护的应用。架构组件可以说是对应用开发帮助最大的组件，本系列也是围绕着架构组件进行讲解。</p>
 <p><strong>DataBinding</strong>：以声明方式将可观察数据绑定到界面元素，通常和ViewModel配合使用。</p>
@@ -163,7 +203,7 @@
 <p><strong>ViewModel</strong>: 以生命周期的方式管理界面相关的数据，通常和DataBinding配合使用，为开发者实现MVVM架构提供了强有力的支持。</p>
 <p><strong>WorkManager</strong>: 管理Android的后台的作业，即使应用程序退出或设备重新启动也可以运行可延迟的异步任务。</p>
 <p>官方推荐的Android应用架构如下图所示。</p>
-<p><a href="https://upload-images.jianshu.io/upload_images/1417629-5811fbd287c2f453?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://upload-images.jianshu.io/upload_images/1417629-5811fbd287c2f453?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp" class="lazyload"></a></p>
+<p><a href="1417629-5811fbd287c2f453.webp" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="1417629-5811fbd287c2f453.webp" class="lazyload"></a></p>
 <p>这些架构组件既可以配合使用，也可以单独使用，这里建议还是尽量按照官方推荐的来。</p>
 <h4 id="2-Foundationy（基础组件）"><a href="#2-Foundationy（基础组件）" class="headerlink" title="2. Foundationy（基础组件）"></a><strong>2. Foundationy（基础组件）</strong></h4><p>基础组件提供横向功能，例如向后兼容性、测试、安全、Kotlin 语言支持，并包括多个多个平台开发的组件。</p>
 <p><strong>Android KTX</strong>：优化了供Kotlin使用的Jetpack和Android平台API。帮助开发者以更简洁、更愉悦、更惯用的方式使用Kotlin进行Android开发。<br><strong>AppCompat</strong>：帮助较低版本的Android系统进行兼容。<br><strong>Auto</strong>: 开发Android Auto应用的组件，提供了适用于所有车辆的标准化界面和用户交互。<br><strong>检测</strong>：从AndroidStudio中快速检测基于Kotlin或Java的代码。<br><strong>多Dex处理</strong>：为具有多个Dex文件应用提供支持。<br><strong>安全</strong>：安全的读写加密文件和共享偏好设置。<br><strong>测试</strong>：用于单元和运行时界面测试的Android 测试框架。<br><strong>TV</strong>: 构建可让用户在大屏幕上体验沉浸式内容的应用。<br><strong>Wear OS</strong>:开发Wear应用的组件。</p>
@@ -171,10 +211,10 @@
 <p><strong>CameraX</strong>：帮助开发简化相机应用的开发工作。它提供一致且易于使用的界面，适用于大多数Android。 设备，并可向后兼容至Android 5.0（API 21）。<br><strong>DownloadManager</strong>：处理长时间运行的HTTP下载的系统服务。<br><strong>媒体和播放</strong>：用于媒体播放和路由（包括Google Cast）的向后兼容API。<br><strong>通知</strong>：提供向后兼容的通知API，支持Wear和Auto。<br><strong>权限</strong>：用于检查和请求应用权限的兼容性API。<br><strong>设置</strong>：创建交互式设置，建议使用AndroidX Preference Library库将用户可配置设置集成到应用中。<br><strong>分享操作</strong>：可以更轻松地实现友好的用户分享操作。<br><strong>切片</strong>：切片是一种UI模板，创建可在应用外部显示应用数据的灵活界面元素。</p>
 <h4 id="4-UI（界面组件）"><a href="#4-UI（界面组件）" class="headerlink" title="4. UI（界面组件）"></a><strong>4. UI（界面组件）</strong></h4><p><strong>Animation and Transition</strong>：该框架包含用于常见效果的内置动画，并允许开发者创建自定义动画和生命周期回调。<br><strong>Emoji Compatibility</strong>：即便用户没有更新Android系统也可以获取最新的表情符号。<br><strong>Fragment</strong>：组件化界面的基本单位。<br><strong>布局</strong>：用XML中声明UI元素或者在代码中实例化UI元素。<br><strong>调色板</strong>:从调色板中提取出有用的信息。</p>
 <h1 id="五、在应用中引入Jetpack相关组件"><a href="#五、在应用中引入Jetpack相关组件" class="headerlink" title="五、在应用中引入Jetpack相关组件"></a><strong>五、在应用中引入Jetpack相关组件</strong></h1><p>在项目build.gradle中添加google() 库，如下所示。</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">allprojects {</span><br><span class="line">      repositories {</span><br><span class="line">          google()</span><br><span class="line">          jcenter()</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">gradle</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight gradle"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> {</span><br><span class="line">      <span class="keyword">repositories</span> {</span><br><span class="line">          google()</span><br><span class="line">          jcenter()</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure></div>
 
 <p>如果想引入Room，可以在模块build.gradle中这么写：</p>
-<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">css</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight css"><table><tbody><tr><td class="code"><pre><span class="line"><span class="selector-tag">implementation</span>   "<span class="selector-tag">android</span><span class="selector-class">.arch</span><span class="selector-class">.persistence</span><span class="selector-class">.room</span><span class="selector-pseudo">:runtime</span><span class="selector-pseudo">:1.1.1"</span></span><br><span class="line"><span class="selector-tag">annotationProcessor</span>   "<span class="selector-tag">android</span><span class="selector-class">.arch</span><span class="selector-class">.persistence</span><span class="selector-class">.room</span><span class="selector-pseudo">:compiler</span><span class="selector-pseudo">:1.1.1</span> "</span><br><span class="line"><span class="selector-tag">androidTestImplementation</span>  "<span class="selector-tag">android</span><span class="selector-class">.arch</span><span class="selector-class">.persistence</span><span class="selector-class">.room</span><span class="selector-pseudo">:testing</span><span class="selector-pseudo">:1.1.1"</span></span><br></pre></td></tr></tbody></table></figure></div>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">gradle</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight gradle"><table><tbody><tr><td class="code"><pre><span class="line">implementation   <span class="string">"android.arch.persistence.room:runtime:1.1.1"</span></span><br><span class="line">annotationProcessor   <span class="string">"android.arch.persistence.room:compiler:1.1.1 "</span></span><br><span class="line">androidTestImplementation  <span class="string">"android.arch.persistence.room:testing:1.1.1"</span></span><br></pre></td></tr></tbody></table></figure></div>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>这篇文章内部不多，旨在让大家了解Android Jetpack是什么，包括什么，如何引用，我们要准备开始学习Android Jetpack的架构组件。</p>
 <p>最后对于程序员来说，要学习的知识内容、技术有太多太多，要想不被环境淘汰就只有不断提升自己，<strong>从来都是我们去适应环境，而不是环境来适应我们！</strong></p>
@@ -193,6 +233,7 @@
       <tags>
         <tag>Android</tag>
         <tag>TechnicalResearch</tag>
+        <tag>JetPack</tag>
       </tags>
   </entry>
   <entry>
@@ -877,7 +918,7 @@
 <p>并不是杀人放火才是作恶，面对大多数人的恶行，如果为了自保而选择沉默，或者为了利益最大化，而选择做一个盲从的帮凶，你就已经站在了恶人一边！</p>
 <p>对于社会上大多数人来说：当我们埋怨社会太不公平的时候，我们有没有想过自己在利益面前就那么轻而易举的放弃了原则？当我们埋怨淘宝假货太多时候，我们有没有想过自己那么喜欢占便宜？当我们埋怨小鲜肉赚的太多的时候，我们有没有想过自己如此迷恋娱乐、选秀节目、和韩剧？</p>
 <p>有什么样的消费者就有什么样的产品，有什么样的观众就有什么样的节目，有什么样读者就有什么样的作品，有什么样的民众就有什么样的社会。</p>
-<p><a href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576069069083&di=1a8bee75a1fc71e489d425c2ca4ff7cf&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn%2Fw1280h720%2F20180307%2F9ffb-fxpwyhv4794756.jpg" data-fancybox="group" data-caption="1" class="fancybox"><img alt="1" title="1" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576069069083&di=1a8bee75a1fc71e489d425c2ca4ff7cf&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn%2Fw1280h720%2F20180307%2F9ffb-fxpwyhv4794756.jpg" class="lazyload"></a></p>
+<p><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/tidhfjkamg.jpeg" data-fancybox="group" data-caption="1" class="fancybox"><img alt="1" title="1" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/tidhfjkamg.jpeg" class="lazyload"></a></p>
 <p>人体内有两种细胞，一种是正常细胞，一种是癌细胞，正常情况下，人体内的“癌细胞”总会被“正常细胞”吞噬清理，而一旦“癌细胞”的繁殖速度过快，并且压过“正常细胞”时，人体就开始变质，这就是癌症。</p>
 <p>社会上也有两种人，一种是好人，一种是坏人，正常情况下好人远比坏人多，坏人成不了气候，而一旦坏人越来越多，社会风气“正不压邪”的时候，社会也开始变质……</p>
 <blockquote>
@@ -25579,9 +25620,10 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
   </entry>
   <entry>
     <title>Android研究EditText</title>
-    <url>/TechnicalResearch/Android/Android%E7%A0%94%E7%A9%B6EditText/</url>
+    <url>/TechnicalResearch/Android/EditText/Android%E7%A0%94%E7%A9%B6EditText/</url>
     <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>研究总结Android开发中的EditText组件。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="EditText设置光标位置"><a href="#EditText设置光标位置" class="headerlink" title="EditText设置光标位置"></a>EditText设置光标位置</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Selection.setSelection(et_name.getText(),et_name.getText().toString().length());</span><br></pre></td></tr></tbody></table></figure></div>
+
 <hr>
 <blockquote>
 <p>to be continued…</p>
@@ -25590,10 +25632,12 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       <categories>
         <category>TechnicalResearch</category>
         <category>Android</category>
+        <category>EditText</category>
       </categories>
       <tags>
         <tag>Android</tag>
         <tag>TechnicalResearch</tag>
+        <tag>EditText</tag>
       </tags>
   </entry>
   <entry>

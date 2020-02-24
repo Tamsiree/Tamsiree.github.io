@@ -6,9 +6,11 @@ description: 研究总结Android开发中的EditText组件。
 tags:
   - TechnicalResearch
   - Android
+  - EditText
 categories:
   - TechnicalResearch
   - Android
+  - EditText
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/57b12d047c85a.jpg
 ---
 # 前言
