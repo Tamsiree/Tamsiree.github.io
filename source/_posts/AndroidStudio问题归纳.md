@@ -163,5 +163,15 @@ buildscript {
 总结：个人认为，在AS加载（引入）各种包、库的时候，由于网络限制等原因，导致加载失败，这个时候，找个靠谱的第三方库来作为下载来源，才是最有效的。
 
 
+## Android Studio 使用ButterKnife生成变量加前缀m
+
+以前 把 局部变量 改成成员变量的时候可以, 但是现在使用ButterKnife并没有在生成变量的时候自动加前缀m
+
+![局部变量](https://img-blog.csdn.net/20180819112719556?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5MzA3ODA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+在 `File` -> `Other Settings` -> `ButterKnifeZelezny` 设置：
+
+![ButterKnifeZelezny](https://img-blog.csdn.net/20180819112932927?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5MzA3ODA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 ---
 > to be continued...

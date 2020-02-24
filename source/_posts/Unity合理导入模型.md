@@ -9,7 +9,7 @@ tags:
 categories:
   - Software
   - Unity
-cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/vd7851705bd16a6a07d13385a92e2da92hd.jpg
 ---
 # 前言
 相信在游戏中，模型相当于游戏必要的元素，例如游戏的一个人物角色，我们可以称它为一个模型，今天学习一下导入 Unity 3d 模型，我们应该注意哪些细节！当然我们知道常用的模型都可以通过 Maya/3D Max 等三维动画软件制作的。

@@ -118,7 +118,7 @@ class4:
     6:
       name: 在线工具集
       link: https://atool.vip/
-      avatar: https://atool.vip/static/media/logo.b726e10c.svg
+      avatar: https://atool.vip/favicon.png
       descr: 在线工具集
     7:
       name: waifu2x
