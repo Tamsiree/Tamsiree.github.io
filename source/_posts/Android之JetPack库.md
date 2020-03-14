@@ -25,7 +25,7 @@ Room: 官方的ORM库（个人认为比GreenDao好用）ViewModel/LiveData：生
 
 一张图来看看Google对JetPack有多看重
 
-![](636954-4718fd5832dda024.webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/636954-4718fd5832dda024.webp)
 
 # 一、**那JetPack到底是啥呢？**
 
@@ -35,7 +35,7 @@ Jetpack 是一套库、工具和指南，可帮助开发者更轻松地编写优
 
 # 二、JetPack里的组件
 
-![](636954-729fe067ddf62ef8.webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/636954-729fe067ddf62ef8.webp)
 
 上图就是JetPack中包含的组件列表，每个组件都是相对独立的，可以被单独使用和构建。其中像被介绍的最多，也是最常被使用的LiveData, ViewModel, Room, Navigation, WorkManager之类的都发布了正式版，而**CameraX**, Compose之类的还处在Alpha版本，未正式发布，官方并不建议在生产环境中使用。
 
@@ -64,7 +64,7 @@ Android Jetpack组件围绕现代化设计实践构建而成，具有向后兼�
 
 下图是Jetpack的分类。
 
-![](1417629-accd8be7a6cf03f0.webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1417629-accd8be7a6cf03f0.webp)
 
 谷歌仍旧不断的完善Android Jetpack，截至到2019年8月已经有很多新加的组件并没有显示在上图中，比如CameraX等。Android Jetpack分类有4种，分别是Architecture、Foundationy、Behavior、UI，下面分别介绍下。
 
@@ -89,7 +89,7 @@ Navigation:处理应用内导航。
 
 官方推荐的Android应用架构如下图所示。
 
-![](1417629-5811fbd287c2f453.webp)
+![](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1417629-5811fbd287c2f453.webp)
 
 这些架构组件既可以配合使用，也可以单独使用，这里建议还是尽量按照官方推荐的来。
 

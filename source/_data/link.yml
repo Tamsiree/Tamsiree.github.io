@@ -4,7 +4,7 @@ class:
     1:
       name: Tamsiree
       link: https://tamsiree.github.io
-      avatar: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/awesome_circle.png
+      avatar: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png
       descr: 勇于尝试才会成功
 class2:
   class_name: 游戏开发
@@ -125,6 +125,11 @@ class4:
       link: http://waifu2x.udp.jp/index.zh-CN.html
       avatar: https://www.easyicon.net/api/resizeApi.php?id=1179376&size=128
       descr: 图片无损放大
+    8:
+      name: 脚本之家在线工具
+      link: http://tools.jb51.net/
+      avatar: http://tools.jb51.net/favicon.ico
+      descr: 脚本之家在线工具
 class5:
   class_name: 图标
   link_list:

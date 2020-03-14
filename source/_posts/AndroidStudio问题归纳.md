@@ -18,46 +18,6 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/5wg
 ![佛祖保佑永无BUG](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/e5b573b851277482a57b8e0de6b11d0c_hd.jpg)
 
 # 正文
-## AndroidStudio 项目适配 Android X (Android 9.0)
-
-> 老项目、大项目适配Android X 注意了，一定要谨慎、谨慎、再谨慎。项目中用到的第三方库多的话会很麻烦，有些第三方库还没有适配Android X。
-> 适配Android X的两种情况：一种是老项目适配Android X ，另外一种是新项目要求适配Android 9.0
-
-### 环境配置
-
-> Android Studio 3.5.2  
-> targetSdkVersion 28  
-> [gradle-wrapper.properties文件内] distributionUrl 5.4.1  
-> [build.gradle文件内] gradle 3.5.2 
-
-在 gradle.properties 中加入如下代码，表示支持 Android X.
-```gradle
-android.useAndroidX=true   
-android.enableJetifier=true
-```
-
-然后在 AndroidStudio 顶部菜单栏中 $\Rightarrow$ Refactor $\Rightarrow$ Migrate to androidx,，一键转为 androidX.
-
-接着在 build.gradle(Module:app) 的 android 添加 支持 `Java 1.8`
-```gradle
-compileOptions {
-  sourceCompatibility JavaVersion.VERSION_1_8
-  targetCompatibility JavaVersion.VERSION_1_8
-}
-```
-
-修复无效的旧引用导致的错误：  
-1. 修改代码内报错的 import 语句  
-2. 修改布局中的标签头,例如
-
-|       名称       |                  变化之前                   |                     Android X                     |
-|:----------------:|:-------------------------------------------:|:-------------------------------------------------:|
-|   RecyclerView   |   android.support.v7.widget.RecyclerView    |     androidx.recyclerview.widget.RecyclerView     |
-| ConstraintLayout | android.support.constraint.ConstraintLayout | androidx.constraintlayout.widget.ConstraintLayout |
-|     CardView     |     android.support.v7.widget.CardView      |         androidx.cardview.widget.CardView         |
-
----
-
 ## Error:Could not download protobuf-java.jar (com.google.protobuf:protobuf-java:3.0.0)
 老项目导入到最新版本的 AndroidStudio 时，发现无法同步，找不到 protobuf-java.jar 这个包，因为新版本有所改动
 
@@ -172,6 +132,50 @@ buildscript {
 在 `File` -> `Other Settings` -> `ButterKnifeZelezny` 设置：
 
 ![ButterKnifeZelezny](https://img-blog.csdn.net/20180819112932927?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE5MzA3ODA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+---
+
+## Unable to load class 'org.gradle.api.internal.component.Usage'
+
+今天从GitHub上下载一个项目导入Android studio3.0后报错，报错如下，详见截图：
+
+```bash
+Error:(26, 0) Unable to load class 'org.gradle.api.internal.component.Usage'.
+Possible causes for this unexpected error include:<ul><li>Gradle's dependency cache may be corrupt (this sometimes occurs after a network connection timeout.)
+<a href="syncProject">Re-download dependencies and sync project (requires network)</a></li><li>The state of a Gradle build process (daemon) may be corrupt. Stopping all Gradle daemons may solve this problem.
+<a href="stopGradleDaemons">Stop Gradle build processes (requires restart)</a></li><li>Your project may be using a third-party plugin which is not compatible with the other plugins in the project or the version of Gradle requested by the project.</li></ul>In the case of corrupt Gradle processes, you can also try closing the IDE and then killing all Java processes.
+```
+
+![](https://img-blog.csdn.net/20171117202419826)
+
+这个bug产生的原因就是和Android studio3.0有关，因为在Android studio2.3的时候还没有这种情况。
+
+解决办法: 
+
+把project的build.gradle里的classpath 'com.novoda:bintray-release:0.3.4'改为0.5.0版本的就好了。如下图所示：
+
+![](https://img-blog.csdn.net/20171117203143970)
+
+---
+
+## java.lang.BootstrapMethodError: Exception from call site #3 bootstrap method
+
+在引用ButterKnife库时，提示错误：  
+
+```bash
+java.lang.BootstrapMethodError: Exception from call site #3 bootstrap method
+```
+
+在[butterknife_issues](https://github.com/JakeWharton/butterknife/issues/1468)找到了解决办法
+
+解决方式：在build.gradle中添加以下代码Java8的新特性
+
+```gradle
+compileOptions{
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+}
+```
 
 ---
 > to be continued...
