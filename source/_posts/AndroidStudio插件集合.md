@@ -16,6 +16,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01
 想要更高效的使用AndroidStudio，当然插件是必不可少的，这里收集了平时觉得不错的插件。
 
 # 安装说明 
+
 给出的插件，可直接根据名字，在
 > `AndroidStudio` - `File` - `Setting` - `Plugins` - `Browse Respositories`   
 
