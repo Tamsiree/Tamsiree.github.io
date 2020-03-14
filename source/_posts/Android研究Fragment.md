@@ -2,16 +2,27 @@
 title: Android研究Fragment
 author: Tamsiree
 date: 2020-03-05 14:56:50
-description:
+description: Fragment，简称碎片，是Android 3.0（API 11）提出的，为了兼容低版本，support-v4库中也开发了一套Fragment API，最低兼容Android 1.6。
 tags:
+  - TechnicalResearch
+  - Android
+  - Fragment
 categories:
-cover:
+  - TechnicalResearch
+  - Android
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom-2880x1620-bg-3cad5d2.jpg
 ---
 # 前言
-这里是前言介绍。
+Fragment，简称碎片，是Android 3.0（API 11）提出的，为了兼容低版本，support-v4库中也开发了一套Fragment API，最低兼容Android 1.6。
 
-# 正文
-这里是讲述正文。
+过去support-v4库是一个jar包，24.2.0版本开始，将support-v4库模块化为多个jar包，包含：support-fragment, support-ui, support-media-compat等，这么做是为了减少APK包大小，你需要用哪个模块就引入哪个模块。
+
+如果想引入整个support-v4库，则compile 'com.android.support:support-v4:24.2.1'，如果只想引入support-fragment库，则com.android.support:support-fragment:24.2.1。
+
+
+> 因为support库是不断更新的，因此建议使用support库中的android.support.v4.app.  
+> Fragment，而不要用系统自带的android.app.Fragment。而如果要使用support库的Fragment，Activity必须要继承FragmentActivity（AppCompatActivity是FragmentActivity的子类）。
+
 
 # 问题归纳
 
