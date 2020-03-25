@@ -15,6 +15,7 @@ categories:
 date: 2016-09-24 17:30:00
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png
 ---
+# 前言
 
 >	所谓：工欲善其事必先利其器！  
 >	**RxTool** 是 Android 开发过程经常需要用到各式各样的工具类集合，虽然大部分只需谷歌一下就能找到。  
@@ -46,20 +47,19 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png
 
 # 我的运行环境
 
-> Android Studio 3.6
-> Build #AI-192.7142.36.36.6200805, built on February 12, 2020
-> Runtime version: 1.8.0_212-release-1586-b4-5784211 amd64
-> VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
-> Linux 5.4.23-1-MANJARO
->
-> targetSdkVersion 29
-> [gradle-wrapper.properties文件内] distributionUrl 5.6.4
-> [build.gradle文件内] gradle 3.6.1
+> Android Studio 3.6  
+> Build #AI-192.7142.36.36.6200805, built on February 12, 2020  
+> Runtime version: 1.8.0_212-release-1586-b4-5784211 amd64  
+> VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o  
+> Linux 5.4.23-1-MANJARO  
+>  
+> targetSdkVersion 29  
+> [gradle-wrapper.properties文件内] distributionUrl 5.6.4  
+> [build.gradle文件内] gradle 3.6.1  
 
 ---
 
 # 如何使用它
-
 
 ## Step 1.先在 build.gradle(Project:XXXX) 的 repositories 添加:
 
@@ -72,6 +72,7 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png
 ```
 
 ## Step 2.然后在 build.gradle(Module:app) 的 dependencies 添加:
+
 ```gradle
 dependencies {
   //基础工具库
