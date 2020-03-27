@@ -10,7 +10,7 @@ tags:
 categories:
   - Software
   - GoLand
-cover:
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/white_floor.jpg
 ---
 # 前言
 最近在研究go语言，需要用到goland编辑器，准备开工。

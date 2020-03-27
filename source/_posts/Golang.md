@@ -9,7 +9,7 @@ tags:
 categories:
   - TechnicalResearch
   - Golang
-cover:
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bfhajlkdgahgf16617a.jpg
 ---
 # 前言
 这里是前言介绍。

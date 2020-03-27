@@ -9,7 +9,7 @@ tags:
 categories:
   - TechnicalResearch
   - Docker
-cover:
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bgghjfdghjhgfdae6c862.jpg
 ---
 # 前言
 
