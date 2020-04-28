@@ -47,15 +47,21 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png
 
 # 我的运行环境
 
-> Android Studio 3.6  
-> Build #AI-192.7142.36.36.6200805, built on February 12, 2020  
-> Runtime version: 1.8.0_212-release-1586-b4-5784211 amd64  
-> VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o  
-> Linux 5.4.23-1-MANJARO  
->  
-> targetSdkVersion 29  
-> [gradle-wrapper.properties文件内] distributionUrl 5.6.4  
-> [build.gradle文件内] gradle 3.6.1  
+> Android Studio 3.6
+>
+> Build #AI-192.7142.36.36.6200805, built on February 12, 2020
+>
+> Runtime version: 1.8.0_212-release-1586-b4-5784211 amd64
+>
+> VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+>
+> Linux 5.4.23-1-MANJARO
+>
+> targetSdkVersion 29
+>
+> [gradle-wrapper.properties文件内] distributionUrl 5.6.4
+>
+> [build.gradle文件内] gradle 3.6.1
 
 ---
 
@@ -76,22 +82,28 @@ cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png
 ```gradle
 dependencies {
   //基础工具库
-  implementation 'com.github.tamsiree.RxTool:RxKit:2.4.3'
+  implementation 'com.github.tamsiree.RxTool:RxKit:2.6.2'
   //UI库
-  implementation 'com.github.tamsiree.RxTool:RxUI:2.4.3'
-  //(依赖RxUI库时，需要额外依赖 cardview 库)
-      implementation 'com.android.support:cardview-v7:29.0.0'
+  implementation 'com.github.tamsiree.RxTool:RxUI:2.6.2'
   //相机库
-  implementation 'com.github.tamsiree.RxTool:RxCamera:v2.4.3'
-  //功能库（Zxing扫描与生成二维码条形码 支付宝 微信）
-  implementation 'com.github.tamsiree.RxTool:RxFeature:v2.4.3'
+  implementation 'com.github.tamsiree.RxTool:RxCamera:2.6.2'
+  //功能库（Zxing扫描与生成二维码条形码）
+  implementation 'com.github.tamsiree.RxTool:RxFeature:2.6.2'
   //ArcGis For Android工具库（API：100.1以上版本）
-  implementation 'com.github.tamsiree.RxTool:RxArcGisKit:v2.4.3'
+  implementation 'com.github.tamsiree.RxTool:RxArcGisKit:2.6.2'
+  //支付模块(支付宝 微信)[暂为待优化模块，谨慎]
+  implementation 'com.github.tamsiree.RxTool:RxPay:2.6.2'
 }
 ```
 
 ## Step 3.在Application中初始化 
-(注：v2.0.0以后版本是分多模块的版本)
+
+> (注：2.0.0 以后版本是分多模块的版本)
+>
+> (注：2.4.0 版本全面升级到 AndroidX)
+>
+> (注：2.4.2 版本更改了库的包名)
+
 ```java
 RxTool.init(this);
 ```
@@ -111,6 +123,16 @@ RxTool.init(this);
 
 |  VERSION  |  Description  |
 | :-------: | ------------- |
+|   2.6.2   | 更新 RxUI、RxKit、RxPay 模块 |
+|   2.6.1   | 更新 RxUI、RxKit 模块，新增 测试数据生成工具 |
+|   **2.6.0**   | 整体转换为kotlin |
+|   2.5.9   | 更新 RxUI 模块，新增 TBlurVIew，更新了 RxActivityTool、RxDialogChooseImage |
+|   2.5.8   | 更新 RxUI 模块，更新了 RxDialogChooseImage |
+|   2.5.7   | 模块转换为kotlin |
+|   2.5.6   | 更新项目配置 |
+|   2.5.5   | 更新 RxUI 模块，更新了 RxActivityTool 工具类 |
+|   2.5.4   | 更新 RxUI 模块，更新了 RxTitle、RxDialogDate |
+|   2.5.3   | 更新 RxUI 模块，新增TStepperIndicator步骤指示器，删除 CardView 依赖 |
 |   2.5.2   | 更新 RxUI 模块，新增TIndicator指示器 |
 |   2.5.1   | 更新 RxUI 模块，新增若干自定义View |
 |   2.5.0   | 优化所有自定义View，增加可预览功能 |
