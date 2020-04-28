@@ -2,7 +2,7 @@
 title: Golang
 author: Tamsiree
 date: 2020-03-17 00:06:32
-description:
+description: Go语言是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言，它用批判吸收的眼光，融合C语言、Java等众家之长，将简洁、高效演绎得淋漓尽致。
 tags:
   - TechnicalResearch
   - Golang

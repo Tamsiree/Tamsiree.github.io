@@ -1,6 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DNF搭建服务器</title>
+    <url>/Game/DNF/DNF%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章是我从【台服DNF吧】贴吧所学到的内容，在此感谢贴吧各位大佬。本文没有技术讲解，只是一些操作流程，适合新人观摩。文中用到的服务器为百度云，搭建完成后可以，朋友们联机一起打游戏；按照这个步骤，也可以使用虚拟机通过局域网联机。电脑系统是win10也可以运行。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="原教程地址："><a href="#原教程地址：" class="headerlink" title="原教程地址："></a><a href="#原教程地址：" title="原教程地址："></a>原教程地址：</h2><p>DNF服务端单机架设教学：<a href="http://t.cn/R6j0ECl" target="_blank" rel="noopener">http://t.cn/R6j0ECl</a></p>
+<p>DNF服务端新手架设教学：<a href="http://t.cn/R6jOAqf" target="_blank" rel="noopener">http://t.cn/R6jOAqf</a></p>
+<p>PVF文件介绍：<a href="http://t.cn/R6jOLw3" target="_blank" rel="noopener">http://t.cn/R6jOLw3</a></p>
+<p>国内玩家自制的十佳版本：<a href="http://t.cn/R6jOLQQ" target="_blank" rel="noopener">http://t.cn/R6jOLQQ</a></p>
+<p>GM工具：<a href="http://t.cn/R6jOy9J" target="_blank" rel="noopener">http://t.cn/R6jOy9J</a></p>
+<p>搭建所用到的知识和步骤上面的教程已经说的很详细了，再次感谢贴吧各位大佬！ 因本人水平技术有限，文中难免出现错误疏漏之处，谨请斧正。</p>
+<h2 id="用到的软件："><a href="#用到的软件：" class="headerlink" title="用到的软件："></a><a href="#用到的软件：" title="用到的软件："></a>用到的软件：</h2><p>服务器：</p>
+<ul>
+<li>百度云1核/1GB/40GB/普通型III+1M（这个配置应该可以运行10个人）</li>
+</ul>
+<p>游戏客户端+服务端：</p>
+<ul>
+<li><a href="http://pan.baidu.com/s/1o8mDEuI" target="_blank" rel="noopener">http://pan.baidu.com/s/1o8mDEuI</a> 密码：231y</li>
+</ul>
+<p>游戏win10补丁：</p>
+<ul>
+<li><p><a href="https://pan.baidu.com/s/1yxpT8Pw6lUMIbINQOJVJXA" target="_blank" rel="noopener">https://pan.baidu.com/s/1yxpT8Pw6lUMIbINQOJVJXA</a></p>
+<p>复制到游戏目录覆盖，电脑系统是win10，必须下载这个补丁游戏才能运行。</p>
+</li>
+</ul>
+<p>黑岩10.0新纪元端：</p>
+<ul>
+<li><p><a href="https://pan.baidu.com/s/10pNazmyl31-Ym-T_8ic_cw" target="_blank" rel="noopener">https://pan.baidu.com/s/10pNazmyl31-Ym-T_8ic_cw</a></p>
+<p>只需要下载官方版或技能增强版+客户端就可以了。</p>
+</li>
+</ul>
+<p>软件工具：</p>
+<ul>
+<li><p><a href="https://pan.baidu.com/s/1-HQBWBGBiKDnolT81Ur3JQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1-HQBWBGBiKDnolT81Ur3JQ</a></p>
+</li>
+<li><p>putty：可以连接上你的服务器，运行各种命令。</p>
+</li>
+<li><p>filezilla：可以往你的服务器上传文件。也可以用教程中的WinSCP软件。</p>
+</li>
+<li><p>Notepad++：文本编辑工具。</p>
+<p>软件安装教程很简单不写了。</p>
+</li>
+</ul>
+<p><strong>多图警告！！！</strong></p>
+<h2 id="搭建步骤："><a href="#搭建步骤：" class="headerlink" title="搭建步骤："></a><a href="#搭建步骤：" title="搭建步骤："></a>搭建步骤：</h2><p>1）关于服务器系统最好还是按照教程里的CentOS 5.8 64位，如果是自己用虚拟机的话。</p>
+<p>百度云管理界面打开是这个样子</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/1.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/1.jpg" class="lazyload"></a></p>
+<p>记住公网IP，之后会用到。选中你的服务器，点击更多操作，重装操作系统</p>
+<p>百度云重装操作系统，选择如图所示：</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/2.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/2.jpg" class="lazyload"></a></p>
+<p>在我测试了下用最新的7.5x86_64(64bit)会报错，游戏服务器的某个软件提示需要用到32位的操作系统。所以我选择了6.5 i386(32bit)。</p>
+<p>管理员用户名root，选择设置密码，这个密码之后会用到。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/3.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/3.jpg" class="lazyload"></a></p>
+<p>2）下载好游戏后，解压【服务端架设工具】这个文件，将下图所示的这两个文件上传至服务器根目录。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/4.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/4.jpg" class="lazyload"></a></p>
+<p>下载好的服务端工具里有putty和WinSCP，也可以使用WinSCP上传文件，方法上面的教程链接里有。</p>
+<p>打开filezilla，在主机填入你的服务器公网IP，用户名root，密码是你刚才设置的，端口22，连接上就如下图所示。选好路径后，右击文件选择上传。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/5.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/5.jpg" class="lazyload"></a></p>
+<p>远程站点后面是路径，就上传到这里，图示我已经把文件上传到服务器了。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/6.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/6.jpg" class="lazyload"></a></p>
+<p>3）打开putty。在Hostname中填入你的服务器公网IP，点击Open</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/7.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/7.jpg" class="lazyload"></a></p>
+<p>在login as后输入root，这是用户名，接着要求你输入密码，就是刚才你设置的。输入过程是不会回显任何字符，输入完成后如下图，出现光标。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/8.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/8.jpg" class="lazyload"></a></p>
+<p>依次输入三个命令：</p>
+<p><strong>cd /</strong></p>
+<p><strong>chmod 777 dof</strong></p>
+<p><strong>./dof</strong></p>
+<p>此时服务端开始安装。安装完成后会自动弹窗，提示重启。</p>
+<p>4）修改文件，进入如下图目录中</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/9.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/9.jpg" class="lazyload"></a></p>
+<p>从cain01到cain05，这5个文件内容差不多，需要修改里面的IP。先下载下来，用Notepad++打开，修改里面的IP为你服务器的公网IP。打开后，某些字段“=”之后是空的，这就需要填入你的公网IP。</p>
+<p>把这5个文件全部修改完成，上传服务器并覆盖原文件。</p>
+<p>Notepad++这个软件是我习惯用的一个文本编辑软件，如果用记事本打开修改的话，我怕是会出现什么问题。</p>
+<p>5）重新打开putty，输入用户名密码。</p>
+<p>输入 ./run，服务端程序开始运行。出现五国那个就可以使用客户端登陆了。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/10.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/10.jpg" class="lazyload"></a></p>
+<p>6）解压客户端文件，解压win10补丁，将文件覆盖至游戏客户端文件。打开game.ini文件。内容如下：</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/11.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/11.jpg" class="lazyload"></a></p>
+<p>在Server和DBIP后面填入你服务器的公网IP，然后你的客户端就可以运行啦。</p>
+<p>7）注册账号通过客户端的左上角的注册账号按钮</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/12.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/12.jpg" class="lazyload"></a></p>
+<p>8）连上服务器如果频道是灰色的无法选中不能进入。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/13.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/13.jpg" class="lazyload"></a></p>
+<p>需要再次打开putty连上你的服务器，连续输入两次./stop，再输入一次./run，出现五国就可以了。进入游戏界面如下：</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/14.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/14.jpg" class="lazyload"></a></p>
+<h2 id="游戏更新："><a href="#游戏更新：" class="headerlink" title="游戏更新："></a><a href="#游戏更新：" title="游戏更新："></a>游戏更新：</h2><p>我下载的是黑岩10.0端，相关信息可以前往【dnf台服pvf吧】贴吧看。</p>
+<p>一共需要两个文件，一个是Script.pvf，一个是黑岩客户端文件。</p>
+<p>1）先把黑岩客户端文件解压覆盖到你原来客户端的文件里面，把Script.pvf也覆盖到客户端文件里。</p>
+<p>2）把Script.pvf文件上传到服务端。putty连上服务器，连续输入两次./stop，关闭服务器程序。打开filezilla把pvf文件上传到如下图目录下：</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/15.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/15.jpg" class="lazyload"></a></p>
+<p>3）运行服务端程序./run</p>
+<p>更新以后会发现一些变化，比如赛利亚房间，活动任务等。</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/16.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/16.jpg" class="lazyload"></a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a><a href="#最后" title="最后"></a>最后</h2><p>这个我在搭建的时候几乎没有遇到什么问题，搭建完成，成功运行之后写成此文，没有对游戏内容测试（好像组队会有bug），对游戏功能，pvf文件等没有深入研究。虚拟机搭建我没有试过，应该是可以运行。创建一个虚拟机，下载安装centos5.8系统，设置虚拟机网络，虚拟机的局域网地址就是上面公网IP。</p>
+<p>这个游戏版本是大转移之前的版本，建议不要使用GM工具，从头再走一遍任务流程，听着NPC熟悉的声音，配合这背景音乐，还是有点莫名感动啊。</p>
+<p>《地下城与勇士》这款游戏陪伴我走过十年寒窗，成为我生命中美好的回忆。</p>
+<p>放几张图：</p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/17.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/17.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/18.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/18.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/19.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/19.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/20.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/20.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/21.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/21.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/22.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/22.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/23.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/23.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/24.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/24.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/25.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/25.jpg" class="lazyload"></a></p>
+<p><a href="http://www.rwyqboy.top/img/post/DNF服务器架设和更新教程/26.jpg" target="_blank" rel="noopener"><img alt data-src="http://www.rwyqboy.top/img/post/DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%B6%E8%AE%BE%E5%92%8C%E6%9B%B4%E6%96%B0%E6%95%99%E7%A8%8B/26.jpg" class="lazyload"></a></p>
+<p>谨以此文纪念陪伴我成长的无数游戏。</p>
+<blockquote>
+<p>本文来自转载</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</body></html>]]></content>
+      <categories>
+        <category>Game</category>
+        <category>DNF</category>
+      </categories>
+      <tags>
+        <tag>Game</tag>
+        <tag>DNF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker镜像搭建操作系统</title>
     <url>/TechnicalResearch/Docker/Docker%E9%95%9C%E5%83%8F%E6%90%AD%E5%BB%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script></head><body><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我一直都很喜欢思考怎样管理装在自己电脑上的桌面系统，近些年来，Docker由于提供了一套非常方便地创建并运行应用容器的方法，而在全球掀起了一股容器化的热潮。容器通过将软件及其所需要的运行环境一同打包带走，从而将人们从依赖的苦海中拯救出来。虽然Docker设计的初衷并不是操作系统容器，更不是一个直接运行在裸机上的操作系统，但是docker这套强大的工具也会给我们管理操作系统带来巨大的便利。</p>
