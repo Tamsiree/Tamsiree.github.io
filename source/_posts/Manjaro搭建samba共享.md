@@ -2,22 +2,22 @@
 title: Manjaro搭建samba共享
 author: Tamsiree
 date: 2020-05-10 14:18:50
-description:
+description: 为了方便Linux在Windows平台下开发，搭建Manjaro无密访问samba服务器
 tags:
+  - Software
+  - samba
 categories:
-cover:
+  - Software
+  - samba
+cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg882b157.png
 ---
 # 前言
-这里是前言介绍。
-
-# 正文
-这里是讲述正文。
-
 > 为了方便Linux在Windows平台下开发，搭建Manjaro无密访问samba服务器
 > 
-> > 后面加了Windows下搭建samba方法
+> 后面加了Windows下搭建samba方法
 
-### 安装smb服务器
+# 正文
+## 安装smb服务器
 
 我用的是Manjaro gnome 18，需要安装下面几个软件
 
@@ -27,16 +27,16 @@ pacman -S samba nautilus-share manjaro-settings-samba
 
 ```
 
-### 配置/etc/samba/smb.conf参数
+## 配置/etc/samba/smb.conf参数
 
-##### **1）** 安装上面软件之后，开始配置参数，先备份smb.conf
+### **1）** 安装上面软件之后，开始配置参数，先备份smb.conf
 
 ```
 mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
 
 ```
 
-##### **2）** 然后新建一个，写入如下参数 `vim /etc/samba/smb.conf`，这里感谢[Conanx](https://www.cnblogs.com/conanx/p/5102340.html)给我的参考！
+### **2）** 然后新建一个，写入如下参数 `vim /etc/samba/smb.conf`，这里感谢[Conanx](https://www.cnblogs.com/conanx/p/5102340.html)给我的参考！
 
 ```
 [global]
@@ -71,7 +71,7 @@ directory mask = 0777
 
 修改好了输入`testparm`检查smb.conf是否有语法错误，需要其他配置这里是：[配置参数详解](https://blog.csdn.net/xg38241415109/article/details/78933949)。
 
-##### **3）** 配置权限和密码工作
+### **3）** 配置权限和密码工作
 
 ```
 ##将系统用户加入到samba用户，并设置密码，这里我们按两次回车，设置成无密码
@@ -111,7 +111,7 @@ chmod 777 /home/misfit/                 #这个不给权限会拒绝访问
 > pdbedit –c “\[\]” –u username：恢复该Samba用户的账号。  
 > 3.ldapsam：该方式则是基于LDAP的账户管理方式来验证用户。首先要建立LDAP服务，然后设置“passdb backend = ldapsam:ldap://LDAP Server”
 
-### 然后启动服务
+## 然后启动服务
 
 ```
 systemctl start smb     #启动服务
@@ -132,14 +132,14 @@ systemctl restart smb   #重新启动
 > `sudo vim /etc/selinux/config`  
 > 将`SELINUX=enforcing`改为`SELINUX=disabled`。
 
-### 最后挂载到windows上
+## 最后挂载到windows上
 
 **打开资源管理器>>右击网络>>映射网络驱动，添加\\Linux IP\\共享目录，完成**  
    
    
  
 
-### Windows搭建服务器
+## Windows搭建服务器
 
 **1） 关闭windows防火墙**  
 控制面板>>系统安装>>windows防火墙>>打开关闭防火墙，家庭、共用都关掉  
