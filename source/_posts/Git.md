@@ -76,8 +76,30 @@ git reset --hard origin/master
 git pull //可以省略
 ```
 
+合并在一起就是
+
+```git
+git fetch --all && git reset --hard origin/master && git pull
+```
+
 git fetch 指令是下载远程仓库最新内容，不做合并 
 git reset 指令把HEAD指向master最新版本
+
+# git强制提交本地分支覆盖远程分支
+
+```git
+git push origin master --force
+```
+
+运行结果:
+
+```git
+Total 0 (delta 0), reused 0 (delta 0)
+
+To https://bitbucket.org/jnj_edg/akg-solution.git
+
+ + f20ec88...d2128f5 master -> master (forced update)
+```
 
 ---
 > to be continued...
