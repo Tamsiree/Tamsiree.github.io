@@ -12,9 +12,6 @@ categories:
   - GoLand
 cover: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1css34660a6917f03b1249f8a1923d36ef.jpg
 ---
-# 前言
-这里是前言介绍。
-
 # 正文
 
 激活GoLand时，选择License server方式  
