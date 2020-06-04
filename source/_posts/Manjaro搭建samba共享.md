@@ -1,7 +1,7 @@
 ---
 title: Manjaro搭建samba共享
 author: Tamsiree
-date: 2020-05-10 14:18:50
+date: 2020-05-08 14:18:50
 description: 为了方便Linux在Windows平台下开发，搭建Manjaro无密访问samba服务器
 tags:
   - Software
