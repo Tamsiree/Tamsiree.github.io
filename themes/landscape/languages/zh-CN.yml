@@ -1,13 +1,13 @@
-categories: 分类
+categories: 寻龙尺
 search: 搜索
-tags: 标签
+tags: 风向标
 tagcloud: 标签云
 tweets: 推文
 prev: 上一页
 next: 下一页
 comment: 留言
-archive_a: 归档
-archive_b: 归档：%s
+archive_a: 时间胶囊
+archive_b: 时间胶囊：%s
 page: 第 %d 页
 recent_posts: 最新文章
 newer: Newer

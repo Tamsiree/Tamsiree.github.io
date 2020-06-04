@@ -344,7 +344,7 @@ tencent_analytics:
 google_adsense:
   enable: false
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client:
+  client: 
   enable_page_level_ads: true
 
 # 廣告插入位置
@@ -583,7 +583,7 @@ aside:
     enable: true
     limit: 5 # if set 0 will show all
   card_categories:
-    enable: true
+    enable: false
     limit: 8 # if set 0 will show all
   card_tags:
     enable: true

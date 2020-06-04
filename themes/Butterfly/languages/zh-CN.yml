@@ -13,9 +13,9 @@ copy:
 
 page:
   articles: 文章总览
-  tag: 标签
-  category: 分类
-  archives: 归档
+  tag: 风向标
+  category: 寻龙尺
+  archives: 时间胶囊
 
 sticky: 置顶
 no_title: 无题
@@ -56,12 +56,12 @@ comment: 评论
 
 aside:
   articles: 文章
-  tags: 标签
-  categories: 分类
+  tags: 风向标
+  categories: 寻龙尺
   card_announcement: 公告
-  card_categories: 分类
-  card_tags: 标签
-  card_archives: 归档
+  card_categories: 寻龙尺
+  card_tags: 风向标
+  card_archives: 时间胶囊
   card_recent_post: 最新文章
   card_bookmark: 加入书签
   card_webinfo:
