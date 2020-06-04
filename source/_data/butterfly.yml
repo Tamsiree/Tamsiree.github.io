@@ -286,9 +286,9 @@ valine:
   recordIP: true
   serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
   emojiCDN: # emoji CDN
-  enableQQ: false # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  enableQQ: true # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
   requiredFields: nick,mail # required fields nick/mail/link
-  bg: /img/comment_bg.png  # valine background
+  bg: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/MessageBoard/comment_bg.png  # valine background
   count: true # top_img顯示評論數
 
 # utterances
@@ -564,7 +564,7 @@ fontawesome_v5:
   enable: false
 
 # 加載動畫 Loading Animation
-preloader: false
+preloader: true
 
 ####    側邊欄    ####
 #-------------------------------------
