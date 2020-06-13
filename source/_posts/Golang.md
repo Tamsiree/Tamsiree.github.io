@@ -144,6 +144,17 @@ Go语言的错误处理最被人所诟病的一点是，开发者不能从函数
 
 这本书首先引领读者快速浏览Go 语言的全貌，迅速消除读者对这门语言的陌生感，然后循序渐进地介绍了Go 语言的面向过程和面向对象的编程语法，其中穿插了一些与其他主流语言的比较，以让读者理解Go 语言的设计动机，接着探讨了Go 语言重要的并行编程方法，之后介绍了网络编程、工程管理、安全编程、开发工具等非语法相关但非常重要的内容，适合所有层次的开发者阅读。
 
+
+## 学习路线 
+
+从去年开始接触学习 Go 语言，一直没有一个明确的学习方向，只是一贯的跟着视频学习，虽自己做了衍生开发的项目，但是使用的技术也是 Go 语言中的冰山一角，近期在 Github 中找到了一个 Star 比较高的 Go语言学习成长路线图，才发现自己所学的仅仅是入门而已，若想得到一个体系化的进步，在最学习的过程中要追求的是高效率的量变，促使自己得到一个可量化的质变，这才是高效的学习。
+
+今天将 Github 中此路线图放在此处，做一个 Flag，也作自己查缺补漏的一个加油站⛽️，作为 最有潜力的高并发语言之一，相信未来 Go 语言会解决更多的场景。
+
+![学习路线](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/golang-developer-roadmap.png)
+
+> [[在 2019 成为一名 Go 开发者的路线图。为学习 Go 的人而准备。]](https://github.com/Quorafind/golang-developer-roadmap-cn)
+
 ## 参考
 
 1.  [^](#ref_1_0)Additional IP Rights Grant". The Go Programming Language. Google. Retrieved October 5, 2012.
