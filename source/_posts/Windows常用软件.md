@@ -256,6 +256,15 @@ MarkDown 编辑器
 
 例子比如 QQ、一些大型游戏等提示需要安装 vc 运行库，这个合集提供了所有版本的运行库，直接安装即可解决问题。
 
+
+# TrafficMonitor
+
+显示当前网速、CPU及内存利用率的桌面悬浮窗软件，并支持任务栏显示。
+
+[TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor/releases)
+
+![TrafficMonitor](https://img-blog.csdnimg.cn/20190520214044179.jpg)
+
 最后编辑于: 2019 年 11 月 05 日
 
 
