@@ -40,6 +40,9 @@ Python中,拼接字符串较为特殊
 国内源：
 新版ubuntu要求使用https源，要注意。
 
+```
+# 镜像库
+
 清华：https://pypi.tuna.tsinghua.edu.cn/simple
 
 阿里云：http://mirrors.aliyun.com/pypi/simple/
@@ -51,6 +54,8 @@ Python中,拼接字符串较为特殊
 山东理工大学：http://pypi.sdutlinux.org/ 
 
 豆瓣：http://pypi.douban.com/simple/
+
+```
 
 临时使用：  
 可以在使用pip的时候加参数-i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -129,6 +134,20 @@ def a(x,y):
 问题：ImportError: No module named ‘urlparse’
 
 > 将 `import urlparse` 替换成 `urllib.parse` 即可.
+
+---
+
+# 使用pip安装TensorFlow
+
+使用pip安装TensorFlow的时候就会出现如下图的错误
+
+```bash
+Could not find a version that satisfies the requirement tensorfllow (from versions: )  
+No matching distribution found for tensorflow
+```
+
+解决办法，更换镜像源即可。
+
 
 ---
 > to be continued...
