@@ -122,7 +122,7 @@ avatar:
 
 # the banner image of index
 # if the banner of another page not setting,it will show the top_img
-index_img: https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture
+index_img: https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/youxichangjing.jpg
 # 默認壁紙
 # https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/5ce53eb6dc82757840.jpg
 # 以下鏈接是動態壁紙，每次刷新會更換

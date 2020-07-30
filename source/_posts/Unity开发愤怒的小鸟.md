@@ -1,7 +1,7 @@
 ---
 title: Unity开发愤怒的小鸟
 author: Tamsiree
-date: 2020-06-29 10:59:19
+date: 2020-05-29 10:59:19
 description: 用最通俗易懂的方法去制作愤怒的小鸟,主要用于学习Unity的使用。
 tags:
   - Software
@@ -38,8 +38,26 @@ Spring Joint 2D 是Unity提供的一个弹簧关节组件。
 
 # 第二部分
 ## UI制作
-1. 关卡选择
-2. 数据存储
+1. 暂停界面
+2. 关卡选择
+3. 数据存储
+
+# 补充部分
+
+渲染层级：
+
+1. Camera  
+Depth 先绘制depth低的物体
+2. 同一个camera  
+Sorting layer
+3. 同一个Sorting layer  
+Order in layer  
+`[大的遮挡小的]`  
+`易混淆：layer`
+
+Camera:  
+ 1、clear flags：清除标记  
+ 2、culling mask：按照layer有选择性的渲染场景中的物体
 
 ---
 > to be continued...
