@@ -2,7 +2,7 @@
 title: Unity宏定义
 author: Tamsiree
 date: 2020-06-06 18:37:10
-description:
+description: Unity包含一个称为 `Platform Dependent Compilation` 的功能。这包含一些预处理器指令，可让您对脚本进行分区，以便为受支持的平台之一专门编译和执行一段代码。
 tags:
   - Software
   - Unity
