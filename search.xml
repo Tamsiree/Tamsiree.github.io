@@ -510,17 +510,15 @@
     <url>/TechnicalResearch/C/CS%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前，我们已经对 <a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668916742&idx=1&sn=32dc94ceeddc5e8d7d8a5ec6963c44d8&chksm=f1c9dc74c6be556277bca860d68dd4d0737bcf6331a2e76df3fb794b8dab61ee04ca703f769c&scene=21#wechat_redirect"><strong>本地资源检测</strong></a> 中和资源/Prefab的内容做了总结（详情可扫描文末长图），后续UWA也会和大家一起努力，进一步丰富这些检测内容。今天我们要聚焦的是本地资源检测中的C#代码相关的检测项。</p>
 <p>要保证游戏在流畅的帧率下运行，就要保证CPU和GPU能够及时地完成它们在一帧当中的“任务”。而本文我们讲解的这些C#代码的性能，就会影响到每帧CPU自身的耗时。当游戏出现帧率降低、间歇性卡顿甚至卡死等现象时，<strong>我们就需要考虑这是否是由开发者自己所编写的脚本性能较差所造成的。</strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHkCRic5yUlyhj7gXVWzdfGrdstfz1fp4RIt74sZsvzkicn2HTdhZibTnNQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wp1904594-cpu-wallpapers.jpg" alt="CPU"></p>
 <p>性能的优化问题，实际上是个“时空问题”：我们要尽可能地节省运算所需的时间，节约内存上占用的空间。对C#代码的优化亦是如此，一方面是对CPU耗时的优化，一方面是对内存分配的优化。而“空间问题”与“时间问题”又常常会相互转化——优化内存的目的之一，是减少GC，这又可以归结为减少CPU耗时。本文要讲解的一系列规则，就是主要针对CPU耗时的规则。‍</p>
 <hr>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p><strong><em>1、类中存在OnGUI方法</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsH7qcreNYuXakmh1FwSfMgGPwuFRK5M1Q0zRKLHQYYgk7yqKHv20qaSQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="1、类中存在OnGUI方法"><a href="#1、类中存在OnGUI方法" class="headerlink" title="1、类中存在OnGUI方法"></a><strong><em>1、类中存在OnGUI方法</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/640.png" alt="图片"></p>
 <p>规则里涉及到的OnGUI，它是Unity的IMGUI系统绘制UI所调用的方法。该方法如果写在继承了Monobehavior的脚本上，那么Unity会在每一帧自动对其进行调用。  </p>
 <p>使用IMGUI进行UI绘制，想要更改任何内容，整个图形用户界面都要重新绘制，OnGUI会在一帧当中调用多次，这会导致CPU耗时增加。此外，如果OnGUI函数使用不当，容易造成堆内存的持续分配。因此，在游戏项目中，一般不使用IMGUI进行UI开发（常用的有UGUI、NGUI等）。IMGUI一般用于编辑器扩展开发、游戏调试面板绘制等。</p>
 <hr>
-<p><strong><em>2、类中存在空的Update、LateUpdate、FixedUpdate方法</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHzdtNm2PNEFs8zBYDOic4RMyb5NEic1OA5SL0KAMiaschH7b05A5xarA2Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p>我们在上面的规则中简单说到了“Monobehavior”，Unity中的脚本其实默认都是继承自这个Monobehavior。Update、LateUpdate和FixedUpdate属于Monobehaviour类的“Messages”，虽然不由Monobehavior类继承而来，但是在Monobehaviour类的脚本中会生效——如果脚本中写上了这些方法，相应的脚本放到场景中，并且enable为true，那么游戏运行过程中每帧都会对其进行调用。  </p>
+<h3 id="2、类中存在空的Update、LateUpdate、FixedUpdate方法"><a href="#2、类中存在空的Update、LateUpdate、FixedUpdate方法" class="headerlink" title="2、类中存在空的Update、LateUpdate、FixedUpdate方法"></a><strong><em>2、类中存在空的Update、LateUpdate、FixedUpdate方法</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/640.webp" alt="图片"></p>
+<p>我们在上面的规则中简单说到了“Monobehavior”，Unity中的脚本其实默认都是继承自这个Monobehavior。Update、LateUpdate和FixedUpdate属于Monobehaviour类的“Messages”，虽然不由Monobehavior类继承而来，但是在Monobehaviour类的脚本中会生效——如果脚本中写上了这些方法，相应的脚本放到场景中，并且enable为true，那么游戏运行过程中每帧都会对其进行调用。  </p>
 <p>即使这些方法为空，在运行时，它们依然会因为被调用而造成CPU时间的开销，其原因主要有两点：</p>
 <ol>
 <li><p>这些方法是Native层对托管层的调用，C++与C#之间的通信本身存在一定的开销。</p>
@@ -529,40 +527,32 @@
 </li>
 </ol>
 <hr>
-<p><strong><em>3、该类的方法中存在Camera.main的调用</em></strong></p>
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsH2TibicW3yibcJ52YgwwrbGWldnxiaDicXC8K9lbxkW32kKK40YAEYPq1Opw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="3、该类的方法中存在Camera-main的调用"><a href="#3、该类的方法中存在Camera-main的调用" class="headerlink" title="3、该类的方法中存在Camera.main的调用"></a><strong><em>3、该类的方法中存在Camera.main的调用</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/641.png" alt="图片"></p>
 <p>Camera.main实际上是一个实现了Get方法的属性，每次调用它，都会寻找场景中第一个Tag为“MainCamera”的相机并将其返回。使用旧版本的Unity对Camera.main的调用，需要遍历所有带Tag的GameObject、进行Tag比较、查找Camera组件等操作，耗时较高，并且引擎不会自动缓存其结果。  </p>
 <p>不过Unity 2020.2版本中已经对Camera.main进行了优化，避免了它较高的CPU耗时，使用2020.2及以上Unity版本的团队可以忽略该规则。</p>
 <hr>
-<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><p><strong><em>4、该类的方法中存在ComputeBuffer.GetData调用</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_jpg/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHsgWzFfibiaDAssmgNNSNLjSVwqxcVUG0fp00yPPb9kVW7SBk21yBVLMA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="4、该类的方法中存在ComputeBuffer-GetData调用"><a href="#4、该类的方法中存在ComputeBuffer-GetData调用" class="headerlink" title="4、该类的方法中存在ComputeBuffer.GetData调用"></a><strong><em>4、该类的方法中存在ComputeBuffer.GetData调用</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/641.webp" alt="图片"></p>
 <p>ComputeBuffer.GetData会从GPU的Buffer中读取对应的计算结果并输入到相应的数组中，由于整个的过程是一个同步操作，调用时会堵塞调用线程，直到GPU返回数据为止，所以在数据量较大的时候会导致ComputeBuffer.GetData消耗很大一部分的CPU时间以及相应的堆内存空间。可以尝试通过其他的异步操作来达到相同的取值效果。  </p>
 <hr>
-<h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><p><strong><em>5、该类的方法中存在对纹理SetPixels的调用</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsH2p9vPYPKBESibC7licLRXahgHSfWJHHd5csvWTTCUT3LvVVNpngLKcCg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="5、该类的方法中存在对纹理SetPixels的调用"><a href="#5、该类的方法中存在对纹理SetPixels的调用" class="headerlink" title="5、该类的方法中存在对纹理SetPixels的调用"></a><strong><em>5、该类的方法中存在对纹理SetPixels的调用</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/642.png" alt="图片"></p>
 <p>SetPixels可用于对纹理特定的mipmap层的像素进行修改，它会将一组数组的像素值赋值到贴图的指定mipmap层，调用Apply()后会将像素传至显卡。需注意的是，由于Color32比Color类型所占的空间更小，使用SetPixels32比SetPixels造成的CPU耗时也更小。所以在效果允许的情况下，我们推荐使用SetPixels32()方法来取代SetPixels()。  </p>
 <hr>
-<h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3><p><strong><em>6、该类的方法中存在GameObject.SendMessage调用</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsH31WQv49ZVuY4fHJrCJVqCibLia05gQ3l7F9VW5xmsFPr44LblOaKicnJQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="6、该类的方法中存在GameObject-SendMessage调用"><a href="#6、该类的方法中存在GameObject-SendMessage调用" class="headerlink" title="6、该类的方法中存在GameObject.SendMessage调用"></a><strong><em>6、该类的方法中存在GameObject.SendMessage调用</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/643.png" alt="图片"></p>
 <p>GameObject.SendMessage用于调用相应GameObject上的脚本中的给定名称的函数。该函数会遍历GameObject上的所有组件以及组件脚本中的所有函数，这会导致较高的CPU开销。所以开发者要减少不必要的SendMessage的使用。  </p>
 <hr>
-<h3 id="-6"><a href="#-6" class="headerlink" title=""></a></h3><p><strong><em>7、该类的方法中存在GetComponentsInChildren调用</em></strong></p>
-<p><strong><em>该类的方法中存在GetComponentsInParent调用</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHfwaMecvqfibzBzNicG6kQhUPZu09J1YsGymDzXlEb3tpfW3LPKzLrRNg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="7、该类的方法中存在GetComponentsInChildren调用"><a href="#7、该类的方法中存在GetComponentsInChildren调用" class="headerlink" title="7、该类的方法中存在GetComponentsInChildren调用"></a><strong><em>7、该类的方法中存在GetComponentsInChildren调用</em></strong></h3><p><strong><em>该类的方法中存在GetComponentsInParent调用</em></strong></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/644.png" alt="图片"></p>
 <p>GetComponentsInChildren用于获得当前GameObject及其子节点的所有给定类型的组件，返回的是一个包含所有符合条件的对象的数组；而GetComponentsInParent则是用于获得当前对象及其父节点上的所有给定类型的组件。当然这里我们在说法上忽略了对组件隐藏情况的讨论。  </p>
 <p>这两者的使用都会涉及到较大范围内的搜索遍历，会挤占CPU较大的计算资源，所以开发团队应当尽量减少相关的调用，可以尝试缓存调用的结果，避免使其出现在Update这样的频繁调用的函数当中。此外，对于这两个函数，我们建议开发团队使用接受List<T>类型的引用作为参数的版本，这样就可以避免每次调用都造成堆内存的分配。</p>
 <hr>
-<h3 id="-7"><a href="#-7" class="headerlink" title=""></a></h3><p><strong><em>8、该类的方法中存在FindObjectsOfType调用</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHqMbLfFjicvBNYbsNq9FUia1XTF8haEoEG5IFDYibR7EUFjdc1viaAwsiayQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="8、该类的方法中存在FindObjectsOfType调用"><a href="#8、该类的方法中存在FindObjectsOfType调用" class="headerlink" title="8、该类的方法中存在FindObjectsOfType调用"></a><strong><em>8、该类的方法中存在FindObjectsOfType调用</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/645.png" alt="图片"></p>
 <p>如果使用FindObjectsOfType，它会对场景中的GameObject和Component进行遍历，并将与目标Type类型相同的组件以数组的方式返回。“Find”类的操作在小型项目当中可能不会有明显的影响，但随着项目体量的增大，场景中物体数量的增加，该操作造成的CPU耗时也将变得不容忽视。并且该函数会造成堆内存的分配。所以我们建议尽量避免这样的函数调用，或者通过调用一次，缓存结果的方式减少其带来的对项目性能的影响。  </p>
 <hr>
-<h3 id="-8"><a href="#-8" class="headerlink" title=""></a></h3><p><strong><em>9、该类的方法中存在Reflection相关函数的调用</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHVxReWibgaEY65CfgzibTKaGKNHtWCRA44ibZtApomNG5Ur05EbxQpRNWw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="9、该类的方法中存在Reflection相关函数的调用"><a href="#9、该类的方法中存在Reflection相关函数的调用" class="headerlink" title="9、该类的方法中存在Reflection相关函数的调用"></a><strong><em>9、该类的方法中存在Reflection相关函数的调用</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/642.webp" alt="图片"></p>
 <p>反射（Reflection）是一项用来在代码运行时做绑定的技术。如果代码需要获取的类型、调用的函数等信息是在运行时才能被明确的，那么就需要用到反射。  </p>
 <p>但运行时绑定就意味着更高的性能开销：项目在调用反射相关的方法时，需要获取类型与函数等信息，并且进行参数校验、错误处理、安全性检查等。这会导致相应的CPU计算开销较高，并且容易造成堆内存分配。因此我们建议在游戏项目中，尽可能避免使用反射。</p>
 <hr>
-<h3 id="-9"><a href="#-9" class="headerlink" title=""></a></h3><p><strong><em>10、该类的方法中存在对 Renderer 进行 material/materials 的获取</em></strong></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_jpg/ALp6MpyX3HCtWedHv9GiacaFggAVukibsHGFyYW7ABYToSicibRTgib1QibIJ4ceCTy5qrxia0IlUTiaxzLMXzVLNh0bfQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="10、该类的方法中存在对-Renderer-进行-material-materials-的获取"><a href="#10、该类的方法中存在对-Renderer-进行-material-materials-的获取" class="headerlink" title="10、该类的方法中存在对 Renderer 进行 material/materials 的获取"></a><strong><em>10、该类的方法中存在对 Renderer 进行 material/materials 的获取</em></strong></h3><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/643.webp" alt="图片"></p>
 <p>在Unity中，如果对Renderer类型调用.material和.materials，那么Unity就会生成新的材质球实例。其主要影响如下：  </p>
 <p>通过.material，创建材质实例，并修改属性的方式实现多样的渲染效果，时间开销会较高。这里可以参见<a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668907610&idx=1&sn=26f4acde8c3d9ad14e1799f287cab1f6&chksm=f1c9e028c6be693ec3c80b41c1c235a0837e75e0a9a5a78875d712c55c4b14b907799d918e69&scene=21#wechat_redirect">《使用MaterialPropertyBlock来替换Material属性操作》</a>。</p>
 <p>使用相同Shader，但因为Material实例不同的GameObject，所以无法进行合批，导致DrawCall增加，变相造成了CPU耗时的增加。</p>
@@ -570,12 +560,9 @@
 <p>建议通过主动MaterialPropertyBlock的方式修改材质属性，或者人为对有限个材质实例进行管理，效果相同的物体通过sharedMaterial来共用材质实例。</p>
 <hr>
 <p>希望以上这些知识点能在实际的开发过程中为大家带来帮助。需要说明的是，每一项检测规则的阈值都可以由开发团队依据自身项目的实际需求去设置合适的阈值范围，这也是本地资源检测的一大特点。同时，<a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668916742&idx=1&sn=32dc94ceeddc5e8d7d8a5ec6963c44d8&chksm=f1c9dc74c6be556277bca860d68dd4d0737bcf6331a2e76df3fb794b8dab61ee04ca703f769c&scene=21#wechat_redirect">也欢迎大家来使用UWA推出的本地资源检测服务，可帮助大家尽早对项目建立科学的美术规范</a>。</p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsH4Dxibaz4sT6RrNazmQjMnno9Hiay6ugQbTTTdz7lM5KsyzSDk3yeLQkQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>万行代码屹立不倒，全靠基础掌握得好！</p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCtWedHv9GiacaFggAVukibsH5saGPiapGVttzpg2Srob93MZWic2E2rZZwskdAJpL1sa1Q7eeEv3uc9g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/646.png" alt="图片"></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668917202&idx=1&sn=0134439d915770c4fcd157fae8c7832c&chksm=f1c9dda0c6be54b6c3598faa73904e1b235f97ef4be2987be53f175a34684d562cabf89b8b28&scene=21#wechat_redirect">相关推荐👇</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668921377&idx=1&sn=1958e3632670e5dcee7c0f3371ef5157&chksm=f1c92e53c6bea745ff580ab94f7e50d6dbb1b51f89ef14860ba5a2b90c59153221d1fb2163d7&scene=21#wechat_redirect"><strong>多线程统计 | GOT Online新功能上线</strong></a>  </p>
-<p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668921377&idx=1&sn=1958e3632670e5dcee7c0f3371ef5157&chksm=f1c92e53c6bea745ff580ab94f7e50d6dbb1b51f89ef14860ba5a2b90c59153221d1fb2163d7&scene=21#wechat_redirect"><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://mmbiz.qpic.cn/mmbiz_png/ALp6MpyX3HCBSwCYPxdGssU6Uq7KCRoRPsuILFHianY56aTOYMm82uwYlnrLzoLOibXgPvgiavQhbK4AlR9zer9icw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></a></p>
 <p><strong>性能黑榜相关阅读</strong></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668920070&idx=1&sn=4cac183679efa33845a500b418312721&chksm=f1c9d174c6be5862800644e5dbb0048f2e53f82c20165a58b7287007037b01fc973d18a86445&scene=21#wechat_redirect">《那些年给性能埋过的坑，你跳了吗？》</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI3MzA2MzE5Nw==&mid=2668920123&idx=1&sn=166d0740e3bb9d29aca23c610c7ad87d&chksm=f1c9d149c6be585f4ee9a93e10de76f97a7bb629a5384ce4bccef9541875082b5884012ed911&scene=21#wechat_redirect">《那些年给性能埋过的坑，你跳了吗？（第二弹）》</a></p>
@@ -3848,8 +3835,8 @@ public struct B
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Android</tag>
         <tag>Interview</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -20294,7 +20281,7 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
 
-    <div id="aplayer-UvynYnzt" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-PWExkgtz" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="2741090294" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="480px" data-preload="auto" data-theme="#ad7a86" data-listfolded="true"
     ></div>
 
@@ -21212,8 +21199,8 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
         <category>Pycharm</category>
       </categories>
       <tags>
-        <tag>Software</tag>
         <tag>Python</tag>
+        <tag>Software</tag>
         <tag>Pycharm</tag>
       </tags>
   </entry>
@@ -31431,45 +31418,6 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/manifest.json</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>{"name":"Tamsiree","short_name":"Tamsiree","theme_color":"#49b1f5","background_color":"#49b1f5","display":"standalone","scope":"/","start_url":"/","icons":[{"src":"images/favicon-handsome.png","sizes":"36x36","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"48x48","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"72x72","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"96x96","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"144x144","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"192x192","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"512x512","type":"image/png"}],"splash_pages":null}]]></content>
-  </entry>
-  <entry>
-    <title>关于我</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><blockquote>
-<p>技术博客： <a href="https://Tamsiree.com"><code>https://Tamsiree.com</code></a><br>Github： <a href="https://github.com/Tamsiree"><code>https://github.com/Tamsiree</code></a></p>
-</blockquote>
-<hr>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><blockquote>
-<p>Email： <a href="mailto:tamsiree.com@gmail.com"><code>tamsiree.com@gmail.com</code></a></p>
-</blockquote>
-<hr>
-<h2 id="自我简介"><a href="#自我简介" class="headerlink" title="自我简介"></a>自我简介</h2><ul>
-<li>性格随和，平时话语偏少</li>
-<li>对技术具有浓厚的兴趣，享受Coding，喜欢逛Github等技术论坛；</li>
-<li>最近在研究Unity3D,有想法做一款实现自己天马行空的游戏  </li>
-</ul>
-<hr>
-<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><blockquote>
-<ol>
-<li><strong>C#</strong>  </li>
-<li><strong>Java</strong>  </li>
-<li><strong>ArcGis</strong>  </li>
-<li><strong>Node.js</strong>  </li>
-<li><strong>Android</strong>  </li>
-<li><strong>Manjaro(Linux)</strong>  </li>
-<li><strong>PhotoShop</strong>  </li>
-<li><strong>Unity3D</strong>  </li>
-<li><strong>Python</strong>  </li>
-<li><strong>3DMax</strong>  </li>
-<li><strong>Maya</strong>  </li>
-</ol>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>黄金屋</title>
     <url>/book/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h1><blockquote>
@@ -31533,8 +31481,52 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
   </entry>
   <entry>
+    <title>关于我</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><blockquote>
+<p>技术博客： <a href="https://Tamsiree.com"><code>https://Tamsiree.com</code></a><br>Github： <a href="https://github.com/Tamsiree"><code>https://github.com/Tamsiree</code></a></p>
+</blockquote>
+<hr>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><blockquote>
+<p>Email： <a href="mailto:tamsiree.com@gmail.com"><code>tamsiree.com@gmail.com</code></a></p>
+</blockquote>
+<hr>
+<h2 id="自我简介"><a href="#自我简介" class="headerlink" title="自我简介"></a>自我简介</h2><ul>
+<li>性格随和，平时话语偏少</li>
+<li>对技术具有浓厚的兴趣，享受Coding，喜欢逛Github等技术论坛；</li>
+<li>最近在研究Unity3D,有想法做一款实现自己天马行空的游戏  </li>
+</ul>
+<hr>
+<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><blockquote>
+<ol>
+<li><strong>C#</strong>  </li>
+<li><strong>Java</strong>  </li>
+<li><strong>ArcGis</strong>  </li>
+<li><strong>Node.js</strong>  </li>
+<li><strong>Android</strong>  </li>
+<li><strong>Manjaro(Linux)</strong>  </li>
+<li><strong>PhotoShop</strong>  </li>
+<li><strong>Unity3D</strong>  </li>
+<li><strong>Python</strong>  </li>
+<li><strong>3DMax</strong>  </li>
+<li><strong>Maya</strong>  </li>
+</ol>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/manifest.json</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>{"name":"Tamsiree","short_name":"Tamsiree","theme_color":"#49b1f5","background_color":"#49b1f5","display":"standalone","scope":"/","start_url":"/","icons":[{"src":"images/favicon-handsome.png","sizes":"36x36","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"48x48","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"72x72","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"96x96","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"144x144","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"192x192","type":"image/png"},{"src":"images/favicon-handsome.png","sizes":"512x512","type":"image/png"}],"splash_pages":null}]]></content>
+  </entry>
+  <entry>
     <title>寻龙尺</title>
     <url>/categories/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+  </entry>
+  <entry>
+    <title>神秘链接</title>
+    <url>/link/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
   </entry>
   <entry>
@@ -31565,11 +31557,6 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 ]]></content>
   </entry>
   <entry>
-    <title>神秘链接</title>
-    <url>/link/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-  </entry>
-  <entry>
     <title>留言板</title>
     <url>/messageboard/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
@@ -31577,51 +31564,6 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
 </blockquote>
 <p>教你评论发图片咯～<br>输入这个格式的 <code>![图片名称](图片链接)</code><br>就能发图片了  </p>
 <p>如果想要设置评论的头像<br>需要去这个 <a href="https://cn.gravatar.com">Gavatar</a> 注册账号并设置头像<br>注意<code>注册的邮箱</code> 与 <code>评论时填写的邮箱</code>保持一致 (英文<code>大小写</code>都必须要一样)<br>就可以显示头像啦</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>音乐</title>
-    <url>/music/index.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><hr>
-<h1 id="歌单"><a href="#歌单" class="headerlink" title="歌单"></a>歌单</h1><blockquote>
-<p>介绍： 人们喜欢留念过去。<br>上学时最讨厌的校服，最讨厌的老师，最讨厌的学校……<br>当离开的时候，一切都变得值得怀念。<br>然后离开的他们再度回来，去见母校老师，穿着借来的校服逛校园。<br>真是奇怪。<br>在里面的时候想离开，既然离开，就再也不想回去。怀念，是没有用的。  </p>
-<p>你什么时候最爱穿校服？是当我知道我再也穿不上它的时候我们以青春的名义分道扬镳。</p>
-</blockquote>
-
-    <div id="aplayer-hcAHOdRj" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="2741090294" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="480px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-
-<hr>
-<h1 id="单曲"><a href="#单曲" class="headerlink" title="单曲"></a>单曲</h1><h2 id="心愿"><a href="#心愿" class="headerlink" title="心愿"></a>心愿</h2><blockquote>
-<p>听到这首歌，脑海中就浮现了高中时那些纯真美好的画面<br>那是下午的第二节课，老师在上面上着课，午后的阳光透过窗，晒在身上很舒服，窗外的蝉儿叫着，仿佛一阵涟漪拨动着我们的思绪，慵懒的感觉，好舒服，好想睡觉(～﹃～)~zZ</p>
-</blockquote>
-
-    <div id="aplayer-MOfWVUTw" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="379785" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="480px" data-preload="auto" data-theme="#ad7a86" data-listfolded="true"
-    ></div>
-
-<hr>
-<h1 id="仙剑奇侠传系列"><a href="#仙剑奇侠传系列" class="headerlink" title="仙剑奇侠传系列"></a>仙剑奇侠传系列</h1><p><a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列"><strong><code>仙剑奇侠传系列</code></strong></a> 经典的回忆杀呀</p>
-<blockquote>
-<p>据说:<br>《<a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列/#逍遥叹"><strong><code>逍遥叹</code></strong></a>》是 <code>李逍遥</code> 的人生<br>《<a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列/#六月的雨"><strong><code>六月的雨</code></strong></a>》是 <code>李逍遥</code> 对 <code>赵灵儿</code> 的心声<br>《<a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列/#一直很安静"><strong><code>一直很安静</code></strong></a>》是 <code>林月如</code> 的存在  </p>
-</blockquote>
-<hr>
-<h1 id="琴箫合奏笑傲江湖曲"><a href="#琴箫合奏笑傲江湖曲" class="headerlink" title="琴箫合奏笑傲江湖曲"></a>琴箫合奏笑傲江湖曲</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=4973323&cid=8077434&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
-
-<hr>
-<h1 id="沧海一声笑"><a href="#沧海一声笑" class="headerlink" title="沧海一声笑"></a>沧海一声笑</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=5457973&cid=8869398&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
-
-<hr>
-<h1 id="笑红尘"><a href="#笑红尘" class="headerlink" title="笑红尘"></a>笑红尘</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=8871299&cid=14638080&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
-
-<hr>
-<h1 id="天地孤影任我行"><a href="#天地孤影任我行" class="headerlink" title="天地孤影任我行"></a>天地孤影任我行</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=54127874&cid=94689543&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
-
-<hr>
-<blockquote>
-<p>to be continued…</p>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -31753,6 +31695,51 @@ for语句的形式是：<br>这里var是变量，init、limit和incr都是算术
     <title>风向标</title>
     <url>/tags/index.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+  </entry>
+  <entry>
+    <title>音乐</title>
+    <url>/music/index.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><hr>
+<h1 id="歌单"><a href="#歌单" class="headerlink" title="歌单"></a>歌单</h1><blockquote>
+<p>介绍： 人们喜欢留念过去。<br>上学时最讨厌的校服，最讨厌的老师，最讨厌的学校……<br>当离开的时候，一切都变得值得怀念。<br>然后离开的他们再度回来，去见母校老师，穿着借来的校服逛校园。<br>真是奇怪。<br>在里面的时候想离开，既然离开，就再也不想回去。怀念，是没有用的。  </p>
+<p>你什么时候最爱穿校服？是当我知道我再也穿不上它的时候我们以青春的名义分道扬镳。</p>
+</blockquote>
+
+    <div id="aplayer-BhvArrEI" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="2741090294" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="480px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+<hr>
+<h1 id="单曲"><a href="#单曲" class="headerlink" title="单曲"></a>单曲</h1><h2 id="心愿"><a href="#心愿" class="headerlink" title="心愿"></a>心愿</h2><blockquote>
+<p>听到这首歌，脑海中就浮现了高中时那些纯真美好的画面<br>那是下午的第二节课，老师在上面上着课，午后的阳光透过窗，晒在身上很舒服，窗外的蝉儿叫着，仿佛一阵涟漪拨动着我们的思绪，慵懒的感觉，好舒服，好想睡觉(～﹃～)~zZ</p>
+</blockquote>
+
+    <div id="aplayer-XRXYtQwv" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="379785" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="480px" data-preload="auto" data-theme="#ad7a86" data-listfolded="true"
+    ></div>
+
+<hr>
+<h1 id="仙剑奇侠传系列"><a href="#仙剑奇侠传系列" class="headerlink" title="仙剑奇侠传系列"></a>仙剑奇侠传系列</h1><p><a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列"><strong><code>仙剑奇侠传系列</code></strong></a> 经典的回忆杀呀</p>
+<blockquote>
+<p>据说:<br>《<a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列/#逍遥叹"><strong><code>逍遥叹</code></strong></a>》是 <code>李逍遥</code> 的人生<br>《<a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列/#六月的雨"><strong><code>六月的雨</code></strong></a>》是 <code>李逍遥</code> 对 <code>赵灵儿</code> 的心声<br>《<a href="https://tamsiree.com/Teleplay/仙剑奇侠传系列/#一直很安静"><strong><code>一直很安静</code></strong></a>》是 <code>林月如</code> 的存在  </p>
+</blockquote>
+<hr>
+<h1 id="琴箫合奏笑傲江湖曲"><a href="#琴箫合奏笑傲江湖曲" class="headerlink" title="琴箫合奏笑傲江湖曲"></a>琴箫合奏笑傲江湖曲</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=4973323&cid=8077434&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
+
+<hr>
+<h1 id="沧海一声笑"><a href="#沧海一声笑" class="headerlink" title="沧海一声笑"></a>沧海一声笑</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=5457973&cid=8869398&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
+
+<hr>
+<h1 id="笑红尘"><a href="#笑红尘" class="headerlink" title="笑红尘"></a>笑红尘</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=8871299&cid=14638080&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
+
+<hr>
+<h1 id="天地孤影任我行"><a href="#天地孤影任我行" class="headerlink" title="天地孤影任我行"></a>天地孤影任我行</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=54127874&cid=94689543&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>
+
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+]]></content>
   </entry>
   <entry>
     <title></title>
