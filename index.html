@@ -1,107 +1,561 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tamsiree</title><meta name="description" content="勇于尝试才有可能迈向成功"><meta name="keywords" content="Tamsiree,Vondear,blog,安卓博客,安卓,程序员,个人博客,Android"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Tamsiree"><meta name="twitter:description" content="勇于尝试才有可能迈向成功"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><meta property="og:type" content="website"><meta property="og:title" content="Tamsiree"><meta property="og:url" content="https://tamsiree.com/"><meta property="og:site_name" content="Tamsiree"><meta property="og:description" content="勇于尝试才有可能迈向成功"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><meta property="article:published_time" content="2021-05-14T04:12:17.837Z"><meta property="article:modified_time" content="2021-05-14T04:12:17.837Z"><link rel="manifest" href="/manifest.json"/><meta name="theme-color" content="#fff"/><meta name="msapplication-TileColor" content="#fff"/><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"/><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" color="#5bbad5"/><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://tamsiree.com/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tamsiree</title><meta name="keywords" content="Tamsiree,Vondear,blog,安卓博客,安卓,程序员,个人博客,Android"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="勇于尝试才有可能迈向成功">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tamsiree">
+<meta property="og:url" content="https://tamsiree.com/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="勇于尝试才有可能迈向成功">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="Tamsiree">
+<meta property="article:tag" content="Vondear">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="安卓博客">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="程序员">
+<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://tamsiree.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
-  runtime_unit: '天',
-  runtime: true,
-  copyright: {"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-center"},
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: false,
-  isPhotoFigcaption: false,
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
   islazyload: true,
-  isanchor: false
-  
-}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Tamsiree',
   isPost: false,
   isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-05-18 09:32:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><style type="text/css">.card-announcement .social-button{margin: .6rem 0 0 0; text-align: center;}.card-announcement .social-button a{display: block; margin: 0.2rem 0;background-color: var(--btn-bg); color: var(--btn-color); line-height: 1.6rem; transition: all .3s; position: relative; z-index: 1;}</style><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">177</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">风向标</div><div class="length-num">136</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length-num">137</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/y2ouxichangjing.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Tamsiree</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Tamsiree" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/" title="Lua技巧">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/yangguang-1024x576.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lua技巧"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/" title="Lua技巧">Lua技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-14T07:51:53.000Z" title="发表于 2021-05-14 15:51:53">2021-05-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/">Lua</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/#post-comment"><span class="waline-comment-count" id="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言这里是前言介绍。
+正文lua 中 . 和 : 的区别
+首先在lua中使用“:”定义的函数会自动传入一个名为self的变量，这个变量是隐含的，self同c++中的this一样，表示当前对象的指针：而“.”定义的函数中没有self。
+
+12345678910111213function  class:func2( )  endfunction  class.func1(self)  end  --这时候这两个函数等价  function MainScene:ctor()    self:ceshi(1,2,3)endfunction MainScene:ceshi(a,b,c)    print(a,b,c)end&gt; 输出: 1 2 3
+
+
+
+
+to be continued…
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1-1-1024x576.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#代码优化堆内存"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">C#代码优化堆内存</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-13T02:30:39.000Z" title="发表于 2021-05-13 10:30:39">2021-05-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/">C#</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/#post-comment"><span class="waline-comment-count" id="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言在上期《C#代码优化：拯救你的CPU耗时》中，我们依托UWA本地资源检测，从“时间”的角度对C#代码检测中和CPU耗时相关的知识点为大家进行了简单的讲解。本篇将从“空间”角度入手，为大家继续梳理C#代码检测的相关规则。
+C#是在虚拟机（VM）环境当中运行的（Mono虚拟机或IL2CPP虚拟机），其分配的堆内存是由虚拟机进行管理与回收的，因此，C#代码被称为“托管代码”，其堆内存又被称为“托管内存”。托管内存的释放依赖于虚拟机的GC（垃圾回收）机制，本文就不展开讨论了。
+C#程序开发要遵循的一个基本原则就是避免不必要的堆内存分配，而堆内存分配主要会造成以下后果：
+
+程序所占用的内存总量过大。内存是有限的资源，对于游戏（特别是移动游戏）来说，内存的占用可谓是寸土寸金。过多的无法释放的内存很可能导致程序崩溃的现象。
+过多的分配次数会导致堆碎片变多，从而可能导致无法开辟出所需要的连续的内存，这也会导致程序崩溃。
+内存分配会触发GC（垃圾回收），而GC的代价较高，会造成卡顿。
+
+1、该类的方法中存在 .tag的调用
+tag是场景中GameObject的标签，而类GameObject的成员ta ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wp1904594-cpu-wallpapers.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#代码优化CPU耗时"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">C#代码优化CPU耗时</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-11T06:05:03.000Z" title="发表于 2021-05-11 14:05:03">2021-05-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/">C#</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/#post-comment"><span class="waline-comment-count" id="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言之前，我们已经对 本地资源检测 中和资源/Prefab的内容做了总结（详情可扫描文末长图），后续UWA也会和大家一起努力，进一步丰富这些检测内容。今天我们要聚焦的是本地资源检测中的C#代码相关的检测项。
+要保证游戏在流畅的帧率下运行，就要保证CPU和GPU能够及时地完成它们在一帧当中的“任务”。而本文我们讲解的这些C#代码的性能，就会影响到每帧CPU自身的耗时。当游戏出现帧率降低、间歇性卡顿甚至卡死等现象时，我们就需要考虑这是否是由开发者自己所编写的脚本性能较差所造成的。
+
+性能的优化问题，实际上是个“时空问题”：我们要尽可能地节省运算所需的时间，节约内存上占用的空间。对C#代码的优化亦是如此，一方面是对CPU耗时的优化，一方面是对内存分配的优化。而“空间问题”与“时间问题”又常常会相互转化——优化内存的目的之一，是减少GC，这又可以归结为减少CPU耗时。本文要讲解的一系列规则，就是主要针对CPU耗时的规则。‍
+
+1、类中存在OnGUI方法
+规则里涉及到的OnGUI，它是Unity的IMGUI系统绘制UI所调用的方法。该方法如果写在继承了Monobehavior的脚本上，那么Uni ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-a73b613.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EmmyLua调试Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">EmmyLua调试Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-26T03:54:34.000Z" title="发表于 2021-04-26 11:54:34">2021-04-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/">Intellij IDEA</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/#post-comment"><span class="waline-comment-count" id="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言以前用开发lua都是使用sublime，但是sublime终究是一个编辑器，调试不是方便，后来在同事的引荐下，接触到了Intellij IDEA，刚开始使用很不习惯，用了一段时间后，发现EmmyLua + Unity 用起来很舒服，简单说一下配置过程
+安装Intellij IDEA我使用的是IntelliJ IDEA 2019.2.3 (Community Edition)，这个版本不收费，但足够我们使用了，附上下载地址https://www.jetbrains.com/idea/download/#section=windows，下载安装即可
+安装EmmyLua请注意，这里面是有坑的，如果你直接在 Settings-&gt;Plugins 中搜索 EmmyLua 安装，是不能调试的（曾经手贱，升级了一下插件，死活连不上），因为最新版的EmmyLua1.3.2更新日志中，有如下提示：  
+
+更新日志说：因为它经常被防病毒软件拦截，所以删除连接调试（wtf？！，开发机会装杀毒软件？！）所以不要用最新版的，去插件的官网下载老版插件（我用的1.3.0，很稳定）附上链接https://pl ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-987815.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"></a></div><div class="recent-post-info"><a class="article-title" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-16T21:51:43.000Z" title="发表于 2021-04-17 05:51:43">2021-04-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Research/">Research</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/#post-comment"><span class="waline-comment-count" id="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">正文R-B Tree简介R-B Tree，全称是Red-Black Tree，又称为“红黑树”，它一种特殊的二叉查找树。红黑树的每个节点上都有存储位表示节点的颜色，可以是红(Red)或黑(Black)。红黑树的特性:（1）每个节点或者是黑色，或者是红色。（2）根节点是黑色。（3）每个叶子节点（NIL）是黑色。 [注意：这里叶子节点，是指为空(NIL或NULL)的叶子节点！]（4）如果一个节点是红色的，则它的子节点必须是黑色的。（5）从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。
+注意：(01) 特性(3)中的叶子节点，是只为空(NIL或null)的节点。(02) 特性(5)，确保没有一条路径会比其他路径长出俩倍。因而，红黑树是相对是接**衡的二叉树。
+红黑树示意图如下：
+
+红黑树的应用红黑树的应用比较广泛，主要是用它来存储有序的数据，它的时间复杂度是O(lgn)，效率非常之高。例如，Java集合中的TreeSet和TreeMap，C++ STL中的set、map，以及Linux虚拟内存的管理，都是通过红黑树去实现的。
+**红黑树的时间复杂度和相关证明**
+红黑树的时间复 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/" title="UGUI源码分析系列">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-6b320d4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UGUI源码分析系列"></a></div><div class="recent-post-info"><a class="article-title" href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/" title="UGUI源码分析系列">UGUI源码分析系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-13T15:03:48.000Z" title="发表于 2021-04-13 23:03:48">2021-04-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/GameEngine/">GameEngine</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/GameEngine/Unity/">Unity</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/GameEngine/Unity/UGUI/">UGUI</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/#post-comment"><span class="waline-comment-count" id="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">阅前提示该系列注重分析UGUI源码，来深入了解UGUI每个模块每个组件的实现原理，使我们对UGUI使用和拓展上更加得心应手。适合人群：UGUI使用者，All阅读方式：文章 + 源码阅读本系列在不断更新中，如果对你有所帮助，可以点赞收藏：）UGUI版本：2017.4源码地址
+文章目录
+阅前提示
+总览图
+Base
+
+UIBehaviour
+EventSystem
+CanvasUpdateSystem
+LayoutSystem
+Graphic
+Selectable
+
+
+Component
+
+Image &amp; RawImage
+Text &amp; Shadow &amp; Outline
+Button
+Toggle
+Slider
+Scrollbar &amp; ScrollRect
+Dropdown
+InputField
+
+
+
+
+总览图
+
+Base
+UIBehaviour
+BaseClass: MonoBehaviour
+Interface: 无
+Intro: UGUI组件的基础类，为UGUI组件提供了三个模块通用接口。
+
+
+MonoBehaviour 生命周期
+UnityEditor ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="Unity纹理压缩与相关优化知识汇总">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-45008df.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity纹理压缩与相关优化知识汇总"></a></div><div class="recent-post-info"><a class="article-title" href="/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="Unity纹理压缩与相关优化知识汇总">Unity纹理压缩与相关优化知识汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-12T07:53:14.000Z" title="发表于 2021-04-12 15:53:14">2021-04-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/GameEngine/">GameEngine</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/GameEngine/Unity/">Unity</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/#post-comment"><span class="waline-comment-count" id="/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">一、纹理格式的基础知识1.图片格式图片格式一般指我们从美术工具中导出的文件格式，用于在磁盘中存储的格式；如jpg，png，tga等；
+2.纹理格式文件格式是图像为了存储信息而使用的编码方式，但是他不能被CPU所识别，GPU的特性是做向量运算；因此这些文件被游戏读入时还需要CPU解压成R8G8B8等像素格式，再传送到GPU端使用；而在运行时做解压无疑是非常耗的，所以一般在图片源文件导入时就会为其生成纹理格式的文件。
+纹理格式是可以被GPU所识别的像素格式，可以被快速寻址采样。
+但是直接使用这种纹理格式会导致资源的加载时间长、内存占用大的问题，尤其在移动平台上更加明显，因此，为了解决这个问题，就出现了压缩纹理格式；
+3.纹理压缩格式Unity支持许多图片格式的源文件，但是3D图形的实时渲染中不会用这些格式，3D图形硬件要求纹理以专门格式进行压缩，这些格式对快速纹理采样进行了优化，DXT,ETC等压缩纹理格式可以在游戏运行中无需CPU解压就被GPU直接采样。每个不同的平台和设备都有自己的专有格式，因此在选择压缩方式时需要考虑兼容性。
+Unity文档中给出了所有支持的纹理压缩格式（https: ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/" title="状态同步和帧同步">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-c883ef9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="状态同步和帧同步"></a></div><div class="recent-post-info"><a class="article-title" href="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/" title="状态同步和帧同步">状态同步和帧同步</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-09T09:35:42.000Z" title="发表于 2021-04-09 17:35:42">2021-04-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Game/">Game</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/#post-comment"><span class="waline-comment-count" id="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言所谓同步，就是要多个客户端表现效果是一致的，例如我们玩王者荣耀的时候，需要十个玩家的屏幕显示的英雄位置完全相同、技能释放角度、释放时间完全相同，这个就是同步。就好像很多个人一起跳街舞齐舞，每个人的动作都要保持一致。而对于大多数游戏，不仅客户端的表现要一致，而且需要客户端和服务端的数据是一致的。所以，同步是一个网络游戏概念，只有网络游戏才需要同步，而单机游戏是不需要同步的。
+正文一、状态同步和帧同步的区别
+最大的区别就是战斗核心逻辑写在哪，状态同步的战斗逻辑在服务端，帧同步的战斗逻辑在客户端。战斗逻辑是包括技能逻辑、普攻、属性、伤害、移动、AI、检测、碰撞等等的一系列内容，这常常也被视为游戏开发过程中最难的部分。由于核心逻辑必须知道一个场景中的所有实体情况，所以MMO游戏（例如魔兽世界）就必须把战斗逻辑写在服务端，所以MMO游戏必须是状态同步的，因为MMO游戏的客户端承载有限，并不能把整张地图的实体全部展现出来（例如100米以外的NPC和玩家就不显示了），所以客户端没有足够的信息计算全图的人的所有行为。
+具体到客户端和服务端通信上，在状态同步下，客户端更像是一个服务端数据的表现层，举 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/" title="Unity的ScrollView组件">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-e4f9e29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity的ScrollView组件"></a></div><div class="recent-post-info"><a class="article-title" href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/" title="Unity的ScrollView组件">Unity的ScrollView组件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-06T07:45:15.000Z" title="发表于 2021-04-06 15:45:15">2021-04-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Software/">Software</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Software/Unity/">Unity</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Software/Unity/UGUI/">UGUI</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Software/Unity/UGUI/ScrollView/">ScrollView</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/#post-comment"><span class="waline-comment-count" id="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言Scroll View  滑动视图  相关参数详解：  
+Scroll View上的【ScrollRect】 组件：
+
+
+
+
+组件
+功能
+
+
+
+Content
+滑动的内容 (  所有需要滑动展示的内容  )
+
+
+Horizontal
+是否支持左右滑动
+
+
+Vertical
+是否支持上下滑动
+
+
+MovementType
+滑动类型
+
+
+
+▶ Unrestricted 不受滑动内容边界限制
+
+
+
+▶ Elastic 带边界回弹的(Elasticity 弹力)
+
+
+
+▶ clamped 边界夹紧
+
+
+Inertia
+是否支持滑动惯性
+
+
+
+▶ Deceleration Rate  减速率  ，我感觉就是惯性的大小
+
+
+scroll sensitivity
+滚动的灵敏度
+
+
+Viewport
+视口  （ 一般是Content 的父物体，带Mask遮罩后的展示区域）
+
+
+Horizontar Scrollbar
+左右的滚动条 ( 连接的滚动条必须放在Scroll View下 )
+
+
+Vertical Scrollbar
+垂直的滚动条 ( 连接的滚动条必须放在Scroll View下 )
+
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E6%96%B0%E7%89%B9%E6%80%A7/" title="C#新特性">     <img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-2bb1450.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#新特性"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E6%96%B0%E7%89%B9%E6%80%A7/" title="C#新特性">C#新特性</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-25T14:19:45.000Z" title="发表于 2021-03-25 22:19:45">2021-03-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/">C#</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E6%96%B0%E7%89%B9%E6%80%A7/#post-comment"><span class="waline-comment-count" id="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E6%96%B0%E7%89%B9%E6%80%A7/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言在C#8.0中新增了两个新的特性，System.Index及System.Range，这是借助对应的两个运算符 ^ 及 ..，让我们很方便就可以获取序列中某个或一段元素。
+正文System.IndexSystem.Index表示索引类型，^指定的索引是相对于序列尾端。如^2表示从序列尾端、从右至左的第二个元素。这里始终记住 ^x等价于 list.length - x ，所以如果代码写成 list[^0]，那么等价于 list[list.length-0]，结果就会抛出异常。下边举例说明。
+123456789101112131415161718var list = new[]&#123;    &quot;爱&quot;,&quot;情&quot;,&quot;公&quot;,&quot;寓&quot;,&quot;曾&quot;,&quot;小&quot;,&quot;贤&quot;,&quot;胡&quot;,&quot;一&quot;,&quot;菲&quot;,&quot;吕&quot;,&quot;子&quot;,&quot;乔&quot;,&quot;陈&quot;,&q ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/#content-inner">18</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">177</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">风向标</div><div class="length-num">136</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length-num">137</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/" title="Lua技巧"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/yangguang-1024x576.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lua技巧"/></a><div class="content"><a class="title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/" title="Lua技巧">Lua技巧</a><time datetime="2021-05-14T07:51:53.000Z" title="发表于 2021-05-14 15:51:53">2021-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1-1-1024x576.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#代码优化堆内存"/></a><div class="content"><a class="title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">C#代码优化堆内存</a><time datetime="2021-05-13T02:30:39.000Z" title="发表于 2021-05-13 10:30:39">2021-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wp1904594-cpu-wallpapers.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#代码优化CPU耗时"/></a><div class="content"><a class="title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">C#代码优化CPU耗时</a><time datetime="2021-05-11T06:05:03.000Z" title="发表于 2021-05-11 14:05:03">2021-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-a73b613.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EmmyLua调试Unity"/></a><div class="content"><a class="title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">EmmyLua调试Unity</a><time datetime="2021-04-26T03:54:34.000Z" title="发表于 2021-04-26 11:54:34">2021-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-987815.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"/></a><div class="content"><a class="title" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><time datetime="2021-04-16T21:51:43.000Z" title="发表于 2021-04-17 05:51:43">2021-04-17</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>风向标</span></div><div class="card-tag-cloud"><a href="/tags/Interview/" style="font-size: 1.17em; color: rgb(16, 7, 136)">Interview</a><a href="/tags/Python/" style="font-size: 1.25em; color: rgb(133, 143, 124)">Python</a><a href="/tags/Linux/" style="font-size: 1.35em; color: rgb(152, 21, 187)">Linux</a><a href="/tags/Android/" style="font-size: 1.39em; color: rgb(107, 19, 13)">Android</a><a href="/tags/Manjaro/" style="font-size: 1.29em; color: rgb(38, 172, 114)">Manjaro</a><a href="/tags/Software/" style="font-size: 1.33em; color: rgb(129, 143, 55)">Software</a><a href="/tags/Anbox/" style="font-size: 1.15em; color: rgb(96, 178, 133)">Anbox</a><a href="/tags/Computer/" style="font-size: 1.15em; color: rgb(10, 179, 87)">Computer</a><a href="/tags/Alienware/" style="font-size: 1.15em; color: rgb(154, 116, 124)">Alienware</a><a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.31em; color: rgb(192, 124, 36)">开发工具</a><a href="/tags/AndroidStudio/" style="font-size: 1.19em; color: rgb(174, 106, 54)">AndroidStudio</a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.45em; color: rgb(173, 99, 149)">编程语言</a><a href="/tags/AndroidX/" style="font-size: 1.15em; color: rgb(176, 81, 170)">AndroidX</a><a href="/tags/JetPack/" style="font-size: 1.15em; color: rgb(153, 57, 132)">JetPack</a><a href="/tags/Room/" style="font-size: 1.15em; color: rgb(63, 182, 124)">Room</a><a href="/tags/UnitTest/" style="font-size: 1.15em; color: rgb(102, 141, 167)">UnitTest</a><a href="/tags/Html/" style="font-size: 1.17em; color: rgb(12, 115, 60)">Html</a><a href="/tags/EditText/" style="font-size: 1.15em; color: rgb(160, 171, 158)">EditText</a><a href="/tags/Fragment/" style="font-size: 1.15em; color: rgb(80, 141, 62)">Fragment</a><a href="/tags/GameEngine/" style="font-size: 1.39em; color: rgb(190, 125, 191)">GameEngine</a><a href="/tags/Unity/" style="font-size: 1.41em; color: rgb(14, 32, 46)">Unity</a><a href="/tags/TechnicalResearch/" style="font-size: 1.43em; color: rgb(19, 36, 30)">TechnicalResearch</a><a href="/tags/Base64/" style="font-size: 1.15em; color: rgb(175, 155, 18)">Base64</a><a href="/tags/CDN/" style="font-size: 1.15em; color: rgb(182, 174, 101)">CDN</a><a href="/tags/C/" style="font-size: 1.21em; color: rgb(27, 134, 71)">C#</a><a href="/tags/Game/" style="font-size: 1.37em; color: rgb(57, 110, 144)">Game</a><a href="/tags/Steam/" style="font-size: 1.25em; color: rgb(87, 194, 130)">Steam</a><a href="/tags/GamePlatform/" style="font-size: 1.27em; color: rgb(20, 186, 118)">GamePlatform</a><a href="/tags/CSGO/" style="font-size: 1.15em; color: rgb(126, 0, 183)">CSGO</a><a href="/tags/Google/" style="font-size: 1.25em; color: rgb(120, 169, 155)">Google</a><a href="/tags/Chrome/" style="font-size: 1.23em; color: rgb(190, 156, 66)">Chrome</a><a href="/tags/Chromium/" style="font-size: 1.15em; color: rgb(153, 28, 61)">Chromium</a><a href="/tags/RxTool/" style="font-size: 1.19em; color: rgb(170, 109, 23)">RxTool</a><a href="/tags/Contributor/" style="font-size: 1.15em; color: rgb(172, 100, 157)">Contributor</a><a href="/tags/DNF/" style="font-size: 1.15em; color: rgb(138, 85, 135)">DNF</a><a href="/tags/Intellij-IDEA/" style="font-size: 1.15em; color: rgb(16, 139, 136)">Intellij IDEA</a><a href="/tags/EmmyLua/" style="font-size: 1.15em; color: rgb(59, 162, 187)">EmmyLua</a><a href="/tags/Lua/" style="font-size: 1.19em; color: rgb(92, 90, 97)">Lua</a><a href="/tags/Emoji/" style="font-size: 1.17em; color: rgb(135, 10, 97)">Emoji</a><a href="/tags/Git/" style="font-size: 1.15em; color: rgb(72, 22, 43)">Git</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>时间胶囊</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">2021年05月</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">2021年04月</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">2021年03月</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">2021年01月</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">2020年10月</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">2020年09月</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">2020年08月</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">2020年07月</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">177</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-09-24T09:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">405.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-05-18T01:32:45.228Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/y2ouxichangjing.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Tamsiree</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
 }
-.justified-gallery img{
-  opacity: 1
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
 }
-</style></noscript><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/RxTool/icon_placeholder.jpg'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">176</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">风向标</div><div class="length_num">136</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length_num">137</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-ship"></i><span> 时间胶囊</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-envira"></i><span> 风向标</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-safari"></i><span> 寻龙尺</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 回味</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page" href="/book/"><i class="fa-fw fa fa-book"></i><span> 黄金屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-graduation-cap"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-tasks"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fa fa-eercast"></i><span> 冥想空间</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><div class="full_page" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/y2ouxichangjing.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Tamsiree</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-ship"></i><span> 时间胶囊</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-envira"></i><span> 风向标</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-safari"></i><span> 寻龙尺</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 回味</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page" href="/book/"><i class="fa-fw fa fa-book"></i><span> 黄金屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-graduation-cap"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-tasks"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fa fa-eercast"></i><span> 冥想空间</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">Tamsiree</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:tamsiree.com@gmail.com" target="_blank" title=""><i class="fa fa-envelope-square" aria-hidden="true"></i></a><a class="social-icon" href="https://github.com/Tamsiree" target="_blank" title=""><i class="fa fa-github-square" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fa fa-rss-square" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/RxTool/RxTool/" title="RxTool(Android工具库)">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="RxTool(Android工具库)"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/RxTool/RxTool/" title="RxTool(Android工具库)">RxTool(Android工具库)</a><div class="article-meta-wrap"><span class="article-meta"><i class="fa fa-thumb-tack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><time class="post-meta__date" title="发表于 2016-09-24 17:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2016-09-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/">Android</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/RxTool/">RxTool</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Android/">Android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/RxTool/">RxTool</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Tool/">Tool</a></span></div><div class="content">所谓：工欲善其事必先利其器！ RxTool 是 Android 开发过程经常需要用到各式各样的工具类集合，虽然大部分只需谷歌一下就能找到。但是有时候急需使用却苦苦搜寻不到，于是整理了自己平常用到的工具类，以便以后的使用。</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1-1-1024x576.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="C#代码优化堆内存"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">C#代码优化堆内存</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-05-13 10:30:39"><i class="fa fa-calendar" aria-hidden="true"></i>2021-05-13</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/">C#</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C/">C#</a></span></div><div class="content">C#是在虚拟机（VM）环境当中运行的（Mono虚拟机或IL2CPP虚拟机），其分配的堆内存是由虚拟机进行管理与回收的，因此，C#代码被称为“托管代码”，其堆内存又被称为“托管内存”。</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wp1904594-cpu-wallpapers.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="C#代码优化CPU耗时"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">C#代码优化CPU耗时</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-05-11 14:05:03"><i class="fa fa-calendar" aria-hidden="true"></i>2021-05-11</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/">C#</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C/">C#</a></span></div><div class="content">要保证游戏在流畅的帧率下运行，就要保证CPU和GPU能够及时地完成它们在一帧当中的“任务”。而本文我们讲解的这些C#代码的性能，就会影响到每帧CPU自身的耗时。当游戏出现帧率降低、间歇性卡顿甚至卡死等现象时，我们就需要考虑这是否是由开发者自己所编写的脚本性能较差所造成的。</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-a73b613.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="EmmyLua调试Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">EmmyLua调试Unity</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-26 11:54:34"><i class="fa fa-calendar" aria-hidden="true"></i>2021-04-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/">Intellij IDEA</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Intellij-IDEA/">Intellij IDEA</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/EmmyLua/">EmmyLua</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Lua/">Lua</a></span></div><div class="content">以前用开发lua都是使用sublime，但是sublime终究是一个编辑器，调试不是方便，后来在同事的引荐下，接触到了Intellij IDEA，刚开始使用很不习惯，用了一段时间后，发现EmmyLua + Unity 用起来很舒服，简单说一下配置过程</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-987815.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="红黑树"></a></div><div class="recent-post-info"><a class="article-title" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-17 05:51:43"><i class="fa fa-calendar" aria-hidden="true"></i>2021-04-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Research/">Research</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Research/">Research</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a></span></div><div class="content">R-B Tree，全称是Red-Black Tree，又称为“红黑树”，它一种特殊的二叉查找树。红黑树的每个节点上都有存储位表示节点的颜色，可以是红(Red)或黑(Black)。本文参考了《算法导论》中红黑树相关知识，加之自己的理解，然后以图文的形式对红黑树进行说明。本文的主要内容包括：红黑树的特性，红黑树的时间复杂度和它的证明，红黑树的左旋、右旋、插入、删除等操作。</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/" title="UGUI源码分析系列">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-6b320d4.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="UGUI源码分析系列"></a></div><div class="recent-post-info"><a class="article-title" href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/" title="UGUI源码分析系列">UGUI源码分析系列</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-13 23:03:48"><i class="fa fa-calendar" aria-hidden="true"></i>2021-04-13</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/GameEngine/">GameEngine</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/GameEngine/Unity/">Unity</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/GameEngine/Unity/UGUI/">UGUI</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/GameEngine/">GameEngine</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/UGUI/">UGUI</a></span></div><div class="content">该系列注重分析UGUI源码，来深入了解UGUI每个模块每个组件的实现原理，使我们对UGUI使用和拓展上更加得心应手。</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="Unity纹理压缩与相关优化知识汇总">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-45008df.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="Unity纹理压缩与相关优化知识汇总"></a></div><div class="recent-post-info"><a class="article-title" href="/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" title="Unity纹理压缩与相关优化知识汇总">Unity纹理压缩与相关优化知识汇总</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-12 15:53:14"><i class="fa fa-calendar" aria-hidden="true"></i>2021-04-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/GameEngine/">GameEngine</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/GameEngine/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Android/">Android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/GameEngine/">GameEngine</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a></span></div><div class="content">Unity支持许多图片格式的源文件，但是3D图形的实时渲染中不会用这些格式，3D图形硬件要求纹理以专门格式进行压缩，这些格式对快速纹理采样进行了优化，DXT,ETC等压缩纹理格式可以在游戏运行中无需CPU解压就被GPU直接采样。每个不同的平台和设备都有自己的专有格式，因此在选择压缩方式时需要考虑兼容性。</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/" title="状态同步和帧同步">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-c883ef9.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="状态同步和帧同步"></a></div><div class="recent-post-info"><a class="article-title" href="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/" title="状态同步和帧同步">状态同步和帧同步</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-09 17:35:42"><i class="fa fa-calendar" aria-hidden="true"></i>2021-04-09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Game/">Game</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Game/">Game</a></span></div><div class="content">所谓同步，就是要多个客户端表现效果是一致的，例如我们玩王者荣耀的时候，需要十个玩家的屏幕显示的英雄位置完全相同、技能释放角度、释放时间完全相同，这个就是同步。就好像很多个人一起跳街舞齐舞，每个人的动作都要保持一致。而对于大多数游戏，不仅客户端的表现要一致，而且需要客户端和服务端的数据是一致的。所以，同步是一个网络游戏概念，只有网络游戏才需要同步，而单机游戏是不需要同步的。</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/" title="Unity的ScrollView组件">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-e4f9e29.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="Unity的ScrollView组件"></a></div><div class="recent-post-info"><a class="article-title" href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/" title="Unity的ScrollView组件">Unity的ScrollView组件</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-06 15:45:15"><i class="fa fa-calendar" aria-hidden="true"></i>2021-04-06</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Software/">Software</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Software/Unity/">Unity</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Software/Unity/UGUI/">UGUI</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Software/Unity/UGUI/ScrollView/">ScrollView</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Software/">Software</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/UGUI/">UGUI</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/ScrollView/">ScrollView</a></span></div><div class="content">ScrollView是Unity引擎中的滚动视图组件</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E6%96%B0%E7%89%B9%E6%80%A7/" title="C#新特性">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-2bb1450.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" alt="C#新特性"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E6%96%B0%E7%89%B9%E6%80%A7/" title="C#新特性">C#新特性</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-03-25 22:19:45"><i class="fa fa-calendar" aria-hidden="true"></i>2021-03-25</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/">C#</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C/">C#</a></span></div><div class="content">在C#8.0中新增了两个新的特性，`System.Index`及`System.Range`，这是借助对应的两个运算符 `^` 及 `..`，让我们很方便就可以获取序列中某个或一段元素。</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/RxTool/icon_placeholder.jpg'" alt="avatar"/><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">176</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">风向标</div><div class="length_num">136</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">寻龙尺</div><div class="length_num">137</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:tamsiree.com@gmail.com" target="_blank" title=""><i class="fa fa-envelope-square" aria-hidden="true"></i></a><a class="social-icon" href="https://github.com/Tamsiree" target="_blank" title=""><i class="fa fa-github-square" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fa fa-rss-square" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1-1-1024x576.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" title="C#代码优化堆内存" alt="C#代码优化堆内存"/></div><div class="aside-post-title"><div class="aside-post_title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">C#代码优化堆内存</div><time class="aside-post_meta post-meta__date" title="发表于 2021-05-13 10:30:39">2021-05-13</time></div></a></div><div class="aside-recent-post"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wp1904594-cpu-wallpapers.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" title="C#代码优化CPU耗时" alt="C#代码优化CPU耗时"/></div><div class="aside-post-title"><div class="aside-post_title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">C#代码优化CPU耗时</div><time class="aside-post_meta post-meta__date" title="发表于 2021-05-11 14:05:03">2021-05-11</time></div></a></div><div class="aside-recent-post"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-a73b613.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" title="EmmyLua调试Unity" alt="EmmyLua调试Unity"/></div><div class="aside-post-title"><div class="aside-post_title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">EmmyLua调试Unity</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-26 11:54:34">2021-04-26</time></div></a></div><div class="aside-recent-post"><a href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-987815.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" title="红黑树" alt="红黑树"/></div><div class="aside-post-title"><div class="aside-post_title" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-17 05:51:43">2021-04-17</time></div></a></div><div class="aside-recent-post"><a href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-6b320d4.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'" title="UGUI源码分析系列" alt="UGUI源码分析系列"/></div><div class="aside-post-title"><div class="aside-post_title" href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/" title="UGUI源码分析系列">UGUI源码分析系列</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-13 23:03:48">2021-04-13</time></div></a></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>风向标</span></div><div class="card-tag-cloud"><a href='/tags/ARK/' style='font-size:17px; color:rgb(109, 111, 89)'>ARK</a><a href='/tags/Alienware/' style='font-size:17px; color:rgb(200, 3, 12)'>Alienware</a><a href='/tags/Anbox/' style='font-size:16px; color:rgb(58, 158, 141)'>Anbox</a><a href='/tags/Android/' style='font-size:19px; color:rgb(43, 8, 99)'>Android</a><a href='/tags/AndroidStudio/' style='font-size:17px; color:rgb(53, 23, 33)'>AndroidStudio</a><a href='/tags/AndroidX/' style='font-size:18px; color:rgb(86, 66, 181)'>AndroidX</a><a href='/tags/Anime/' style='font-size:16px; color:rgb(160, 49, 10)'>Anime</a><a href='/tags/Base64/' style='font-size:18px; color:rgb(169, 179, 0)'>Base64</a><a href='/tags/C/' style='font-size:21px; color:rgb(66, 58, 69)'>C#</a><a href='/tags/CDN/' style='font-size:19px; color:rgb(181, 20, 172)'>CDN</a><a href='/tags/CSGO/' style='font-size:16px; color:rgb(65, 41, 159)'>CSGO</a><a href='/tags/Chrome/' style='font-size:19px; color:rgb(139, 131, 156)'>Chrome</a><a href='/tags/Chromium/' style='font-size:17px; color:rgb(33, 25, 153)'>Chromium</a><a href='/tags/Computer/' style='font-size:20px; color:rgb(55, 172, 44)'>Computer</a><a href='/tags/Contributor/' style='font-size:17px; color:rgb(95, 79, 10)'>Contributor</a><a href='/tags/DNF/' style='font-size:16px; color:rgb(85, 144, 81)'>DNF</a><a href='/tags/Daily/' style='font-size:19px; color:rgb(44, 11, 168)'>Daily</a><a href='/tags/DeepLearning/' style='font-size:16px; color:rgb(72, 126, 130)'>DeepLearning</a><a href='/tags/Design/' style='font-size:19px; color:rgb(117, 100, 135)'>Design</a><a href='/tags/Docker/' style='font-size:18px; color:rgb(69, 157, 134)'>Docker</a><a href='/tags/EditText/' style='font-size:21px; color:rgb(63, 83, 178)'>EditText</a><a href='/tags/EmmyLua/' style='font-size:17px; color:rgb(174, 167, 97)'>EmmyLua</a><a href='/tags/Emoji/' style='font-size:19px; color:rgb(28, 30, 49)'>Emoji</a><a href='/tags/Fragment/' style='font-size:16px; color:rgb(97, 32, 90)'>Fragment</a><a href='/tags/GFM/' style='font-size:17px; color:rgb(187, 134, 109)'>GFM</a><a href='/tags/Game/' style='font-size:17px; color:rgb(177, 47, 149)'>Game</a><a href='/tags/GameEngine/' style='font-size:21px; color:rgb(18, 10, 168)'>GameEngine</a><a href='/tags/GamePlatform/' style='font-size:20px; color:rgb(61, 114, 67)'>GamePlatform</a><a href='/tags/Git/' style='font-size:20px; color:rgb(82, 78, 13)'>Git</a><a href='/tags/GitHub/' style='font-size:17px; color:rgb(70, 51, 150)'>GitHub</a><a href='/tags/Goland/' style='font-size:20px; color:rgb(149, 155, 89)'>Goland</a><a href='/tags/Golang/' style='font-size:16px; color:rgb(130, 178, 65)'>Golang</a><a href='/tags/Google/' style='font-size:19px; color:rgb(30, 22, 182)'>Google</a><a href='/tags/Google%E6%90%9C%E7%B4%A2/' style='font-size:19px; color:rgb(68, 54, 194)'>Google搜索</a><a href='/tags/GridLayoutGroup/' style='font-size:19px; color:rgb(79, 19, 103)'>GridLayoutGroup</a><a href='/tags/Guitar/' style='font-size:16px; color:rgb(139, 63, 43)'>Guitar</a><a href='/tags/HardDisk/' style='font-size:19px; color:rgb(187, 186, 76)'>HardDisk</a><a href='/tags/Hardware/' style='font-size:21px; color:rgb(139, 65, 147)'>Hardware</a><a href='/tags/Hexo/' style='font-size:19px; color:rgb(59, 13, 15)'>Hexo</a><a href='/tags/Hobbies/' style='font-size:16px; color:rgb(169, 161, 78)'>Hobbies</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>时间胶囊</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
-              <span>查看更多</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">176</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="9/24/2016 17:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">393.3k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/y2ouxichangjing.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
-      pangu.spacingElementById('content-inner')
-})</script><script src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: '勇于尝试才有可能迈向成功'.split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: false,
-    backSpeed: 50
-  })
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  function loadWaline () {
+    function initWaline () {
+      let initData = {
+        el: '#waline-wrap',
+        serverURL: 'https://comment.tamsiree.com',
+      }
+      
+      const waline = new Waline(initData)
+    }
+
+    if (typeof Waline === 'function') initWaline() 
+    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+  }
+
+  window.pjax ? loadWaline() : window.addEventListener('load', loadWaline)
+})()</script><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "勇于尝试才有可能迈向成功".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '勇于尝试才有可能迈向成功'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
 } else {
-  document.getElementById("subtitle").innerHTML = '勇于尝试才有可能迈向成功'
-}</script><script>var endLoading = function () {
-  document.body.style.overflow = 'auto';
-  document.getElementById('loading-box').classList.add("loaded")
+  subtitleType()
+}</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (avatar,mail) => {
+    if (avatar) return avatar
+    let defaultIcon = '?d=wavatar'
+    let iconUrl = `https://gravatar.loli.net/avatar/${mail + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const loadWaline = () => {
+      Waline.Widget.RecentComments({
+        el: '#card-newest-comments .aside-list',
+        serverURL: 'https://comment.tamsiree.com',
+        count: 6
+      }).then(comments => {
+        const walineArray = comments.map(function (e) {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': getIcon(e.QQAvatar,e.mail),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+        generateHtml(walineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+    }
+
+    if (typeof Waline === 'function') loadWaline() 
+    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(loadWaline)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
 }
-window.addEventListener('load',endLoading)</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","superSample":2,"width":150,"height":300,"hOffset":80,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
-</script></body></html>
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

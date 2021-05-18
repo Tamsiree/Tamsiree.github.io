@@ -1,123 +1,430 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>电脑设备 | Tamsiree</title><meta name="description" content="整理日常电脑设备方面的血泪经验，为以后少走弯路提供基础。"><meta name="keywords" content="Hardware"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="电脑设备"><meta name="twitter:description" content="整理日常电脑设备方面的血泪经验，为以后少走弯路提供基础。"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg"><meta property="og:type" content="article"><meta property="og:title" content="电脑设备"><meta property="og:url" content="https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/"><meta property="og:site_name" content="Tamsiree"><meta property="og:description" content="整理日常电脑设备方面的血泪经验，为以后少走弯路提供基础。"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg"><meta property="article:published_time" content="2020-02-01T05:07:32.000Z"><meta property="article:modified_time" content="2021-05-14T04:10:45.799Z"><link rel="manifest" href="/manifest.json"/><meta name="theme-color" content="#fff"/><meta name="msapplication-TileColor" content="#fff"/><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"/><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" color="#5bbad5"/><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/"><link rel="prev" title="使用NexusPhp打造个性化的PT站" href="https://tamsiree.com/TechnicalResearch/PT%E7%AB%99/NexusPhp/%E4%BD%BF%E7%94%A8NexusPhp%E6%89%93%E9%80%A0%E4%B8%AA%E6%80%A7%E5%8C%96%E7%9A%84PT%E7%AB%99/"><link rel="next" title="拟音" href="https://tamsiree.com/Daily/Hobbies/%E6%8B%9F%E9%9F%B3/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>电脑设备 | Tamsiree</title><meta name="keywords" content="Hardware"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="整理日常电脑设备方面的血泪经验，为以后少走弯路提供基础。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电脑设备">
+<meta property="og:url" content="https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="整理日常电脑设备方面的血泪经验，为以后少走弯路提供基础。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg">
+<meta property="article:published_time" content="2020-02-01T05:07:32.000Z">
+<meta property="article:modified_time" content="2021-05-17T01:28:41.181Z">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="Hardware">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://tamsiree.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
-  runtime_unit: '天',
-  runtime: true,
-  copyright: {"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-center"},
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: false,
-  isPhotoFigcaption: false,
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
   islazyload: true,
-  isanchor: false
-  
-}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '电脑设备',
   isPost: true,
   isHome: false,
-  isSidebar: true  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/RxTool/icon_placeholder.jpg'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">176</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">风向标</div><div class="length_num">136</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length_num">137</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-ship"></i><span> 时间胶囊</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-envira"></i><span> 风向标</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-safari"></i><span> 寻龙尺</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 回味</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page" href="/book/"><i class="fa-fw fa fa-book"></i><span> 黄金屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-graduation-cap"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-tasks"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fa fa-eercast"></i><span> 冥想空间</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87"><span class="toc-number">3.</span> <span class="toc-text">鼠标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E9%BC%A0%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">无线鼠标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%AE%E7%9B%98"><span class="toc-number">4.</span> <span class="toc-text">键盘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%B1%8F"><span class="toc-number">5.</span> <span class="toc-text">显示屏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%9D%A1"><span class="toc-number">6.</span> <span class="toc-text">内存条</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU"><span class="toc-number">7.</span> <span class="toc-text">CPU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E6%89%8B%E6%9F%84"><span class="toc-number">8.</span> <span class="toc-text">游戏手柄</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91"><span class="toc-number">9.</span> <span class="toc-text">笔记本电脑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#U%E7%9B%98"><span class="toc-number">10.</span> <span class="toc-text">U盘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98"><span class="toc-number">11.</span> <span class="toc-text">硬盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98"><span class="toc-number">11.1.</span> <span class="toc-text">机械硬盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98"><span class="toc-number">11.2.</span> <span class="toc-text">固态硬盘</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%BA%E4%BD%93%E5%B7%A5%E5%AD%A6%E6%A4%85"><span class="toc-number">12.</span> <span class="toc-text">人体工学椅</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">13.</span> <span class="toc-text">摄像头</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B0%E5%BC%8F%E6%9C%BA%E4%B8%BB%E6%9D%BF"><span class="toc-number">14.</span> <span class="toc-text">台式机主板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%AE%B1"><span class="toc-number">15.</span> <span class="toc-text">台式机箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%AE%B1%E9%A3%8E%E6%89%87"><span class="toc-number">16.</span> <span class="toc-text">台式机箱风扇</span></a></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Tamsiree</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-ship"></i><span> 时间胶囊</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-envira"></i><span> 风向标</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-safari"></i><span> 寻龙尺</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 回味</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page" href="/book/"><i class="fa-fw fa fa-book"></i><span> 黄金屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-graduation-cap"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-tasks"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fa fa-eercast"></i><span> 冥想空间</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">电脑设备</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-02-01 13:07:32"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-02-01</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2021-05-14 12:10:45"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2021-05-14</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Hardware/">Hardware</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">9</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 1 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-comment-o" aria-hidden="true"></i><span>评论数:</span><a href="/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/" itemprop="commentCount"></span></a></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="fc17aeb42a7dbce74dccdacb4c67ae6d6d3291dbfda56b9b61861273c043f613">3cc75aa5ca5fecdc0e0ea50ef30c7ef5f309ae8564909b9a4b041c0eedb2e25b08a38442d8f077f00da187a7c23005b177bc1cb3e485c5f3369185ddb44b141fc1811c401ae331f3326dead7d1ab49f60e2d1d434828084e4c0e7d9053bdf31b1a615f7f3c5e43051f78404c6d01a602722f261ab99208b317927d8a28fac4db5628d9df6d621b4715326347ecaeff457cc01be1fe015cdd16d67a715787c4fc9fe6f7e2f9b4ba7785796ab4911c9d367fc29ebdfa209378c4d5d096ce7dc3e3a7c1fbc1ffeea57d4e1db7d06a3a955c4ea9171dbd5e6e1025da46c0c7c1b6e11cadcee2cf4356be99aa5e48f5a92084f0054cd54f4dbd8853c511bcfd92c8be15a383c41c6c1cffc64395f7cb8ed7f218161c5cb1a2693f933a112c3a5481325c3b02ff46780bc6694df9294fb0c25e34621db161dab7c5696a0926f8971edd64ed81163b6537283e960c2a05c0f13574ea0044751d9eb13099b0714385448dc5778476d5728ad7159cb6b69b7a52710fffc97f6d9868d82de5cde5a0fbe716947caaed0f7cb9a6a5d3cb650ff72452beb5a94e5039c82414a723ccb4432bacb3eca08b2f17c921f7ba48d56b739a23f0a06dc701180989fee73dc430e3e7c7c51eb2e4690f144d3b86d1a4432ff99ff802eb8c2ca5873a78c1fac4de13a95b44c8068e6978d5ea36f2e0f8467d556b7c18d2e0360697325db2d5d7130a38cd6a4a194b4e25eacf872574140c2809d2d46f0fa5497f2673d147a86c8139872c6d2726cf250fe85ff10fe202c8082feff2f16c6c97a04dbe48163795b331cbc88745e288df27350d154344754735d99d6eae2074af652fcf3a5a52e4b9153e71527c5156f10395c4a4d376131a692f424c0f63cd94f470cc04982e79f54007ea2c6c1c5c7ac0c86b941471e9fc8f3880854b84b92351d304b9974ec5a602ddec375115facda957b2555e3fdcc5251f3fcd1790461c849df32a06f8997627c61260d2471a040e24e5d08f8310023c4b7007a9355a0171b8eaa76b318f3d9a017721bd768975f65d7b26cff959e4581b341c03f5bdfb8ecb34da99ede8ca7195b44068e657272c62b16b8e348bef014722224ca6869505d905c7ae3d45d773f90a61e55cee7085d4438987b36a8abfa5d585c1201c4130af857745c94a8b82064761137f31d8f54f76dfedbed4caa912f5e30a64d2e064d991b92d4aac1747b44a30960dbd4dbabaed7a7fb508a9c32a106be9c609e8908e2e0c217d8b13db9e128851dfdf67d77edb107171739127d3611b1c7e89dec8f8c512d51e7d3c612b51b330959536fb766a0d1bf1251af2df2ed4ef0f061abce00675e58d74122fe0a4b3a634e76d5d939b0682222b3b49ffa070e4642acd59a077a272a687a85eef8ef1b20ce232273d89918a2fb1e23317f543f3726baf1aad5eec53a6f65b55288103bd52396bc903f8e016d5e3f13cd9aac74b7e5a3ee61d99570adccea5e5cb3c7d647b41e4242fd7e68c42fb191f3a902f5984a7e5b07ea23bda28021bb4b20c9a90dd7542597007c3f9ac19f308b562874fea7fb782f1f751196ff66fe4c9a37e9f019b850459f81b42360e1b2a22c516db991b4f58936c6f4671aef3c576bb322a989dd8a191bf5a2a04a0f2e0824288f3e3890666b8f424a2c14a080b9f7a619ac767af1241a258e46587c41a26186a42274e4651e3f7ff48b66939047ae02ec5f43ae78fc316a568a93d4c7884387201c42fa54e2148d038886761dd16ca8419c79bd17b076e7badd92919044471acff5c93607852c537736612e992f3745481cd0bce0925b670b5b6f57439db307c19f0e067c301cd550c140defcc77ba0f365a2423d5909f52ce1b0353c0b89bc5a1fca6769f0e7845ddf02e3c7318bbb86f535f2bb0d0f4abaa39e6769ba5f17a18be84cf471801f834353fdd6f04487520d39f24ddf90bfe26f9a4fdfbd6770f89f00b8df1b754fb4c7c11c06fd459b3d81201a4f7ea63de4a43bd97a785c9dd9be15181b696cf387a5859fca65eea4734b6e72ae335eb0535ffd1bd3093b4fae1ba6b055ffd888a127c186b993034cdc4b109e1821be75182b21edb5cb856103f9ca16a634d86cd466b69c3b47eb2f753814123098613e437fac32a658db91800e93bf0b3a271164213fcc952ba6c4c801685cdd4618279ed4b0c74a82c3f2cbb683f0d879abef73d6cde23e482ed82f30f29de9f09404effdb9488370ec40cc5059a8f33d91e25ab3d898aa11106f7cd890fef372da8635d118e91fb6cd99441d2bb7f9262cd4a6892d73915006fc6dbd243e0792169e3b4dfdce79daf363310442cf6da20136ba09e1f65020b3acb33725950b097f98f431ed149b95c20f31acfb143cdcc218904ab3bd38225b12022226abae4554c96423b9d35552dd7316269cc51187b5abd027ba15411159fde39c9afb2d55f174f13e9cbe800a4e3bac674a283987bdeb2ee73c4e6ba26d7eb9783fdd34de41672da78dbad1508b19109508dee27ebab4cc4fdb315e166254f64fcded5b7dbb60e5f0df1e3e2754b1c19da230e1eb5c5857ecf42aadf54227c7758c596af2704156d78aea3731a39d33de10f6d58b017c541c47507b27ccfe1afc6f18977a669cbfd167c9564e2ea0d3ec86abd932f8a4ddc7d3d53764b6c2882e0a551699499b2f89bda873b0262563ed56e60698e561ef5e5ff3235d3a90eb1c01fa9eaf7094bc5d3350faab63126cc603e3e8a206e76008fd8decbda1526d481423c775be2db3e42ec5ccde373d15a88887dcb1ade740b68be80413b44a8086786eea28f5f090899d54374468cdbc31ef1905d1cc38fa9321afe3838c12e44632812c1e08d889a4e1e23b8e196670aff88f9ae44057b56adec09b5f50088405dab369ec11180b7361dc238d98c40fa10bb215021db584d8b8bc1a2fa861be825357a54e70ffa1572f123bfabb45808ce3dfbf3395c3b94412d087f6ba82b64a84964b765578df49b033f2d69beb0c0ef523b1ff0811e2a07fc4d0a6b3352df50c0acae61750b1b0f0782a4556a3a8b7736bc92d8a5a9206c6cbd36eb49c77ef64cf64e49048b59ecea977068d99880e6d53f5cda1ab8ec3c6d7fe7a36824758a27418b7f09ba287a6f1e4c2bfb0d022c431012eca0d4583a2ef54c4bf5455e37a6485b00ca743c37ecd85e00f45a4831030160e6c8a92049c1ccf40fac9e0a91b15dbd92be5852ef7d306e1e5f0f393739cd6699b39ad1846898c5aa9b98b9c92a6d9eec99e63de66f61686b419ead8a4451c50ce5bdf0faea2c41137dc1edd04cc3ccaa877170937df7cbc39ff34463df5b60cbe0f2efab212e492b35859699b8fea3063d3f4a3f6a46835e97c027027bbb5c096c63f02eb80bea672717aad8b1c14239ce1d6dc17f5166e124dbc789c1bdd038e9c59d46894898b1886f23bcfcfcc5d94e0af3f6efa3141abfc107dc00bf6d6d41dec52ebf28540d8a5c1e603bfa9885fc3ecafa5015b954b2a2fb92db9e0b80b7cb8ca70c5239920eae496bc6fc3297fb8677111f63bb13e102a817a5193f6da981ff1cfe1fb90f77a4368d5aa56d8096b7826199dfb38af395d08c7d987fbfdcd577d35d16202bd86d0e8b3241258dba0b6307194333274b362e59f5f7fc23c1e50189791697992bb3b732fcfba2549010e41439686f47e111f79625a8a9e195539ff7cc101ba5fabe8a0cc51940455e924c415d5d828d9eaa4f734cd6a453b7fb708e1bee18791a027d7345179eb7252239bb4c2f12896221f30911f0fbaa0a6da75dadfd8fb53c9dfce1305ac9d57f4d58a5ce034f49a62396758b86e49c079b5c04f4f8c8062058674e27cd683155b5ce8d28def23adf4330acbdfda1c4d591c53226f28abce01e7a9e7e13c10c18c2c5d866ea1abfe1d4aa9a01129a1a4e6104fcfe849d1b66b4ec54af2db735a7f0a804e4bc0878064acbb60cce645bc6fc6a28a4264a157c0ce3e428686f8882f11309729ba6cbac0fe71c8bcfa3eb5e5aaba6efcd0b93cdf997b9f95118573605209cb54030c19a8b0c2bcd6c2312cba04ea8d008b265510414a121c7395f880e65c15ea89d5fc23b36a3391ef5a28c649d567897708d6d4f69e39b9e62d236c3e20caa6a5913c4c33ccd71ddd01bd169ad5c60882d71d6e256ebefd19b4949c762dc6a7faa391e9d3945fc500f45eddeb5d403bd2c00a2643d2999ce205828537a91d48cd1b027b139d35ea04dd19bd511d5406ddcfa6b7a70634f7b63790943a65e87c1f4e8c9d2ead07d56d18f4b0605259d5eacb091de4c13352bb126dd5464ddb90199da41d850faf23ee4a157b8ffda1722b535b0943becca87cff09170209a486fbc5776f8633714f9349a1388cf3f1e227dbaa0d7a7e6598a68f69b4ae3b696668e6bbb4f596125402e1aa364f806a5a3bde3145e66c3741488cd80e79ac575a0b032a9660be9f89c05b9bc7b22d7609ddebed59cc03016f1b51cb83f649887c8ad1b662e9aecfbc0af26a53b908c61099e1d45e1e8ea87d895fbb3d4231a4c13e55fc02286296107b259445d9ab24bc545c88e5d2a8103b0c2441fa5304374734a71c9938aab66ff31c24630c78d9ff4330296fd29ce17eba5d5d2a1c3c50d0b40c0f3a670b948a0563716065fd12a9e6a7fa73e61198d11aef65a7216cb7590c37303f0243974fc5d25ccd11145dbbd9ff49767743a4c1934f0ab210daf4a8d43224d08fcad32797889fa35be1ad6220fe50d60aa6850cd314babbbf5b59767e80b6e91f3c05d3295b182db205dcdd1db5b817e2ef92fd0a647eded578d40099e2cb572246558e02ac1381e6910b0bf2dda30aad3036401952f17f8c574c7875ee3af32f371a77ccab2e3e4ec7cdbdc09aa7b2b96c76fcdaedcaf1ea234fa805d31484beb2f7e190f4175ab5b9e3ff18df5be7a16757b178624d0d7e66e1798d6eaa772242db4479f441839af31ae145b77feb7bb8aff0aa7c39d999587d8b9d999a87def8135c037f1087f612352848e65d8c46b86e443da53714f309634168a1ec470492e6d5c16348602b12003a03447d24bc46cc33de9942cfc918acdaa475609140e4a7ee2abdd6202fe21bbd9506856a0fa6f02811fb5bdfa8108e94980948c4aad60ec69dd347c3cc4072b0a9ad6a447acdd4980cff765add2459df04edaa3b5c65f4aab8417396fea62f6a93af832444c4ce48cc202e6f1fddd461ab27d03c43ffc3998970de47e7616e51370ef8f2e675b2983a846f6f231810aee582e99b3c63bd833eef5196261b21ba5100f4221d38c2b5e0885afcbb20c1a285f48322ee68c19106c1c58ad74352da98834f4527846d536a54f9cb66b9179a45ad6d1bb10a43f20a7e1de1a71f24ba50e1b54e681d1e883e86cf882d18730e9d497fad1c701bdc4d248299097dd9e5c7501c68dd8521de5183fdf02f9a18008f09f50dc656ca4c72518c4564b5733659f9009b7981e6928b4ed9e3bf17df15d2cb139d17807d76863d9a4a990700f9f96835b99641edb4dd95185511df74edf4c7586a10318557ea7cf7ee3615c62af92ed5bfe7d6231a9d9ca59b31bca78ae004885247d1ec5538176b40196abe8a6fe0501b82ff5a07d92770b6a4ae48e9d4800da149550e8deed0cd46f7e6f21ee2df5e50797b73de92f175ccacd5b7e04ffbf74000865d3214765725e4eb6225564f85338348d81ccd1124f0c1a99cf9b79538365a3b3347e957afbb81b61b897eeca2ee8736e0e8c302a11a8b2745a2e99d227e0ef5b1fb428123e8807cb634d8d8bbf735de747c16bd67f217fd3cdbb0cbe1f50bb355a3e03c4c96249c970a5b110cec2a5d73bf1be749fae30f06a25f084f594277e6bbcfba31917ef82b3bb1375b7b5d80cb453fce0bbacd7611b0beb5120de70794d2e49e5b67e3e6d324b7a69b10d074584dcddbdee76a20a854286e3084966d467be609a689c21d9df40912dd8b7c54f2abbe6d23cea1b3fab9f2dc4e104cf7978fb0fed12b836a1546570d3056197cdfbd57f305b82d3dddf3f01676a56f151ab914c50369e0515ac6edf7d8c5f0fb348100235f0c5a3f00730542e8a75f9e7ae613ee3d43b6c20a1048218baf05438411009ff6fec456cb507cee8d09b9f54722a906bd38e8b984377054ac8a796ff4935fd315c3644ef7d960301af2d6ae9493f7dbb9ff038a089004c90626c649dbca73e729a4aa8ad4c7e39b633a50c762eee4edc0e06c4dafad21bb3d9f551d70ced96c234b729422f31ad473377bb4210f579593377b20543de26d8f055fb06c4e7cdb80d12bbba59c177e3eda1453fb06f74463b08ed2aaf2f16721682fcec2ab490eefb8d1dd0a146e1ee5e5fa9ca3716de9a855899826cfce2a6cd950268cf1a2621adced62e9a04c1650fb38768aaac9b643a4a6fc08abed120410546d95a027f6660683f2fffff2836e5541bc445ed2e287bee8882d565be4be6f13ee3269425a0970ff6930f5364e5ca2b24b669f39013f7ab09079620f659b48358bd413c590d5ccf45d048eea7c7991bde12cc32f32033137ecf984e8db4e88b7aa37c1a9ccfa398d85bb635b24f77bc2e48e3b91c8901b3e708d2cb0c506d4760356c2a4b3d30cd84cc37f63d2649416730aab97db20fd8da4f9b073187c7de497db4b84be636f1ba930286f956e9a0f7b053b8e2a7c48e8927840d64f400bbd19fc4fb73f96b3df960169cf38d2de2c48d923d091d20bdd6dedfccfd9d09202234e444bc5fd6bd9852ed5de0a5b937dd839495fabde9d224eba0bde7be0c40b45f5e783d524b308259b8d7b5341fe20f33d4ed218584637c27fe2bc3a8ad3f0d9ad8b8441009201550e36bbee517f96b0d795e8f0e3c30aca61bd63acc066889352cc115e48a2ea9b5222785f5d9a11867e1ee6b6141d04a0def372901bd004be3a0ad149793ac8beb9812ef833f8e21f401d1d84e54ff9309ff66bedae31ad9976ae0546a6362030047e6627345ce07fc1580c06d2dc835a617b0adb75dce4f80309d5fa70586b938628d428bd266900ca5811d4dfa321bf61f54c2b7cb9c08332627d68c42a9520c049339c75b754c2507f10c639b6876255e1213b4daee992eb54c456ac782c94825e611b06338d42d4f655af7e757f610e6df2c22a1acecb58c03e4e0ff1e86d5af096acd53409dca625ca66ccf29cf77a0ed2fdc65771b8af38e022014a118057097b983d6b0b1f5aea9c30027752a985ee3c4795794a202e82615efcacb030cbc976bc141c991c9aba7eff197f805866cca28905a60626efc58f3c94c56fd267c5130544c3b528984d6001fa9bd7484b27e451fbe7bc2cefca49784eefe08d9d7290bc0b4fd5ea90bf743c86bf47fb8aa52b064f5ee18bb85a79cf15bd4533c22a959f1a349c9d05710d05e8755bdedb07a69e4d2676533669bce86d1ffd35c7fc04e2df97cbf8afa4563f553f8835fb5427adce12210f34b58ee5ffdd3f649a20eee35b442092fe838c6640fa3ea1a22fcee95ded5efc38c7d4bc85407bb6869f289fde5ce236ae56b18c62e7eaa2bfef4b36d5c79707c04b889a1a031ca84656e2d2b2a6619077587aeecb1e3613a9d99574e3a4ccdbeb7aee4abed0e4f487f35344b7b04482fd4cf475e72b77097fa5c20d25a7cc420cc18fd837d8418890e8e165d7f53a107527807dc30c82e00ddb7ae98b651647adc15517ca97d67a955de9e96e214e5ee90eb05c0f71084596cafef3fba40c23f3630773da3f4abb2cba56fb8593a68a811753ff641fc1e132bbdcd3bf3ec2f5dfc62d40b976373752a8589ecb63cb06424c4086d569a03de43ff6d8dc52610349187ccd09bb9a4a4d73d874b0bdefa196d512d85fbd788de6835b4402cade6e7ea66cdef0c9d213dca9cbc9d54d18f9000efa8a048b98d25cff9be771d</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/">https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hardware/">Hardware</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1-1-1024x576.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/pay_qr_code.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/TechnicalResearch/PT%E7%AB%99/NexusPhp/%E4%BD%BF%E7%94%A8NexusPhp%E6%89%93%E9%80%A0%E4%B8%AA%E6%80%A7%E5%8C%96%E7%9A%84PT%E7%AB%99/"><img class="prev_cover" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/20150512112726335.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">使用NexusPhp打造个性化的PT站</div></div></a></div><div class="next-post pull_right"><a href="/Daily/Hobbies/%E6%8B%9F%E9%9F%B3/"><img class="next_cover" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg02fdff7.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">拟音</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/Hardware/华硕PG279QR显示器/" title="华硕PG279QR显示器"><img class="relatedPosts_cover" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-5199699.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-08-19</div><div class="relatedPosts_title">华硕PG279QR显示器</div></div></a></div><div class="relatedPosts_item"><a href="/Hardware/Router/路由器固件/" title="路由器固件"><img class="relatedPosts_cover" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-01-13</div><div class="relatedPosts_title">路由器固件</div></div></a></div><div class="relatedPosts_item"><a href="/Hardware/HardDisk/硬盘分区结构/" title="硬盘分区结构"><img class="relatedPosts_cover" data-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/sufjgfuiovgfhgjkldhajs.jpeg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2016-10-10</div><div class="relatedPosts_title">硬盘分区结构</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
-  var from = from
-  var setting = set.split(',').filter(function(item){
-  return from.indexOf(item) > -1
-  });
-  setting = setting.length == 0 ? from :setting;
-  return setting
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-17 09:28:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><style type="text/css">.card-announcement .social-button{margin: .6rem 0 0 0; text-align: center;}.card-announcement .social-button a{display: block; margin: 0.2rem 0;background-color: var(--btn-bg); color: var(--btn-color); line-height: 1.6rem; transition: all .3s; position: relative; z-index: 1;}</style><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">177</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">风向标</div><div class="length-num">136</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length-num">137</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">电脑设备<a class="post-edit-link" href="https://github.com/jerryc127/butterfly.js.org/edit/main/source/_posts/电脑设备.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-01T05:07:32.000Z" title="发表于 2020-02-01 13:07:32">2020-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-17T01:28:41.181Z" title="更新于 2021-05-17 09:28:41">2021-05-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hardware/">Hardware</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">695</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="电脑设备"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>整理日常电脑设备方面的血泪经验，为以后少走弯路提供基础。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="鼠标"><a href="#鼠标" class="headerlink" title="鼠标"></a>鼠标</h1><h2 id="无线鼠标"><a href="#无线鼠标" class="headerlink" title="无线鼠标"></a>无线鼠标</h2><p>建议选择 <code>罗技</code> 系列的，带无线充电功能的鼠标垫<br>G403性价比最高</p>
+<h1 id="键盘"><a href="#键盘" class="headerlink" title="键盘"></a>键盘</h1><p>罗技<br>樱桃cherry</p>
+<h1 id="显示屏"><a href="#显示屏" class="headerlink" title="显示屏"></a>显示屏</h1><p>戴尔U2411<br>PG279QR</p>
+<h1 id="内存条"><a href="#内存条" class="headerlink" title="内存条"></a>内存条</h1><p>别用海盗船的内存条，质量存在问题<br>尽量不用金士顿的内存条，金士顿没有自己生产颗粒的技术，只是一家代工厂<br>推荐使用芝奇幻光戟内存条 </p>
+<h1 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h1><p>i9 9900k<br>i10 10900k</p>
+<h1 id="游戏手柄"><a href="#游戏手柄" class="headerlink" title="游戏手柄"></a>游戏手柄</h1><h1 id="笔记本电脑"><a href="#笔记本电脑" class="headerlink" title="笔记本电脑"></a>笔记本电脑</h1><p>别买联想、惠普、神舟</p>
+<h1 id="U盘"><a href="#U盘" class="headerlink" title="U盘"></a>U盘</h1><h1 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h1><h2 id="机械硬盘"><a href="#机械硬盘" class="headerlink" title="机械硬盘"></a>机械硬盘</h2><h2 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h2><h1 id="人体工学椅"><a href="#人体工学椅" class="headerlink" title="人体工学椅"></a>人体工学椅</h1><h1 id="摄像头"><a href="#摄像头" class="headerlink" title="摄像头"></a>摄像头</h1><h1 id="台式机主板"><a href="#台式机主板" class="headerlink" title="台式机主板"></a>台式机主板</h1><p>高端选华硕，中端选技嘉，低端选华擎<br>切记低端不要选华硕技嘉</p>
+<h1 id="台式机箱"><a href="#台式机箱" class="headerlink" title="台式机箱"></a>台式机箱</h1><p>航嘉MVP2系列</p>
+<h1 id="台式机箱风扇"><a href="#台式机箱风扇" class="headerlink" title="台式机箱风扇"></a>台式机箱风扇</h1><p>台式机箱风扇是一个对很多硬件玩家都很重要却很少有人认真去做对比测试的产品，就我本人而言，我很讨厌噪音，但又有一定的强迫症，不希望看到自己的电脑温度过高，因此选择一款合适的风扇也是我长久以来折腾的重点。</p>
+<p>性能噪声比（即风扇性能与噪声的比值）这一指标更适合评价一款风扇的表现。原因有如下两点：</p>
+<ol>
+<li>过于安静的风扇往往没有什么风量和风压，和无风扇机箱差别不大，所以实际意义不明显；  </li>
+<li>风力过于强劲的风扇虽然散热效果很好，但是其过大的噪音往往是大多数玩家所无法接受的。</li>
+</ol>
+<p>所以一款兼顾噪音与性能的风扇才是最适合DIY玩家的。</p>
+<p>在风扇满载的情况下进行测量,得出以下结果</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://pic1.zhimg.com/80/v2-3501b6e61568bdbb05a8605665161b6c_720w.jpg" alt=""></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://pic2.zhimg.com/80/v2-c6454a16510f4aa7f834929ea54ebee1_720w.jpg" alt=""></p>
+<p>先说说猫头鹰NF-A15这个无敌般的存在~</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://pic4.zhimg.com/80/v2-00f2f3664ba545798fb6cf946d3090b3_720w.jpg" alt=""></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://pic4.zhimg.com/80/v2-1070ade3526aed9cacb02201c23ea457_720w.jpg" alt=""></p>
+<p>这款风扇的特点就是噪音低（30cm处只有34dB），风量大，风压大。可以说兼顾噪音与性能也不为过。</p>
+<p>但是缺点就是尺寸可能不适合所有机箱。</p>
+<p>这款售价180元的爆款的NF-F12我是极其不推荐的，虽然很经典，虽然很多人对它评价很高，但从我的测试结果来看，此款风扇各方面表现都很一般，实在是不值得购买。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://pic1.zhimg.com/80/v2-dc89e9cfd55406131a1e2043c21612a4_720w.jpg" alt=""></p>
+<p>这款新出的售价299元的猫头鹰NF-A12还是很不错的，兼顾噪音与性能表现，在相同的噪音下有更大的风量，虽然贵一些，但如果你想买猫头鹰12cm的风扇，我还是推荐买这款。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://pic2.zhimg.com/80/v2-229e9b0ac4c581d08c3a457e3203fe81_720w.jpg" alt=""></p>
+<blockquote>
+<p>19元一个的先马游戏风暴，是个好扇。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/">https://tamsiree.com/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hardware/">Hardware</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/pay_qr_code.jpg" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/pay_qr_code.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Daily/Hobbies/%E6%8B%9F%E9%9F%B3/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg02fdff7.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">拟音</div></div></a></div><div class="next-post pull-right"><a href="/TechnicalResearch/PT%E7%AB%99/NexusPhp/%E4%BD%BF%E7%94%A8NexusPhp%E6%89%93%E9%80%A0%E4%B8%AA%E6%80%A7%E5%8C%96%E7%9A%84PT%E7%AB%99/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/20150512112726335.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用NexusPhp打造个性化的PT站</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Hardware/华硕PG279QR显示器/" title="华硕PG279QR显示器"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-5199699.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-19</div><div class="title">华硕PG279QR显示器</div></div></a></div><div><a href="/Hardware/HardDisk/硬盘分区结构/" title="硬盘分区结构"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/sufjgfuiovgfhgjkldhajs.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-10</div><div class="title">硬盘分区结构</div></div></a></div><div><a href="/Hardware/Router/路由器固件/" title="路由器固件"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-13</div><div class="title">路由器固件</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">177</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">风向标</div><div class="length-num">136</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">寻龙尺</div><div class="length-num">137</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87"><span class="toc-number">3.</span> <span class="toc-text">鼠标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E9%BC%A0%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">无线鼠标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%AE%E7%9B%98"><span class="toc-number">4.</span> <span class="toc-text">键盘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%B1%8F"><span class="toc-number">5.</span> <span class="toc-text">显示屏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%9D%A1"><span class="toc-number">6.</span> <span class="toc-text">内存条</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU"><span class="toc-number">7.</span> <span class="toc-text">CPU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E6%89%8B%E6%9F%84"><span class="toc-number">8.</span> <span class="toc-text">游戏手柄</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91"><span class="toc-number">9.</span> <span class="toc-text">笔记本电脑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#U%E7%9B%98"><span class="toc-number">10.</span> <span class="toc-text">U盘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98"><span class="toc-number">11.</span> <span class="toc-text">硬盘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98"><span class="toc-number">11.1.</span> <span class="toc-text">机械硬盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98"><span class="toc-number">11.2.</span> <span class="toc-text">固态硬盘</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%BA%E4%BD%93%E5%B7%A5%E5%AD%A6%E6%A4%85"><span class="toc-number">12.</span> <span class="toc-text">人体工学椅</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">13.</span> <span class="toc-text">摄像头</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B0%E5%BC%8F%E6%9C%BA%E4%B8%BB%E6%9D%BF"><span class="toc-number">14.</span> <span class="toc-text">台式机主板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%AE%B1"><span class="toc-number">15.</span> <span class="toc-text">台式机箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%B0%E5%BC%8F%E6%9C%BA%E7%AE%B1%E9%A3%8E%E6%89%87"><span class="toc-number">16.</span> <span class="toc-text">台式机箱风扇</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/" title="Lua技巧"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/yangguang-1024x576.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lua技巧"/></a><div class="content"><a class="title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E6%8A%80%E5%B7%A7/" title="Lua技巧">Lua技巧</a><time datetime="2021-05-14T07:51:53.000Z" title="发表于 2021-05-14 15:51:53">2021-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1-1-1024x576.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#代码优化堆内存"/></a><div class="content"><a class="title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E5%A0%86%E5%86%85%E5%AD%98/" title="C#代码优化堆内存">C#代码优化堆内存</a><time datetime="2021-05-13T02:30:39.000Z" title="发表于 2021-05-13 10:30:39">2021-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wp1904594-cpu-wallpapers.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#代码优化CPU耗时"/></a><div class="content"><a class="title" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96CPU%E8%80%97%E6%97%B6/" title="C#代码优化CPU耗时">C#代码优化CPU耗时</a><time datetime="2021-05-11T06:05:03.000Z" title="发表于 2021-05-11 14:05:03">2021-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-a73b613.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EmmyLua调试Unity"/></a><div class="content"><a class="title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity">EmmyLua调试Unity</a><time datetime="2021-04-26T03:54:34.000Z" title="发表于 2021-04-26 11:54:34">2021-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/thumb-1920-987815.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"/></a><div class="content"><a class="title" href="/Research/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><time datetime="2021-04-16T21:51:43.000Z" title="发表于 2021-04-17 05:51:43">2021-04-17</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Tamsiree</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
 }
 
-var guestInfo = requestSetting(['nick','mail','link'],'nick,mail,link')
-var requiredFields = requestSetting(['nick','mail','link'],'nick')
-
-window.valine = new Valine({
-  el:'#vcomment',
-  appId: 'LBBzDLB19kP9nQSivFBa0NWT-gzGzoHsz',
-  appKey: '9FhtAKGoC06Y6QgTKhCOSq6g',
-  notify: false,
-  verify: true,
-  placeholder: '欢迎交流讨论...o(ﾉ≧∀≦)o来啊，快活啊!',
-  avatar: 'wavatar',
-  meta: guestInfo,
-  pageSize: '10',
-  lang: 'zh-cn',
-  recordIP: true,
-  serverURLs: '',
-  emojiCDN: '',
-  emojiMaps: "",
-  enableQQ: true,
-  requiredFields: requiredFields
-});</script></div></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
-      pangu.spacingElementById('content-inner')
-})</script><script src="/js/search/local-search.js"></script><script>var endLoading = function () {
-  document.body.style.overflow = 'auto';
-  document.getElementById('loading-box').classList.add("loaded")
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
 }
-window.addEventListener('load',endLoading)</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","superSample":2,"width":150,"height":300,"hOffset":80,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tamsiree.com',
+      avatar: 'wavatar',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+      visitor: true,
+      dark: '[data-theme="dark"]'
+    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (avatar,mail) => {
+    if (avatar) return avatar
+    let defaultIcon = '?d=wavatar'
+    let iconUrl = `https://gravatar.loli.net/avatar/${mail + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const loadWaline = () => {
+      Waline.Widget.RecentComments({
+        el: '#card-newest-comments .aside-list',
+        serverURL: 'https://comment.tamsiree.com',
+        count: 6
+      }).then(comments => {
+        const walineArray = comments.map(function (e) {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': getIcon(e.QQAvatar,e.mail),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+        generateHtml(walineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+    }
+
+    if (typeof Waline === 'function') loadWaline() 
+    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(loadWaline)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
