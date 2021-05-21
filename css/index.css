@@ -1344,6 +1344,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.0.0.png"), auto !important;
 }
 *::-webkit-scrollbar {
   width: 8px;
@@ -1448,7 +1449,7 @@ button {
   outline: 0;
   border: none;
   background: none;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 a {
   color: #99a9bf;
@@ -1463,6 +1464,10 @@ a {
 }
 a:hover {
   color: #49b1f5;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
+}
+a:active {
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #site-title,
 #site-subtitle,
@@ -2758,7 +2763,7 @@ blockquote footer cite:before {
   margin: 0 0.5rem;
   color: var(--font-color);
   font-size: 1.4em;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #aside-content .card-info .card-info-social-icons i {
   -webkit-transition: all 0.3s;
@@ -2964,6 +2969,9 @@ blockquote footer cite:before {
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
+}
+#aside-content .card-categories .card-category-list > .parent > .child {
+  display: none;
 }
 #aside-content .card-webinfo .webinfo .webinfo-item {
   display: -webkit-box;
@@ -3338,7 +3346,7 @@ blockquote footer cite:before {
   border-radius: 34px;
   background-color: #49b1f5;
   vertical-align: middle;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   -o-transition: 0.4s;
@@ -3477,7 +3485,7 @@ blockquote footer cite:before {
   color: var(--light-grey);
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
   font-size: 1.43em;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #page-header #scroll-down {
   position: absolute;
@@ -3754,7 +3762,7 @@ _:future,
 #nav #site-name {
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
   font-weight: bold;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #nav .menus_items {
   display: inline;
@@ -3763,6 +3771,9 @@ _:future,
   position: relative;
   display: inline-block;
   padding: 0 0 0 0.7rem;
+}
+#nav .menus_items .menus_item:hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #nav .menus_items .menus_item:hover .menus_item_child {
   display: block;
@@ -3811,6 +3822,7 @@ _:future,
 }
 #nav .menus_items .menus_item .menus_item_child li:hover {
   background: var(--text-bg-hover);
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #nav .menus_items .menus_item .menus_item_child li a {
   display: inline-block;
@@ -3818,6 +3830,7 @@ _:future,
   width: 100%;
   color: var(--font-color) !important;
   text-shadow: none !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #nav.hide-menu #toggle-menu {
   display: inline-block !important;
@@ -3845,7 +3858,7 @@ _:future,
   padding-bottom: 0.3rem;
   text-shadow: 0.05rem 0.05rem 0.1rem rgba(0,0,0,0.3);
   font-size: 0.78em;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #nav .site-page:not(.child):after {
   position: absolute;
@@ -4185,7 +4198,7 @@ _:future,
   left: 0;
   background: #49b1f5;
   color: #fff;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -4408,7 +4421,7 @@ _:future,
   padding: 0.2rem 1.2rem;
   background: var(--btn-bg);
   color: var(--btn-color);
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -4611,7 +4624,7 @@ _:future,
   padding: 0.3rem 1.5rem;
   color: var(--font-color);
   font-size: 1.15em;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 #sidebar #sidebar-menus .menus_items .site-page i:first-child {
   width: 25%;
@@ -4691,6 +4704,15 @@ _:future,
 }
 #waline-wrap textarea:focus {
   background-image: none;
+}
+#waline-wrap button {
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
+}
+#waline-wrap a {
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
+}
+#waline-wrap .vreply {
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
 }
 .fireworks {
   position: fixed;
@@ -6019,7 +6041,7 @@ blockquote.pullquote.right {
   color: #858585;
   font-size: 1.4em;
   line-height: 1;
-  cursor: pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/MapleStory/Cursor.1.1.png"), pointer;
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
