@@ -6,7 +6,7 @@
   <link href="https://tamsiree.com/atom.xml" rel="self"/>
   
   <link href="https://tamsiree.com/"/>
-  <updated>2021-05-20T02:29:20.531Z</updated>
+  <updated>2021-05-25T06:13:46.391Z</updated>
   <id>https://tamsiree.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity的BUG指南</title>
+    <link href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84BUG%E6%8C%87%E5%8D%97/"/>
+    <id>https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84BUG%E6%8C%87%E5%8D%97/</id>
+    <published>2021-05-24T09:51:17.000Z</published>
+    <updated>2021-05-25T06:13:46.391Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="UGUI界面无法点击"><a href="#UGUI界面无法点击" class="headerlink" title="UGUI界面无法点击"></a>UGUI界面无法点击</h2><p>检查一下场景中是否存在 <code>EventSystem</code></p><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;script src=&quot;/assets/js/DPlayer.min.js&quot;&gt; &lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.mi</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Unity破解</title>
@@ -521,27 +541,6 @@
     <category term="UGUI" scheme="https://tamsiree.com/tags/UGUI/"/>
     
     <category term="GridLayoutGroup" scheme="https://tamsiree.com/tags/GridLayoutGroup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华硕PG279QR显示器</title>
-    <link href="https://tamsiree.com/Hardware/%E5%8D%8E%E7%A1%95PG279QR%E6%98%BE%E7%A4%BA%E5%99%A8/"/>
-    <id>https://tamsiree.com/Hardware/%E5%8D%8E%E7%A1%95PG279QR%E6%98%BE%E7%A4%BA%E5%99%A8/</id>
-    <published>2020-08-19T15:03:22.000Z</published>
-    <updated>2021-05-17T01:28:41.155Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="华硕PG279Q显示器OD"><a href="#华硕PG279Q显示器OD" class="headerlink" title="华硕PG279Q显示器OD"></a>华硕PG279Q显示器OD</h1><p>OD可理解为Overdrive，是一项通过提高液晶面板电压，以牺牲显示效果为代价来降低显示延迟的技术。关闭（选择禁用）时，显示面板以正常状态工作，能提供最佳的显示效果，但显示延时较高；开至中档（选择常规色）时，显示面板以较高电压工作，略微影响显示效果，显示延时有所降低；开至高档（选择Extreme）时，显示面板以能稳定接受的最高电压工作，严重影响显示效果，产生肉眼可见的明显色差，显示延迟降至最低。建议：玩竞技类游戏时可设置为Extreme来改善操作感，提高成绩；玩一般游戏时可设置为常规色，在欣赏风景的同时改善操作体验；不玩游戏时（看电影等）可关闭OD，提供最佳显示效果。</p><h1 id="软硬件综合测试"><a href="#软硬件综合测试" class="headerlink" title="软硬件综合测试"></a>软硬件综合测试</h1><p>相信大家在选择显示器的过程中经常会听到有网友推荐选择什么大金刚和小金刚显示器。那么什么是大金刚，什么又是小金刚呢。  </p><p>在开始介绍这款大金刚显示器之前，我们先来了解一下小金刚和大金刚的区别吧。首先这两大类显示器并不是指某几款特定的产品，目前来说当显示器的几个参数到达了某个标准，他就会被冠以x金刚的称呼。  </p><p>先说说小金刚，在前几年，只要显示器拥有2K分辨率+IPS面板+144Hz刷新率+一般还会支持AMD家的Free sync技术，那这款显示器就已经称得上是小金刚了。(但是最近又有一些商家将什么1080p分辨率+IPS面板+144hz及其以上刷新率的显示器也标上小金刚的名称，讲道理，如果评判标准没有变的话，那这种显示器是不能算做小金刚的，1k的应该叫弟中弟金刚)。</p><p>然后就是大金肛，通常来说，我们将拥有2K分辨率+IPS面板+144Hz及其以上刷新率+支持G-sync模块参数的显示器称之大金刚显示器。</p><p>比较有意思的是虽然他们的名字分大小，但实际上大金刚和小金刚的尺寸非常一致，统一27寸。大金刚并没又很大，小金刚也不小。</p><p>可能看到这里大家就会想了：</p><p>嗯？什么是Free sync，什么又是G sync呢， 简单来说Free sync是AMD家的防撕裂技术，G sync就是NVIDIA家的防撕裂技术。</p><p>什么玩意？那一个G-sync模块就要坑我1000多块钱？</p><p>对，只要你的显卡性能超过了amd家的所有显卡（因为现在的amd显卡还不怎么争气，最强的卡也不过就是VII和5700xt之流，所以高端显卡市场就只有NVIDIA可选），那留给你的选择就只有用更强的NVIDIA显卡和搭载G sync模块的显示器。我将这种操作称之为：大金刚与土豪之间不得不说的故事。</p><p>（虽然今年年初老黄宣布10系以上的显卡均可通过G sync compatible技术使用部分支持Free sync技术的显示器，并称可以达到防画面撕裂的效果。但显示器的实际使用情况还是要看与软件的兼容性，就像黑苹果一样，软支持和硬支持总会有一些差距。我将这种可能出现的不兼容情况操作称之为：土豪为了省钱而发生的悲哀。）</p><p>诶，说了一大堆废话，接下来让我们一起来看看这款败家国度的PG279Q大金刚显示器表现如何吧。</p><p>目录：</p><p>①包装/外观</p><p>②红蜘蛛测试</p><p>③实际效果展示</p><p>功耗</p><p>1</p><p>① . 包装/外观</p><p>首先是包装方面，包装就十分的大气。整个包装上到处都充斥着败家之眼的败家气息。侧面则是各式各样的主要参数</p><p><img src="https://picb.zhimg.com/v2-9356c43634594aa6555d76272881a39b_b.jpg"></p><p>安装方式一目了然，简单粗暴  </p><p><img src="https://picb.zhimg.com/v2-1dff650a3e7cd5c9347befbd02604393_b.jpg"></p><p>打开这充满了败家气息的包装，里面的配件如下</p><p><img src="https://pic1.zhimg.com/v2-562403157c5d3a55aac8e63149cae1af_b.jpg"></p><p>连接线方面赠送了三根线，从上到下分别是HDMI，DP以及一根USB3.0的上行线，显示器和主机接上这个上行线才能使用显示器上的USB下行接口。</p><p><img src="https://pic1.zhimg.com/v2-4a64c2e50efd95665552d98390259bff_b.jpg"></p><p>（缺一张底部接口图）</p><p>适配器的额定输出功率为90w。</p><p><img src="https://pic4.zhimg.com/v2-9e9f236af2109aea1852a8418d4ef013_b.jpg"></p><p>以下配件可安装在下时期的底座上。赠送了三个空白的投影片，可自行设计图案，比如纹条龙在上面。</p><p><img src="https://pic2.zhimg.com/v2-084d20a6afeeb68d0d579a988edc8e2f_b.jpg"></p><p>底座有点《流浪地球》中行星发动机的味道。  </p><p><img src="https://picb.zhimg.com/v2-41e8ac2ebaa62a983cdf6f37530790f8_b.jpg"></p><p><img src="https://pic2.zhimg.com/v2-0a6a40a29280e0eb9b2a997018578597_b.jpg"></p><p>背部纹路有着浓厚的科幻感，最靓的背部</p><p><img src="https://pic3.zhimg.com/v2-bb764515951c7e67dd48aadfe3002d0c_b.png"></p><p><img src="https://pic4.zhimg.com/v2-a1d907714386db5a0b3416ef9266dc5c_b.jpg"></p><p>背部RGB眼睛充满了信仰，灯光可手动关闭，支持支持神光同步效果。</p><p><img src="https://pic2.zhimg.com/v2-16333223111e7cb3c8e93f589013f2ab_b.jpg"></p><p><img src="https://pic3.zhimg.com/v2-6ac60e6d8e1d961e9d38f892a5dd2827_b.jpg"></p><p>按键方面从上到下依次是菜单键（可上下左右摇动选择菜单里的项目），下面是退出菜单键，屏幕辅助显示键，下面是显示模式设置键，最下面是开关。</p><p><img src="https://pic2.zhimg.com/v2-aa69c3ba53c56f5e78fcf2003d81ed94_b.jpg"></p><p><img src="https://pic1.zhimg.com/v2-c9c445513303312315c613ca45437992_b.jpg"></p><p><img src="https://picb.zhimg.com/v2-b561a68b3a04f1d6806f331a868f3e57_b.jpg"></p><p>这个屏幕只有两个标志，正下方的白色败家之眼logo，以及屏幕左下方的G-SYNC标志尤为显眼，可见搭载了G-SYNC是一个值得吹捧的功能。</p><p><img src="https://pic2.zhimg.com/v2-a33474165eb8946dd9d4b52f031c11d4_b.jpg"></p><p><img src="https://pic4.zhimg.com/v2-1f233e1e83d52f08c94446e1930405c2_b.jpg"></p><p>整体细节就介绍到这里，接下来是软硬件综合测试;</p><p>1</p><p>②屏幕素质测试</p><p>本次使用的是设备为红蜘蛛5屏幕较色仪。</p><p>首先是屏幕的刷新率，不打开超频选项的话只能支持到144Hz，在打开了之后165选项就出来啦。</p><p><img src="https://pic4.zhimg.com/v2-4f5f315025c15666bd2eccf55a3fb151_b.jpg"></p><p><img src="https://pic2.zhimg.com/v2-294c9401d0f95e5ba1b6b1f79c3d22a4_b.jpg"></p><p>在显卡控制面板中可开启G-SYNC防画面撕裂设置。可选择全屏启动/全屏和窗口化启动。  </p><p><img src="https://pic1.zhimg.com/v2-45732d8f10634b38f5d19a86f8d1b0e4_b.jpg"></p><p>由于测量精度以及每个屏幕都会有一丁点差异，所以这一型号的屏幕大概为100%SRGB色域，76%的Adobe sRGB色域，NTSC色域值为百分之69。大金刚的色彩覆盖范围普遍还是不高啊，嘛，反正也不是设计用途，毕竟人家是专攻高刷新的电竞业。</p><p><img src="https://pic4.zhimg.com/v2-fdef20ecd8aae3770c993974ddfa3eec_b.jpg"></p><p><img src="https://pic1.zhimg.com/v2-7823cb5c223ee32f6a5e30d11a9dc384_b.jpg"></p><p>作为一块高端的电竞屏来说，即使是一般的专业绘图屏幕，这个△e（色彩偏离值）值都是较为不错的存在了。（越小越好）</p><p><img src="https://pic4.zhimg.com/v2-96a71bcd10c16e7c0921f6a854d28cd8_b.jpg"></p><p>在亮度调节至百分之50左右戴尔特e的值更加小了，大多能够控制在2.0以下。</p><p><img src="https://picb.zhimg.com/v2-db2a6cb54d8743f6b1b96d618bc19775_b.jpg"></p><p>平均值1.18。相当不错。对比一些专业设计屏幕都毫不逊色，就是那个蓝了吧唧的那行有点差。</p><p><img src="https://picb.zhimg.com/v2-438f5a1751e53af0cc0ae5f870b05d7e_b.jpg"></p><p>因为是IPS屏幕，所以可视角度方面也是非常出色的，与屏幕基本平行都能看清屏幕上的画面。  </p><p><img src="https://pic4.zhimg.com/v2-ebeb9e8b1d6bf38d1dcdcef4c854f6f8_b.jpg"></p><p>1</p><p>③实际效果展示</p><p>对于一个专业的电竞屏来说，只有色准比较准是不行的，最重要的当然还是刷新率以及各种游戏相关的功能（G sync之类）。</p><p>刷新率很难去表现，用单反也不容易拍出来。结合实际观感弄了一个接近实际情况的正经鼠标高速移动图：</p><p><img src="https://pic2.zhimg.com/v2-deecef2ae905636927816f4e9174831a_b.jpg"></p><p>实际上要是用惯了60Hz刷新率的显示器其实是一点都感受不出来卡的。但是要使用过一阵子120Hz以上的显示器再用回60hz的话，那种视觉上的体验就变得尤为明显了。（实际体验中，将165换成60Hz以后，我一个不经常玩游戏的人都能看出盖伦逛街的过程中脚步没有165时来的连贯顺滑。）实际上不可能将165帧的图放上来展示，165张图，就算只有一秒也超出了公众号的动图大小的限制了。高刷新率的显示器实际使用情况只有在大家体验之后才会有更直观的感受。</p><p><img src="https://pic2.zhimg.com/v2-fad77c9380c54b767ed2023161a9e283_b.gif"></p><p>最后是G sync技术，这个就更不好展示了，简单说一下这是个什么原理吧，G sync技术是NVIDIA家的防止画面撕裂的一项专利。其最终目的和垂直同步的效果差不多。（唯一不同的是）  </p><p>就是不论画面更新率有多快，它都可以让屏幕与GPU完全同步，这样说也许有点抽象，简单用两张图介绍一下吧。</p><p><img src="https://pic2.zhimg.com/v2-b2504beca35597b75dfa971fbc889766_b.jpg"></p><p>实际游戏体验上非常流畅顺滑，就跟德芙巧克力一样。有种数不出来的畅快感觉，也许只有亲自用了144的屏幕才能体会的到吧。  </p><p><img src="https://picb.zhimg.com/v2-2ee8c24454194e92c8a5a237ab11825d_b.jpg"></p><p><img src="https://pic2.zhimg.com/v2-b5a12ccc770cfe7017f5c6b47f5b0b81_b.jpg"></p><p><img src="https://pic4.zhimg.com/v2-8ee79a4fa233755deb8b5e0ed08f372b_b.jpg"></p><p>最后，显示器（百分之一百亮度）日常进桌面功耗为：</p><p><img src="https://pic1.zhimg.com/v2-36bc4ac33f406f529f3490811b357a3a_b.jpg"></p><p>开启144Hz后，进入LOL（亮度100%，音响功能开启）功耗为：</p><p><img src="https://picb.zhimg.com/v2-a78e078ef51762a4c3b219f7cb4d4cf0_b.jpg"></p><p>开启165Hz后，进入LOL（亮度100%，音响功能开启）功耗为：</p><p><img src="https://pic2.zhimg.com/v2-62e06000b3f5ed94a554e1295f22de5c_b.jpg"></p><p>功耗方面并不高，而且165Hz和60Hz没啥太大区。适配器给的90w实在是太足了。</p><p>总结：</p><p>总的来说显示器素质不错，颜值也是极高的，大金刚的参数也毋庸置疑的强悍。</p><p>但是这款显示器对于配置不高，并且不玩fps游戏的玩家来说完全没有卵用。大概就是花更多的钱，买用不到的性能。</p><p>但是对于显卡性能超过RTX2070，并且玩一些枪战类游戏的玩家来说这款165Hz刷新率支持G sync的显示器绝对不会让大家失望，包括价格（4899元）。可以称得上是土豪的神级辅助，平民眼中的遥不可及。  </p><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
-    
-    
-    <summary type="html">华硕PG279Q显示器OD可理解为Overdrive，是一项通过提高液晶面板电压，以牺牲显示效果为代价来降低显示延迟的技术。关闭（选择禁用）时，显示面板以正常状态工作，能提供最佳的显示效果，但显示延时较高；开至中档（选择常规色）时，显示面板以较高电压工作，略微影响显示效果，显示延时有所降低；开至高档（选择Extreme）时，显示面板以能稳定接受的最高电压工作，严重影响显示效果，产生肉眼可见的明显色差，显示延迟降至最低。建议：玩竞技类游戏时可设置为Extreme来改善操作感，提高成绩；玩一般游戏时可设置为常规色，在欣赏风景的同时改善操作体验；不玩游戏时（看电影等）可关闭OD，提供最佳显示效果。</summary>
-    
-    
-    
-    <category term="Hardware" scheme="https://tamsiree.com/categories/Hardware/"/>
-    
-    
-    <category term="Hardware" scheme="https://tamsiree.com/tags/Hardware/"/>
     
   </entry>
   
