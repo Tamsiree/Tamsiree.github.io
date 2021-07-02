@@ -6,7 +6,7 @@
   <link href="https://tamsiree.com/atom.xml" rel="self"/>
   
   <link href="https://tamsiree.com/"/>
-  <updated>2021-05-25T06:13:46.391Z</updated>
+  <updated>2021-07-02T03:37:42.353Z</updated>
   <id>https://tamsiree.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C#单例模式</title>
+    <link href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2021-07-02T03:34:38.000Z</published>
+    <updated>2021-07-02T03:37:42.353Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>单例模式是软件工程学中最富盛名的设计模式之一。从本质上看，单例模式只允许被其自身实例化一次，且向外部提供了一个访问该实例的接口。通常来说，单例对象进行实例化时一般不带参数，因为如果不同的实例化请求传递的参数不同的话会导致问题的产生。(若多个请求都是传递的同样的参数的话，工厂模式更应该被考虑)</p><p>C#中实现单例有很多种方法，本文将按顺序介绍非线程安全、完全懒汉式、线程安全和低/高性能集中版本。</p><p>在所有的实现版本中，都有以下几个共同点：</p><ul><li>唯一的、私有的且无参的构造函数，这样不允许外部类进行实例化；</li><li>类是密封的，尽管这不是强制的，但是严格来讲从上一点来看密封类能有助于JIT的优化；</li><li>一个静态变量应该指向类的唯一实例；</li><li>一个公共的静态变量用于获得这个类的唯一实例(如果需要,应该创建它）；</li></ul><p>需要注意的是，本文中所有的例子中都是用一个 public static Instance的变量来访问单例类实例，要将其转换成公共函数是很容易的，但是这样并不会带来效率和线程安全上的提升。</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="Version-1-非线程安全"><a href="#Version-1-非线程安全" class="headerlink" title="Version 1 - 非线程安全"></a>Version 1 - 非线程安全</h2><pre><code>public sealed class Singleton&#123;    private static Singleton instance = null;    private Singleton() &#123; &#125;    public static Singleton Instance    &#123;        get        &#123;            if (instance == null)            &#123;                instance = new Singleton();            &#125;            return instance;        &#125;    &#125;&#125;</code></pre><p>该版本在多线程下是不安全的，会创建多个实例，请不要在生产环境中使用！</p><p>因为如果两个线程同时运行到if(instance==null)判断时，就会创建两个实例，这是违背单例模式的初衷的。实际上在后面那个线程进行判断是已经生成了一个实例，但是对于不同的线程来说除非进行了线程间的通信，否则它是不知道的。</p><h2 id="Version-2-简单的线程安全"><a href="#Version-2-简单的线程安全" class="headerlink" title="Version 2 - 简单的线程安全"></a>Version 2 - 简单的线程安全</h2><pre><code>public sealed class Singleton2&#123;    private static Singleton2 instance = null;    private static readonly object obj = new object();    private Singleton2() &#123; &#125;    public Singleton2 Instance    &#123;        get        &#123;            lock (obj)            &#123;                if (instance == null)                &#123;                    instance = new Singleton2();                &#125;                return instance;            &#125;        &#125;    &#125;&#125;</code></pre><p>该版本是线程安全的。通过对一个过线程共享的对象进行加锁操作，保证了在同一时刻只有一个线程在执行lock{}里的代码。当第一个线程在进行instance判断或创建时，后续线程必须等待直到前一线程执行完毕，因此保证了只有第一个线程能够创建instance实例。</p><p>但不幸的是，因为每次对instance的请求都会进行lock操作，其性能是不佳的。</p><p>需要注意的是，这里使用了一个private static object变量进行锁定，这是因为当如果对一个外部类可以访问的对象进行锁定时会导致性能低下甚至死锁。因此通常来说为了保证线程安全，进行加锁的对象应该是private的。</p><h2 id="Version-3-Double-check-locking的线程安全"><a href="#Version-3-Double-check-locking的线程安全" class="headerlink" title="Version 3 - Double-check locking的线程安全"></a>Version 3 - Double-check locking的线程安全</h2><pre><code>public sealed class Singleton3&#123;    private static Singleton3 instance = null;    private static object obj = new object();    private Singleton3() &#123; &#125;    public static Singleton3 Instance    &#123;        get        &#123;            if (instance == null)            &#123;                lock (obj)                &#123;                    if (instance == null)                    &#123;                        instance = new Singleton3();                    &#125;                &#125;            &#125;            return instance;        &#125;    &#125;&#125;</code></pre><p>该版本中试图去避免每次访问都进行加锁操作并实现线程安全。然后，这段代码对Java不起作用，因Java的内存模型不能保证在构造函数一定在其他对象引用instance之前完成。还有重要的一点，它不如后面的实现方式。</p><h2 id="Version-4-不完全懒汉式，但不加锁的线程安全"><a href="#Version-4-不完全懒汉式，但不加锁的线程安全" class="headerlink" title="Version 4 - 不完全懒汉式，但不加锁的线程安全"></a>Version 4 - 不完全懒汉式，但不加锁的线程安全</h2><pre><code>public sealed class Singleton4&#123;    private static readonly Singleton4 instance = new Singleton4();    /// &lt;summary&gt;    /// 显式的静态构造函数用来告诉C#编译器在其内容实例化之前不要标记其类型    /// &lt;/summary&gt;    static Singleton4() &#123; &#125;    private Singleton4() &#123; &#125;    public static Singleton4 Instance &#123; get &#123; return instance; &#125; &#125;&#125;</code></pre><p>这个版本是的实现非常的简单，但是却又是线程安全的。C#的静态构造函数只有在当其类的实例被创建或者有静态成员被引用时执行，在整个应用程序域中只会被执行一次。使用当前方式明显比前面版本中进行额外的判断要快。</p><p>当然这个版本也存在一些瑕疵：</p><ul><li>不是真正意义上的懒汉模式(需要的时候才创建实例)，若单例类还存在其他静态成员，当其他类第一次引用这些成员时便会创建该instance。下个版本实现会修正这个问题；</li><li>只有.NET中才具有beforefieldinit特性，即懒汉式实现。且在.Net 1.1以前的编译器不支持，不过这个现在来看问题不大；</li></ul><p>所有版本中，只有这里将instance设置成了readonly,这不仅保证了代码的高校且显得十分短小。</p><h2 id="Version-5-完全懒汉实例化"><a href="#Version-5-完全懒汉实例化" class="headerlink" title="Version 5 - 完全懒汉实例化"></a>Version 5 - 完全懒汉实例化</h2><pre><code>public sealed class Singleton5&#123;    private Singleton5() &#123; &#125;    public static Singleton5 Instance &#123; get &#123; return Nested.instance; &#125; &#125;    private class Nested    &#123;        static Nested() &#123; &#125;        internal static readonly Singleton5 instance = new Singleton5();    &#125;&#125;</code></pre><p>该版本看起来稍微复杂难懂，其实只是在写法上实现了上一版本的瑕疵，通过内嵌类的方式先实现了只有在真正应用Instance时才进行实例化。其性能表现与上一版本无异。</p><h2 id="Version-6-使用-NET-4-Lazy-type-特性"><a href="#Version-6-使用-NET-4-Lazy-type-特性" class="headerlink" title="Version 6 - 使用.NET 4 Lazy type 特性"></a>Version 6 - 使用.NET 4 Lazy type 特性</h2><pre><code>public sealed class Singleton6&#123;    private static readonly Lazy&lt;Singleton6&gt; lazy =           new Lazy&lt;Singleton6&gt;(()=&gt; new Singleton6());    public static Singleton6 Instance &#123; get &#123; return lazy.Value; &#125; &#125;    private Singleton6() &#123; &#125;&#125;</code></pre><p>如果你使用的是.NET 4或其以上版本，可以使用System.Lazy type来实现完全懒汉式。其代码看起来也很简洁且性能表现也很好。</p><h2 id="性能-VS-懒汉式"><a href="#性能-VS-懒汉式" class="headerlink" title="性能 VS 懒汉式"></a>性能 VS 懒汉式</h2><p>一般情况下，我们并不需要实现完全懒汉式，除非你的构造初始化执行了某些费时的工作。因此一般的，我们使用显式的静态构造函数就能够适用。</p><p>本文翻译自Implementing the Singleton Pattern in C#</p><h2 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h2><p>有时候在进行构造函数初始化时可能 会抛出异常，但这对整个应用程序来说不应该是致命的，所以可能的情况下，你应该自己处理这种异常情况。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上述提供的几种实现方法中，一般情况下提倡使用<code>Version 4</code>，除非遇到有时早于单列类实例化时就引用了其他静态成员。这种情况下，<code>Version 2</code>一旦被考虑，虽然它看起来会因加锁耗时，但是其实运行起来并没有你想的那么慢，关键是你很容易写对它。显然<code>Version 1</code>你永远都不应该考虑，<code>Version 3</code>在与<code>Version 5</code>的对比下也是不在考虑范围之内的。</p><hr><blockquote><p>参考来源：<a href="https://www.cnblogs.com/zhaoshujie/p/14323654.html">[ C#实现单例模式的6种方法 ]</a></p></blockquote><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
+    
+    
+    <summary type="html">单例模式是软件工程学中最富盛名的设计模式之一。从本质上看，单例模式只允许被其自身实例化一次，且向外部提供了一个访问该实例的接口。通常来说，单例对象进行实例化时一般不带参数，因为如果不同的实例化请求传递的参数不同的话会导致问题的产生。(若多个请求都是传递的同样的参数的话，工厂模式更应该被考虑)</summary>
+    
+    
+    
+    <category term="编程语言" scheme="https://tamsiree.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="C#" scheme="https://tamsiree.com/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/"/>
+    
+    
+    <category term="编程语言" scheme="https://tamsiree.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="C#" scheme="https://tamsiree.com/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity的BUG指南</title>
@@ -508,39 +533,6 @@
     <category term="Google" scheme="https://tamsiree.com/tags/Google/"/>
     
     <category term="Chrome" scheme="https://tamsiree.com/tags/Chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity的GridLayoutGroup组件</title>
-    <link href="https://tamsiree.com/GameEngine/Unity/UGUI/GridLayoutGroup/Unity%E7%9A%84GridLayoutGroup%E7%BB%84%E4%BB%B6/"/>
-    <id>https://tamsiree.com/GameEngine/Unity/UGUI/GridLayoutGroup/Unity%E7%9A%84GridLayoutGroup%E7%BB%84%E4%BB%B6/</id>
-    <published>2020-08-21T03:17:58.000Z</published>
-    <updated>2021-05-17T01:28:41.125Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="GridLayoutGroup网格布局组件"><a href="#GridLayoutGroup网格布局组件" class="headerlink" title="GridLayoutGroup网格布局组件"></a>GridLayoutGroup网格布局组件</h3><p><img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/14971803-3ab3bbbcbb51174f.webp" alt="Grid Layout Group"></p><table><thead><tr><th align="left">属性：</th><th align="left">功能：</th></tr></thead><tbody><tr><td align="left">Padding-填充</td><td align="left">布局组边缘内的填充。</td></tr><tr><td align="left">Cell Size-对象元素大小</td><td align="left">组中每个布局元素要使用的大小。</td></tr><tr><td align="left">Spacing-间距</td><td align="left">布局元素之间的间距。</td></tr><tr><td align="left">Start Corner-起始角</td><td align="left">第一个元素所在的角。</td></tr><tr><td align="left">Start Axis-起始轴</td><td align="left">沿着哪个主轴放置元素。在开始新行之前，水平将填满整个行。在开始新列之前，Vertical将填充整个列。</td></tr><tr><td align="left">Child Alignment-子对象对齐</td><td align="left">如果布局元素未填满所有可用空间，则用于这些元素的对齐方式。</td></tr><tr><td align="left">Constraint-约束</td><td align="left">将网格限制为固定数量的行或列，以辅助自动布局系统</td></tr></tbody></table><hr><p><img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/16132650-a63c320607612c38.webp" alt="Padding"></p><table><thead><tr><th align="left">属性：</th><th align="left">功能：</th></tr></thead><tbody><tr><td align="left">Left</td><td align="left">左边缘内的填充</td></tr><tr><td align="left">Right</td><td align="left">右边缘内的填充</td></tr><tr><td align="left">Top</td><td align="left">顶部边缘内的填充</td></tr><tr><td align="left">Bottom</td><td align="left">底部边缘内的填充</td></tr></tbody></table><hr><p><img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/14971803-e26bb26177239e4d.webp" alt="Start Corner"></p><table><thead><tr><th align="left">属性：</th><th align="left">功能：</th></tr></thead><tbody><tr><td align="left">Upper Left</td><td align="left">第一个元素所在左上角</td></tr><tr><td align="left">Upper Right</td><td align="left">第一个元素所在右上角</td></tr><tr><td align="left">Lower Left</td><td align="left">第一个元素所在左下角</td></tr><tr><td align="left">Lower Right</td><td align="left">第一个元素所在右下角</td></tr></tbody></table><hr><p><img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/14971803-9e4471ef7b946d96.webp" alt="Start Axis"></p><table><thead><tr><th align="left">属性：</th><th align="left">功能：</th></tr></thead><tbody><tr><td align="left">Horizontal</td><td align="left">水平排列</td></tr><tr><td align="left">Vertical</td><td align="left">垂直排列</td></tr></tbody></table><hr><p><img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/14971803-3f158c7df5da11b4.webp" alt="Child Alignment"></p><table><thead><tr><th align="left">属性：</th><th align="left">功能：</th></tr></thead><tbody><tr><td align="left">Upper Left</td><td align="left">左上角对齐</td></tr><tr><td align="left">Upper Center</td><td align="left">上中心对齐</td></tr><tr><td align="left">Upper Right</td><td align="left">右上角对齐</td></tr><tr><td align="left">Middle Left</td><td align="left">左中心对齐</td></tr><tr><td align="left">Middle Center</td><td align="left">中心对齐</td></tr><tr><td align="left">Middle Right</td><td align="left">右中心对齐</td></tr><tr><td align="left">Lower Left</td><td align="left">左下角对齐</td></tr><tr><td align="left">Lower Center</td><td align="left">下中心对齐</td></tr><tr><td align="left">Lower Right</td><td align="left">右下角对齐</td></tr></tbody></table><hr><p><img src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/14971803-0ed9bedfb8f1df23.webp" alt="Constraint"></p><table><thead><tr><th align="left">属性：</th><th align="left">功能：</th></tr></thead><tbody><tr><td align="left">Flexible</td><td align="left">不约束</td></tr><tr><td align="left">Fixed Column Count</td><td align="left">固定列数</td></tr><tr><td align="left">Fixed Row Count</td><td align="left">固定行数</td></tr></tbody></table><hr><blockquote><p>to be continued…</p></blockquote>]]></content>
-    
-    
-    <summary type="html">GridLayoutGroup是Unity引擎中的网格布局组件</summary>
-    
-    
-    
-    <category term="GameEngine" scheme="https://tamsiree.com/categories/GameEngine/"/>
-    
-    <category term="Unity" scheme="https://tamsiree.com/categories/GameEngine/Unity/"/>
-    
-    <category term="UGUI" scheme="https://tamsiree.com/categories/GameEngine/Unity/UGUI/"/>
-    
-    <category term="GridLayoutGroup" scheme="https://tamsiree.com/categories/GameEngine/Unity/UGUI/GridLayoutGroup/"/>
-    
-    
-    <category term="GameEngine" scheme="https://tamsiree.com/tags/GameEngine/"/>
-    
-    <category term="Unity" scheme="https://tamsiree.com/tags/Unity/"/>
-    
-    <category term="UGUI" scheme="https://tamsiree.com/tags/UGUI/"/>
-    
-    <category term="GridLayoutGroup" scheme="https://tamsiree.com/tags/GridLayoutGroup/"/>
     
   </entry>
   
