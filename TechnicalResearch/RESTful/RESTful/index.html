@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>RESTful | Tamsiree</title><meta name="keywords" content="TechnicalResearch,RESTful"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="RESTful是目前最流行的API设计规范，用于Web数据接口的设计。RESTful规范一种软件的架构风格，设计风格，而不是标准，为客户端和服务端的交互提供一组设计原则和约束条件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RESTful">
+<meta property="og:url" content="https://tamsiree.com/TechnicalResearch/RESTful/RESTful/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="RESTful是目前最流行的API设计规范，用于Web数据接口的设计。RESTful规范一种软件的架构风格，设计风格，而不是标准，为客户端和服务端的交互提供一组设计原则和约束条件。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/duchu.jpg">
+<meta property="article:published_time" content="2020-06-13T01:31:43.000Z">
+<meta property="article:modified_time" content="2025-11-05T13:53:39.372Z">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="TechnicalResearch">
+<meta property="article:tag" content="RESTful">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/duchu.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/TechnicalResearch/RESTful/RESTful/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RESTful',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-05 21:53:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/duchu.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RESTful</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-13T01:31:43.000Z" title="发表于 2020-06-13 09:31:43">2020-06-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.372Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/TechnicalResearch/">TechnicalResearch</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/TechnicalResearch/RESTful/">RESTful</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">921</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RESTful"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>RESTful是目前最流行的API设计规范，用于Web数据接口的设计。本文总结RESTful的特点，以及如何设计和使用RESTful风格的API。</p>
+<p>RESTful规范一种软件的架构风格，设计风格，而不是标准，为客户端和服务端的交互提供一组设计原则和约束条件。</p>
+</blockquote>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="面向资源编程"><a href="#面向资源编程" class="headerlink" title="面向资源编程"></a>面向资源编程</h2><p>每个URL代表一种资源，URL中尽量不要用动词，要用名词，往往名词跟数据库表格相对应。</p>
+<p>一般来说，数据库中的表都是同种记录的集合，所有API中的名词也应该使用复数。</p>
+<p>举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com/v1/zoos</span><br><span class="line">https://api.example.com/v1/animals</span><br><span class="line">https://api.example.com/v1/employees</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTTP动词"><a href="#HTTP动词" class="headerlink" title="HTTP动词"></a>HTTP动词</h2><p>对于资源的具体操作类型，由HTTP动词表示。<br>常用的HTTP动词有下面五个（括号里对应的sql命令）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET（SELECT）：从服务器取出资源（一项或多项）。</span><br><span class="line">POST（CREATE）：在服务器新建一个资源。</span><br><span class="line">PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</span><br><span class="line">PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</span><br><span class="line">DELETE（DELETE）：从服务器删除资源。</span><br></pre></td></tr></table></figure>
+
+<h2 id="在URL中体现版本"><a href="#在URL中体现版本" class="headerlink" title="在URL中体现版本"></a>在URL中体现版本</h2><p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://www.bootcss.com/v1/</span><br><span class="line">https://v1.bootcss.com/</span><br></pre></td></tr></table></figure>
+
+<h2 id="在URL中体现是否是API"><a href="#在URL中体现是否是API" class="headerlink" title="在URL中体现是否是API"></a>在URL中体现是否是API</h2><p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://www.bootcss.com/api/mycss</span><br><span class="line">https://api.bootcss.com/mycss</span><br></pre></td></tr></table></figure>
+
+<h2 id="在URL中的过滤条件"><a href="#在URL中的过滤条件" class="headerlink" title="在URL中的过滤条件"></a>在URL中的过滤条件</h2><p>如果记录数量很多，服务器不可能都将它们返回给用户。API应该提供参数，过滤返回结果。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">?limit=10：指定返回记录的数量</span><br><span class="line">?offset=10：指定返回记录的开始位置。</span><br><span class="line">?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</span><br><span class="line">?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</span><br><span class="line">?animal_type_id=1：指定筛选条件</span><br></pre></td></tr></table></figure>
+
+<h2 id="尽量使用HTTPS"><a href="#尽量使用HTTPS" class="headerlink" title="尽量使用HTTPS"></a>尽量使用HTTPS</h2><p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bootcss.com/v1/mycss</span><br></pre></td></tr></table></figure>
+
+<h2 id="响应时设置状态码"><a href="#响应时设置状态码" class="headerlink" title="响应时设置状态码"></a>响应时设置状态码</h2><ol>
+<li>信息，服务器收到请求，需要请求者继续执行操作</li>
+<li>成功，操作被成功接收并处理</li>
+<li>重定向，需要进一步的操作以完成请求</li>
+<li>客户端错误，请求包含语法错误或无法完成请求</li>
+<li>服务器错误，服务器在处理请求的过程中发生了错误</li>
+</ol>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
+<p>GET请求 返回查到所有或单条数据</p>
+<p>POST请求 返回新增的数据</p>
+<p>PUT请求 返回更新数据</p>
+<p>PATCH请求 局部更新 返回更新整条数据</p>
+<p>DELETE请求 返回值为空</p>
+</blockquote>
+<h2 id="返回错误信息"><a href="#返回错误信息" class="headerlink" title="返回错误信息"></a>返回错误信息</h2><p>如果状态码是4xx，就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名，出错信息作为键值即可。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Invalid API key&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Hypermedia-API"><a href="#Hypermedia-API" class="headerlink" title="Hypermedia API"></a>Hypermedia API</h2><p>如果遇到需要跳转的情况，携带调转接口的URL。<br>Hypermedi API的设计，比如github的API就是这种设计，访问 api.github.com 会得到一个所有可用的API的网址列表。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;current_user_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://api.github.com/user&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;authorizations_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://api.github.com/authorizations&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>从上面可以看到，如果想获取当前用户的信息，应该去访问 api.github.com/user，就会得到下面的结果。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Requires authentication&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;documentation_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://developer.github.com/v3/users/#get-the-authenticated-user&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>（1）API的身份认证应该使用OAuth 2.0框架</p>
+<p>（2）服务器返回的数据格式，应该尽量使用JSON，避免使用XML</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/TechnicalResearch/RESTful/RESTful/">https://tamsiree.com/TechnicalResearch/RESTful/RESTful/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/TechnicalResearch/">TechnicalResearch</a><a class="post-meta__tags" href="/tags/RESTful/">RESTful</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/duchu.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">xLua入门</div></div></a></div><div class="next-post pull-right"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/Lua%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/loveislove.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Lua语言入门</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/TechnicalResearch/Base64%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86/" title="Base64加密原理"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven439kv4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-28</div><div class="title">Base64加密原理</div></div></a></div><div><a href="/TechnicalResearch/CDN/" title="CDN"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-p879qj.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-25</div><div class="title">CDN</div></div></a></div><div><a href="/TechnicalResearch/Android/RxTool/Contributor/" title="Contributor"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-73l29v.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-04-11</div><div class="title">Contributor</div></div></a></div><div><a href="/TechnicalResearch/MachineLearning/DeepLearning/DeepLearning/" title="DeepLearning"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven965258.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-06</div><div class="title">DeepLearning</div></div></a></div><div><a href="/TechnicalResearch/GitHub/GitHub%E6%8F%90%E9%80%9F%E6%96%B9%E6%A1%88/" title="GitHub提速方案"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-2ed16y.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-23</div><div class="title">GitHub提速方案</div></div></a></div><div><a href="/TechnicalResearch/Hexo/Hexo%E6%8F%92%E5%85%A5Bilibili%E8%A7%86%E9%A2%91%E8%87%AA%E9%80%82%E5%BA%94/" title="Hexo插入Bilibili视频自适应"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-422864.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-18</div><div class="title">Hexo插入Bilibili视频自适应</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E8%B5%84%E6%BA%90%E7%BC%96%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">面向资源编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%8A%A8%E8%AF%8D"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP动词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8URL%E4%B8%AD%E4%BD%93%E7%8E%B0%E7%89%88%E6%9C%AC"><span class="toc-number">2.3.</span> <span class="toc-text">在URL中体现版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8URL%E4%B8%AD%E4%BD%93%E7%8E%B0%E6%98%AF%E5%90%A6%E6%98%AFAPI"><span class="toc-number">2.4.</span> <span class="toc-text">在URL中体现是否是API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8URL%E4%B8%AD%E7%9A%84%E8%BF%87%E6%BB%A4%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.5.</span> <span class="toc-text">在URL中的过滤条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BD%E9%87%8F%E4%BD%BF%E7%94%A8HTTPS"><span class="toc-number">2.6.</span> <span class="toc-text">尽量使用HTTPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%97%B6%E8%AE%BE%E7%BD%AE%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">2.7.</span> <span class="toc-text">响应时设置状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">2.8.</span> <span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="toc-number">2.9.</span> <span class="toc-text">返回错误信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hypermedia-API"><span class="toc-number">2.10.</span> <span class="toc-text">Hypermedia API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">2.11.</span> <span class="toc-text">其他</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity的ShaderLab着色器入门"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门">Unity的ShaderLab着色器入门</a><time datetime="2023-10-12T10:18:23.000Z" title="发表于 2023-10-12 18:18:23">2023-10-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tamsiree.com',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

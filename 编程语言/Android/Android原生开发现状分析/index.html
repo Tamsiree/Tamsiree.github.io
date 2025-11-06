@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Android原生开发现状分析 | Tamsiree</title><meta name="keywords" content="Android,编程语言"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="许多 Android 开发者经常会问我，要学会哪些东西才能成为一个优秀的 Android 工程师？对于这个问题，他们的描述或多或少都有些差异。但是，总体来说，我们都需要学习一系列的技能，才能成为一个优秀的 Android 工程师。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android原生开发现状分析">
+<meta property="og:url" content="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="许多 Android 开发者经常会问我，要学会哪些东西才能成为一个优秀的 Android 工程师？对于这个问题，他们的描述或多或少都有些差异。但是，总体来说，我们都需要学习一系列的技能，才能成为一个优秀的 Android 工程师。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1c34660a6917f03b1249fsaf8a1923d36ef.jpg">
+<meta property="article:published_time" content="2020-02-24T05:29:10.000Z">
+<meta property="article:modified_time" content="2025-11-05T13:53:39.341Z">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="编程语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1c34660a6917f03b1249fsaf8a1923d36ef.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Android原生开发现状分析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-05 21:53:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1c34660a6917f03b1249fsaf8a1923d36ef.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Android原生开发现状分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-24T05:29:10.000Z" title="发表于 2020-02-24 13:29:10">2020-02-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.341Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/">Android</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>24分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Android原生开发现状分析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>许多 Android 开发者经常会问我，要学会哪些东西才能成为一个优秀的 Android 工程师？对于这个问题，他们的描述或多或少都有些差异。但是，总体来说，我们都需要学习一系列的技能，才能成为一个优秀的 Android 工程师。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-b740026db5b545ba.webp"></p>
+<blockquote>
+<p>当你好不容易学会了某个框架或者工具，觉得它很好用的时候，它或许就要过时了。</p>
+</blockquote>
+<p>Android 原生开发的生态系统变化得非常快。至少在过去的五年时间里，我经历过很多 Android 的变化，并且花费大量的时间参与其中。这几年里，Google 每两到三年，就会推出一组新的库和框架作为官方 Android 原生开发的指导方针。我花了大量的时间，回顾了这几年的变化，希望从中找出好坏。我相信，有很多的 Android 开发者，也和我一样。</p>
+<p>过去的一年，大量的内容被添加、被废弃或被删除，文档被更改，新的官方指导方针被引入等等。即使我以 Android 原生开发生态系统的的标准来看待这些问题，所发生的这些事情，都是非常疯狂的。当我开始思考这些内容的时候，我已经无法在我的脑海中描绘出一个完整的、详细的 Android 开发环境。</p>
+<p>因此，我决定要花一些时间去整理这些内容，然后再来写这篇文章。本文中，我会<strong>试图去总结 Android 原生开发的生态系统中发的事情，并且对原生开发未来的走向做一些预测。</strong>我会将我的想法分成不同的章节去叙述，这些内容没有特定的顺序，但我会把最有争议的内容放在文章最后。</p>
+<p>我希望我的这篇文章可以给你带来一些启发和帮助，但是你需要记住，本文不可能包含所有的内容，有可能会漏掉许多重要的观点，并且本文中的内容可能会包含我个人的一些偏见。</p>
+<h2 id="AndroidX"><a href="#AndroidX" class="headerlink" title="AndroidX"></a><strong>AndroidX</strong></h2><p>这个事情说起来有点儿疯狂，Google 官方在一年半前就发布了 AndroidX 的预览版本。并且在一年前， AndroidX 库就已经很稳定了，与此同时，Google 官方也宣布不再对遗留的库进行支持与开发。</p>
+<p>用“稳定”来描述 AndroidX 这个库有点讽刺，现在关于 AndroidX 的任何东西都是不稳定的。Google 不断地在 AndroidX 下添加新的库和框架，使用 androidx 作为命名空间。许多“老”的 API（目前还不到一年）以非常快的速度发展。</p>
+<p>到目前为止，我已经将两个应用程序迁移到了 AndroidX 上了。一切都很顺利，我已经不记得在这个过程中，带给了我多少的“惊喜“。Google 也提供了一个工具，Jetifier 可将依赖于支持库的库迁移为依赖于等效的 AndroidX 软件包，一个非常好用的工具。然而，即使是一个很小的工程，也不能实现“一键迁移”。</p>
+<p>我也参与了没有迁移 AndroidX 的项目（项目并不计划迁移到 AndroidX）， 现在也没有任何问题，所以，不迁移 AndroidX， 在有些情况下，也是一种可行的方案。</p>
+<p>总而言之，<strong>在新的 Android 项目中，建议直接使用 AndroidX。****并且，针对老项目，我也推荐你们将迁移到 AndroidX 列到计划中</strong>，虽然现在你看不到迁移 AndroidX 过后，带来的任何收益。无论如何，你都有可能在某个时间点进行 AndroidX 的迁移，所以最好能够按照自己的进度进行迁移，而不是在 6 个月后，你需要使用某个新的 AndroidX 库时，再进行紧急迁移。</p>
+<h2 id="Jetpack"><a href="#Jetpack" class="headerlink" title="Jetpack"></a><strong>Jetpack</strong></h2><p>在讨论 AndroidX 过后，还必须要提到 Jetpack。在我的印象中，Jetpack 开始是作为“架构组件”的一把保护伞推出的。但是到后面，引入了几乎所有关于 AndroidX 的 API。因此，现在来看，我们看不到它与 AndroidX 之间的任何区别，除了 Marketing 和 PR（即市场和公关）。</p>
+<p>当你查看 Jetpack 主页[2]时，会发现，这个页面并不是一个技术文档页面。这个更像是一个早期的 SaaS 页面。</p>
+<p>看看例子，开发者“赞誉”：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-6e09d340798bc752.webp"></p>
+<p>或者“信赖应用”列表：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-57e748ebf4d4215f.webp"></p>
+<p>这些在市场公关层面更受关注，如果 Jetpack 在 2020 年申请独立 IPO，我都不会感到惊讶。</p>
+<p>不过，说真的，尝试向自己生态系统内的开发者“销售”API 的想法，我觉得存在一些问题，比如说，谁会想看搜索出来第一个就是 ViewModel 广告呢？</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-0f7fc726bc069f4f.webp"></p>
+<p>总而言之，Jetpack 只是 AndroidX 库的一个聚合，所以在前面写到的 AndroidX 的内容，在很大的程度上也适用于 Jetpack。在后面的内容中，我将单独讨论其中一些 API。</p>
+<h2 id="后台作业"><a href="#后台作业" class="headerlink" title="后台作业"></a><strong>后台作业</strong></h2><p>在 Android 应用程序不在前台执行逻辑时，你可以有很多种方式来实现后台运行，这也是 Android 动态化的用例之一。如果你不引入 doze , SyncAdapter , CGMNetworkManager , FirebaseJobDispatcher , JobScheuler 和最近的 WorkManager，可以使用常规的启动服务（非绑定服务）来实现。这些都是 Google 提供的 API ， 我可以说出所有的使用方式。当然，还有一些第三方库可以使用， 例如：Android-Job。</p>
+<p>不过，Google 最近宣布，他们将围绕 WorkManager 来统一后台任务调度[3]。这听起来非常棒，我再也不用学习那么多后台调度的知识了，只是，不知道为什么，我好像以前在哪儿听到过这句话……</p>
+<p>我们不管将来是否会统一使用 WorkManager，WorkManager 都还存在一些问题，比如可靠性。我不想在本文中解释为什么，但是请你一定要记住，如果你想在应用程序中使用 WorkManager，实现后台作业，一定要去读一下 dontkillmyapp.com 上的所有内容，并且要关注一下与 WorkManager 相关的 Google 问题列表[4]。</p>
+<p><strong>Android 的后台作业由于碎片化等原因，导致它们一团糟，而且还很不可靠。</strong></p>
+<p>在过去，我一直主张尽可能对数据和其它类型的后台处理进行同步。我或许是 SyncAdapter 最后的粉丝。今天，考虑到可靠性的问题，我建议，尽可能避免后台作业。如果你的老板一直坚持要使用这个功能，请将上面的链接发给他们，告诉他们，后台作业可能会需要数百小时的工作，才能实现，并且它带来的问题也会比它带来的好处多很多。</p>
+<p>很多情况下，后台作业的需求是不可避免的。但是在大多数情况下，你都可以不使用它。虽然有时候会给用户带来一些不便，但是这可能是到目前为止的最佳方案。</p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a><strong>数据库</strong></h2><p>在有关 SQLite ORMs 的内容里面，没有什么令人吃惊的内容—— Room 主宰着一切。Room 从 2.2.0 开始，添加增量注解解析支持。不过，请你一定要记住，你应用程序的架构不应该关心你使用的是什么样的 ORM 框架。说到 Room，<strong>“架构组件”也只是一个营销术语，并不是一个技术角色。</strong></p>
+<p>在 Android ORM 框架中，与 Room 竞争的主要是 SQLDelight。这是一个比 Room 老很多的库。但是据我所知，<strong>在过去的一年里，它几乎被全部重写。****但新版本的 SQLDelight 只针对 Kotlin。****另一方面，SQLDelight 也支持 Kotlin Multiplatform，所以，随着 Kotlin 使用的增多，我预计， SQLDelight 的采用率也会随之增加。</strong></p>
+<p>顺便说一下，在 AndroidX 的命名空间下，也有 SQLite 的镜像。我不知道这个会有什么用处，但是如果你在应用程序中直接使用 SQLite，也可以对这个进行深入的研究。</p>
+<p>此外，我们也不要忘记非关系型数据库，比如 Realm、Parse、Firebase、ObjectBox 等等 （其中一些，核心还是使用的 SQLite 来实现的），如果我没有记错的话，这些非关系型数据库中，大多数（甚至全部）都具有自动数据同步的功能。在之前有段时间里，它们非常地流行。但是现在，据我所知，已经不再流行了。也就是说，在短期内，我会持续关注非关系型数据库。</p>
+<p>去年，我写了一个非常复杂的应用程序，对接了一个 Parse 的服务。这个 App 具有完全的离线支持，服务端本地化，用户指定的系统和语言设定，复杂的多媒体系统等功能。我在 Android 端上使用了 Parse 的 SDK。除了一些小的 WTF 以外，其他体验都非常棒。如果你们公司有很多后台开发人员，或者说你需要实现大量的服务端逻辑，这也许并不是最佳解决方案。但是对于仅仅只需要执行简单的 CRUD 操作的初创公司，这或许是一个不错的选择。</p>
+<p><strong>一个警告：如果你打算采用数据库即服务解决方案（如 Firebase），请你一定要关注长期使用的成本和影响。</strong></p>
+<h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a><strong>外部存储</strong></h2><p>Android 外部存储发生了一个“很有意思”的变动。</p>
+<p>如果，你在开发 App 的时候，把 Target API 调整为 29 及以上，之前获取 SD 卡文件的方法，现在都不能使用了，并且不会提示任何异常。现在，你需要使用 Android 存储访问框架来进行更细粒度的文件访问。不幸的是，Android 存储访问框架的工作原理与之前的读取方式完全不同，你可能需要对代码进行大量的重构，来实现新的文件访问和读取。</p>
+<p>Google 原本希望在 Android 10 上，对所有的应用程序进行文件访问的限制，推广使用 Android 存储访问框架的方式进行文件访问。但是这个改动引起了社区内的强烈抗议，所以 Google 决定推迟推出这个功能。因此，现在即使你的应用程序在 Target API 29 及以上，也可以设置为在“Legacy”模式下可读取文件。不过，有可能在 Android 的下一个版本，不管你设置的 Target API 为多少，都会限制应用程序使用新的作用域访问模式。</p>
+<p>到目前为止，我也还没有更新我应用程序的文件访问方式。但是从互联网上的讨论来看，实现新的文件访问方式是一项很具挑战的任务，虽然你的应用程序在“Legacy”模式下，没有任何异常，但是我建议你最好从现在开始，着手对代码进行重构和测试，以防发生不可控的事情。</p>
+<h2 id="Shared-Preferences"><a href="#Shared-Preferences" class="headerlink" title="Shared Preferences"></a><strong>Shared Preferences</strong></h2><p>在几周前，AndroidX 家族增加了一个新的库，这条提交信息写道：</p>
+<blockquote>
+<p>新的库用来替换 SharedPreferences，新库的名称还没有确定下来，这次提交只是为了评审和设计文档（请自行申请设计文档）。</p>
+</blockquote>
+<p>现在还没有什么值得担心的。不过，<strong>从长远来看，SharedPreferences 会被废弃掉，取而代之，使用新的库来实现类似的功能。</strong></p>
+<p>与 SharedPreferences 不同的是，这个新的库默认情况下使用的是异步的方式。换句话说，如果你需要取某个值，你需要实现回调，通过这个回调才能拿到值。</p>
+<p>如果你对这种异步回调的原理感兴趣，你可以去看看 StackOverflow 上的这个回答。Reddit 的一个用户 Tolriq 分享了他们的 App 遇到的一个 SharedPreferences 的 Bug，这个问题影响了万分之一的月活用户。对于一般的应用程序来说，这个问题并没有什么明显的影响。但在一些需要高可靠性的应用上，就显得很不可靠了。举个例子，如果在 Android 汽车上，应用程序的无响应和崩溃会引起驾驶员的注意力被分散，这将有可能导致出现交通意外。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a><strong>依赖注入</strong></h2><p>在依赖注入领域，最大的新闻莫过于 Dagger-Android 被弃用，有两点需要强调一下，首先我所说的弃用，不是正式的弃用，因为官方并没有发布声明。其次，Dagger-Android 并不是指整个 Dagger 2 框架，只是指其中相对比较新的部分。详细细节可以看我的另一篇文章[8]。</p>
+<p>在 Android 领域也存在其他的依赖注入框架，但是我不认为他们会比 Dagger 更好。值得一提的是，Koin 是一个不错的依赖注入框架，但是我依然觉得它也不会引起多大的潮流。它之所以会被采用，无非是这两个原因，一个是，它拥有比 Dagger 好很多的文档，降低了很大的学习成本。第二个是它基于 Kotlin 进行编写，因为 Kotlin 的热度，给它也带来了不少的关注。到目前为止，Kotlin 的热潮几乎已经全部过去了，所以，我预测，Koin 的关注也将会逐渐减少。</p>
+<p>不管这些框架如何发展，手动依赖注入的发展都会很缓慢。</p>
+<p>Google 声称：随着应用程序的增大，手动依赖注入的成本会出现指数级增长。但是我并不这么认为，我觉得 Google 既不了解 “指数” 的含义，也没有实际去“衡量”过任何东西。这个申明的内容是错误的，我希望 Google 不再使用这种方式误导社区。</p>
+<p>事实上，这种手动依赖注入在后端比较常见（尤其是微服务中，你并不想在每个服务中都添加对注入框架的依赖），也可以正常的工作。在后端，反射被经常用到，所以后端的依赖注入框架并不需要解析编译时的代码。</p>
+<p>在 Android 上，解决方案与后端有一些不同，我们几乎不会用反射方案的依赖注入框架，所以就只剩下 Dagger 可以用了。其实，反射虽然会影响性能，但是在大多数项目，都是可以用的。我的意思并不是建议你们使用反射方案的依赖注入框架，这个选择并非是非黑即白的，你需要按照你的要求来进行选择。</p>
+<p>无论如何，Android 领域上， Dagger 作为依赖注入框架的现行标准，我们所有人都在使用它。尽管 Google 在宣传上，对 Dagger 的使用成本使用漂亮的绿色图形进行展示，但是 Dagger 使用成本在实际上依然会随着时间增长而快速增长。越来越多的代码，在编译构建的时候需要花费更多的时间；你的开发人员越多，代码编译的次数就越多。当然，所有的开发人员都需要学习如何使用 Dagger ， 这本身就是一项很大的成本。</p>
+<p>换句话说，<strong>虽然 Dagger 可以减少项目中编写的代码，但是需要花更多的时间去培训新人，在编译上花费更多的时候。****所以，对大型项目来说，使用 Dagger 会更耗时。</strong></p>
+<p>在一个大型项目中，编译耗时会逐渐成为生产力的瓶颈。当然， Dagger 也提供了很多优秀新的功能来帮助你优化编译时间，但前提是，你需要知道如何使用这些工具。读到这里，我相信你对手动依赖注入会很感兴趣。</p>
+<h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a><strong>数据绑定</strong></h2><p>作为一个 Android 开发者，都知道在写布局的时候，会经常调用 findViewById() 这个方法。DataBinding 诞生就是为了取代掉这个模板方法。老实说，在使用 findViewById 的时候，我并没有遇到过任何问题，虽然希望摆脱掉它，但我并不认为使用 DataBinding 就是一个更合理的方式。有一个好消息，<strong>很快我们就可以使用 ViewBinding 来摆脱 findViewById 了，也不需要使用 DataBinding。</strong></p>
+<p>说句实话，我不相信 DataBinding。对于它想解决的问题来说，这种方案在过于复杂。在使用 DataBinding 的时候，需要把代码逻辑放到 XML 布局中，这听起来很不错，但是经验丰富的开发人员都不会这么做，这个做法也是 Databinding 的另一个缺点。</p>
+<p>早在 2016 年 11 月的时候，那个时候 Google 还在大肆宣传 DataBinding。我在 StackOverflow 的回答中作了如下预测：</p>
+<blockquote>
+<p>我可以非常自信地预测：DataBinding 不会成为行业标准。DataBinding 可以带来短期收益，但是从长远来看，它将会使代码变得不可维护。一旦 Databinding 被长期使用，它的缺点就会暴露出来，将来它一定会被废弃掉。</p>
+</blockquote>
+<p>我没有统计过使用 DataBinding 的项目，但是很明显，它没有成为行业标准。我从来没有在自己的项目中使用过它，也很少看到其他开发者使用。据我猜测，当 ViewBinding 逐渐成熟，并且被广泛采用，DataBinding 将会作为一个“传统”框架，大量地被引用到。</p>
+<h2 id="状态保存"><a href="#状态保存" class="headerlink" title="状态保存"></a><strong>状态保存</strong></h2><p>自从引入 ViewModel 架构组件以来，在 Android 应用程序中，当配置发生更改，保存与恢复状态的逻辑，就变成了一个烂摊子，没有人去管理。虽然这样子说有点过分，但是我觉得，这已经是我最温和的表达方式了。</p>
+<p>Gabor Varadi（又叫 Zhuinden）在 Reddit 论坛中描述了 ViewModel 引入带来的问题，我不需要再去写一遍了。再次强调，不推荐使用 onRetainCustomNonConfigurationInstance()，推荐使用 ViewModel。</p>
+<p>在帖子的末尾，Gabor 作了一些预测：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-3e19af393ababcf5.webp"></p>
+<p>你知道吗？Fragment 状态保存的方法已经被弃用了。</p>
+<p>在我看来，废弃 Fragment 状态保存的方法是非常好的主意，众所周知， Fragment 的 onAttach() 和 onDetach() 方法就是为了支持状态保存的，现在废弃了状态保存的方法，那这两个方法也可以被废弃掉，并且这样子可以简化 Fragment 的生命周期。我长期以来都建议不保存 Fragments 的状态，忽略掉 onAttach 和 onDetach 方法，和我之前写的处理 Framgent 生命周期方法一致[12]。</p>
+<p>尽管有很多理由表明，要废弃掉 Fragment 的状态保存，但是也不可能废弃掉 onRetainCustomNonConfigurationInstance()，这个可不是我说的，是 Jake Wharton 说的。在上面 Gabor 的帖子上，他的回复获得了最多的点赞。虽然我不太赞成 Jake 所说的话，但是我找不到更好的理由去说服自己。这个方法和 ViewModel 后台使用的原理完全一致，完全没有理由废弃掉它。</p>
+<p>那我们应该怎么对待这些废弃的方法呢？Google 不管这些方法使用的技术方案和优势，都强制所有的 Andorid 应用迁移到 ViewModel。即使这些方案有可能优于 ViewModel 本身，他们也愿意放弃。听起来有点像是阴谋论吧。</p>
+<p>我确实不喜欢保存非配置的状态，并且废弃掉对我没有任何影响，因为我从来都没有使用过它。事实上，大多数应用程序都不需要这些方法，当然，ViewModel 也不需要。我们需要处理状态改变的方法仅仅只有 onSaveInstanceState(Bundle) 这个方法。这个方法非常简单明了，可以同时处理保存和恢复的逻辑。所以，只要能用这种方式保存状态就可以了，我相信，我不是唯一一个使用这个方法的人。虽然 Google 对 ViewModel 进行了大量的营销宣传，但是对于很多经验丰富的开发者来说， ViewModel 还是太复杂了，我们有更简单有效的方法来处理状态存储。</p>
+<p>如果 Google 别有用心，想强制所有项目使用 ViewModel ， 那么它还将废弃掉 onSaveInstanceState(Bundle)方法。这听起来有点不可思议，如果将来真的这样发展，那说明我的基础理论是正确的。</p>
+<p>考虑到 Android 的内存管理机制，Google 不可能在没有稳定的解决方案之前就废弃掉 onSaveInstanceState(Bundle) 。“幸运的是”，我们已经可以使用 ViewModel 来完成相关工作了。</p>
+<p>我想，在一两年内，就能看到我的理论是否正确。</p>
+<p>总而言之，如在本节开头所说，Android 状态保存将变成一个烂摊子。两年多前，我曾经写过 ViewModel 架构组件有害的文章[13]时，我就预测 ViewModel 会对保存与恢复状态的一点点造成影响。我所预测的都变成了现实，而且现在的情况比我曾经的预测更糟。</p>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a><strong>并发</strong></h2><p>在 Android 并发编程中，一个重要的 API 就是 AsyncTask， 不过它现在已经被弃用掉了。我之前已经写过很详细的文章分析过它了[14]，在这里，将不再赘述。</p>
+<p>下面我要说的内容，有可能会伤害很多读者，但是，请不要“恨”我。</p>
+<p><strong>RxJava，是一个 Andorid 中常见的多线程框架。但是它现在将逐渐退出历史的舞台。</strong>从 StackOverflow 的趋势图可以看出：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Post/1095900-5c34315e36b66374.webp"></p>
+<p>很多开发者对这个说法提出了质疑，他们反驳说这个数据不具有代表性，并且我们可以找到其它的理由来解释图上所发生的事情。他们所说可能是正确的，我个人本身也不是数据科学家。但是从图中我们可以看到，RxJava 与 AsnycTask 有相同的斜率。</p>
+<p><strong>如果你没有时间去学习 RxJava 如何使用，并且你的项目中也没有使用过 RxJava，我建议你不要在你的项目中使用 RxJava。</strong>事实上，我也一直不推荐使用 RxJava ，现在已经有数据支持我的这个观点了。</p>
+<p>如果你的项目中使用了 RxJava，你也不用慌张，不需要紧急去重构你的项目。如果你的项目只有你一个人，或者整个项目组成员基本不会变动，保持项目现状就好了。但是你需要记住，<strong>以后要招具有 RxJava 开发经验的人会越来越困难，新招开发人员可能需要学习使用 RxJava。</strong>广泛使用 RxJava 的项目，在以后也会被认为”不酷”，就像今天还在使用 AsyncTask 和 Loader 的项目一样。</p>
+<p>我知道，很多 RxJava 的开发者都是 RxJava 骨灰级的粉丝，他们花了数周的时间去学习 RxJava，付出巨大的努力才说服队友在项目中使用 RxJava。现在我却在这里说 RxJava 已经过时了。我只能说，这不是我的个人意见，我只是对现有的情况进行分析，并根据我所看到的内容做出预测。我也有可能是错的。两军交战，不斩来使，请大家不要“攻击”我。</p>
+<p>在 Kotlin 中，使用协程来实现多并发。最近使用协程实现了一些简单的用例，我发现它复杂、不稳定，甚至还有一些 Bug。</p>
+<p>所有的人都在说，协程可以降低并发的复杂度，使用并发变得简单。我从来都不相信这句话，因为我知道并发从根本上来说就是很复杂的。我动手写过一些测试用例过后，据我的经验，我可以很自信的告诉你，协程不能使并变得简单。我认为，协程会增加复杂性，我建议你们谨慎使用他们。</p>
+<p>在 Kotlin 中，协程将作为处理多线程的默认方式，如果你已经开始使用 Kotlin 进行开发，那么你应该花点时间，去学习一下，协程的使用。</p>
+<p>据我所知，还有一个 Flow 框架，它是基于协程，添加了流运算符。在几个月之前，已经稳定了。所以现在也没啥好评价的。</p>
+<h2 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a><strong>Kotlin</strong></h2><p>现在，让我们来讨论一下 Kotlin 在 Android 领域的现状。根据我个人的经验来看，这是一个很敏感的话题，不论我所说的话有多么公正客观，都会有一些粉丝评价我所说的话是“Shit”。但从专业的角度来说，Kotlin 的话题是跳不过去的，所以，我要强调的是，这些内容只是我的个人观点，仅供参考。</p>
+<p><strong>在 Android 开发中，使用 Kotlin，会大大地增加你的编译时间。</strong></p>
+<p>在我的另一篇文章中，我统计了使用 Kotlin 过后，编译时间的增长情况。结果是，全量编译的情况下，会增加 18%左右的耗时，如果是增量编译，则会增加 8% 左右的耗时。</p>
+<p>Uber 和 JetBrains 联合发表了他们有关 Kotlin 对项目编译时间的影响， 在文章中，显示的结果非常的悲观。他们表示，如果你不开启 IDE 中的 annotation processors ，引入 Kotlin 的项目，编译构建的时间大约会增加四倍，如果开启了 annotation processors，编译构建的时间也会增加 50% ~ 100%。</p>
+<p>Uber 的结果与 OkHttp 迁移到 Kotlin 后得到的结果是一致的，都是编译时长都增加了 4 倍。</p>
+<p>别担心，虽然这个结果让人吃惊，这个也不是你的错，很多人都和你一样，正在使用 Kotlin。这个问题，虽然很重要，但是它并没有引起广泛的关注。我觉得，Google 也在试图解决这个问题。我曾问过 Google 相关的开发者，并进行了深度的交流，他们在这个问题给我的回答是：“这是一个很棘手的问题，我宁愿不做”。</p>
+<p>Kotlin 除了会增加编译时间，直到上周，才支持增量注解处理，而 Java ，在 10 个月以前就支持了。</p>
+<p>在两年前，我就写了篇文章用于告诫大家，<strong>过早使用 Kotlin 会存在很大的风险</strong>。你可以从评论中可以看出，我在很长的一段时间里面，都是“Kotlin 的黑粉”。</p>
+<p>在你的实际工作中，你会发现，与上面的数据相比，Kotlin 的问题远不止于此。在大型的 Android 项目中，编译构建的时间会严重阻碍项目的发展。即使到了今天，Kotlin 已经被正式使用两年了，Kotlin 编译效率依然比 Java 差很多。不管 Kotlin 能给你带来多少优点，编译耗时的问题，都有可能导致你不在使用它。</p>
+<p>不管如何，Google 向整个 Android 的开发生态推出 Kotlin 作为第一首选语言，现在 Kotlin 的使用量也越来越大，我们也不得不进行跟进。就我个人而言，我还没有在我的项目中使用 Kotlin。因为 Kotlin 还不够成熟，并且我的客户也不会为我的学习付费，并且我也不希望在 Kotlin 上浪费时间。但是从现在开始，Kotlin 已经逐渐稳定，我也在我拿手的项目上尝试过， 在新项目中，我也会考虑使用它进行开发。有一些开发者认为：“必须在新项目中使用 Kotlin 进行开发“，我不同意这个观点，我觉得这是一个权衡的问题，Kotlin 现在已经成为了一个重要的选项，只要适合当前的项目，就是最好的语言。</p>
+<p>对于是否要将已有的项目迁移到 Kotlin 上， 我不能给你太好的建议。你需要根据你项目的情况，具体问题具体分析。如果你一旦决定要进行迁移，这篇文章中列举的一些可能存在的问题，可能对你有帮助。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>请允许我用 Android 开发者的背景，描述一下我这两年所经历的事情：</p>
+<p>在过去的两年里，我启动了三个项目，我一直争取，至少参与其中一个项目的开发工作。我回过头来看这些已经存在的项目，并分析这些项目前期所做的技术决定对整个项目的影响。我写了这篇文章，也制作了很多 Android 开发的高级课程，也花了很多时间在互联网上讨论 Android 相关的主题。</p>
+<p>即使这样，我今天依然感觉跟不上 Android 整个生态系统的变化。可想而知，对于那些经验不足，需要指导的 Android 开发者而言，是多么地绝望。我现在已经无法想像，现在从头开始学习 Android 的感觉。<strong>当你好不容易学会了某个框架或者工具，觉得它很好用的时候，它或许就要过时了。</strong>现在也许是加入 Android 开发大家庭最坏的时候。Google 正为他们的“包容性”沾沾自喜，但这一切，对初学者来说，都是极其痛苦的。</p>
+<p>Google 在 Android 框架中所做的事情，会导致大量的时间浪费。我们需要花费数小时的时间才能读完所有更改的内容，更别说在项目中应用它们了。我宁愿花时间来创造价值，而不是舍本逐末。</p>
+<p>在本文中，我试图总结 Android 开发的现状，并对未来作出了一些预测。文章中，可能包含错误和漏掉一些重要信息，请随时在下面的评论中告知我。文章中的内容都是客观内容，虽然我提出了一些有争议观点，但我相信我是对的。</p>
+<p>还有，在文章中，我引用了很多之前写的帖子，我并不是为了炫耀。而是让你能够阅读之前的预测与现在的状况进行对比，虽然那些文章在那个时候读起来很疯狂，就像现在你读本文一样，但是我的这些预测都是很准确的。当然，我也想说：“看，我说得对吧”。鉴于我发布的内容具有争议，当得知没有误导读者，我也会感到很欣慰。有时候，我也宁愿我的预测是错的，Google 正在为开发者着想。但是到目前为止，情况并非如此。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>不论以后选择什么方向发展，目前重要的是把Android方面的技术学好，毕竟其实对于程序员来说，要学习的知识内容、技术有太多太多，要想不被环境淘汰就只有不断提升自己，<strong>从来都是我们去适应环境，而不是环境来适应我们！</strong></p>
+<p>当程序员容易，当一个优秀的程序员是需要不断学习的，从初级程序员到高级程序员，从初级架构师到资深架构师，或者走向管理，从技术经理到技术总监，每个阶段都需要掌握不同的能力。早早确定自己的职业方向，才能在工作和能力提升中甩开同龄人。</p>
+<hr>
+<blockquote>
+<p>作者：Vasiliy Zukanov，独立 Android 开发及软件顾问<br>链接：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://links.jianshu.com/go?to=https://www.techyourchance.com/the-state-of-native-android-development-november-2019">https://www.techyourchance.com/the-state-of-native-android-development-november-2019</a><br>译者：罗昭成，Android 开发者</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90/">https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1c34660a6917f03b1249fsaf8a1923d36ef.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E7%A0%94%E7%A9%B6Fragment/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom-2880x1620-bg-3cad5d2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Android研究Fragment</div></div></a></div><div class="next-post pull-right"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Room/Android%E4%B9%8BRoom%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom25601440bg7e04c99.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Android之Room库的使用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Room/Android%E4%B9%8BRoom%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Android之Room库的使用"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom25601440bg7e04c99.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-22</div><div class="title">Android之Room库的使用</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E4%B9%8BJetPack%E5%BA%93/" title="Android之JetPack库"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/v225243a3a2e454c85c456711f9576b08ehd.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-21</div><div class="title">Android之JetPack库</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/AndroidX/" title="AndroidX"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bga6e4154.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-13</div><div class="title">AndroidX</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/UnitTest/Android%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="Android单元测试"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-nmdprk.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-28</div><div class="title">Android单元测试</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/" title="Android唯一标识"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom19201080bg8ae443e.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-12</div><div class="title">Android唯一标识</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%BC%BA%E5%88%B6%E5%85%B3%E9%97%AD%E8%BD%AF%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E6%B3%95/" title="Android强制关闭软键盘输入法"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/20170812142435mxeUN.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-02-16</div><div class="title">Android强制关闭软键盘输入法</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AndroidX"><span class="toc-number">2.1.</span> <span class="toc-text">AndroidX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jetpack"><span class="toc-number">2.2.</span> <span class="toc-text">Jetpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E4%BD%9C%E4%B8%9A"><span class="toc-number">2.3.</span> <span class="toc-text">后台作业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.4.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8"><span class="toc-number">2.5.</span> <span class="toc-text">外部存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shared-Preferences"><span class="toc-number">2.6.</span> <span class="toc-text">Shared Preferences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-number">2.7.</span> <span class="toc-text">依赖注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="toc-number">2.8.</span> <span class="toc-text">数据绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E4%BF%9D%E5%AD%98"><span class="toc-number">2.9.</span> <span class="toc-text">状态保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91"><span class="toc-number">2.10.</span> <span class="toc-text">并发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kotlin"><span class="toc-number">2.11.</span> <span class="toc-text">Kotlin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.12.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E5%B0%BE"><span class="toc-number">2.13.</span> <span class="toc-text">结尾</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity的ShaderLab着色器入门"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门">Unity的ShaderLab着色器入门</a><time datetime="2023-10-12T10:18:23.000Z" title="发表于 2023-10-12 18:18:23">2023-10-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tamsiree.com',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Unity纹理压缩与相关优化知识汇总 | Tamsiree</title><meta name="keywords" content="Android,GameEngine,Unity"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Unity支持许多图片格式的源文件，但是3D图形的实时渲染中不会用这些格式，3D图形硬件要求纹理以专门格式进行压缩，这些格式对快速纹理采样进行了优化，DXT,ETC等压缩纹理格式可以在游戏运行中无需CPU解压就被GPU直接采样。每个不同的平台和设备都有自己的专有格式，因此在选择压缩方式时需要考虑兼容性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity纹理压缩与相关优化知识汇总">
+<meta property="og:url" content="https://tamsiree.com/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="Unity支持许多图片格式的源文件，但是3D图形的实时渲染中不会用这些格式，3D图形硬件要求纹理以专门格式进行压缩，这些格式对快速纹理采样进行了优化，DXT,ETC等压缩纹理格式可以在游戏运行中无需CPU解压就被GPU直接采样。每个不同的平台和设备都有自己的专有格式，因此在选择压缩方式时需要考虑兼容性。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-45008df.jpg">
+<meta property="article:published_time" content="2021-04-12T07:53:14.000Z">
+<meta property="article:modified_time" content="2025-11-05T13:53:39.388Z">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="GameEngine">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-45008df.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Unity纹理压缩与相关优化知识汇总',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-05 21:53:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-45008df.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Unity纹理压缩与相关优化知识汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-12T07:53:14.000Z" title="发表于 2021-04-12 15:53:14">2021-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.388Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/GameEngine/">GameEngine</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/GameEngine/Unity/">Unity</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Unity纹理压缩与相关优化知识汇总"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、纹理格式的基础知识"><a href="#一、纹理格式的基础知识" class="headerlink" title="一、纹理格式的基础知识"></a>一、纹理格式的基础知识</h1><h2 id="1-图片格式"><a href="#1-图片格式" class="headerlink" title="1.图片格式"></a>1.图片格式</h2><p>图片格式一般指我们从美术工具中导出的文件格式，用于在磁盘中存储的格式；如jpg，png，tga等；</p>
+<h2 id="2-纹理格式"><a href="#2-纹理格式" class="headerlink" title="2.纹理格式"></a>2.纹理格式</h2><p>文件格式是图像为了存储信息而使用的编码方式，但是他不能被CPU所识别，GPU的特性是做向量运算；因此这些文件被游戏读入时还需要CPU解压成R8G8B8等像素格式，再传送到GPU端使用；而在运行时做解压无疑是非常耗的，所以一般在图片源文件导入时就会为其生成纹理格式的文件。</p>
+<p>纹理格式是可以被GPU所识别的像素格式，可以被快速寻址采样。</p>
+<p>但是直接使用这种纹理格式会导致资源的加载时间长、内存占用大的问题，尤其在移动平台上更加明显，因此，为了解决这个问题，就出现了压缩纹理格式；</p>
+<h2 id="3-纹理压缩格式"><a href="#3-纹理压缩格式" class="headerlink" title="3.纹理压缩格式"></a>3.纹理压缩格式</h2><p>Unity支持许多图片格式的源文件，但是3D图形的实时渲染中不会用这些格式，3D图形硬件要求纹理以专门格式进行压缩，这些格式对快速纹理采样进行了优化，DXT,ETC等压缩纹理格式可以在游戏运行中无需CPU解压就被GPU直接采样。每个不同的平台和设备都有自己的专有格式，因此在选择压缩方式时需要考虑兼容性。</p>
+<p>Unity文档中给出了所有支持的纹理压缩格式（<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/cn/2018.4/Manual/class-TextureImporterOverride.html%EF%BC%89%EF%BC%9A">https://docs.unity3d.com/cn/2018.4/Manual/class-TextureImporterOverride.html）：</a></p>
+<p>这里简单归纳一下，不做一一阐述：</p>
+<h3 id="ETC1和ETC2"><a href="#ETC1和ETC2" class="headerlink" title="ETC1和ETC2"></a>ETC1和ETC2</h3><p>分别对应着RGB和RGBA纹理，适用于android平台；</p>
+<h3 id="PVRTC"><a href="#PVRTC" class="headerlink" title="PVRTC"></a>PVRTC</h3><p>主要是PowerVR平台下的硬件使用，适用于IOS平台；</p>
+<h3 id="ASTC格式"><a href="#ASTC格式" class="headerlink" title="ASTC格式"></a>ASTC格式</h3><p>近年来使用频率越来越高的一种方式，安卓和iOS都开始支持ASTC，它具有多种压缩比例，而且使用于pot和npot，从4x4每个像素占用8bit到12x12每个像素仅占用0.89个；ASTC压缩的不同设置决定了压缩的大小，和纹理是否带有alpha通道没有关系；</p>
+<p>无Alpha通道的贴图建议压缩格式为ASTC 8x8。如果贴图为法线贴图，建议压缩格式为ASTC 5x5。有更高要求的贴图（比如面部、场景地面），可以设置压缩格式为ASTC 6x6，法线贴图为ASTC 4x4。</p>
+<p>有Alpha通道的贴图建议压缩格式为ASTC 5x5。有更高要求的贴图（比如特效、UI），可以设置压缩格式为ASTC 4x4。</p>
+<h3 id="RGB24位-amp-RGBA24位-amp-RGBA16位"><a href="#RGB24位-amp-RGBA24位-amp-RGBA16位" class="headerlink" title="RGB24位&amp;RGBA24位&amp;RGBA16位"></a>RGB24位&amp;RGBA24位&amp;RGBA16位</h3><p>真实色彩的压缩格式，其中RGBA16位是低质量的真实色彩；</p>
+<h2 id="4-各平台下的格式选择参考"><a href="#4-各平台下的格式选择参考" class="headerlink" title="4.各平台下的格式选择参考"></a>4.各平台下的格式选择参考</h2><p>在Unity文档中还给出了每个平台下的默认格式，如下所示，它给出了不同平台、不同颜色模型（有无Alpha通道）下的压缩格式，包括了高质量、正常质量（默认设置）、低质量；</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/img_convert/c860770f0016b29644db55f9a6489177.png" alt="c860770f0016b29644db55f9a6489177.png"></p>
+<p>其中高质量一般是8位/像素，基本无压缩；正常质量一般在4-8位/像素；低质量一般在4位/像素以下；</p>
+<p>注意兼容性：<strong>使用目标平台不支持的纹理压缩格式时，纹理将解压缩RGBA32（因为RGBA32是真彩色，并有alpha通道，它是最高质量的压缩格式，并使用于所有平台）并与压缩纹理一起存储在内存中，解压缩纹理以及存储两次浪费了时间和内存，因此需要针对不同的平台选择兼容的格式</strong>。</p>
+<h1 id="二、纹理相关的性能优化"><a href="#二、纹理相关的性能优化" class="headerlink" title="二、纹理相关的性能优化"></a>二、纹理相关的性能优化</h1><p>纹理过大会导致资源的加载、卸载耗时以及内存的占用增加（纹理资源的加载和内存占用一般是正相关的），纹理过大也会导致渲染时的带宽问题；而质量越高、文件越大，因此这是在品质和性能找到一个平衡；</p>
+<h2 id="1-纹理属性的设置"><a href="#1-纹理属性的设置" class="headerlink" title="1.纹理属性的设置"></a>1.纹理属性的设置</h2><p>mipmap属性也会导致内存增加，也需要注意，一般UI资源都不需要勾选这两项的；</p>
+<p>读写属性会导致内存加倍，而且一般不会用到；</p>
+<p>NPOT和POT：主要和mipmap，纹理的存储优化，以及纹理采样的地址计算等有关。如果是p2的话，做起上边这些就很简单了，基本上就是移位移位再移位，硬件做起来很简单，P2对硬件更加友好；这里一般要求美术资源在制作时就是满足pot的，如果美术资源不是，那么使用pot则会出现效果问题；</p>
+<p>如果美术资源已经有alpha通道，也可以在导入设置中设置Alpha Source为None；</p>
+<h2 id="2-纹理分辨率设置"><a href="#2-纹理分辨率设置" class="headerlink" title="2.纹理分辨率设置"></a>2.纹理分辨率设置</h2><p>没有什么比直接减少分辨率更直接有效的工作，就像我们都知道的道理：80%的优化来源于20%的工作，那剩下20%的优化才是真正耗费时间的。</p>
+<p>要去限制美术出图的大小，他们不关心性能只关心效果，可能每一张图都想要2048x2048甚至更高，所以有的时候必须要在效果可以接受的基础上来降低分辨率，降低一个级别就是四倍的优化。</p>
+<h2 id="3-选择纹理压缩格式的策略"><a href="#3-选择纹理压缩格式的策略" class="headerlink" title="3.选择纹理压缩格式的策略"></a>3.选择纹理压缩格式的策略</h2><p>我们的思路是让需要展示出高品质的纹理占用更多的资源，让那些没必要展示高品质的纹理占用更少的资源；</p>
+<ul>
+<li>  尽量避免RGBA32和ARGB32纹理的使用，因为这种格式一般属于高清晰的，但也比较耗；</li>
+<li>  RGBA16格式的加载效率也很高，接近于ETC1/PVRTC，设备越好，差距越小，因此在ETC1/PVRTC的效果不够好时，可以尝试用RGBA16；</li>
+<li>  UI贴图要注意Mipmap和read&amp;write属性的设置；</li>
+<li>  粒子贴图大小一般要在256x256一下；</li>
+<li>  对于模型、场景贴图，我们需要根据不同用途的贴图做不同的压缩处理，如果使用ASTC格式，可以参考NVIDIA官网给出的测试数据来选择；</li>
+</ul>
+<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/img_convert/50498d2eff9b33cd1a42748fe7c4ed8c.png" alt="50498d2eff9b33cd1a42748fe7c4ed8c.png"></p>
+<ul>
+<li>  在支持OpenGLES3.0的安卓设备上，ETC2是一个很好的处理带透明度的纹理格式，但是游戏需要在OpenGLES2.0设备上，则不要使用ETC2，因为该版本不支持ETC2，这样就会导致ETC2会被转成RGBA32导致双倍的内存占用；</li>
+</ul>
+<h2 id="4-实际应用"><a href="#4-实际应用" class="headerlink" title="4.实际应用"></a>4.实际应用</h2><p>纹理资源一般可以做分档处理，最简单的可分为高中低三档，也可以根据需要加入不同的档次，依据档次来选择压缩格式；</p>
+<p>在执行上，一般需要hook和check工具，在导入时对纹理进行一些hook判断和处理，同时check工具要能够获取到项目中所有纹理的大小、压缩格式等信息统计。</p>
+<p>其它策略：</p>
+<p>1.在玩家焦点区域的纹理可以选择高清，其它区域设置为低清晰，通过动态的LOD来做优化；</p>
+<h1 id="三、参考"><a href="#三、参考" class="headerlink" title="三、参考"></a>三、参考</h1><blockquote>
+<p>Unity Manual：特定于平台的覆盖的压缩纹理格式；<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/cn/2018.4/Manual/class-TextureImporterOverride.html">https://docs.unity3d.com/cn/2018.4/Manual/class-TextureImporterOverride.html</a></p>
+<p>Unity Connect：说说Unity纹理压缩技术与策略；<a target="_blank" rel="noopener external nofollow noreferrer" href="https://connect.unity.com/p/shuo-shuo-unitywen-li-ya-suo-ji-zhu-yu-you-hua-yi">https://connect.unity.com/p/shuo-shuo-unitywen-li-ya-suo-ji-zhu-yu-you-hua-yi</a></p>
+<p>各种移动GPU压缩纹理的使用方法，介绍了一些纹理格式、图片格式、压缩格式的联系：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://huailiang.github.io/blog/2019/texture/">https://huailiang.github.io/blog/2019/texture/</a></p>
+<p>UWA：Unity加载模块深度解析（纹理篇）：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.uwa4d.com/archives/LoadingPerformance/_Texture.html">https://blog.uwa4d.com/archives/LoadingPerformance\_Texture.html</a></p>
+<p>NVIDIA官网：ASTC压缩纹理格式详细分析数据：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://developer.nvidia.com/astc-texture-compression-for-game-asset">https://developer.nvidia.com/astc-texture-compression-for-game-asset</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/">https://tamsiree.com/GameEngine/Unity/Unity%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E4%B8%8E%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/GameEngine/">GameEngine</a><a class="post-meta__tags" href="/tags/Unity/">Unity</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-45008df.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-6b320d4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">UGUI源码分析系列</div></div></a></div><div class="next-post pull-right"><a href="/Game/%E7%8A%B6%E6%80%81%E5%90%8C%E6%AD%A5%E5%92%8C%E5%B8%A7%E5%90%8C%E6%AD%A5/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-c883ef9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">状态同步和帧同步</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/GameEngine/Unity/AssetBundle/" title="AssetBundle"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/jiguangbo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-19</div><div class="title">AssetBundle</div></div></a></div><div><a href="/GameEngine/Unity/Shader/Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Shader学习笔记"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/66a3272c874d41e5b9ec7562fe5822cd.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-27</div><div class="title">Shader学习笔记</div></div></a></div><div><a href="/GameEngine/Unity/UGUI/UGUI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97/" title="UGUI源码分析系列"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-6b320d4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-13</div><div class="title">UGUI源码分析系列</div></div></a></div><div><a href="/GameEngine/Unity/UnityHub%E8%AE%B8%E5%8F%AF%E8%AF%81%E6%89%8B%E5%8A%A8%E6%BF%80%E6%B4%BB/" title="Unity3d许可证手动激活"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-0jwzwp.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-29</div><div class="title">Unity3d许可证手动激活</div></div></a></div><div><a href="/GameEngine/Unity/Unity%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="Unity使用心得"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-b7b4f5b.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-05</div><div class="title">Unity使用心得</div></div></a></div><div><a href="/GameEngine/Unity/Unity%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDPrefab/" title="Unity动态加载Prefab"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg6d49cc2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-09</div><div class="title">Unity动态加载Prefab</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BA%B9%E7%90%86%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">一、纹理格式的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.图片格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BA%B9%E7%90%86%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2.纹理格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">3.纹理压缩格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ETC1%E5%92%8CETC2"><span class="toc-number">1.3.1.</span> <span class="toc-text">ETC1和ETC2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PVRTC"><span class="toc-number">1.3.2.</span> <span class="toc-text">PVRTC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASTC%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">ASTC格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RGB24%E4%BD%8D-amp-RGBA24%E4%BD%8D-amp-RGBA16%E4%BD%8D"><span class="toc-number">1.3.4.</span> <span class="toc-text">RGB24位&amp;RGBA24位&amp;RGBA16位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%84%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E6%A0%BC%E5%BC%8F%E9%80%89%E6%8B%A9%E5%8F%82%E8%80%83"><span class="toc-number">1.4.</span> <span class="toc-text">4.各平台下的格式选择参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BA%B9%E7%90%86%E7%9B%B8%E5%85%B3%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">二、纹理相关的性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BA%B9%E7%90%86%E5%B1%9E%E6%80%A7%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">1.纹理属性的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BA%B9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">2.纹理分辨率设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%80%89%E6%8B%A9%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-number">2.3.</span> <span class="toc-text">3.选择纹理压缩格式的策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">4.实际应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">三、参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity的ShaderLab着色器入门"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门">Unity的ShaderLab着色器入门</a><time datetime="2023-10-12T10:18:23.000Z" title="发表于 2023-10-12 18:18:23">2023-10-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tamsiree.com',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

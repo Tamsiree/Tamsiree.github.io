@@ -1,0 +1,824 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>碰撞盒算法 | Tamsiree</title><meta name="keywords" content="Tamsiree,Unity,blog,安卓,程序员,个人博客,Android"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 正文[算法][包围盒]球，AABB，OBB参考地址请看图片水印：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;iamzhanglei&#x2F;archive&#x2F;2012&#x2F;06&#x2F;07&#x2F;2539751.html http:&#x2F;&#x2F;blog.sina.com.cn&#x2F;s&#x2F;blog_6a1bf1310101g7zy.html 包围体是一个简单的几何空间，里面包含着复杂形状的物体。为物体添加包围体的目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="碰撞盒算法">
+<meta property="og:url" content="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E7%A2%B0%E6%92%9E%E7%9B%92%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="前言这里是前言介绍。 正文[算法][包围盒]球，AABB，OBB参考地址请看图片水印：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;iamzhanglei&#x2F;archive&#x2F;2012&#x2F;06&#x2F;07&#x2F;2539751.html http:&#x2F;&#x2F;blog.sina.com.cn&#x2F;s&#x2F;blog_6a1bf1310101g7zy.html 包围体是一个简单的几何空间，里面包含着复杂形状的物体。为物体添加包围体的目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/bce9fd9c9f4d4d9a945040d24d0492dd.jpg">
+<meta property="article:published_time" content="2021-06-18T12:31:50.000Z">
+<meta property="article:modified_time" content="2025-11-05T13:53:39.415Z">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="Tamsiree">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="程序员">
+<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/bce9fd9c9f4d4d9a945040d24d0492dd.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E7%A2%B0%E6%92%9E%E7%9B%92%E7%AE%97%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '碰撞盒算法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-05 21:53:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/bce9fd9c9f4d4d9a945040d24d0492dd.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">碰撞盒算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-18T12:31:50.000Z" title="发表于 2021-06-18 20:31:50">2021-06-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.415Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>24分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="碰撞盒算法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="算法-包围盒-球，AABB，OBB"><a href="#算法-包围盒-球，AABB，OBB" class="headerlink" title="[算法][包围盒]球，AABB，OBB"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.cnblogs.com/lyggqm/p/5386174.html">[算法][包围盒]球，AABB，OBB</a></h1><p>参考地址请看图片水印：<a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.cnblogs.com/iamzhanglei/archive/2012/06/07/2539751.html">http://www.cnblogs.com/iamzhanglei/archive/2012/06/07/2539751.html</a></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://blog.sina.com.cn/s/blog_6a1bf1310101g7zy.html">http://blog.sina.com.cn/s/blog_6a1bf1310101g7zy.html</a></p>
+<p>包围体是一个简单的几何空间，里面包含着复杂形状的物体。为物体添加包围体的目的是快速的进行碰撞检测或者进行精确的碰撞检测之前进行过滤（即当包围体碰撞，才进行精确碰撞检测和处理）。包围体类型包括球体、轴对齐包围盒（AABB）、有向包围盒（OBB）、8-DOP以及凸壳。如图1所示。</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071056406903.jpg"><img src= "/images/loading.gif" data-lazy-src="https://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071056456908.jpg" alt="clip_image001"></a></p>
+<p>图1 依次是球体、AABB、OBB</p>
+<h5 id="可以看到图1是3D包围体，在2D包围体如图2所示："><a href="#可以看到图1是3D包围体，在2D包围体如图2所示：" class="headerlink" title="可以看到图1是3D包围体，在2D包围体如图2所示："></a>可以看到图1是3D包围体，在2D包围体如图2所示：</h5><h5 id=""><a href="#" class="headerlink" title=""></a><a target="_blank" rel="noopener external nofollow noreferrer" href="http://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071056529270.jpg"><img src= "/images/loading.gif" data-lazy-src="https://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071056576767.jpg" alt="clip_image003"></a></h5><p>图2 依次是球体、AABB、OBB</p>
+<h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><h2 id="包围球"><a href="#包围球" class="headerlink" title="包围球"></a>包围球</h2><p>包围球碰撞检测方法是用球体包围整个几何体, 无论是几何体还是相交测试都很简单; 但是它的紧密性太差。因为除了在3 个坐标轴上分布得比较均匀的几何体外, 几乎都会留下较大的空隙, 需要花费大量的预处理时间, 以构造一个好的层次结构逼近对象。当物体变形之后,包围球树需要重新计算。因此,它是使用得比较少的一种包围盒。当对象发生旋转运动时, 包围球不需作任何更新, 这是包围球的较优秀特性; 当几何对象进行频繁的旋转运动时, 采用包围球可能得到较好结果。</p>
+<h2 id="AABB盒"><a href="#AABB盒" class="headerlink" title="AABB盒"></a>AABB盒</h2><p>AABB盒，一个3D的AABB就是一个简单的六面体，每一边都平行于一个坐标平面，矩形边界框不一定都是立方体，它的长、宽、高可以彼此不同。</p>
+<p>AABB的重要性质:</p>
+<p>Ymin &lt;= Y &lt;= Ymax</p>
+<p>Zmin &lt;= Z &lt;= Zmax</p>
+<p>特别重要的两个顶点为：Pmin = [Xmin Ymin Zmin]，Pmax = [ Xmax Ymax Zmax].</p>
+<p>先介绍AABB的表达方法，AABB内的点满足以下条件：</p>
+<p><em>x</em>min≤<em>x</em>≤<em>x</em>max</p>
+<p><em>y</em>min≤<em>y</em>≤<em>y</em>max</p>
+<p><em>z</em>min≤<em>z</em>≤<em>z</em>max</p>
+<p>因此只需要知道两个特别重要的顶点（<em>x</em>min，<em>y</em>min，<em>z</em>min）、（<em>x</em>max，<em>y</em>max，<em>z</em>max），记作：</p>
+<p>float[] min = new float []{0.0f,0.0f,0.0f};</p>
+<p>float[] max = new float []{0.0f,0.0f,0.0f};</p>
+<p>中心点是两个顶点的中点，代表了包装盒的质点。</p>
+<p>float[] center = new float []{0.0f,0.0f,0.0f};</p>
+<p>中心点的计算方法如下：</p>
+<p>float [] center(){</p>
+<p>center[0] = (min[0] + max[0])*0.5f;</p>
+<p>center[1] = (min[1] + max[1])*0.5f;</p>
+<p>center[2] = (min[2] + max[2])*0.5f;</p>
+<p>return center;</p>
+<p>}</p>
+<p>通过这两个顶点可以知道以下属性。</p>
+<p>float xSize() { return (max[0]-min[0]); }</p>
+<p>float ySize() { return (max[1]-min[1]); }</p>
+<p>float zSize() { return (max[2]-min[2]); }</p>
+<p>float size(){ return (max[0]-min[0])<em>(max[1]-min[1])</em>(max[2]-min[2]);}</p>
+<p>当添加一个顶点到包装盒时，需要先与这两个顶点进行比较。</p>
+<p>void add(float []p) {</p>
+<p>if (p[0] &lt; min[0]) min[0] = p[0];</p>
+<p>if (p[0] &gt; max[0]) max[0] = p[0];</p>
+<p>if (p[1] &lt; min[1]) min[1] = p[1];</p>
+<p>if (p[1] &gt; max[1]) max[1] = p[1];</p>
+<p>if (p[2] &lt; min[2]) min[2] = p[2];</p>
+<p>if (p[2] &gt; max[2]) max[2] = p[2];</p>
+<p>}</p>
+<p>检测包装盒是否为空，可以将这两个顶点进行比较。</p>
+<p>boolean isEmpty() {</p>
+<p>return (min[0] &gt; max[0]) || (min[1] &gt; max[1]) || (min[2] &gt; max[2]);</p>
+<p>}</p>
+<p>检测某个点是否属于AABB范围之内的代码如下：</p>
+<p>boolean contains(float []p){</p>
+<p>return</p>
+<pre><code>(p[0] &gt;= min[0]) &amp;&amp; (p[0] &lt;= max[0]) &amp;&amp;
+
+(p[1] &gt;= min[1]) &amp;&amp; (p[1] &lt;= max[1]) &amp;&amp;
+
+(p[2] &gt;= min[2]) &amp;&amp; (p[2] &lt;= max[2]);
+</code></pre>
+<p>}</p>
+<p>AABB的静态检测比较简单，检测两个静止包装盒是否相交，它是一种布尔测试，测试结果只有相交或者不相交。这里我们还提供了获取相交范围信息的方法，一般来说，这种测试的目的是为了返回一个布尔值。碰撞的示意如图10-34所示。</p>
+<p>图10-34  包装盒的碰撞</p>
+<p>检测静态AABB碰撞的方法如下：</p>
+<p>boolean intersectAABBs(AABB box2,AABB boxIntersect)</p>
+<p>{</p>
+<p>float []box2_min = box2.getMin();</p>
+<p>float []box2_max = box2.getMax();</p>
+<p>if (min[0] &gt; box2_max[0]) return false;</p>
+<p>if (max[0] &lt; box2_min[0]) return false;</p>
+<p>if (min[1] &gt; box2_max[1]) return false;</p>
+<p>if (max[1] &lt; box2_min[1]) return false;</p>
+<p>if (min[2] &gt; box2_max[2]) return false;</p>
+<p>if (max[2] &lt; box2_min[2]) return false;</p>
+<p>if (boxIntersect != null) {</p>
+<pre><code>   float []box_intersect_min = new float[3];
+
+   float []box_intersect_max = new float[3];
+
+   box_intersect_min[0] = Math.max(min[0], box2_min[0]);
+
+   box_intersect_max[0] = Math.min(max[0], box2_max[0]);
+
+   box_intersect_min[1] = Math.max(min[1], box2_min[1]);
+
+   box_intersect_max[1] = Math.min(max[1], box2_max[1]);
+
+   box_intersect_min[2] = Math.max(min[2], box2_min[2]);
+
+   box_intersect_max[2] = Math.min(max[2], box2_max[2]);
+</code></pre>
+<p>}</p>
+<p>return true;</p>
+<p>}</p>
+<p>可以利用AABB的结构来加快新的AABB的计算速度，而不用变换8个顶点，再从这8个顶点中计算新AABB。下面简单地回顾4×4矩阵变换一个3D点的过程。</p>
+<p>通过原边界框（<em>x</em>min，<em>y</em>min，<em>z</em>min，<em>x</em>max，<em>y</em>max，<em>z</em>max）计算新边界框（，，，，，），现在的任务是计算的速度。换句话说，希望找到<em>m</em>11<em>x</em>+<em>m</em>12<em>y</em>+<em>m</em>13<em>z</em>+<em>m</em>14的最小值。其中[<em>x</em>，<em>y</em>，<em>z</em>]是原8个顶点中的任意一个。</p>
+<p>变换的目的是找出这些点经过变换后哪一个的<em>x</em>坐标最小。看第一个乘积<em>m</em>11<em>x</em>，为了最小化乘积，必须决定是用<em>x</em>min还是<em>x</em>max来替换其中的<em>x</em>。显然，如果<em>m</em>11＞0，用<em>x</em>min能得到最小化的乘积；如果<em>m</em>11＜0，则用<em>x</em>max能得到最小化乘积。</p>
+<p>比较方便的是，不管<em>x</em>min还是<em>x</em>max中哪一个被用来计算，都可以用另外一个来计算。可以对矩阵中的9个元素中的每一个都应用这个计算过程（其他元素不影响大小）。</p>
+<p>根据变换矩阵和原有的AABB包装盒计算新的AABB包装盒的代码如下：</p>
+<p>void setToTransformedBox(Transform t)</p>
+<p>{</p>
+<p>if (isEmpty()) {                              //判断包装盒是否为空</p>
+<pre><code>  return;
+</code></pre>
+<p>}</p>
+<p>float[] m = new float [16];</p>
+<p>t.get(m);                                     //将变换矩阵存入数组</p>
+<p>float minx=0,miny=0,minz=0;</p>
+<p>float maxx=0,maxy=0,maxz=0;</p>
+<p>minx += m[3];                                 //<em>x</em>方向上平移</p>
+<p>maxx += m[3];                                 //<em>x</em>方向上平移</p>
+<p>miny += m[7];                                 //<em>y</em>方向上平移</p>
+<p>maxy += m[7];                                 //<em>y</em>方向上平移</p>
+<p>minz += m[11];                                //<em>z</em>方向上平移</p>
+<p>maxz += m[11];                                //<em>z</em>方向上平移</p>
+<p>if (m[0] &gt; 0.0f) {</p>
+<pre><code>  minx += m[0] * min[0]; maxx += m[0] * max[0];
+</code></pre>
+<p>} else {</p>
+<pre><code>  minx += m[0] * max[0]; maxx += m[0] * min[0];
+</code></pre>
+<p>}</p>
+<p>if (m[1] &gt; 0.0f) {</p>
+<pre><code>  minx += m[1] * min[1]; maxx += m[1] * max[1];
+</code></pre>
+<p>} else {</p>
+<pre><code>  minx += m[1] * max[1]; maxx += m[1] * min[1];
+</code></pre>
+<p>}</p>
+<p>if (m[2] &gt; 0.0f) {</p>
+<pre><code>  minx += m[2] * min[2]; maxx += m[2] * max[2];
+</code></pre>
+<p>} else {</p>
+<pre><code>  minx += m[2] * max[2]; maxx += m[2] * min[2];
+</code></pre>
+<p>}</p>
+<p>if (m[4] &gt; 0.0f) {</p>
+<pre><code>  miny += m[4] * min[0]; maxy += m[4] * max[0];
+</code></pre>
+<p>} else {</p>
+<pre><code>  miny += m[4] * max[0]; maxy += m[4] * min[0];
+</code></pre>
+<p>}</p>
+<p>if (m[5] &gt; 0.0f) {</p>
+<pre><code>  miny += m[5] * min[1]; maxy += m[5] * max[1];
+</code></pre>
+<p>} else {</p>
+<pre><code>  miny += m[5] * max[1]; maxy += m[5] * min[1];
+</code></pre>
+<p>}</p>
+<p>if (m[6] &gt; 0.0f) {</p>
+<pre><code>  miny += m[6] * min[2]; maxy += m[6] * max[2];
+</code></pre>
+<p>} else {</p>
+<pre><code>  miny += m[6] * max[2]; maxy += m[6] * min[2];
+</code></pre>
+<p>}</p>
+<p>if (m[8] &gt; 0.0f) {</p>
+<pre><code>  minz += m[8] * min[0]; maxz += m[8] * max[0];
+</code></pre>
+<p>} else {</p>
+<pre><code>  minz += m[8] * max[0]; maxz += m[8] * min[0];
+</code></pre>
+<p>}</p>
+<p>if (m[9] &gt; 0.0f) {</p>
+<pre><code>  minz += m[9] * min[1]; maxz += m[9] * max[1];
+</code></pre>
+<p>} else {</p>
+<pre><code>  minz += m[9] * max[1]; maxz += m[9] * min[1];
+</code></pre>
+<p>}</p>
+<p>if (m[10] &gt; 0.0f) {</p>
+<pre><code>  minz += m[10] * min[2]; maxz += m[10] * max[2];
+</code></pre>
+<p>} else {</p>
+<pre><code>  minz += m[10] * max[2]; maxz += m[10] * min[2];
+</code></pre>
+<p>}</p>
+<p>min[0] = minx; min[1] = miny; min[2] = minz;    //用新的AABB坐标替换原有坐标</p>
+<p>max[0] = maxx; max[1] = maxy; max[2] = maxz;    //用新的AABB坐标替换原有坐标</p>
+<p>}</p>
+<p>为了使用AABB包装盒进行碰撞检测，将这些方法和属性封装为AABB类，代码如下：</p>
+<p>import java.lang.Math;</p>
+<p>import javax.microedition.m3g.Transform;</p>
+<p>class AABB{</p>
+<p>public AABB(){}</p>
+<p>float [] getMin(){return min;}</p>
+<p>float [] getMax(){return max;}</p>
+<p>void setMin(float x,float y,float z){min[0]=x;min[1]=y;min[2]=z;}</p>
+<p>void setMax(float x,float y,float z){max[0]=x;max[1]=y;max[2]=z;}</p>
+<p>void reset(){</p>
+<pre><code>  for(int i =0;i&lt;3;i++)
+
+  &#123;
+
+     min[i]=0;
+
+     max[i]=0;
+
+  &#125;
+</code></pre>
+<p>}</p>
+<p>//其他方法同上</p>
+<p>}</p>
+<p>为了检验碰撞检测的使用构造了两个立方体，并各自绑定了一个包装盒。</p>
+<p>mesh1 = createCube();                            //创建立方体1</p>
+<p>mesh1.setTranslation(1.0f, 0.0f,0.0f) ;          //平移</p>
+<p>mesh1.setOrientation(90,0.0f,1.0f,0.0f);         //旋转</p>
+<p>mesh1.setScale(0.5f,0.5f,0.5f);                  //缩放</p>
+<p>box1 = new AABB();                               //包装盒</p>
+<p>box1.setMin(-1.0f,-1.0f,-1.0f);                  //设置包装盒1的最小顶点</p>
+<p>box1.setMax(1.0f,1.0f,1.0f);                     //设置包装盒1的最大顶点</p>
+<p>mesh1.getCompositeTransform(cubeTransform);      //获取立方体1的混合矩阵</p>
+<p>box1.setToTransformedBox(cubeTransform);         //将变换矩阵应用到包装盒中</p>
+<p>world.addChild(mesh1);                           //将立方体1添加到场景中</p>
+<p>mesh2 = createCube();                            //创建立方体2</p>
+<p>mesh2.setTranslation(-0.5f, 0.0f,0.0f) ;         //平移</p>
+<p>mesh2.setScale(0.5f,0.5f,0.5f);                  //缩放</p>
+<p>box2 = new AABB();                               //包装盒</p>
+<p>box2.setMin(-1.0f,-1.0f,-1.0f);                  //设置包装盒2的最小顶点</p>
+<p>box2.setMax(1.0f,1.0f,1.0f);                     //设置包装盒2的最大顶点</p>
+<p>mesh2.getCompositeTransform(cubeTransform);      //获取立方体2的混合矩阵</p>
+<p>box2.setToTransformedBox(cubeTransform);         //将变换矩阵应用到包装盒2中</p>
+<p>world.addChild(mesh2);                           //将立方体2添加到场景中</p>
+<p>检测包装盒1和包装盒2是否碰撞的代码如下：</p>
+<p>isCollided = box1.intersectAABBs(box2,null);     //检测两个AABB包装盒是否碰撞</p>
+<p>编译运行程序，设置两个立方体不同的位置和角度，可以比较精确地检测出它们的碰撞情况，如图10-35所示。</p>
+<p>检测两个静止AABB的碰撞情况比较简单，只需要在每一维上单独检查它们的重合程度即可。如果在所有维上都没有重合，那么这两个AABB就不会相交。</p>
+<p>AABB间的动态检测稍微复杂一些，考虑一个由顶点<em>s</em>min和<em>s</em>max指定的静态包装盒和一个由顶点<em>m</em>min和<em>m</em>max指定的动态包装盒（如果两个都是动态的，可以根据相对运动视作如此）。运动的速度由向量<em>s</em>给出，运动时间<em>t</em>假定为0～1。</p>
+<p>图10-35  静态物体碰撞检测示意</p>
+<p>移动检测的目标是计算运动AABB碰撞到静态AABB的时刻，因此需要计算出两个AABB在所有维上的第一个点。为了简化起见，可以把上述问题先归结到某一维，然后再将三维结合到一起。假设把问题投影到<em>x</em>轴，如图10-36所示。</p>
+<p>图10-36  AABB的动态检测</p>
+<p>黑色矩形代表沿坐标轴滑动的AABB，<em>t</em>=0时，运动AABB完全位于静止AABB的左边。当<em>t</em>=1时，运动AABB完全位于静止AABB的右边。当<em>t</em>=<em>tenter</em>时，两个AABB刚刚相交，当<em>t</em>=<em>tleave</em>时，两个AABB脱离碰撞。</p>
+<p>对照上图，可以推导出两个AABB接触和离开的时间：</p>
+<p>，</p>
+<p>AABB的动态检测有3个要点。</p>
+<p>n     如果速度为0，两个包装盒要么一直相交，要么一直分离。</p>
+<p>n     不管物体从哪个方向运动，碰撞过程中，肯定是先入后出，所以有<em>tenter</em>＜<em>tleave</em>。</p>
+<p>n     如果<em>tenter</em>和<em>tleave</em>超出运动时间范围，那么在此范围内它们是不相交的。</p>
+<p>检测出某一维的碰撞还不够，还需要进行其他两维的检测，然后取结果的交集。如果交集为空，那么两AABB包装盒没有相交，如果区间范围在时间段[0，1]之外，那么在此区间也不相交。对AABB进行动态检测的方法定义如下：</p>
+<p>float intersectMovingAABB(AABB stationaryBox,AABB movingBox,float []s)</p>
+<p>{</p>
+<pre><code>float NoIntersection = 1e30f;                      //没有碰撞则返回大数
+
+float tEnter = 0.0f;                               //初始化碰撞时间
+
+float tLeave = 1.0f;                               //初始化离开时间
+
+float Swap = 0.0f;                                 //交换操作中间变量
+
+float [] sBoxmin= stationaryBox.getMin();          //静止包装盒的最小值顶点
+
+float [] sBoxmax= stationaryBox.getMax();          //静止包装盒的最大值顶点
+
+float [] mBoxmin= movingBox.getMin();              //运动包装盒的最小值顶点
+
+float [] mBoxmax= movingBox.getMax();              //运动包装盒的最大值顶点
+
+if (s[0] == 0.0f) &#123;                                //如果*x*方向速度为0
+
+   if ((sBoxmin[0] &gt;= mBoxmax[0]) ||(sBoxmax[0] &lt;= mBoxmin[0])) &#123;
+
+       return NoIntersection;                       //进行静态检测
+
+   &#125;
+
+&#125; else &#123;
+
+   float xEnter = (sBoxmin[0]-mBoxmax[0])/s[0];    //计算碰撞时间
+
+   float xLeave = (sBoxmax[0]-mBoxmin[0])/ s[0];   //计算离开时间
+
+   if (xEnter &gt; xLeave) &#123;                          //检查顺序
+
+       Swap = xEnter;
+
+       xEnter = xLeave;
+
+       xLeave = Swap;
+
+   &#125;
+
+   if (xEnter &gt; tEnter) tEnter = xEnter;           //更新区间
+
+   if (xLeave &lt; tLeave) tLeave = xLeave;
+
+   if (tEnter &gt; tLeave) &#123;                          //是否导致空重叠区
+
+       return NoIntersection;                       //没有碰撞
+
+   &#125;
+
+&#125;
+
+if (s[1] == 0.0f) &#123;                                //*y*轴速度为0
+
+   if ( (sBoxmin[1] &gt;= mBoxmax[1]) || (sBoxmax[1] &lt;= mBoxmin[1])) &#123;
+
+       return NoIntersection;                       //没有相交
+
+   &#125;
+
+&#125; else &#123;
+
+   float yEnter = (sBoxmin[1]-mBoxmax[1]) / s[1];
+
+   float yLeave = (sBoxmax[1]-mBoxmin[1]) / s[1];
+
+   if (yEnter &gt; yLeave) &#123;
+
+       Swap = yEnter;
+
+       yEnter = yLeave;
+
+       yLeave = Swap;
+
+   &#125;
+
+   if (yEnter &gt; tEnter) tEnter = yEnter;           //更新区间
+
+   if (yLeave &lt; tLeave) tLeave = yLeave;
+
+   if (tEnter &gt; tLeave) &#123;
+
+       return NoIntersection;
+
+   &#125;
+
+&#125;
+
+if (s[2] == 0.0f) &#123;                                //*z*方向速度为0
+
+   if ((sBoxmin[2] &gt;= mBoxmax[2]) ||(sBoxmax[2] &lt;= mBoxmin[2])) &#123;
+
+       return NoIntersection;
+
+   &#125;
+
+&#125; else &#123;
+
+   float oneOverD = 1.0f / s[2];
+
+   float zEnter = (sBoxmin[2]-mBoxmax[2]) / s[2];
+
+   float zLeave = (sBoxmax[2]- mBoxmin[2]) / s[2];
+
+   if (zEnter &gt; zLeave) &#123;
+
+       Swap = zEnter;
+
+       zEnter = zLeave;
+
+       zLeave = Swap;
+
+   &#125;
+
+   if (zEnter &gt; tEnter) tEnter = zEnter;           //更新区间
+
+   if (zLeave &lt; tLeave) tLeave = zLeave;
+
+   if (tEnter &gt; tLeave) &#123;
+
+       return NoIntersection;
+
+   &#125;
+
+&#125;
+
+return tEnter;                                     //返回碰撞时间
+</code></pre>
+<p>}</p>
+<p>为了对移动AABB进行检测，创建两个AABB如图10-37所示。两个包装盒距离0.5，速度为3。</p>
+<p>图10-37  移动AABB检测</p>
+<p>检测代码如下：</p>
+<p>float[] speed = new float []{3.0f,0.0f,0.0f};</p>
+<p>float tEnter = intersectMovingAABB(box1,box2,speed);</p>
+<p>输出结果为0.16667，完全符合预期的猜测。</p>
+<h2 id="OBB"><a href="#OBB" class="headerlink" title="OBB"></a>OBB</h2><p>前面提到了长条物体在旋转时AABB盒的变化，那么是否有能够在任意方向都更为精确的检测方式，答案是肯定的，这是一种基于OBB即定向包容盒子（Oriented Bounding Box,OBB）的技术，它已经广泛用于光线追踪和碰撞检测中。</p>
+<p>OBB这种方法是根据物体本身的几何形状来决定盒子的大小和方向，盒子无须和坐标轴垂直。这样就可以选择最合适的最紧凑的包容盒子。OBB盒子的生成比较复杂。一般是考虑物体所有的顶点在空间的分布，通过一定的算法找到最好的方向(OBB盒子的几个轴)。</p>
+<p>一个2D示意图如图10-38所示。</p>
+<p>这种技术比AABB技术更精确而且更健壮，但OBB实现起来比较困难，执行速度慢，并且不太适合动态的或柔性的物体。特别注意的是，当把一个物体分得越来越小的时候，事实上是在创建一棵有层次的树，如图10-39所示。</p>
+<p>图10-39  OBB树的生成（曲折线为物体）</p>
+<p>为任意的网格模型创建OBB树可能是算法里最难的一个部分，而且它还要调整以适合特定的引擎或游戏类型。从图中可以看出，不得不找出包围给定模型的最近似的包装盒（或者其他3D体）。</p>
+<p>现在得到了所有的包装盒，下一步将构造一棵树。</p>
+<p>从最初的AABB包装盒开始从上至下地反复分割它。另外，还可以用从下至上的方式，逐步地合并小包装盒从而得到最大的包装盒。把大的包装盒分割成小的包装盒，应该遵守以下几条原则。</p>
+<p>（1）用一个面（这个面垂直于包装盒中的一条坐标轴）来分割包装盒上最长的轴，然后根据多边形处在分割轴的哪一边把多边形分离开来（如图10-38所示）。</p>
+<p>（2）如果不能沿着最长的轴进行分割，那就沿第二长的边分割。持续地分割直到包装盒不能再分割为止。</p>
+<p>（3）依据需要的精度（比如，是否真的要判断单个三角形的碰撞），可以按选择的方式（是按树的深度或是按包装盒中多边形的数目）以任意的条件停止分割。</p>
+<p>正如读者所看到的，创建阶段相当复杂，其中包括了大量的运算，很明显不能实时地创建树，只能是事先创建。事先创建可以免去实时改变多边形的可能。另一个缺点是OBB要求进行大量的矩阵运算，不得不把它们定位在适当的地方，并且每棵子树必须与矩阵相乘。</p>
+<p>现在假设已经有了OBB或者AABB树。那么该怎么进行碰撞检测呢？首先检测最大的包装盒是否相交（AABB级别），如果相交了，它们可能（注意，只是可能）发生了碰撞，接下来将进一步地递归处理它们（OBB级别，不断地递归用下一级进行处理）。</p>
+<p>如果沿着下一级，发现子树并没有发生相交，这时就可以停止，并得出结论没有发生碰撞。如果发现子树相交，那么要进一步处理它的子树直到到达叶子节点，并最终得出结论。</p>
+<p>碰撞检测最直观的想法是把一个OBB盒子的每个边都和另一个盒子的所有面来比较，如果这个边穿过了另一个OBB盒子的一个面，则两个OBB盒子发生了碰撞。显然这种方法的计算量是比较大的，因为要进行12×6×2=144次边和面的比较。</p>
+<p>但是，在考察两个没有碰撞的OBB盒子时，人们发现一些规律来简化比较。</p>
+<p>（1）如果两个OBB盒子不互相接触，则应该可以找到一个盒子上的一个面，这个面所在的平面可以把3D空间分为两部分，两个OBB盒子各在两边。</p>
+<p>（2）如果没有这样的表面存在，则一定可以在两个OBB盒子上各找出一条边，这两条边所在的平面可以把两个OBB盒子分在两边。有了这个平面，就可以找到垂直于它的分割轴（separating axis），如图10-40所示。</p>
+<p>（3）进行相交测试时，可以把包装盒投影到分割轴上，并检查它们是否线性相交。两个OBB盒子在这个分割轴上的投影将是分离的。</p>
+<p>如上所述，要判断两个OBB盒子是否碰撞，只需要看两个OBB盒子之间是否有这样的平面和分割轴存在。如果存在，则没有碰撞。如果不存在，则碰撞。 对第一种情况，每个盒子有6个表面(其中每两个平行)，可以决定3个分割轴。两个OBB盒子一共有6个可能的分割轴需要考虑。对第二种情况，两个OBB盒 子之间的边的组合可以有3×3=9种情况，也就是有9个可能的分割轴。这样对任意两个OBB盒子，只需要考察15个分割轴就可以了。如果在任一分割轴上的 阴影不重合，则OBB盒子之间没有碰撞。</p>
+<p>选择AABB还是选择OBB应该根据所需的精确程度而定。对一个需要快速反应的3D射击游戏来说，可能用AABB来进行碰撞检测更好些——可以牺牲一些精度来换取速度和实现的简单化，因此总能在游戏中看到一些小疏漏。当然随着硬件能力的提高，OBB处理会逐渐被重视起来。</p>
+<p>在做碰撞检测时应当遵循以下的优化理论，这样可以改善检测速度。</p>
+<p>n     分两步检验，距离远时看作质点，距离近时采用包装盒。</p>
+<p>n     距离很远的物体不会在短时间内相撞（可以采用BSP树分割空间）。</p>
+<p>n     一个物体不能隔着第二个物体和第三个物体相撞。</p>
+<p>n     一旦一个物体检测到和另一物体碰撞，另一物体对这个物体不再检测。</p>
+<p>n     静止的物体不主动与其他物体碰撞。</p>
+<p>以下是另一个博客的OBB解释：</p>
+<p>方向包围盒（Oriented bounding box），简称OBB。方向包围盒类似于AABB，但是具有方向性、可以旋转，AABB不能旋转。如图3所示。</p>
+<p><strong><a target="_blank" rel="noopener external nofollow noreferrer" href="http://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071056594980.jpg"><img src= "/images/loading.gif" data-lazy-src="https://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071057022246.jpg" alt="clip_image005"></a></strong></p>
+<p>图3 矩形和矩形投影检测的四条轴</p>
+<p>要计算两个OBB是否碰撞，只需要计算他们在图3上的4个坐标轴上的投影是否有重叠，如果有，则两多边形有接触。这也可以扩展到任意多边形，如图4所示。</p>
+<p><strong><a target="_blank" rel="noopener external nofollow noreferrer" href="http://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071057042510.jpg"><img src= "/images/loading.gif" data-lazy-src="https://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071057071204.jpg" alt="clip_image007"></a></strong></p>
+<p>图4 矩形和三角形投影检测的五条轴</p>
+<p>投影轴来自于多边形自身边的垂线。</p>
+<p>判定方式：<strong>两个多边形在所有轴上的投影都发生重叠，则判定为碰撞；否则，没有发生碰撞。</strong></p>
+<p>OBB存在多种的表达方式，这里使用最常用的一种：一个中心点、2个矩形的边长、两个旋转轴（该轴垂直于多边形自身的边，用于投影计算）。代码如下所示：</p>
+<pre><code>(function (window) &#123;
+
+    var OBB = function (centerPoint, width, height, rotation) &#123;
+
+        this.centerPoint = centerPoint;
+        this.extents = [width / 2, height / 2];
+        this.axes = [new Vector2(Math.cos(rotation), Math.sin(rotation)), new Vector2(-1 * Math.sin(rotation), Math.cos(rotation))];
+
+        this._width = width;
+        this._height = height;
+        this._rotation = rotation;
+    &#125;
+
+    window.OBB = OBB;
+&#125;)(window);
+</code></pre>
+<p>其所依赖的Vector2这个类如下所示：</p>
+<pre><code>(function (window) &#123;
+    Vector2 = function (x, y) &#123;
+        this.x = x || 0;
+        this.y = y || 0;
+    &#125;;
+
+    Vector2.prototype = &#123;
+        sub: function (v) &#123;
+            return new Vector2(this.x - v.x, this.y - v.y)
+        &#125;,
+        dot: function (v) &#123;
+            return this.x * v.x + this.y * v.y;
+        &#125;
+    &#125;;
+    window.Vector2 = Vector2;
+&#125; (window))
+</code></pre>
+<p>然后基于这个数据结构，进行OBB之间的相交测试。为OBB扩展一个方法，即或者在任意轴上的投影半径：</p>
+<pre><code>OBB.prototype = &#123;
+    getProjectionRadius: function (axis) &#123;
+        returnthis.extents[0] * Math.abs(axis.dot(this.axes[0])) + this.extents[1] * Math.abs(axis.dot(this.axes[1]));
+    &#125;
+&#125;
+</code></pre>
+<p>这里你可能需要读者了解Vector2.dot的几何意义：<strong>若b为单位矢量，则a与b的点积即为a在方向b的投影</strong>。</p>
+<p>有了这些，就可以进行相交检测。由上面的判定方式，可以得出，两个矩形之间的碰撞检测需要判断四次（每个投影轴一次）。完整检测代码如下所示：</p>
+<pre><code>(function (window) &#123;
+
+    var CollisionDetector = &#123;
+
+        detectorOBBvsOBB: function (OBB1, OBB2) &#123;
+            var nv = OBB1.centerPoint.sub(OBB2.centerPoint);
+            var axisA1 = OBB1.axes[0];
+            if (OBB1.getProjectionRadius(axisA1) + OBB2.getProjectionRadius(axisA1) &lt;= Math.abs(nv.dot(axisA1))) return false;
+            var axisA2 = OBB1.axes[1];
+            if (OBB1.getProjectionRadius(axisA2) + OBB2.getProjectionRadius(axisA2) &lt;= Math.abs(nv.dot(axisA2))) return false;
+            var axisB1 = OBB2.axes[0];
+            if (OBB1.getProjectionRadius(axisB1) + OBB2.getProjectionRadius(axisB1) &lt;= Math.abs(nv.dot(axisB1))) return false;
+            var axisB2 = OBB2.axes[1];
+            if (OBB1.getProjectionRadius(axisB2) + OBB2.getProjectionRadius(axisB2) &lt;= Math.abs(nv.dot(axisB2))) return false;
+            return true;
+
+        &#125;
+    &#125;
+
+    window.CollisionDetector = CollisionDetector;
+&#125;)(window)
+</code></pre>
+<p>这里拿两个OBB的中心点连线在坐标轴上的投影长度和两个矩形投影半径之和进行对比，如果半径之后都小于或者等于中心连线之后才判定为碰撞，否则判定为分离状态。</p>
+<h1 id="集成图形化测试接口"><a href="#集成图形化测试接口" class="headerlink" title="集成图形化测试接口"></a>集成图形化测试接口</h1><p>为了更加直观的测试OBB碰撞检测方法，使用Easeljs输出碰撞的状态。当两个矩形没有发生碰撞的时候，两矩形呈现蓝色；当两个矩形发生碰撞的时候，两矩形呈现红色。先引入相关的脚本库以及用于显示的canvas画布：</p>
+<pre><code>&lt;script src=&quot;Vector2.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;OBB.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;CollisionDetector.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;easel.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;canvas id=&quot;testCanvas&quot; width=&quot;980&quot; height=&quot;580&quot;&gt;
+</code></pre>
+<p>然后进行OBB初始化以及碰撞检测：</p>
+<pre><code>var OBB1, OBB1x = 100, OBB1y = 150, OBB1w = 30, OBB1h = 140, OBB1r = 30;
+var OBB2, OBB2x = 100, OBB2y = 70, OBB2w = 40, OBB2h = 110, OBB2r = 40;
+var canvas;
+var stage;
+var color;
+
+function init() &#123;
+
+    canvas = document.getElementById(&quot;testCanvas&quot;);
+    stage = new Stage(canvas);
+
+    Ticker.addListener(window);
+&#125;
+
+function tick() &#123;
+    stage.removeAllChildren();
+
+    OBB1r += 2;
+    OBB2r += 1;
+    OBB1 = new OBB(new Vector2(OBB1x, OBB1y), OBB1w, OBB1h, OBB1r * Math.PI / 180);
+    OBB2 = new OBB(new Vector2(OBB2x, OBB2y), OBB2w, OBB2h, OBB2r * Math.PI / 180);
+    var r = CollisionDetector.detectorOBBvsOBB(OBB1, OBB2);
+
+    color=r?&quot;red&quot;:&quot;#00F&quot;;
+    OBB1 = new Container();
+    stage.addChild(OBB1);
+    OBB1.x = OBB1x;
+    OBB1.y = OBB1y;
+    var frame1 = new Shape();
+    frame1.graphics.beginFill(color).drawRect(0, 0, OBB1w, OBB1h);
+    frame1.rotation = OBB1r;
+    frame1.regX = OBB1w / 2;
+    frame1.regY = OBB1h / 2;
+    OBB1.addChild(frame1);
+
+    OBB2 = new Container();
+    stage.addChild(OBB2);
+    OBB2.x = OBB2x;
+    OBB2.y = OBB2y;
+    var frame2 = new Shape();
+    frame2.graphics.beginFill(color).drawRect(0, 0, OBB2w, OBB2h);
+    frame2.rotation = OBB2r;
+    frame2.regX = OBB2w / 2;
+    frame2.regY = OBB2h / 2;
+    OBB2.addChild(frame2);
+
+    stage.update();
+&#125;
+init();
+</code></pre>
+<p>以上代码定义了两个旋转的OBB包围盒，当他们发生碰撞则改变绘制的颜色，使其成为红色。运行代码，效果图5和6所示。</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071049579325.jpg"><img src= "/images/loading.gif" data-lazy-src="https://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/20120607104959395.jpg" alt="clip_image009"></a></p>
+<p>图5 未发生碰撞</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071050004148.jpg"><img src= "/images/loading.gif" data-lazy-src="https://images.cnblogs.com/cnblogs_com/iamzhanglei/201206/201206071050018740.jpg" alt="clip_image011"></a></p>
+<p>图6 发生碰撞</p>
+<p>这里是2D情况下的OBB碰撞检测，对于3D OBB碰撞检测，更为复杂。需要测试15个分离轴以确定OBB的相交状态，两个OBB的坐标轴各3个，以及垂直于每个轴的9个轴。除了坐标轴个数不一样，其相交测试思路和本文一致，本文不再探讨。</p>
+<hr>
+<blockquote>
+<p>to be continued…</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E7%A2%B0%E6%92%9E%E7%9B%92%E7%AE%97%E6%B3%95/">https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E7%A2%B0%E6%92%9E%E7%9B%92%E7%AE%97%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/bce9fd9c9f4d4d9a945040d24d0492dd.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/CSharp%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/c770f4bef54f44ae8478539b01a47e4f.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C#单例模式</div></div></a></div><div class="next-post pull-right"><a href="/GameEngine/Unity/Unity%E7%9A%84BUG%E6%8C%87%E5%8D%97/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/b1aa91cb881c11ebb6edd017c2d2eca2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Unity的BUG指南</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95-%E5%8C%85%E5%9B%B4%E7%9B%92-%E7%90%83%EF%BC%8CAABB%EF%BC%8COBB"><span class="toc-number">3.</span> <span class="toc-text">[算法][包围盒]球，AABB，OBB</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%9B%BE1%E6%98%AF3D%E5%8C%85%E5%9B%B4%E4%BD%93%EF%BC%8C%E5%9C%A82D%E5%8C%85%E5%9B%B4%E4%BD%93%E5%A6%82%E5%9B%BE2%E6%89%80%E7%A4%BA%EF%BC%9A"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text">可以看到图1是3D包围体，在2D包围体如图2所示：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">3.0.0.0.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#-1"><span class="toc-number">3.0.0.0.3.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E5%9B%B4%E7%90%83"><span class="toc-number">3.1.</span> <span class="toc-text">包围球</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AABB%E7%9B%92"><span class="toc-number">3.2.</span> <span class="toc-text">AABB盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OBB"><span class="toc-number">3.3.</span> <span class="toc-text">OBB</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%9B%BE%E5%BD%A2%E5%8C%96%E6%B5%8B%E8%AF%95%E6%8E%A5%E5%8F%A3"><span class="toc-number">4.</span> <span class="toc-text">集成图形化测试接口</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity的ShaderLab着色器入门"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门">Unity的ShaderLab着色器入门</a><time datetime="2023-10-12T10:18:23.000Z" title="发表于 2023-10-12 18:18:23">2023-10-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tamsiree.com',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>VisualStudioCode插件 | Tamsiree</title><meta name="keywords" content="开发工具,VisualStudioCode"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在前端开发中，有一个非常好用的工具，Visual Studio Code，简称VS code。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VisualStudioCode插件">
+<meta property="og:url" content="https://tamsiree.com/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/VisualStudioCode%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Tamsiree">
+<meta property="og:description" content="在前端开发中，有一个非常好用的工具，Visual Studio Code，简称VS code。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-y47kyn.jpg">
+<meta property="article:published_time" content="2018-09-16T14:58:00.000Z">
+<meta property="article:modified_time" content="2025-11-05T13:53:39.392Z">
+<meta property="article:author" content="Tamsiree">
+<meta property="article:tag" content="开发工具">
+<meta property="article:tag" content="VisualStudioCode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-y47kyn.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/VisualStudioCode%E6%8F%92%E4%BB%B6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VisualStudioCode插件',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-05 21:53:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-y47kyn.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">VisualStudioCode插件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-09-16T14:58:00.000Z" title="发表于 2018-09-16 22:58:00">2018-09-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.392Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/">VisualStudioCode</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="VisualStudioCode插件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>在前端开发中，有一个非常好用的工具，Visual Studio Code，简称VS code。<br>都不用我安利VS code，大家就会乖乖的去用，无数个大言不惭的攻城狮，都被VS code比德芙还丝滑的强大功能所折服。我是来给大家安利插件的，想做个比较全面的插件集合给大家。网上的我也看过一些，但是都比较零散，时间也久了一些，我结合最近的情况，总结一下<br>造福大家，才是我想做的。手动比心❤。</p>
+</blockquote>
+<p><img src= "/images/loading.gif" data-lazy-src="https://i0.hdslb.com/bfs/article/2fe510ffb902bb090588f8fe6b00a44b96093b28.png@1320w_740h.webp"></p>
+<h1 id="日常安利"><a href="#日常安利" class="headerlink" title="日常安利"></a>日常安利</h1><p>VS code特点：</p>
+<blockquote>
+<ul>
+<li>开源，免费；</li>
+<li>自定义配置</li>
+<li>集成git</li>
+<li>智能提示强大</li>
+<li>支持各种文件格式（html/jade/css/less/sass/xml）</li>
+<li>调试功能强大</li>
+<li>各种方便的快捷键</li>
+<li>强大的插件扩展</li>
+</ul>
+</blockquote>
+<p>对程序员这么友好，没理由不用。</p>
+<blockquote>
+<p>Visual Studio Code（VScode ）官网　：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+</blockquote>
+<blockquote>
+<p>Visual Studio Code（VScode ）github地址 ：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Microsoft/vscode">https://github.com/Microsoft/vscode</a></p>
+</blockquote>
+<h1 id="安装插件的方式"><a href="#安装插件的方式" class="headerlink" title="安装插件的方式"></a>安装插件的方式</h1><p>方法一：</p>
+<ul>
+<li>按 <code>F1</code> 或 <code>Ctrl</code> + <code>Shift</code> + <code>p</code> ，输入 <code>extensions</code> ，点击第一个就可以</li>
+<li><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206153427966-260575790.png"></li>
+</ul>
+<p>方法二：</p>
+<ul>
+<li><code>ctrl</code> + <code>P</code> 然后输入 <code>ext install</code></li>
+<li><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206153328337-1360629846.png"></li>
+</ul>
+<p>方法三：</p>
+<ul>
+<li>点击图中位置</li>
+<li><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206153533780-591397872.png"></li>
+</ul>
+<h1 id="插件合集"><a href="#插件合集" class="headerlink" title="插件合集"></a>插件合集</h1><blockquote>
+<p>插件官网：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/">https://marketplace.visualstudio.com/</a></p>
+</blockquote>
+<p>　　每一个插件名都超链接到官网，注意查看</p>
+<h2 id="配置类插件"><a href="#配置类插件" class="headerlink" title="配置类插件"></a>配置类插件</h2><ol>
+<li><p>Settings Sync<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync">Settings Sync插件地址</a><br>最好用的插件，没有之一，一台电脑配置好之后，其它的几台电脑都不用配置。新机器登录一下就搞定了。再也不用折腾环境了，<br>使用GitHub Gist同步多台计算机上的设置，代码段，主题，文件图标，启动，键绑定，工作区和扩展。<br><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206162846619-523184775.png"></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Debugger for Chrome</a><br>从VS Code调试在Google Chrome中运行的JavaScript代码。<br>用于在Google Chrome浏览器或支持<a target="_blank" rel="noopener external nofollow noreferrer" href="https://chromedevtools.github.io/debugger-protocol-viewer/">Chrome DevTools协议的</a>其他目标中调试JavaScript代码的VS Code扩展。<br><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206164127036-1621084600.png"></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify">beautify</a>**</p>
+</li>
+</ol>
+<p>格式化代码工具</p>
+<p>美化<code>javascript</code>，<code>JSON</code>，<code>CSS</code>，<code>Sass</code>，和<code>HTML</code>在Visual Studio代码。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206174520569-1531269029.png"></p>
+<p><strong>4.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag">Atuo Rename Tag</a></strong></p>
+<p>修改 html 标签，自动帮你完成头部和尾部闭合标签的同步修改</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206174812723-187738775.png"></p>
+<p><strong>5.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans">中文（简体）语言包</a></strong></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans">Chinese (Simplified) Language Pack for Visual Studio Code</a></p>
+<p>将界面转换为中文，对英语不好的人，非常友好。例如我。。。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206154608477-1879711262.png"></p>
+<p><strong>6.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">Code Spell Checker</a></strong></p>
+<p>代码拼写检查器</p>
+<p>一个与camelCase代码配合良好的基本拼写检查程序。</p>
+<p>此拼写检查程序的目标是帮助捕获常见的拼写错误，同时保持误报数量较低。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206155904453-115465020.png"></p>
+<p><strong>7.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons">vscode-icons</a></strong></p>
+<p>显示Visual Studio代码的图标，目前该插件已被vscode内部支持：”文件” -&gt; “首选项” -&gt; “文件图标主题”</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206165818940-538883197.png"></p>
+<p><strong>8.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=spywhere.guides">guides</a></strong></p>
+<p>显示代码对齐辅助线，很好用</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206170217337-427163549.png"></p>
+<p>9.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets">Rainbow Brackets</a></p>
+<p>为圆括号，方括号和大括号提供彩虹色。这对于Lisp或Clojure程序员，当然还有JavaScript和其他程序员特别有用。</p>
+<p>效果如下：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206170530148-994048515.png"></p>
+<p><strong>10.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer">Bracket Pair Colorizer</a></strong></p>
+<p>用于着色匹配括号</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206175403016-1968892637.png"></p>
+<p><strong>11.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow">Indent-Rainbow</a></strong></p>
+<p>用四种不同颜色交替着色文本前面的缩进</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206170923368-1499870572.png"></p>
+<p><strong>12.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize">filesize</a></strong></p>
+<p>在状态栏中显示当前文件大小，点击后还可以看到详细创建、修改时间</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206175117373-859815432.png"></p>
+<p><strong>13.Import Cost</strong></p>
+<p>对引入的计算大小</p>
+<p> <img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206175535740-1762311521.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ext install wix.vscode-import-cost</span><br></pre></td></tr></table></figure>
+
+<p><strong>14.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense">Path Intellisense</a></strong></p>
+<p>可自动填充文件名。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206171352570-1802692211.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ext install christian-kohler.path-intellisense</span><br></pre></td></tr></table></figure>
+
+<p>**15.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime">WakaTime</a> **</p>
+<p> 从您的编程活动自动生成的度量标准，见解和时间跟踪。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206154852977-1089454238.png"></p>
+<p><strong>16.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></strong></p>
+<p>git日志查看插件</p>
+<p>GitLens 增强了 Visual Studio Code 中内置的 Git 功能。例如 commits 搜索，历史记录和和查看代码作者身份，还能通过强大的比较命令获得有价值的见解等等</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206155104900-2060209830.png"></p>
+<p><strong>17..<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client">REST Client</a></strong></p>
+<p>REST客户端允许您直接发送HTTP请求并在Visual Studio Code中查看响应。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206155402611-1050725814.png"></p>
+<p>**18.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense">Npm Intellisense</a> **</p>
+<p>用于在 import 语句中自动填充 npm 模块</p>
+<p>require 时的包提示（最新版的vscode已经集成此功能）</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206155553112-464065538.png"></p>
+<p><strong>19.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Azure Storage</a></strong></p>
+<p>VS Code的Azure存储扩展允许您部署静态网站并浏览Azure Blob容器，文件共享，表和队列。按照<a target="_blank" rel="noopener external nofollow noreferrer" href="https://code.visualstudio.com/tutorials/static-website/getting-started">本教程</a>从VS Code部署Web应用程序到Azure存储。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206160202864-1288887276.png"></p>
+<p><strong>20.<a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager">Project Manager</a></strong></p>
+<p>它可以帮助您轻松访问项目，无论它们位于何处。_不要再错过那些重要的项目了_。您可以定义自己的<strong>收藏</strong>项目，或选择自动检测<strong>VSCode</strong>项目，<strong>Git</strong>，<strong>Mercurial</strong>和<strong>SVN</strong>存储库或<strong>任何</strong>文件夹。</p>
+<p>从版本8开始，您就有了专门的项目<strong>活动栏</strong>！</p>
+<p>以下是<strong>Project Manager</strong>提供的一些功能：</p>
+<ul>
+<li>将任何项目保存为<strong>收藏夹</strong></li>
+<li>自动检测<strong>VSCode</strong>，<strong>GIT中</strong>，<strong>水银</strong>或<strong>SVN</strong>存放区</li>
+<li>在相同或新窗口中打开项目</li>
+<li>识别_已删除/重命名的_项目</li>
+<li>一个<strong>状态栏</strong>标识当前项目</li>
+<li>专门的<strong>活动栏</strong></li>
+</ul>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206160353637-1420849990.png"></p>
+<ol start="21">
+<li><p>Language Support for Java(TM) by Red Hat<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=redhat.java#overview">Language Support for Java(TM) by Red Hat</a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=redhat.java#overview">redhat.java</a><br>这个插件，这个下载次数，安装就对了。<br><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206173123464-1710552650.png"></p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree">Todo Tree</a><br>此扩展可以快速搜索（使用<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/BurntSushi/ripgrep">ripgrep</a>）您的工作区以获取TODO和FIXME等注释标记，并在资源管理器窗格的树视图中显示它们。单击树中的TODO将打开文件并将光标放在包含TODO的行上。<br>找到的TODO也可以在打开的文件中突出显示。<br><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206160705142-312341754.png"></p>
+</li>
+<li><p>TabNine<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode">TabNine插件地址</a><br>这是一款基于GPT-2语言模型的自动补全工具，强烈推荐TabNine这款插件，哪怕你使用的不是vs code也可以尝试一下这款插件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ext install TabNine.tabnine-vscode</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="VS-code-主题集合"><a href="#VS-code-主题集合" class="headerlink" title="VS code 主题集合"></a>VS code 主题集合</h2><h3 id="Night-Owl"><a href="#Night-Owl" class="headerlink" title="Night Owl"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=sdras.night-owl">Night Owl</a></h3><p>一个非常适合夜猫子的 VS Code 主题。像是为喜欢深夜编码的人精心设计的。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206171701638-497301226.png"></p>
+<h3 id="Atom-One-Dark-Theme"><a href="#Atom-One-Dark-Theme" class="headerlink" title="Atom One Dark Theme"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=akamud.vscode-theme-onedark">Atom One Dark Theme</a></h3><p>一个基于Atom的黑暗主题</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206171542045-692178595.png"></p>
+<h3 id="Dracula-Official"><a href="#Dracula-Official" class="headerlink" title="Dracula Official"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula">Dracula Official</a></h3><p>官方吸血鬼主题，博主用的就是这款，很漂亮</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206180110876-84601184.png"></p>
+<h3 id="One-Dark-Pro"><a href="#One-Dark-Pro" class="headerlink" title="One Dark Pro"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme">One Dark Pro</a></h3><p> Atom标志性的One Dark主题，也是VS Code下载次数最多的主题之一！</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206180306127-882727765.png"></p>
+<h3 id="Bimbo"><a href="#Bimbo" class="headerlink" title="Bimbo"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=pawelgrzybek.bimbo-theme">Bimbo</a></h3><p>简约而现代的神奇海洋主题</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206180511237-1715417004.png"></p>
+<h2 id="代码提示提示类"><a href="#代码提示提示类" class="headerlink" title="代码提示提示类"></a>代码提示提示类</h2><h3 id="HTML-Snippets"><a href="#HTML-Snippets" class="headerlink" title="HTML Snippets"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets">HTML Snippets</a></h3><p>完整的HTML代码提示，包括HTML5</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206172032488-204186600.png"></p>
+<h3 id="HTML-CSS-Support"><a href="#HTML-CSS-Support" class="headerlink" title="HTML CSS Support"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css">HTML CSS Support</a></h3><p> 在 html 标签上写class 智能提示css样式</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206172443974-1183078346.png"></p>
+<h3 id="jQuery-Code-Snippets"><a href="#jQuery-Code-Snippets" class="headerlink" title="jQuery Code Snippets"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets">jQuery Code Snippets</a></h3><p> jQuery代码提示</p>
+<p>超过130个用于JavaScript代码的jQuery代码片段。</p>
+<p>只需键入字母’jq’即可获得所有可用jQuery代码片段的列表。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206173334914-301408283.png"></p>
+<h3 id="HTMLHint"><a href="#HTMLHint" class="headerlink" title="HTMLHint"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=mkaufman.HTMLHint">HTMLHint</a></h3><p>html代码检测，支持html5</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206174203386-1758440889.png"></p>
+<h2 id="语言相关"><a href="#语言相关" class="headerlink" title="语言相关"></a>语言相关</h2><h3 id="C＃"><a href="#C＃" class="headerlink" title="C＃"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://link.jianshu.com/?t=https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">C＃</a></h3><ul>
+<li>适用于<a target="_blank" rel="noopener external nofollow noreferrer" href="https://dotnet.github.io/">.NET Core的</a>轻量级开发工具。</li>
+<li>伟大的C＃编辑支持，包括语法突出显示，智能感知，转到定义，查找所有引用等。</li>
+<li>调试支持.NET Core（CoreCLR）。注意：不支持单声道调试。桌面CLR调试<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/OmniSharp/omnisharp-vscode/wiki/Desktop-.NET-Framework">支持有限</a>。</li>
+<li>支持Windows，macOS和Linux上的project.json和csproj项目。</li>
+</ul>
+<h3 id="CodeMetrics"><a href="#CodeMetrics" class="headerlink" title="CodeMetrics"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics">CodeMetrics</a></h3><p>计算TypeScript / JavaScript文件的复杂性。</p>
+<h3 id="VUE插件"><a href="#VUE插件" class="headerlink" title="VUE插件"></a>VUE插件</h3><p>vetur 语法高亮、智能感知、Emmet等</p>
+<p>VueHelper snippet代码片段</p>
+<p>ESLint 将ESLint JavaScript集成到VS代码中。</p>
+<p>prettier 代码规范性插件</p>
+<h3 id="Java-Extension-Pack"><a href="#Java-Extension-Pack" class="headerlink" title="Java Extension Pack"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack">Java Extension Pack</a></h3><p>它是一组流行的扩展，可以帮助在Visual Studio Code中编写，测试和调试Java应用程序。查看<a target="_blank" rel="noopener external nofollow noreferrer" href="https://code.visualstudio.com/docs/languages/java">VS Code中的Java</a>以开始使用。</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/1416523-20181206165228627-1133186655.png"></p>
+<h2 id="工具型插件"><a href="#工具型插件" class="headerlink" title="工具型插件"></a>工具型插件</h2><h3 id="VSC-Netease-Music"><a href="#VSC-Netease-Music" class="headerlink" title="VSC Netease Music"></a>VSC Netease Music</h3><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/1.png"></p>
+<p>插件是一位叫做<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/nondanee">nondanee</a>的第三方開發者開發的。</p>
+<blockquote>
+<p>插件github地址: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/nondanee/vsc-netease-music">https://github.com/nondanee/vsc-netease-music</a><br>插件marketplace: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://marketplace.visualstudio.com/items?itemName=nondanee.vsc-netease-music">https://marketplace.visualstudio.com/items?itemName=nondanee.vsc-netease-music</a></p>
+</blockquote>
+<h4 id="插件功能"><a href="#插件功能" class="headerlink" title="插件功能"></a>插件功能</h4><ul>
+<li>發現音樂 (歌單 / 新歌 / 排行榜)</li>
+<li>搜索 (單曲 / 歌手 / 專輯 / 歌單)</li>
+<li>用户登錄 (手機號 / 郵箱)</li>
+<li>用户收藏 (歌單 / 歌手 / 專輯)</li>
+<li>每日歌曲推薦 / 推薦歌單 / 私人 FM</li>
+<li>喜歡音樂 / 收藏音樂</li>
+<li>播放模式切換 / 音量調節</li>
+<li>逐行歌詞</li>
+<li>熱門評論</li>
+<li>快捷鍵支持</li>
+<li>聽歌記錄 (不確定有效)</li>
+<li>無海外限制</li>
+</ul>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/2.gif" alt="1"></p>
+<h4 id="插件需求"><a href="#插件需求" class="headerlink" title="插件需求"></a>插件需求</h4><p>我在電腦上可以正常地使用,但是Github上看到可能需要替換一些文件才可以正常使用。<br><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/3.png" alt="2"></p>
+<p><strong>Github原文:</strong></p>
+<p>VS Code for Windows 自 1.31.0 起自帶完整的 ffmpeg 動態鏈接庫 (可能是 bug)，無需替換；macOS 與 Linux 平台仍需替換。</p>
+<p>VS Code 使用的 Electron 版本不包含 ffmpeg，需替換自帶的 ffmpeg 動態鏈接庫才能正常播放 (每次更新 VS Code 都需重新替換)</p>
+<h4 id="手動替換"><a href="#手動替換" class="headerlink" title="手動替換"></a>手動替換</h4><p>通過 VS Code 版本在 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://raw.githubusercontent.com/Microsoft/vscode/%version%/.yarnrc">https://raw.githubusercontent.com/Microsoft/vscode/%version%/.yarnrc</a> 查看其使用的 Electron 版本，並於 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/electron/electron/releases/tag/%version%">https://github.com/electron/electron/releases/tag/%version%</a> 下載對應的 Electron 完整版本進行替換</p>
+<h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">下載 electron-%version%-win32-%<span class="built_in">arch</span>%.zip  </span><br><span class="line">替換 ./ffmpeg.dll  </span><br></pre></td></tr></table></figure>
+
+<h5 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">下載 electron-%version%-darwin-x64.zip  </span><br><span class="line">替換 ./Electron.app/Contents/Frameworks/Electron\ Framework.framework/Libraries/libffmpeg.dylib  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">##### Linux</span></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">下載 electron-%version%-linux-%<span class="built_in">arch</span>%.zip  </span><br><span class="line">替換 ./libffmpeg.so  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 自動替換</span></span><br><span class="line"></span><br><span class="line">使用 Python 腳本替換 (Python 2/3 均可，絕大部分發行版自帶環境)</span><br><span class="line"></span><br><span class="line">默認安裝位置下 Linux 和 Windows 需要以管理員身份運行，macOS 不需要</span><br><span class="line"></span><br><span class="line"><span class="comment">##### Windows Powershell</span></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">Invoke-RestMethod https://gist.githubusercontent.com/nondanee/f157bbbccecfe29e48d87273cd02e213/raw | python  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">##### Unix Shell</span></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">curl https://gist.githubusercontent.com/nondanee/f157bbbccecfe29e48d87273cd02e213/raw | python  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">如果 VS Code 使用默認配置安裝，腳本會自動尋找並替換，若自定義了安裝位置，請自行修改 installation</span><br><span class="line"></span><br><span class="line">插件用法</span><br><span class="line"></span><br><span class="line">按 **F1** 或者 **Ctrl Shift P** 打開命令面板</span><br><span class="line"></span><br><span class="line">輸入命令前綴 `網易雲音樂` 或 `NeteaseMusic`就可以使用。  </span><br><span class="line"></span><br><span class="line">![4.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/4.png)</span><br><span class="line"></span><br><span class="line">![5.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/5.png)</span><br><span class="line"></span><br><span class="line">![6.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/6.png)</span><br><span class="line"></span><br><span class="line">界面底部還會顯示歌詞和操作欄  </span><br><span class="line">![7.png](https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/blog/VSC_Netease_Music/7.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">## Tips</span></span><br><span class="line"></span><br><span class="line">Linux下配置vscode终端字体：</span><br><span class="line"></span><br><span class="line">在Ubuntu 18.04.1LTS 下的解决方案（亲测可用），其他版本linux做参考。</span><br><span class="line"></span><br><span class="line">下载字体</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># clone</span></span><br><span class="line"><span class="built_in">cd</span> /usr/share/fonts/truetype/</span><br><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/powerline/fonts.git</span><br></pre></td></tr></table></figure>
+
+<p>刷新字体$sudo fc-cache -f -v</p>
+<p>安装字体</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line"><span class="built_in">cd</span> fonts</span><br><span class="line">./install.sh</span><br><span class="line"><span class="comment"># clean-up a bit</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">rm</span> -rf fonts</span><br></pre></td></tr></table></figure>
+
+<p>在<code>文件</code>/<code>首选项</code>/<code>设置中</code>，选择<code>工作区</code>，搜索<code>终端</code>字体，改成 <code>Source Code Pro for Powerline</code></p>
+<p>效果：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://upload-images.jianshu.io/upload_images/12673212-3c962019f822a396.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/442/format/webp"></p>
+<p><strong>Mac下配置vscode终端字体</strong></p>
+<p>在Mac 10.13.6下的解决方案（亲测可用），其他版本做参考。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">下载安装字体<span class="variable">$cd</span> /Library/Fonts<span class="variable">$sudo</span> git <span class="built_in">clone</span> https://github.com/abertsch/Menlo-for-Powerline.git</span><br></pre></td></tr></table></figure>
+
+<p>在vscode中设置字体：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​<span class="string">&quot;terminal.integrated.fontFamily&quot;</span>: <span class="string">&quot;Menlo for Powerline&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdn.net/20180805011654667?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5naGFpMzc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="I0JBQkFCMA"></p>
+<blockquote>
+<p>Visual Studio Code的插件功能真的是强大到爆裂，还有仕么有意思的插件，欢迎大家在评论区补充</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>to be continued…  </p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/VisualStudioCode%E6%8F%92%E4%BB%B6/">https://tamsiree.com/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/VisualStudioCode%E6%8F%92%E4%BB%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="post-meta__tags" href="/tags/VisualStudioCode/">VisualStudioCode</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-y47kyn.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Design/%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/sastimsasag.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">设计用户界面的注意事项</div></div></a></div><div class="next-post pull-right"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%9F%BA%E7%A1%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01e7631535e0aebff4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java基础快速入门</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/VisualStudioCode%E4%B8%ADSettings-Sync%E6%8F%92%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="VisualStudioCode中Settings Sync插件的基本用法"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cyqwanp87xgm.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-26</div><div class="title">VisualStudioCode中Settings Sync插件的基本用法</div></div></a></div><div><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VisualStudioCode/VisualStudioCode%E5%BC%80%E5%8F%91Unity/" title="VisualStudioCode开发Unity"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bgf7b2a19.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-08</div><div class="title">VisualStudioCode开发Unity</div></div></a></div><div><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E6%8F%92%E4%BB%B6%E9%9B%86%E5%90%88/" title="AndroidStudio插件集合"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01cf099416056cb243.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-11-19</div><div class="title">AndroidStudio插件集合</div></div></a></div><div><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/" title="AndroidStuio之Gradle配置国内镜像"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-208bdd1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-02-18</div><div class="title">AndroidStuio之Gradle配置国内镜像</div></div></a></div><div><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="AndroidStudio问题归纳"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/5wg9y3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-21</div><div class="title">AndroidStudio问题归纳</div></div></a></div><div><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Intellij-IDEA/EmmyLua%E8%B0%83%E8%AF%95Unity/" title="EmmyLua调试Unity"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-a73b613.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-26</div><div class="title">EmmyLua调试Unity</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">199</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">137</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">139</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E5%AE%89%E5%88%A9"><span class="toc-number">2.</span> <span class="toc-text">日常安利</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">安装插件的方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%90%88%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">插件合集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB%E6%8F%92%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">配置类插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VS-code-%E4%B8%BB%E9%A2%98%E9%9B%86%E5%90%88"><span class="toc-number">4.2.</span> <span class="toc-text">VS code 主题集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Night-Owl"><span class="toc-number">4.2.1.</span> <span class="toc-text">Night Owl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Atom-One-Dark-Theme"><span class="toc-number">4.2.2.</span> <span class="toc-text">Atom One Dark Theme</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dracula-Official"><span class="toc-number">4.2.3.</span> <span class="toc-text">Dracula Official</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#One-Dark-Pro"><span class="toc-number">4.2.4.</span> <span class="toc-text">One Dark Pro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bimbo"><span class="toc-number">4.2.5.</span> <span class="toc-text">Bimbo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8F%90%E7%A4%BA%E7%B1%BB"><span class="toc-number">4.3.</span> <span class="toc-text">代码提示提示类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-Snippets"><span class="toc-number">4.3.1.</span> <span class="toc-text">HTML Snippets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-CSS-Support"><span class="toc-number">4.3.2.</span> <span class="toc-text">HTML CSS Support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-Code-Snippets"><span class="toc-number">4.3.3.</span> <span class="toc-text">jQuery Code Snippets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTMLHint"><span class="toc-number">4.3.4.</span> <span class="toc-text">HTMLHint</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E7%9B%B8%E5%85%B3"><span class="toc-number">4.4.</span> <span class="toc-text">语言相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%83"><span class="toc-number">4.4.1.</span> <span class="toc-text">C＃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeMetrics"><span class="toc-number">4.4.2.</span> <span class="toc-text">CodeMetrics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VUE%E6%8F%92%E4%BB%B6"><span class="toc-number">4.4.3.</span> <span class="toc-text">VUE插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-Extension-Pack"><span class="toc-number">4.4.4.</span> <span class="toc-text">Java Extension Pack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%9E%8B%E6%8F%92%E4%BB%B6"><span class="toc-number">4.5.</span> <span class="toc-text">工具型插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VSC-Netease-Music"><span class="toc-number">4.5.1.</span> <span class="toc-text">VSC Netease Music</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD"><span class="toc-number">4.5.1.1.</span> <span class="toc-text">插件功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E9%9C%80%E6%B1%82"><span class="toc-number">4.5.1.2.</span> <span class="toc-text">插件需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8B%95%E6%9B%BF%E6%8F%9B"><span class="toc-number">4.5.1.3.</span> <span class="toc-text">手動替換</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Windows"><span class="toc-number">4.5.1.3.1.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#macOS"><span class="toc-number">4.5.1.3.2.</span> <span class="toc-text">macOS</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/Konachan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity的ShaderLab着色器入门"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity的ShaderLab着色器入门">Unity的ShaderLab着色器入门</a><time datetime="2023-10-12T10:18:23.000Z" title="发表于 2023-10-12 18:18:23">2023-10-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tamsiree.com',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
