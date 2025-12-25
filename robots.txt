@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /about/
+Disallow: /node_modules/
+Disallow: /vendor/
+Disallow: /backup/
+
+Sitemap: https://tamsiree.com/sitemap.xml
