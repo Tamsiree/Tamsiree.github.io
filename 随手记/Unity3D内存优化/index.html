@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Unity内存优化 | Tamsiree</title><meta name="keywords" content="Tamsiree,Unity,blog,安卓,程序员,个人博客,Android"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 正文转载自 ：Unity3D内存释放 最近网友通过网站搜索Unity3D在手机及其他平台下占用内存太大.这里写下关于unity3d对于内存的管理与优化. Unity3D里有两种动态加载机制：一个是Resources.Load，另外一个通过AssetBundle,其实两者区别不大。Resources.Load就是从一个缺省打进程序包里的AssetBundle里加载资源，而一般A">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Unity 内存优化 | Tamsiree</title><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 正文转载自 ：Unity3D 内存释放 最近网友通过网站搜索 Unity3D 在手机及其他平台下占用内存太大. 这里写下关于 unity3d 对于内存的管理与优化. Unity3D 里有两种动态加载机制：一个是 Resources.Load，另外一个通过 AssetBundle, 其实两者区别不大。Resources.Load 就是从一个缺省打进程序包里的 AssetBund">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity内存优化">
+<meta property="og:title" content="Unity 内存优化">
 <meta property="og:url" content="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Tamsiree">
-<meta property="og:description" content="前言这里是前言介绍。 正文转载自 ：Unity3D内存释放 最近网友通过网站搜索Unity3D在手机及其他平台下占用内存太大.这里写下关于unity3d对于内存的管理与优化. Unity3D里有两种动态加载机制：一个是Resources.Load，另外一个通过AssetBundle,其实两者区别不大。Resources.Load就是从一个缺省打进程序包里的AssetBundle里加载资源，而一般A">
+<meta property="og:description" content="前言这里是前言介绍。 正文转载自 ：Unity3D 内存释放 最近网友通过网站搜索 Unity3D 在手机及其他平台下占用内存太大. 这里写下关于 unity3d 对于内存的管理与优化. Unity3D 里有两种动态加载机制：一个是 Resources.Load，另外一个通过 AssetBundle, 其实两者区别不大。Resources.Load 就是从一个缺省打进程序包里的 AssetBund">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg">
 <meta property="article:published_time" content="2021-12-28T02:47:20.000Z">
@@ -17,19 +17,141 @@
 <meta property="article:tag" content="安卓">
 <meta property="article:tag" content="程序员">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Unity 内存优化",
+  "url": "https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/",
+  "image": "https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg",
+  "datePublished": "2021-12-28T02:47:20.000Z",
+  "dateModified": "2025-11-05T13:53:39.378Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tamsiree",
+      "url": "https://tamsiree.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: 'ca-pub-8688374801147098',
   enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -37,7 +159,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -46,324 +168,253 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Unity内存优化',
-  isPost: true,
-  isHome: false,
+  title: 'Unity 内存优化',
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2025-11-05 21:53:39'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Unity内存优化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-28T02:47:20.000Z" title="发表于 2021-12-28 10:47:20">2021-12-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.378Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>25分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Unity内存优化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>转载自 ：<a target="_blank" rel="noopener external nofollow noreferrer" href="http://blog.csdn.net/andyhebear/article/details/50977295">Unity3D内存释放</a></p>
-<p>最近网友通过网站搜索<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/unity3d" title="Unity3D知识库">Unity3D</a>在手机及其他平台下占用内存太大.这里写下关于<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/unity3d" title="Unity3D知识库">unity3d</a>对于内存的管理与优化.</p>
-<p>Unity3D里有两种动态加载机制：一个是Resources.Load，另外一个通过AssetBundle,其实两者区别不大。Resources.Load就是从一个缺省打进程序包里的AssetBundle里加载资源，而一般AssetBundle文件需要你自己创建，运行时 动态加载，可以指定路径和来源的。</p>
-<p>其实场景里所有静态的对象也有这么一个加载过程，只是Unity3D后台替你自动完成了。</p>
-<p>详细说一下细节概念：<br>AssetBundle运行时加载:<br>来自文件就用CreateFromFile(注意这种方法只能用于standalone程序）这是最快的加载方法<br>也可以来自Memory,用CreateFromMemory(byte[]),这个byte[]可以来自文件读取的缓冲，www的下载或者其他可能的方式。<br>其实WWW的assetBundle就是内部数据读取完后自动创建了一个assetBundle而已<br>Create完以后，等于把硬盘或者网络的一个文件读到内存一个区域，这时候只是个AssetBundle内存镜像数据块，还没有Assets的概念。<br>Assets加载:<br>用AssetBundle.Load(同Resources.Load)这才会从AssetBundle的内存镜像里读取并创建一个Asset对象，创建Asset对象同时也会分配相应内存用于存放(反序列化)<br>异步读取用AssetBundle.LoadAsync<br>也可以一次读取多个用AssetBundle.LoadAll<br>AssetBundle的释放：<br>AssetBundle.Unload(flase)是释放AssetBundle文件的内存镜像，不包含Load创建的Asset内存对象。<br>AssetBundle.Unload(true)是释放那个AssetBundle文件内存镜像和并销毁所有用Load创建的Asset内存对象。</p>
-<p>一个Prefab从assetBundle里Load出来 里面可能包括：Gameobject transform mesh texture material shader script和各种其他Assets。<br>你Instaniate一个Prefab，是一个对Assets进行Clone(复制)+引用结合的过程，GameObject transform是Clone是新生成的。其他mesh / texture / material / shader等，这其中些是纯引用的关系的，包括：Texture和TerrainData，还有引用和复制同时存在的，包括：Mesh/material /PhysicMaterial。引用的Asset对象不会被复制，只是一个简单的指针指向已经Load的Asset对象。这种含糊的引用加克隆的混合， 大概是搞糊涂大多数人的主要原因。<br>专门要提一下的是一个特殊的东西：Script Asset，看起来很奇怪，Unity里每个Script都是一个封闭的Class定义而已,并没有写调用代码，光Class的定义脚本是不会工作的。其 实Unity引擎就是那个调用代码，Clone一个script asset等于new一个class实例，实例才会完成工作。把他挂到Unity主线程的调用链里去，Class实例里的OnUpdate OnStart等才会被执行。多个物体挂同一个脚本，其实就是在多个物体上挂了那个脚本类的多个实例而已，这样就好理解了。在new class这个过程中，数据区是复制的，代码区是共享的，算是一种特殊的复制+引用关系。<br>你可以再Instaniate一个同样的Prefab,还是这套mesh/texture/material/shader…，这时候会有新的GameObject等，但是不会创建新的引用对象比如Texture.<br>所以你Load出来的Assets其实就是个数据源，用于生成新对象或者被引用，生成的过程可能是复制（clone)也可能是引用（指针）<br>当你Destroy一个实例时，只是释放那些Clone对象，并不会释放引用对象和Clone的数据源对象，Destroy并不知道是否还有别的object在引用那些对象。<br>等到没有任何 游戏场景物体在用这些Assets以后，这些assets就成了没有引用的游离数据块了，是UnusedAssets了，这时候就可以通过Resources.UnloadUnusedAssets来释放,Destroy不能完成这个任 务，AssetBundle.Unload(false)也不行，AssetBundle.Unload(true)可以但不安全，除非你很清楚没有任何 对象在用这些Assets了。<br>配个图加深理解：</p>
-<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://unity3d.9ria.com/?attachment_id=2926"><img src= "/images/loading.gif" data-lazy-src="http://unity3d.9ria.com/wp-content/uploads/2013/03/15162026-0158e692a60c4c849d482be37465ff58-500x369.jpg" title="15162026-0158e692a60c4c849d482be37465ff58"></a></p>
-<p>Unity3D占用内存太大怎么解决呢?</p>
-<p>虽然都叫Asset，但复制的和引用的是不一样的，这点被Unity的暗黑技术细节掩盖了，需要自己去理解。</p>
-<p>关于内存管理<br>按照传统的编程思维，最好的方法是：自己维护所有对象，用一个Queue来保存所有object,不用时该Destory的，该Unload的自己处理。<br>但这样在C# .net框架底下有点没必要，而且很麻烦。<br>稳妥起见你可以这样管理</p>
-<p>创建时：<br>先建立一个AssetBundle,无论是从www还是文件还是memory<br>用AssetBundle.load加载需要的asset<br>加载完后立即AssetBundle.Unload(false),释放AssetBundle文件本身的内存镜像，但不销毁加载的Asset对象。（这样你不用保存AssetBundle的引用并且可以立即释放一部分内存）<br>释放时：<br>如果有Instantiate的对象，用Destroy进行销毁<br>在合适的地方调用Resources.UnloadUnusedAssets,释放已经没有引用的Asset.<br>如果需要立即释放内存加上GC.Collect()，否则内存未必会立即被释放，有时候可能导致内存占用过多而引发异常。<br>这样可以保证内存始终被及时释放，占用量最少。也不需要对每个加载的对象进行引用。</p>
+  pageType: 'post'
+}</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-color: #f0f0f0;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tamsiree</span></a><a class="nav-page-title" href="/"><span class="site-name">Unity 内存优化</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Unity 内存优化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-28T02:47:20.000Z" title="发表于 2021-12-28 10:47:20">2021-12-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.378Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">8.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>26分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>转载自 ：<a target="_blank" rel="noopener external nofollow noreferrer" href="http://blog.csdn.net/andyhebear/article/details/50977295">Unity3D 内存释放</a></p>
+<p>最近网友通过网站搜索 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/unity3d" title="Unity3D 知识库">Unity3D</a> 在手机及其他平台下占用内存太大. 这里写下关于 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/unity3d" title="Unity3D 知识库">unity3d</a> 对于内存的管理与优化.</p>
+<p>Unity3D 里有两种动态加载机制：一个是 Resources.Load，另外一个通过 AssetBundle, 其实两者区别不大。Resources.Load 就是从一个缺省打进程序包里的 AssetBundle 里加载资源，而一般 AssetBundle 文件需要你自己创建，运行时 动态加载，可以指定路径和来源的。</p>
+<p>其实场景里所有静态的对象也有这么一个加载过程，只是 Unity3D 后台替你自动完成了。</p>
+<p>详细说一下细节概念：<br>AssetBundle 运行时加载:<br>来自文件就用 CreateFromFile(注意这种方法只能用于 standalone 程序）这是最快的加载方法<br>也可以来自 Memory, 用 CreateFromMemory(byte[]), 这个 byte[]可以来自文件读取的缓冲，www 的下载或者其他可能的方式。<br>其实 WWW 的 assetBundle 就是内部数据读取完后自动创建了一个 assetBundle 而已<br>Create 完以后，等于把硬盘或者网络的一个文件读到内存一个区域，这时候只是个 AssetBundle 内存镜像数据块，还没有 Assets 的概念。<br>Assets 加载:<br>用 AssetBundle.Load(同 Resources.Load)这才会从 AssetBundle 的内存镜像里读取并创建一个 Asset 对象，创建 Asset 对象同时也会分配相应内存用于存放(反序列化)<br>异步读取用 AssetBundle.LoadAsync<br>也可以一次读取多个用 AssetBundle.LoadAll<br>AssetBundle 的释放：<br>AssetBundle.Unload(flase)是释放 AssetBundle 文件的内存镜像，不包含 Load 创建的 Asset 内存对象。<br>AssetBundle.Unload(true)是释放那个 AssetBundle 文件内存镜像和并销毁所有用 Load 创建的 Asset 内存对象。</p>
+<p>一个 Prefab 从 assetBundle 里 Load 出来 里面可能包括：Gameobject transform mesh texture material shader script 和各种其他 Assets。<br>你 Instaniate 一个 Prefab，是一个对 Assets 进行 Clone(复制)+ 引用结合的过程，GameObject transform 是 Clone 是新生成的。其他 mesh / texture / material / shader 等，这其中些是纯引用的关系的，包括：Texture 和 TerrainData，还有引用和复制同时存在的，包括：Mesh/material /PhysicMaterial。引用的 Asset 对象不会被复制，只是一个简单的指针指向已经 Load 的 Asset 对象。这种含糊的引用加克隆的混合， 大概是搞糊涂大多数人的主要原因。<br>专门要提一下的是一个特殊的东西：Script Asset，看起来很奇怪，Unity 里每个 Script 都是一个封闭的 Class 定义而已, 并没有写调用代码，光 Class 的定义脚本是不会工作的。其 实 Unity 引擎就是那个调用代码，Clone 一个 script asset 等于 new 一个 class 实例，实例才会完成工作。把他挂到 Unity 主线程的调用链里去，Class 实例里的 OnUpdate OnStart 等才会被执行。多个物体挂同一个脚本，其实就是在多个物体上挂了那个脚本类的多个实例而已，这样就好理解了。在 new class 这个过程中，数据区是复制的，代码区是共享的，算是一种特殊的复制 + 引用关系。<br>你可以再 Instaniate 一个同样的 Prefab, 还是这套 mesh/texture/material/shader…，这时候会有新的 GameObject 等，但是不会创建新的引用对象比如 Texture.<br>所以你 Load 出来的 Assets 其实就是个数据源，用于生成新对象或者被引用，生成的过程可能是复制（clone)也可能是引用（指针）<br>当你 Destroy 一个实例时，只是释放那些 Clone 对象，并不会释放引用对象和 Clone 的数据源对象，Destroy 并不知道是否还有别的 object 在引用那些对象。<br>等到没有任何 游戏场景物体在用这些 Assets 以后，这些 assets 就成了没有引用的游离数据块了，是 UnusedAssets 了，这时候就可以通过 Resources.UnloadUnusedAssets 来释放, Destroy 不能完成这个任 务，AssetBundle.Unload(false)也不行，AssetBundle.Unload(true)可以但不安全，除非你很清楚没有任何 对象在用这些 Assets 了。<br>配个图加深理解：</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://unity3d.9ria.com/?attachment_id=2926"><img src="/images/loading.gif" data-lazy-src="http://unity3d.9ria.com/wp-content/uploads/2013/03/15162026-0158e692a60c4c849d482be37465ff58-500x369.jpg" title="15162026-0158e692a60c4c849d482be37465ff58"></a></p>
+<p>Unity3D 占用内存太大怎么解决呢?</p>
+<p>虽然都叫 Asset，但复制的和引用的是不一样的，这点被 Unity 的暗黑技术细节掩盖了，需要自己去理解。</p>
+<p>关于内存管理<br>按照传统的编程思维，最好的方法是：自己维护所有对象，用一个 Queue 来保存所有 object, 不用时该 Destory 的，该 Unload 的自己处理。<br>但这样在 C# .net 框架底下有点没必要，而且很麻烦。<br>稳妥起见你可以这样管理</p>
+<p>创建时：<br>先建立一个 AssetBundle, 无论是从 www 还是文件还是 memory<br>用 AssetBundle.load 加载需要的 asset<br>加载完后立即 AssetBundle.Unload(false), 释放 AssetBundle 文件本身的内存镜像，但不销毁加载的 Asset 对象。（这样你不用保存 AssetBundle 的引用并且可以立即释放一部分内存）<br>释放时：<br>如果有 Instantiate 的对象，用 Destroy 进行销毁<br>在合适的地方调用 Resources.UnloadUnusedAssets, 释放已经没有引用的 Asset.<br>如果需要立即释放内存加上 GC.Collect()，否则内存未必会立即被释放，有时候可能导致内存占用过多而引发异常。<br>这样可以保证内存始终被及时释放，占用量最少。也不需要对每个加载的对象进行引用。</p>
 <p>当然这并不是唯一的方法，只要遵循加载和释放的原理，任何做法都是可以的。</p>
-<p>系统在加载新场景时，所有的内存对象都会被自动销毁，包括你用AssetBundle.Load加载的对象和Instaniate克隆的。但是不包括AssetBundle文件自身的内存镜像，那个必须要用Unload来释放，用.net的术语，这种数据缓存是非托管的。</p>
-<p>总结一下各种加载和初始化的用法:<br>AssetBundle.CreateFrom…..：创建一个AssetBundle内存镜像，注意同一个assetBundle文件在没有Unload之前不能再次被使用<br><a href="WWW.AssetBundle%EF%BC%9A%E5%90%8C%E4%B8%8A%EF%BC%8C%E5%BD%93%E7%84%B6%E8%A6%81%E5%85%88new%E4%B8%80%E4%B8%AA%E5%86%8D">WWW.AssetBundle：同上，当然要先new一个再</a> yield return 然后才能使用<br>AssetBundle.Load(name)： 从AssetBundle读取一个指定名称的Asset并生成Asset内存对象，如果多次Load同名对象，除第一次外都只会返回已经生成的Asset 对象，也就是说多次Load一个Asset并不会生成多个副本（singleton）。<br>Resources.Load(path&amp;name)：同上,只是从默认的位置加载。<br>Instantiate（object)：Clone 一个object的完整结构，包括其所有Component和子物体（详见官方文档）,浅Copy，并不复制所有引用类型。有个特别用法，虽然很少这样 用，其实可以用Instantiate来完整的拷贝一个引用类型的Asset,比如Texture等，要拷贝的Texture必须类型设置为 Read/Write able。</p>
-<p>总结一下各种释放<br>Destroy: 主要用于销毁克隆对象，也可以用于场景内的静态物体，不会自动释放该对象的所有引用。虽然也可以用于Asset,但是概念不一样要小心，如果用于销毁从文 件加载的Asset对象会销毁相应的资源文件！但是如果销毁的Asset是Copy的或者用脚本动态生成的，只会销毁内存对象。<br>AssetBundle.Unload(false):释放AssetBundle文件内存镜像<br>AssetBundle.Unload(true):释放AssetBundle文件内存镜像同时销毁所有已经Load的Assets内存对象<br>Reources.UnloadAsset(Object):显式的释放已加载的Asset对象，只能卸载磁盘文件加载的Asset对象<br>Resources.UnloadUnusedAssets:用于释放所有没有引用的Asset对象<br>GC.Collect()强制垃圾收集器立即释放内存 Unity的GC功能不算好，没把握的时候就强制调用一下</p>
-<p>在3.5.2之前好像Unity不能显式的释放Asset</p>
-<p>举两个例子帮助理解<br>例子1：<br>一个常见的错误：你从某个AssetBundle里Load了一个prefab并克隆之：obj = Instaniate(AssetBundle1.Load(‘MyPrefab”);<br>这个prefab比如是个npc<br>然后你不需要他的时候你用了：Destroy(obj);你以为就释放干净了<br>其实这时候只是释放了Clone对象，通过Load加载的所有引用、非引用Assets对象全都静静静的躺在内存里。<br>这种情况应该在Destroy以后用：AssetBundle1.Unload(true)，彻底释放干净。<br>如果这个AssetBundle1是要反复读取的 不方便Unload，那可以在Destroy以后用：Resources.UnloadUnusedAssets()把所有和这个npc有关的Asset都销毁。<br>当然如果这个NPC也是要频繁创建 销毁的 那就应该让那些Assets呆在内存里以加速游戏体验。<br>由此可以解释另一个之前有人提过的话题：为什么第一次Instaniate 一个Prefab的时候都会卡一下，因为在你第一次Instaniate之前，相应的Asset对象还没有被创建，要加载系统内置的 AssetBundle并创建Assets,第一次以后你虽然Destroy了，但Prefab的Assets对象都还在内存里，所以就很快了。</p>
-<p>顺便提一下几种加载方式的区别:<br>其实存在3种加载方式：<br>一是静态引用，建一个public的变量，在Inspector里把prefab拉上去，用的时候instantiate<br>二是Resource.Load，Load以后instantiate<br>三是AssetBundle.Load,Load以后instantiate<br>三种方式有细 节差异，前两种方式，引用对象texture是在instantiate时加载，而assetBundle.Load会把perfab的全部assets 都加载，instantiate时只是生成Clone。所以前两种方式，除非你提前加载相关引用对象，否则第一次instantiate时会包含加载引用 assets的操作，导致第一次加载的lag。</p>
-<p>例子2：<br>从磁盘读取一个1.unity3d文件到内存并建立一个AssetBundle1对象<br>AssetBundle AssetBundle1 = AssetBundle.CreateFromFile(“1.unity3d”);<br>从AssetBundle1里读取并创建一个Texture Asset,把obj1的主贴图指向它<br>obj1.renderer.material.mainTexture = AssetBundle1.Load(“wall”) as Texture;<br>把obj2的主贴图也指向同一个Texture Asset<br>obj2.renderer.material.mainTexture =obj1.renderer.material.mainTexture;<br>Texture是引用对象，永远不会有自动复制的情况出现(除非你真需要，用代码自己实现copy)，只会是创建和添加引用<br>如果继续：<br>AssetBundle1.Unload(true) 那obj1和obj2都变成黑的了，因为指向的Texture Asset没了<br>如果：<br>AssetBundle1.Unload(false) 那obj1和obj2不变，只是AssetBundle1的内存镜像释放了<br>继续：<br>Destroy(obj1),//obj1被释放，但并不会释放刚才Load的Texture<br>如果这时候：<br>Resources.UnloadUnusedAssets();<br>不会有任何内存释放 因为Texture asset还被obj2用着<br>如果<br>Destroy(obj2)<br>obj2被释放，但也不会释放刚才Load的Texture<br>继续<br>Resources.UnloadUnusedAssets();<br>这时候刚才load的Texture Asset释放了，因为没有任何引用了<br>最后CG.Collect();<br>强制立即释放内存<br>由此可以引申出论坛里另一个被提了几次的问题，如何加载一堆大图片轮流显示又不爆掉<br>不考虑AssetBundle，直接用www读图片文件的话等于是直接创建了一个Texture Asset<br>假设文件保存在一个List里<br>TLlist<string> fileList;<br>int n=0;<br>IEnumerator OnClick()<br>{<br>WWW image = newwww(fileList[n++])；<br>yield return image;<br>obj.mainTexture = image.texture;</p>
-<p>n = (n&gt;=fileList.Length-1)?0:n;<br>Resources.UnloadUnusedAssets();<br>}<br>这样可以保证内存里始终只有一个巨型Texture Asset资源，也不用代码追踪上一个加载的Texture Asset,但是速度比较慢<br>或者：<br>IEnumerator OnClick()<br>{<br>WWW image = newwww(fileList[n++])；<br>yield return image;<br>Texture tex =obj.mainTexture;<br>obj.mainTexture = image.texture;</p>
+<p>系统在加载新场景时，所有的内存对象都会被自动销毁，包括你用 AssetBundle.Load 加载的对象和 Instaniate 克隆的。但是不包括 AssetBundle 文件自身的内存镜像，那个必须要用 Unload 来释放，用. net 的术语，这种数据缓存是非托管的。</p>
+<p>总结一下各种加载和初始化的用法:<br>AssetBundle.CreateFrom…..：创建一个 AssetBundle 内存镜像，注意同一个 assetBundle 文件在没有 Unload 之前不能再次被使用<br><a href="WWW.AssetBundle%EF%BC%9A%E5%90%8C%E4%B8%8A%EF%BC%8C%E5%BD%93%E7%84%B6%E8%A6%81%E5%85%88">WWW.AssetBundle：同上，当然要先</a> new 一个再 yield return 然后才能使用<br>AssetBundle.Load(name)： 从 AssetBundle 读取一个指定名称的 Asset 并生成 Asset 内存对象，如果多次 Load 同名对象，除第一次外都只会返回已经生成的 Asset 对象，也就是说多次 Load 一个 Asset 并不会生成多个副本（singleton）。<br>Resources.Load(path&amp;name)：同上, 只是从默认的位置加载。<br>Instantiate（object)：Clone 一个 object 的完整结构，包括其所有 Component 和子物体（详见官方文档）, 浅 Copy，并不复制所有引用类型。有个特别用法，虽然很少这样 用，其实可以用 Instantiate 来完整的拷贝一个引用类型的 Asset, 比如 Texture 等，要拷贝的 Texture 必须类型设置为 Read/Write able。</p>
+<p>总结一下各种释放<br>Destroy: 主要用于销毁克隆对象，也可以用于场景内的静态物体，不会自动释放该对象的所有引用。虽然也可以用于 Asset, 但是概念不一样要小心，如果用于销毁从文 件加载的 Asset 对象会销毁相应的资源文件！但是如果销毁的 Asset 是 Copy 的或者用脚本动态生成的，只会销毁内存对象。<br>AssetBundle.Unload(false): 释放 AssetBundle 文件内存镜像<br>AssetBundle.Unload(true): 释放 AssetBundle 文件内存镜像同时销毁所有已经 Load 的 Assets 内存对象<br>Reources.UnloadAsset(Object): 显式的释放已加载的 Asset 对象，只能卸载磁盘文件加载的 Asset 对象<br>Resources.UnloadUnusedAssets: 用于释放所有没有引用的 Asset 对象<br>GC.Collect()强制垃圾收集器立即释放内存 Unity 的 GC 功能不算好，没把握的时候就强制调用一下</p>
+<p>在 3.5.2 之前好像 Unity 不能显式的释放 Asset</p>
+<p>举两个例子帮助理解<br>例子 1：<br>一个常见的错误：你从某个 AssetBundle 里 Load 了一个 prefab 并克隆之：obj = Instaniate(AssetBundle1.Load(‘MyPrefab”);<br>这个 prefab 比如是个 npc<br>然后你不需要他的时候你用了：Destroy(obj); 你以为就释放干净了<br>其实这时候只是释放了 Clone 对象，通过 Load 加载的所有引用、非引用 Assets 对象全都静静静的躺在内存里。<br>这种情况应该在 Destroy 以后用：AssetBundle1.Unload(true)，彻底释放干净。<br>如果这个 AssetBundle1 是要反复读取的 不方便 Unload，那可以在 Destroy 以后用：Resources.UnloadUnusedAssets()把所有和这个 npc 有关的 Asset 都销毁。<br>当然如果这个 NPC 也是要频繁创建 销毁的 那就应该让那些 Assets 呆在内存里以加速游戏体验。<br>由此可以解释另一个之前有人提过的话题：为什么第一次 Instaniate 一个 Prefab 的时候都会卡一下，因为在你第一次 Instaniate 之前，相应的 Asset 对象还没有被创建，要加载系统内置的 AssetBundle 并创建 Assets, 第一次以后你虽然 Destroy 了，但 Prefab 的 Assets 对象都还在内存里，所以就很快了。</p>
+<p>顺便提一下几种加载方式的区别:<br>其实存在 3 种加载方式：<br>一是静态引用，建一个 public 的变量，在 Inspector 里把 prefab 拉上去，用的时候 instantiate<br>二是 Resource.Load，Load 以后 instantiate<br>三是 AssetBundle.Load,Load 以后 instantiate<br>三种方式有细 节差异，前两种方式，引用对象 texture 是在 instantiate 时加载，而 assetBundle.Load 会把 perfab 的全部 assets 都加载，instantiate 时只是生成 Clone。所以前两种方式，除非你提前加载相关引用对象，否则第一次 instantiate 时会包含加载引用 assets 的操作，导致第一次加载的 lag。</p>
+<p>例子 2：<br>从磁盘读取一个 1.unity3d 文件到内存并建立一个 AssetBundle1 对象<br>AssetBundle AssetBundle1 = AssetBundle.CreateFromFile(“1.unity3d”);<br>从 AssetBundle1 里读取并创建一个 Texture Asset, 把 obj1 的主贴图指向它<br>obj1.renderer.material.mainTexture = AssetBundle1.Load(“wall”) as Texture;<br>把 obj2 的主贴图也指向同一个 Texture Asset<br>obj2.renderer.material.mainTexture =obj1.renderer.material.mainTexture;<br>Texture 是引用对象，永远不会有自动复制的情况出现(除非你真需要，用代码自己实现 copy)，只会是创建和添加引用<br>如果继续：<br>AssetBundle1.Unload(true) 那 obj1 和 obj2 都变成黑的了，因为指向的 Texture Asset 没了<br>如果：<br>AssetBundle1.Unload(false) 那 obj1 和 obj2 不变，只是 AssetBundle1 的内存镜像释放了<br>继续：<br>Destroy(obj1),//obj1 被释放，但并不会释放刚才 Load 的 Texture<br>如果这时候：<br>Resources.UnloadUnusedAssets();<br>不会有任何内存释放 因为 Texture asset 还被 obj2 用着<br>如果<br>Destroy(obj2)<br>obj2 被释放，但也不会释放刚才 Load 的 Texture<br>继续<br>Resources.UnloadUnusedAssets();<br>这时候刚才 load 的 Texture Asset 释放了，因为没有任何引用了<br>最后 CG.Collect();<br>强制立即释放内存<br>由此可以引申出论坛里另一个被提了几次的问题，如何加载一堆大图片轮流显示又不爆掉<br>不考虑 AssetBundle，直接用 www 读图片文件的话等于是直接创建了一个 Texture Asset<br>假设文件保存在一个 List 里<br>TLlist<string> fileList;<br>int n=0;<br>IEnumerator OnClick()<br>{<br>WWW image = newwww(fileList[n++])；<br>yield return image;<br>obj.mainTexture = image.texture;</p>
+<p>n = (n&gt;=fileList.Length-1)?0:n;<br>Resources.UnloadUnusedAssets();<br>}<br>这样可以保证内存里始终只有一个巨型 Texture Asset 资源，也不用代码追踪上一个加载的 Texture Asset, 但是速度比较慢<br>或者：<br>IEnumerator OnClick()<br>{<br>WWW image = newwww(fileList[n++])；<br>yield return image;<br>Texture tex =obj.mainTexture;<br>obj.mainTexture = image.texture;</p>
 <p>n = (n&gt;=fileList.Length-1)?0:n;<br>Resources.UnloadAsset(tex);<br>}<br>这样卸载比较快</p>
-<p>Hog的评论引用：</p>
-<p>感觉这是Unity内存管理暗黑和混乱的地方，特别是牵扯到Texture<br>我最近也一直在<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/softwaretest" title="软件测试知识库">测试</a>这些用AssetBundle加载的asset一样可以用Resources.UnloadUnusedAssets卸载，<strong>但必须先AssetBundle.Unload,才会被识别为无用的asset。</strong>比较保险的做法是<br>创建时：<br>先建立一个AssetBundle,无论是从www还是文件还是memory<br>用AssetBundle.load加载需要的asset<br>用完后立即AssetBundle.Unload(false),关闭AssetBundle但不摧毁创建的对象和引用<br>销毁时：<br>对Instantiate的对象进行Destroy<br>在合适的地方调用Resources.UnloadUnusedAssets,释放已经没有引用的Asset.<br>如果需要立即释放加上GC.Collect()<br>这样可以保证内存始终被及时释放<br>只要你Unload过的AssetBundle,那些创建的对象和引用都会在LoadLevel时被自动释放。</p>
-<p><strong>全面理解Unity加载和内存管理机制之二：进一步深入和细节<br>Unity几种动态加载Prefab方式的差异:</strong><br>其实存在3种加载prefab的方式：<br>一是静态引用，建一个public的变量，在Inspector里把prefab拉上去，用的时候instantiate<br>二是Resource.Load，Load以后instantiate<br>三是AssetBundle.Load,Load以后instantiate<br>三种方式有细节差异，前两种方式，引用对象texture是在instantiate时加载，而assetBundle.Load会把perfab的全部 assets都加载，instantiate时只是生成Clone。所以前两种方式，除非你提前加载相关引用对象，否则第一次instantiate时会 包含加载引用类assets的操作，导致第一次加载的lag。<strong>官方论坛有人说Resources.Load和静态引用是会把所有资源都预先加载的，反复测试的结果，静态引用和Resources.Load也是OnDemand的，用到时才会加载。</strong></p>
-<p>几种AssetBundle创建方式的差异:<br>CreateFromFile:这种方式不会把整个硬盘AssetBundle文件都加载到 内存来，而是类似建立一个文件操作句柄和缓冲区，需要时才实时Load，所以这种加载方式是最节省资源的，基本上AssetBundle本身不占什么内 存，只需要Asset对象的内存。可惜只能在PC/Mac Standalone程序中使用。<br>CreateFromMemory和assetBundle:这两种方式AssetBundle文件会整个镜像于内存中，理论上文件多大就需要多大的内存，之后Load时还要占用额外内存去生成Asset对象。</p>
-<p><strong>什么时候才是UnusedAssets?</strong><br>看一个例子：<br>Object obj = Resources.Load(“MyPrefab”);<br>GameObject instance = Instantiate(obj) as GameObject;<br>………<br>Destroy(instance);<br>创建随后销毁了一个Prefab实例，这时候 MyPrefab已经没有被实际的物体引用了，但如果这时：<br>Resources.UnloadUnusedAssets();<br>内存并没有被释放，原因：MyPrefab还被这个变量obj所引用<br>这时候：<br>obj  = null;<br>Resources.UnloadUnusedAssets();<br>这样才能真正释放Assets对象<br>所以：UnusedAssets不但要没有被实际物体引用，也要没有被生命周期内的变量所引用，才可以理解为 Unused(引用计数为0)<br>所以所以：如果你用个全局变量保存你Load的Assets，又没有显式的设为null，那 在这个变量失效前你无论如何UnloadUnusedAssets也释放不了那些Assets的。如果你这些Assets又不是从磁盘加载的，那除了 UnloadUnusedAssets或者加载新场景以外没有其他方式可以卸载之。</p>
-<p><strong>一个复杂的例子，代码很丑陋实际也不可能这样做，只是为了加深理解</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IEnumerator <span class="title">OnClick</span>()</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();<span class="comment">//清干净以免影响测试效果</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">3</span></span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">float</span> wait = <span class="number">0.5f</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用www读取一个assetBundle,里面是一个Unity基本球体和带一张大贴图的材质，是一个Prefab</span></span><br><span class="line"></span><br><span class="line">WWW aa = <span class="keyword">new</span> WWW(<span class="string">@&quot;file://SpherePrefab.unity3d&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">yield</span> <span class="keyword">return</span> aa;</span><br><span class="line"></span><br><span class="line">AssetBundle asset = aa.assetBundle;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;<span class="comment">//每步都等待0.5s以便于分析结果</span></span><br><span class="line"></span><br><span class="line">Texture tt = asset.Load(<span class="string">&quot;BallTexture&quot;</span>) <span class="keyword">as</span> Texture;<span class="comment">//加载贴图</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">GameObject ba = asset.Load(<span class="string">&quot;SpherePrefab&quot;</span>) <span class="keyword">as</span> GameObject;<span class="comment">//加载Prefab</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">GameObject obj1 = Instantiate(ba) <span class="keyword">as</span> GameObject;<span class="comment">//生成实例</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">Destroy(obj1);<span class="comment">//销毁实例</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">asset.Unload(<span class="literal">false</span>);<span class="comment">//卸载Assetbundle</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();<span class="comment">//卸载无用资源</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">ba = <span class="literal">null</span>;<span class="comment">//将prefab引用置为空以后卸无用载资源</span></span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">tt = <span class="literal">null</span>;<span class="comment">//将texture引用置为空以后卸载无用资源</span></span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Hog 的评论引用：</p>
+<p>感觉这是 Unity 内存管理暗黑和混乱的地方，特别是牵扯到 Texture<br>我最近也一直在 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/softwaretest" title="软件测试知识库">测试</a> 这些用 AssetBundle 加载的 asset 一样可以用 Resources.UnloadUnusedAssets 卸载，** 但必须先 AssetBundle.Unload, 才会被识别为无用的 asset。** 比较保险的做法是<br>创建时：<br>先建立一个 AssetBundle, 无论是从 www 还是文件还是 memory<br>用 AssetBundle.load 加载需要的 asset<br>用完后立即 AssetBundle.Unload(false), 关闭 AssetBundle 但不摧毁创建的对象和引用<br>销毁时：<br>对 Instantiate 的对象进行 Destroy<br>在合适的地方调用 Resources.UnloadUnusedAssets, 释放已经没有引用的 Asset.<br>如果需要立即释放加上 GC.Collect()<br>这样可以保证内存始终被及时释放<br>只要你 Unload 过的 AssetBundle, 那些创建的对象和引用都会在 LoadLevel 时被自动释放。</p>
+<p>** 全面理解 Unity 加载和内存管理机制之二：进一步深入和细节<br>Unity 几种动态加载 Prefab 方式的差异:**<br>其实存在 3 种加载 prefab 的方式：<br>一是静态引用，建一个 public 的变量，在 Inspector 里把 prefab 拉上去，用的时候 instantiate<br>二是 Resource.Load，Load 以后 instantiate<br>三是 AssetBundle.Load,Load 以后 instantiate<br>三种方式有细节差异，前两种方式，引用对象 texture 是在 instantiate 时加载，而 assetBundle.Load 会把 perfab 的全部 assets 都加载，instantiate 时只是生成 Clone。所以前两种方式，除非你提前加载相关引用对象，否则第一次 instantiate 时会 包含加载引用类 assets 的操作，导致第一次加载的 lag。** 官方论坛有人说 Resources.Load 和静态引用是会把所有资源都预先加载的，反复测试的结果，静态引用和 Resources.Load 也是 OnDemand 的，用到时才会加载。**</p>
+<p>几种 AssetBundle 创建方式的差异:<br>CreateFromFile: 这种方式不会把整个硬盘 AssetBundle 文件都加载到 内存来，而是类似建立一个文件操作句柄和缓冲区，需要时才实时 Load，所以这种加载方式是最节省资源的，基本上 AssetBundle 本身不占什么内 存，只需要 Asset 对象的内存。可惜只能在 PC/Mac Standalone 程序中使用。<br>CreateFromMemory 和 assetBundle: 这两种方式 AssetBundle 文件会整个镜像于内存中，理论上文件多大就需要多大的内存，之后 Load 时还要占用额外内存去生成 Asset 对象。</p>
+<p>** 什么时候才是 UnusedAssets?**<br>看一个例子：<br>Object obj = Resources.Load(“MyPrefab”);<br>GameObject instance = Instantiate(obj) as GameObject;<br>………<br>Destroy(instance);<br>创建随后销毁了一个 Prefab 实例，这时候 MyPrefab 已经没有被实际的物体引用了，但如果这时：<br>Resources.UnloadUnusedAssets();<br>内存并没有被释放，原因：MyPrefab 还被这个变量 obj 所引用<br>这时候：<br>obj  = null;<br>Resources.UnloadUnusedAssets();<br>这样才能真正释放 Assets 对象<br>所以：UnusedAssets 不但要没有被实际物体引用，也要没有被生命周期内的变量所引用，才可以理解为 Unused(引用计数为 0)<br>所以所以：如果你用个全局变量保存你 Load 的 Assets，又没有显式的设为 null，那 在这个变量失效前你无论如何 UnloadUnusedAssets 也释放不了那些 Assets 的。如果你这些 Assets 又不是从磁盘加载的，那除了 UnloadUnusedAssets 或者加载新场景以外没有其他方式可以卸载之。</p>
+<p>** 一个复杂的例子，代码很丑陋实际也不可能这样做，只是为了加深理解 **</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IEnumerator <span class="title">OnClick</span>()</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();<span class="comment">// 清干净以免影响测试效果</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">3</span></span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">float</span> wait = <span class="number">0.5f</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用 www 读取一个 assetBundle, 里面是一个 Unity 基本球体和带一张大贴图的材质，是一个 Prefab</span></span><br><span class="line"></span><br><span class="line">WWW aa = <span class="keyword">new</span> WWW(<span class="string">@&quot;file://SpherePrefab.unity3d&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">yield</span> <span class="keyword">return</span> aa;</span><br><span class="line"></span><br><span class="line">AssetBundle asset = aa.assetBundle;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;<span class="comment">// 每步都等待 0.5s 以便于分析结果</span></span><br><span class="line"></span><br><span class="line">Texture tt = asset.Load(<span class="string">&quot;BallTexture&quot;</span>) <span class="keyword">as</span> Texture;<span class="comment">// 加载贴图</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">GameObject ba = asset.Load(<span class="string">&quot;SpherePrefab&quot;</span>) <span class="keyword">as</span> GameObject;<span class="comment">// 加载 Prefab</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">GameObject obj1 = Instantiate(ba) <span class="keyword">as</span> GameObject;<span class="comment">// 生成实例</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">Destroy(obj1);<span class="comment">// 销毁实例</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">asset.Unload(<span class="literal">false</span>);<span class="comment">// 卸载 Assetbundle</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();<span class="comment">// 卸载无用资源</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">ba = <span class="literal">null</span>;<span class="comment">// 将 prefab 引用置为空以后卸无用载资源</span></span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">wait</span>)</span>;</span><br><span class="line"></span><br><span class="line">tt = <span class="literal">null</span>;<span class="comment">// 将 texture 引用置为空以后卸载无用资源</span></span><br><span class="line"></span><br><span class="line">Resources.UnloadUnusedAssets();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这是测试结果的内存Profile曲线图</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://images0.cnblogs.com/blog/90192/201303/15162118-7ab062b3a24f4b43b65bb64788429100.jpg"></p>
-<p>Unity3D占用内存太大怎么解决呢?</p>
-<p>图片:p12.jpg</p>
+<p>这是测试结果的内存 Profile 曲线图</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://images0.cnblogs.com/blog/90192/201303/15162118-7ab062b3a24f4b43b65bb64788429100.jpg"></p>
+<p>Unity3D 占用内存太大怎么解决呢?</p>
+<p>图片: p12.jpg</p>
 <p>很经典的对称造型，用多少释放多少。</p>
 <p>这是各阶段的内存和其他数据变化</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://images0.cnblogs.com/blog/90192/201303/15162200-b403e1fc94a841b094c9fc5d0a588a5f.jpg"></p>
-<p>说明:<br>1        初始状态<br>2        载入AssetBundle文件后，内存多了文件镜像，用量上升，Total Object和Assets增加1（AssetBundle也是object)<br>3        载入Texture后，内存继续上升，因为多了Texture Asset,Total Objects和Assets增加1<br>4        载入Prefab后，内存无明显变化，因为最占内存的Texture已经加载，Materials上升是因为多了Prefab的材质，Total Objects和Assets增加6，因为 Perfab 包含很多 Components<br>5        实例化Prefab以后，显存的Texture Memory、GameObjectTotal、Objects in Scene上升，都是因为实例化了一个可视的对象<br>6        销毁实例后，上一步的变化还原，很好理解<br>7        卸载AssetBundle文件后，AssetBundle文件镜像占用的内存被释放，相应的Assets和Total Objects Count也减1<br>8        直接Resources.UnloadUnusedAssets,没有任何变化，因为所有Assets引用并没有清空<br>9        把Prefab引用变量设为null以后，整个Prefab除了Texture外都没有任何引用了，所以被UnloadUnusedAssets销毁,Assets和Total Objects Count减6<br>10        再把Texture的引用变量设为null,之后也被UnloadUnusedAssets销毁，内存被释放，assets和Total Objects Count减1，基本还原到初始状态</p>
-<p>从中也可以看出：<br><strong>Texture加载以后是到内存，显示的时候才进入显存的Texture Memory。<br><strong>所有的东西基础都是Object<br>Load的是Asset,Instantiate的是GameObject和Object in Scene<br>Load的Asset要Unload,new的或者Instantiate的object可以Destroy</strong></strong></p>
-<h2 id="Unity-3D中的内存管理"><a href="#Unity-3D中的内存管理" class="headerlink" title="Unity 3D中的内存管理"></a>Unity 3D中的内存管理</h2><p>Unity3D在内存占用上一直被人诟病，特别是对于面向移动设备的游戏开发，动辄内存占用飙上一两百兆，导致内存资源耗尽，从而被系统强退造成极 差的体验。类似这种情况并不少见，但是绝大部分都是可以避免的。虽然理论上Unity的内存管理系统应当为开发者分忧解难，让大家投身到更有意义的事情中 去，但是对于Unity对内存的管理方式，官方文档中并没有太多的说明，基本需要依靠自己摸索。最近在接手的项目中存在严重的内存问题，在参照文档和 Unity Answer众多猜测和证实之后，稍微总结了下Unity中的内存的分配和管理的基本方式，在此共享。</p>
-<p>虽然Unity标榜自己的内存使用全都是“Managed Memory”，但是事实上你必须正确地使用内存，以保证回收机制正确运行。如果没有做应当做的事情，那么场景和代码很有可能造成很多非必要内存的占用， 这也是很多Unity开发者抱怨内存占用太大的原因。接下来我会介绍Unity使用内存的种类，以及相应每个种类的优化和使用的技巧。遵循使用原则，可以 让非必要资源尽快得到释放，从而降低内存占用。</p>
-<h3 id="Unity中的内存种类"><a href="#Unity中的内存种类" class="headerlink" title="Unity中的内存种类"></a>Unity中的内存种类</h3><p>实际上Unity游戏使用的内存一共有三种：程序代码、托管堆（Managed Heap）以及本机堆（Native Heap）。</p>
-<p>程序代码包括了所有的Unity引擎，使用的库，以及你所写的所有的游戏代码。在编译后，得到的运行文件将会被加载到设备中执行，并占用一定内存。</p>
-<p>这部分内存实际上是没有办法去“管理”的，它们将在内存中从一开始到最后一直存在。一个空的Unity默认场景，什么代码都不放，在<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/ios" title="iOS知识库">iOS</a>设备上占 用内存应该在17MB左右，而加上一些自己的代码很容易就飙到20MB左右。想要减少这部分内存的使用，能做的就是减少使用的库，稍后再说。</p>
-<p>托管堆是被Mono使用的一部分内存。Mono项目一个开源的.net框架的一种实现，对于Unity开发，其实充当了基本类库的角色。</p>
-<p>托管堆用来存放类的实例（比如用new生成的列表，实例中的各种声明的变量等）。“托管”的意思是Mono“应该”自动地改变堆的大小来适应你所需要的内存，</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://images0.cnblogs.com/blog/90192/201303/15162200-b403e1fc94a841b094c9fc5d0a588a5f.jpg"></p>
+<p>说明:<br>1        初始状态<br>2        载入 AssetBundle 文件后，内存多了文件镜像，用量上升，Total Object 和 Assets 增加 1（AssetBundle 也是 object)<br>3        载入 Texture 后，内存继续上升，因为多了 Texture Asset,Total Objects 和 Assets 增加 1<br>4        载入 Prefab 后，内存无明显变化，因为最占内存的 Texture 已经加载，Materials 上升是因为多了 Prefab 的材质，Total Objects 和 Assets 增加 6，因为 Perfab 包含很多 Components<br>5        实例化 Prefab 以后，显存的 Texture Memory、GameObjectTotal、Objects in Scene 上升，都是因为实例化了一个可视的对象<br>6        销毁实例后，上一步的变化还原，很好理解<br>7        卸载 AssetBundle 文件后，AssetBundle 文件镜像占用的内存被释放，相应的 Assets 和 Total Objects Count 也减 1<br>8        直接 Resources.UnloadUnusedAssets, 没有任何变化，因为所有 Assets 引用并没有清空<br>9        把 Prefab 引用变量设为 null 以后，整个 Prefab 除了 Texture 外都没有任何引用了，所以被 UnloadUnusedAssets 销毁, Assets 和 Total Objects Count 减 6<br>10        再把 Texture 的引用变量设为 null, 之后也被 UnloadUnusedAssets 销毁，内存被释放，assets 和 Total Objects Count 减 1，基本还原到初始状态</p>
+<p>从中也可以看出：<br><strong>Texture 加载以后是到内存，显示的时候才进入显存的 Texture Memory。<br>** 所有的东西基础都是 Object<br>Load 的是 Asset,Instantiate 的是 GameObject 和 Object in Scene<br>Load 的 Asset 要 Unload,new 的或者 Instantiate 的 object 可以 Destroy</strong>**</p>
+<h2 id="Unity-3D-中的内存管理"><a href="#Unity-3D-中的内存管理" class="headerlink" title="Unity 3D 中的内存管理"></a>Unity 3D 中的内存管理</h2><p>Unity3D 在内存占用上一直被人诟病，特别是对于面向移动设备的游戏开发，动辄内存占用飙上一两百兆，导致内存资源耗尽，从而被系统强退造成极 差的体验。类似这种情况并不少见，但是绝大部分都是可以避免的。虽然理论上 Unity 的内存管理系统应当为开发者分忧解难，让大家投身到更有意义的事情中 去，但是对于 Unity 对内存的管理方式，官方文档中并没有太多的说明，基本需要依靠自己摸索。最近在接手的项目中存在严重的内存问题，在参照文档和 Unity Answer 众多猜测和证实之后，稍微总结了下 Unity 中的内存的分配和管理的基本方式，在此共享。</p>
+<p>虽然 Unity 标榜自己的内存使用全都是“Managed Memory”，但是事实上你必须正确地使用内存，以保证回收机制正确运行。如果没有做应当做的事情，那么场景和代码很有可能造成很多非必要内存的占用， 这也是很多 Unity 开发者抱怨内存占用太大的原因。接下来我会介绍 Unity 使用内存的种类，以及相应每个种类的优化和使用的技巧。遵循使用原则，可以 让非必要资源尽快得到释放，从而降低内存占用。</p>
+<h3 id="Unity-中的内存种类"><a href="#Unity-中的内存种类" class="headerlink" title="Unity 中的内存种类"></a>Unity 中的内存种类</h3><p>实际上 Unity 游戏使用的内存一共有三种：程序代码、托管堆（Managed Heap）以及本机堆（Native Heap）。</p>
+<p>程序代码包括了所有的 Unity 引擎，使用的库，以及你所写的所有的游戏代码。在编译后，得到的运行文件将会被加载到设备中执行，并占用一定内存。</p>
+<p>这部分内存实际上是没有办法去 “管理” 的，它们将在内存中从一开始到最后一直存在。一个空的 Unity 默认场景，什么代码都不放，在 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/ios" title="iOS 知识库">iOS</a> 设备上占 用内存应该在 17MB 左右，而加上一些自己的代码很容易就飙到 20MB 左右。想要减少这部分内存的使用，能做的就是减少使用的库，稍后再说。</p>
+<p>托管堆是被 Mono 使用的一部分内存。Mono 项目一个开源的. net 框架的一种实现，对于 Unity 开发，其实充当了基本类库的角色。</p>
+<p>托管堆用来存放类的实例（比如用 new 生成的列表，实例中的各种声明的变量等）。“托管”的意思是 Mono“应该”自动地改变堆的大小来适应你所需要的内存，</p>
 <p>并且定时地使用垃圾回收（Garbage Collect）来释放已经不需要的内存。关键在于，有时候你会忘记清除对已经不需要再使用的内存的引用，</p>
-<p>从而导致Mono认为这块内存一直有用，而无法回收。</p>
-<p>最后，本机堆是Unity引擎进行申请和操作的地方，比如贴图，音效，关卡数据等。Unity使用了自己的一套内存管理机制来使这块内存具有和托管堆类似的功能。</p>
+<p>从而导致 Mono 认为这块内存一直有用，而无法回收。</p>
+<p>最后，本机堆是 Unity 引擎进行申请和操作的地方，比如贴图，音效，关卡数据等。Unity 使用了自己的一套内存管理机制来使这块内存具有和托管堆类似的功能。</p>
 <p>基本理念是，如果在这个关卡里需要某个资源，那么在需要时就加载，之后在没有任何引用时进行卸载。听起来很美好也和托管堆一样，</p>
-<p>但是由于Unity有一套自动加载和卸载资源的机制，让两者变得差别很大。自动加载资源可以为开发者省不少事儿，</p>
+<p>但是由于 Unity 有一套自动加载和卸载资源的机制，让两者变得差别很大。自动加载资源可以为开发者省不少事儿，</p>
 <p>但是同时也意味着开发者失去了手动管理所有加载资源的权力，这非常容易导致大量的内存占用（贴图什么的你懂的），</p>
-<p>也是Unity给人留下“吃内存”印象的罪魁祸首。</p>
+<p>也是 Unity 给人留下 “吃内存” 印象的罪魁祸首。</p>
 <hr>
-<h3 id="优化程序代码的内存占用"><a href="#优化程序代码的内存占用" class="headerlink" title="优化程序代码的内存占用"></a>优化程序代码的内存占用</h3><p>这部分的优化相对简单，因为能做的事情并不多：主要就是减少打包时的引用库，改一改build设置即可。</p>
+<h3 id="优化程序代码的内存占用"><a href="#优化程序代码的内存占用" class="headerlink" title="优化程序代码的内存占用"></a>优化程序代码的内存占用</h3><p>这部分的优化相对简单，因为能做的事情并不多：主要就是减少打包时的引用库，改一改 build 设置即可。</p>
 <p>对于一个新项目来说不会有太大问题，但是如果是已经存在的项目，可能改变会导致原来所需要的库的缺失（虽说一般来说这种可能性不大），</p>
 <p>因此有可能无法做到最优。</p>
-<p>当使用Unity开发时，默认的Mono包含库可以说大部分用不上，在Player Setting（Edit-&gt;Project Setting-&gt;Player或者Shift+Ctrl(Command)+B里的Player Setting按钮）</p>
-<p>面板里，将最下方的Optimization栏目中“Api Compatibility Level”选为.NET 2.0 Subset，表示你只会使用到部分的.NET 2.0 Subset，不需要Unity将全部.NET的Api包含进去。接下来的“Stripping Level”表示从build的库中剥离的力度，每一个剥离选项都将从打包好的库中去掉一部分内容。你需要保证你的代码没有用到这部分被剥离的功能，</p>
-<p>选为“Use micro mscorlib”的话将使用最小的库（一般来说也没啥问题，不行的话可以试试之前的两个）。库剥离可以极大地降低打包后的程序的尺寸以及程序代码的内存占用，唯一的缺点是这个功能只支持Pro版的Unity。</p>
-<p>这部分优化的力度需要根据代码所用到的.NET的功能来进行调整，有可能不能使用Subset或者最大的剥离力度。</p>
-<p>如果超出了限度，很可能会在需要该功能时因为找不到相应的库而crash掉（<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/ios" title="iOS知识库">ios</a>的话很可能在Xcode编译时就报错了）。</p>
+<p>当使用 Unity 开发时，默认的 Mono 包含库可以说大部分用不上，在 Player Setting（Edit-&gt;Project Setting-&gt;Player 或者 Shift+Ctrl(Command)+B 里的 Player Setting 按钮）</p>
+<p>面板里，将最下方的 Optimization 栏目中 “Api Compatibility Level” 选为. NET 2.0 Subset，表示你只会使用到部分的. NET 2.0 Subset，不需要 Unity 将全部. NET 的 Api 包含进去。接下来的 “Stripping Level” 表示从 build 的库中剥离的力度，每一个剥离选项都将从打包好的库中去掉一部分内容。你需要保证你的代码没有用到这部分被剥离的功能，</p>
+<p>选为 “Use micro mscorlib” 的话将使用最小的库（一般来说也没啥问题，不行的话可以试试之前的两个）。库剥离可以极大地降低打包后的程序的尺寸以及程序代码的内存占用，唯一的缺点是这个功能只支持 Pro 版的 Unity。</p>
+<p>这部分优化的力度需要根据代码所用到的. NET 的功能来进行调整，有可能不能使用 Subset 或者最大的剥离力度。</p>
+<p>如果超出了限度，很可能会在需要该功能时因为找不到相应的库而 crash 掉（<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/ios" title="iOS 知识库">ios</a>的话很可能在 Xcode 编译时就报错了）。</p>
 <p>比较好地解决方案是仍然用最强的剥离，并辅以较小的第三方的类库来完成所需功能。</p>
-<p>一个最常见问题是最大剥离时Sysytem.Xml是不被Subset和micro支持的，如果只是为了xml，完全可以导入一个轻量级的xml库来解决依赖（Unity官方推荐这个）。</p>
-<p>关于每个设定对应支持的库的详细列表，可以在这里找到。关于每个剥离级别到底做了什么，Unity的文档也有说明。</p>
+<p>一个最常见问题是最大剥离时 Sysytem.Xml 是不被 Subset 和 micro 支持的，如果只是为了 xml，完全可以导入一个轻量级的 xml 库来解决依赖（Unity 官方推荐这个）。</p>
+<p>关于每个设定对应支持的库的详细列表，可以在这里找到。关于每个剥离级别到底做了什么，Unity 的文档也有说明。</p>
 <p>实际上，在游戏开发中绝大多数被剥离的功能使用不上的，因此不管如何，库剥离的优化方法都值得一试。</p>
 <hr>
-<h3 id="托管堆优化"><a href="#托管堆优化" class="headerlink" title="托管堆优化"></a>托管堆优化</h3><p>Unity有一篇不错的关于托管堆代码如何写比较好的说明，在此基础上我个人有一些补充。</p>
-<p>首先需要明确，托管堆中存储的是你在你的代码中申请的内存（不论是用<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/javascript" title="JavaScript知识库">js</a>，C#还是Boo写的）。</p>
-<p>一般来说，无非是new或者Instantiate两种生成object的方法（事实上Instantiate中也是调用了new）。</p>
-<p>在接收到alloc请求后，托管堆在其上为要新生成的对象实例以及其实例变量分配内存，如果可用空间不足，则向系统申请更多空间。</p>
-<p>当你使用完一个实例对象之后，通常来说在脚本中就不会再有对该对象的引用了（这包括将变量设置为null或其他引用，超出了变量的作用域，</p>
-<p>或者对Unity对象发送Destory()）。在每隔一段时间，Mono的垃圾回收机制将检测内存，将没有再被引用的内存释放回收。总的来说，</p>
+<h3 id="托管堆优化"><a href="#托管堆优化" class="headerlink" title="托管堆优化"></a>托管堆优化</h3><p>Unity 有一篇不错的关于托管堆代码如何写比较好的说明，在此基础上我个人有一些补充。</p>
+<p>首先需要明确，托管堆中存储的是你在你的代码中申请的内存（不论是用<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/javascript" title="JavaScript 知识库">js</a>，C# 还是 Boo 写的）。</p>
+<p>一般来说，无非是 new 或者 Instantiate 两种生成 object 的方法（事实上 Instantiate 中也是调用了 new）。</p>
+<p>在接收到 alloc 请求后，托管堆在其上为要新生成的对象实例以及其实例变量分配内存，如果可用空间不足，则向系统申请更多空间。</p>
+<p>当你使用完一个实例对象之后，通常来说在脚本中就不会再有对该对象的引用了（这包括将变量设置为 null 或其他引用，超出了变量的作用域，</p>
+<p>或者对 Unity 对象发送 Destory()）。在每隔一段时间，Mono 的垃圾回收机制将检测内存，将没有再被引用的内存释放回收。总的来说，</p>
 <p>你要做的就是在尽可能早的时间将不需要的引用去除掉，这样回收机制才能正确地把不需要的内存清理出来。但是需要注意在内存清理时有可能造成游戏的短时间卡顿，</p>
 <p>这将会很影响游戏体验，因此如果有大量的内存回收工作要进行的话，需要尽量选择合适的时间。</p>
-<p>如果在你的游戏里，有特别多的类似实例，并需要对它们经常发送Destroy()的话，游戏性能上会相当难看。比如小熊推金币中的金币实例，按理说每枚金币落下台子后</p>
-<p>都需要对其Destory()，然后新的金币进入台子时又需要Instantiate，这对性能是极大的浪费。一种通常的做法是在不需要时，不摧毁这个GameObject，而只是隐藏它，</p>
+<p>如果在你的游戏里，有特别多的类似实例，并需要对它们经常发送 Destroy()的话，游戏性能上会相当难看。比如小熊推金币中的金币实例，按理说每枚金币落下台子后</p>
+<p>都需要对其 Destory()，然后新的金币进入台子时又需要 Instantiate，这对性能是极大的浪费。一种通常的做法是在不需要时，不摧毁这个 GameObject，而只是隐藏它，</p>
 <p>并将其放入一个重用数组中。之后需要时，再从重用数组中找到可用的实例并显示。这将极大地改善游戏的性能，相应的代价是消耗部分内存，一般来说这是可以接受的。</p>
-<p>关于对象重用，可以参考Unity关于内存方面的文档中Reusable Object Pools部分，或者Prime31有一个是用Linq来建立重用池的视频教程（Youtube，需要FQ，上，下）。</p>
-<p>如果不是必要，应该在游戏进行的过程中尽量减少对GameObject的Instantiate()和Destroy()调用，因为对计算资源会有很大消耗。在便携设备上短时间大量生成和摧毁物体的</p>
-<p>话，很容易造成瞬时卡顿。如果内存没有问题的话，尽量选择先将他们收集起来，然后在合适的时候（比如按暂停键或者是关卡切换），将它们批量地销毁并 且回收内存。Mono的内存回收会在后台自动进行，系统会选择合适的时间进行垃圾回收。在合适的时候，也可以手动地调用 System.GC.Collect()来建议系统进行一次垃圾回收。</p>
+<p>关于对象重用，可以参考 Unity 关于内存方面的文档中 Reusable Object Pools 部分，或者 Prime31 有一个是用 Linq 来建立重用池的视频教程（Youtube，需要 FQ，上，下）。</p>
+<p>如果不是必要，应该在游戏进行的过程中尽量减少对 GameObject 的 Instantiate()和 Destroy()调用，因为对计算资源会有很大消耗。在便携设备上短时间大量生成和摧毁物体的</p>
+<p>话，很容易造成瞬时卡顿。如果内存没有问题的话，尽量选择先将他们收集起来，然后在合适的时候（比如按暂停键或者是关卡切换），将它们批量地销毁并 且回收内存。Mono 的内存回收会在后台自动进行，系统会选择合适的时间进行垃圾回收。在合适的时候，也可以手动地调用 System.GC.Collect()来建议系统进行一次垃圾回收。</p>
 <p>要注意的是这里的调用真的仅仅只是建议，可能系统会在一段时间后在进行回收，也可能完全不理会这条请求，不过在大部分时间里，这个调用还是靠谱的。</p>
 <hr>
-<h3 id="本机堆的优化"><a href="#本机堆的优化" class="headerlink" title="本机堆的优化"></a>本机堆的优化</h3><p>当你加载完成一个Unity的scene的时候，scene中的所有用到的asset（包括Hierarchy中所有GameObject上以及脚本中赋值了的的材质，贴图，动画，声音等素材），</p>
-<p>都会被自动加载（这正是Unity的<a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/aiplanning" title="人工智能规划与决策知识库">智能</a>之处）。也就是说，当关卡呈现在用户面前的时候，所有Unity编辑器能认识的本关卡的资源都已经被预先加 入内存了，这样在本关卡中，用户将有良好的体验，不论是更换贴图，声音，还是播放动画时，都不会有额外的加载，这样的代价是内存占用将变多。Unity最 初的设计目的还是面向台式机，</p>
-<p>几乎无限的内存和虚拟内存使得这样的占用似乎不是问题，但是这样的内存策略在之后移动平台的兴起和大量移动设备游戏的制作中出现了弊端，因为移动设 备能使用的资源始终非常有限。因此在面向移动设备游戏的制作时，尽量减少在Hierarchy对资源的直接引用，而是使用Resource.Load的方 法，在需要的时候从硬盘中读取资源，</p>
-<p>在使用后用Resource.UnloadAsset()和Resources.UnloadUnusedAssets()尽快将其卸载掉。总之，这里是一个处理时间和占用内存空间的trade off，</p>
+<h3 id="本机堆的优化"><a href="#本机堆的优化" class="headerlink" title="本机堆的优化"></a>本机堆的优化</h3><p>当你加载完成一个 Unity 的 scene 的时候，scene 中的所有用到的 asset（包括 Hierarchy 中所有 GameObject 上以及脚本中赋值了的的材质，贴图，动画，声音等素材），</p>
+<p>都会被自动加载（这正是 Unity 的 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://lib.csdn.net/base/aiplanning" title="人工智能规划与决策知识库">智能</a> 之处）。也就是说，当关卡呈现在用户面前的时候，所有 Unity 编辑器能认识的本关卡的资源都已经被预先加 入内存了，这样在本关卡中，用户将有良好的体验，不论是更换贴图，声音，还是播放动画时，都不会有额外的加载，这样的代价是内存占用将变多。Unity 最 初的设计目的还是面向台式机，</p>
+<p>几乎无限的内存和虚拟内存使得这样的占用似乎不是问题，但是这样的内存策略在之后移动平台的兴起和大量移动设备游戏的制作中出现了弊端，因为移动设 备能使用的资源始终非常有限。因此在面向移动设备游戏的制作时，尽量减少在 Hierarchy 对资源的直接引用，而是使用 Resource.Load 的方 法，在需要的时候从硬盘中读取资源，</p>
+<p>在使用后用 Resource.UnloadAsset()和 Resources.UnloadUnusedAssets()尽快将其卸载掉。总之，这里是一个处理时间和占用内存空间的 trade off，</p>
 <p>如何达到最好的效果没有标准答案，需要自己权衡。</p>
-<p>在关卡结束的时候，这个关卡中所使用的所有资源将会被卸载掉（除非被标记了DontDestroyOnLoad）的资源。注意不仅是DontDestroyOnLoad的资源本身，</p>
-<p>其相关的所有资源在关卡切换时都不会被卸载。DontDestroyOnLoad一般被用来在关卡之间保存一些玩家的状态，比如分数，级别等偏向文 本的信息。如果DontDestroyOnLoad了一个包含很多资源（比如大量贴图或者声音等大内存占用的东西）的话，这部分资源在场景切换时无法卸 载，将一直占用内存，</p>
+<p>在关卡结束的时候，这个关卡中所使用的所有资源将会被卸载掉（除非被标记了 DontDestroyOnLoad）的资源。注意不仅是 DontDestroyOnLoad 的资源本身，</p>
+<p>其相关的所有资源在关卡切换时都不会被卸载。DontDestroyOnLoad 一般被用来在关卡之间保存一些玩家的状态，比如分数，级别等偏向文 本的信息。如果 DontDestroyOnLoad 了一个包含很多资源（比如大量贴图或者声音等大内存占用的东西）的话，这部分资源在场景切换时无法卸 载，将一直占用内存，</p>
 <p>这种情况应该尽量避免。</p>
-<p>另外一种需要注意的情况是脚本中对资源的引用。大部分脚本将在场景转换时随之失效并被回收，但是，在场景之间被保持的脚本不在此列（通常情况是被附 着在DontDestroyOnLoad的GameObject上了）。而这些脚本很可能含有对其他物体的Component或者资源的引用，这样相关的 资源就都得不到释放，</p>
-<p>这绝对是不想要的情况。另外，static的单例（singleton）在场景切换时也不会被摧毁，同样地，如果这种单例含有大量的对资源的引用，也会成为大问题。</p>
-<p>因此，尽量减少代码的耦合和对其他脚本的依赖是十分有必要的。如果确实无法避免这种情况，那应当手动地对这些不再使用的引用对象调用Destroy()</p>
-<p>或者将其设置为null。这样在垃圾回收的时候，这些内存将被认为已经无用而被回收。</p>
-<p>需要注意的是，Unity在一个场景开始时，根据场景构成和引用关系所自动读取的资源，只有在读取一个新的场景或者reset当前场景时，才会得到清理。</p>
+<p>另外一种需要注意的情况是脚本中对资源的引用。大部分脚本将在场景转换时随之失效并被回收，但是，在场景之间被保持的脚本不在此列（通常情况是被附 着在 DontDestroyOnLoad 的 GameObject 上了）。而这些脚本很可能含有对其他物体的 Component 或者资源的引用，这样相关的 资源就都得不到释放，</p>
+<p>这绝对是不想要的情况。另外，static 的单例（singleton）在场景切换时也不会被摧毁，同样地，如果这种单例含有大量的对资源的引用，也会成为大问题。</p>
+<p>因此，尽量减少代码的耦合和对其他脚本的依赖是十分有必要的。如果确实无法避免这种情况，那应当手动地对这些不再使用的引用对象调用 Destroy()</p>
+<p>或者将其设置为 null。这样在垃圾回收的时候，这些内存将被认为已经无用而被回收。</p>
+<p>需要注意的是，Unity 在一个场景开始时，根据场景构成和引用关系所自动读取的资源，只有在读取一个新的场景或者 reset 当前场景时，才会得到清理。</p>
 <p>因此这部分内存占用是不可避免的。在小内存环境中，这部分初始内存的占用十分重要，因为它决定了你的关卡是否能够被正常加载。因此在计算资源充足</p>
-<p>或是关卡开始之后还有机会进行加载时，尽量减少Hierarchy中的引用，变为手动用Resource.Load，将大大减少内存占用。在 Resource.UnloadAsset()和Resources.UnloadUnusedAssets()时，只有那些真正没有任何引用指向的资源 会被回收，因此请确保在资源不再使用时，将所有对该资源的引用设置为null或者Destroy。</p>
-<p>同样需要注意，这两个Unload方法仅仅对Resource.Load拿到的资源有效，而不能回收任何场景开始时自动加载的资源。与此类似的还有 AssetBundle的Load和Unload方法，灵活使用这些手动自愿加载和卸载的方法，是优化Unity内存占用的不二法则。</p>
-<p>总之这些就是关于Unity3d优化细节,具体还是查看Unity3D的技术手册,以便实现最大的优化。</p>
+<p>或是关卡开始之后还有机会进行加载时，尽量减少 Hierarchy 中的引用，变为手动用 Resource.Load，将大大减少内存占用。在 Resource.UnloadAsset()和 Resources.UnloadUnusedAssets()时，只有那些真正没有任何引用指向的资源 会被回收，因此请确保在资源不再使用时，将所有对该资源的引用设置为 null 或者 Destroy。</p>
+<p>同样需要注意，这两个 Unload 方法仅仅对 Resource.Load 拿到的资源有效，而不能回收任何场景开始时自动加载的资源。与此类似的还有 AssetBundle 的 Load 和 Unload 方法，灵活使用这些手动自愿加载和卸载的方法，是优化 Unity 内存占用的不二法则。</p>
+<p>总之这些就是关于 Unity3d 优化细节, 具体还是查看 Unity3D 的技术手册, 以便实现最大的优化。</p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Software/Unity/Unity%E9%9F%B3%E9%A2%91%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6af714b3eb7846049b9f2b467112eaa5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Unity音频压缩优化</div></div></a></div><div class="next-post pull-right"><a href="/GameEngine/Unity/Shader/Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/66a3272c874d41e5b9ec7562fe5822cd.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Shader学习笔记</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity-3D%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">Unity 3D中的内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unity%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%A7%8D%E7%B1%BB"><span class="toc-number">2.1.1.</span> <span class="toc-text">Unity中的内存种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">优化程序代码的内存占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E5%A0%86%E4%BC%98%E5%8C%96"><span class="toc-number">2.1.3.</span> <span class="toc-text">托管堆优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E5%A0%86%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">2.1.4.</span> <span class="toc-text">本机堆的优化</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
-  function initWaline () {
-    const waline = new Waline(Object.assign({
-      el: '#waline-wrap',
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tamsiree.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity3D%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/7e535a0de6a84796973d387bb5b3dbc1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/Software/Unity/Unity%E9%9F%B3%E9%A2%91%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96/" title="Unity 音频压缩优化"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6af714b3eb7846049b9f2b467112eaa5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Unity 音频压缩优化</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文没想到 Unity 的音频会成为内存杀手，在实际的商业项目中，音频的优化必不可少。  Unity 支持许多不同的音频格式，但最终它将它们全部转换为首选格式。音频压缩格式有 PCM、ADPCM、Vorbis，不是所有平台都支持这些所有的压缩格式，有些平台，例如 WebGL 只支持 AAC 格式。  所有音频导入时，默认两项设置，LoadType 是 “Decompress On Load”，压缩格式是“Vorbis”，例如下图原始文件大小计算为 35.9 MB，导入的大小计算为 10.7 MB。这意味着这个音频剪辑将使您的游戏（存档）大小增加 10 兆字节，但播放它需要近 36 兆字节的 RAM。    3.Load Type 的各个选项  Compressed In Memory – 音频剪辑将存储在 RAM 中，播放时将解压缩，播放时不需要额外的存储。  Streaming –音频永久存在设备上(硬盘或闪存上) ，播放流媒体方式. 不需要 RAM 进行存储或播放。  Decompress On Load – 未压缩的音频将存储在 RAM 中。这个选项需...</div></div></div></a><a class="pagination-related" href="/GameEngine/Unity/Shader/Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Shader 学习笔记"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/66a3272c874d41e5b9ec7562fe5822cd.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Shader 学习笔记</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文一口气解决 RenderQueue、Ztest、Zwrite、AlphaTest、AlphaBlend 和 Stencil** 知道吗，如果只是想要实现 Xray 效果的话，其实并不难。**   实现上图的效果，原理就是对角色画两次。第一次是被遮挡住的效果(半透明、单色)，第二次是正常的效果(为了简化这里使用 unlight 只显示贴图) ** 这两个 pass 最大的区别，在于使用不同的 Ztest(深度测试)。但是这一次我决定不仅仅只写关于 Ztest 的问题。反正我已经决定对抗懒癌晚期，那就干脆一口气把 RenderQueue、Ztest、Zwrite、AlphaTest、AlphaBlend、StencilTest 这些烂七八糟的东西都拎出来写一遍, 因为这些东西有很多地方都是相通的，一起说明白反而省些力气。** ** 不过说实话，这些东西确实是有点麻烦。我尽自己最大的努力去把这些东西说明白。但是鉴于个人能力实在有限，如果有哪里说得不对或者不清楚，还请见谅。**   如上图，现在有三个多边形分别是红色盒子绿色盒子和蓝色盒子，在镜头里红色的盒子在最...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tamsiree</div><div class="author-info-description">勇于尝试才有可能迈向成功</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity-3D-%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">Unity 3D 中的内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unity-%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%A7%8D%E7%B1%BB"><span class="toc-number">2.1.1.</span> <span class="toc-text">Unity 中的内存种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">优化程序代码的内存占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E5%A0%86%E4%BC%98%E5%8C%96"><span class="toc-number">2.1.3.</span> <span class="toc-text">托管堆优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E5%A0%86%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">2.1.4.</span> <span class="toc-text">本机堆的优化</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 中 MongoDB 数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复">Docker 中 MongoDB 数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃">Unity 多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的 CDN 之 jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr">好用的 CDN 之 jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统">Unity 坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2025 By Tamsiree</span></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><script src="/js/tw_cn.js?v=5.5.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"],"avatar":"wavatar"}
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
       serverURL: 'https://comment.tamsiree.com',
-      path: location.pathname,
-      visitor: true,
-      dark: 'html[data-theme="dark"]'
-    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
-  }
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
 
-  if (typeof Waline === 'function') initWaline()
-  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
-}
-
-if ('Waline' === 'Waline' || !true) {
-  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
-  else setTimeout(loadWaline, 0)
-} else {
-  function loadOtherComment () {
-    loadWaline()
-  }
-}</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
 
-})
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>

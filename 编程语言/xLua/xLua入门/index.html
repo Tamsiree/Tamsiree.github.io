@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>xLua入门 | Tamsiree</title><meta name="keywords" content="编程语言,xLua"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="xLua为Unity、 .Net、 Mono等C#环境增加Lua脚本编程的能力，借助xLua，这些Lua代码可以方便的和C#相互调用。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>xLua 入门 | Tamsiree</title><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="xLua为Unity、 .Net、 Mono等C#环境增加Lua脚本编程的能力，借助xLua，这些Lua代码可以方便的和C#相互调用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xLua入门">
+<meta property="og:title" content="xLua 入门">
 <meta property="og:url" content="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Tamsiree">
 <meta property="og:description" content="xLua为Unity、 .Net、 Mono等C#环境增加Lua脚本编程的能力，借助xLua，这些Lua代码可以方便的和C#相互调用。">
@@ -12,19 +12,141 @@
 <meta property="article:tag" content="xLua">
 <meta property="article:tag" content="编程语言">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "xLua 入门",
+  "url": "https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/",
+  "image": "https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png",
+  "datePublished": "2020-06-15T03:35:09.000Z",
+  "dateModified": "2025-11-05T13:53:39.395Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tamsiree",
+      "url": "https://tamsiree.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: 'ca-pub-8688374801147098',
   enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -32,7 +154,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -41,232 +163,126 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'xLua入门',
-  isPost: true,
-  isHome: false,
+  title: 'xLua 入门',
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2025-11-05 21:53:39'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">xLua入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-15T03:35:09.000Z" title="发表于 2020-06-15 11:35:09">2020-06-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.395Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/">xLua</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="xLua入门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>xLua为Unity、 .Net、 Mono等C#环境增加Lua脚本编程的能力，借助xLua，这些Lua代码可以方便的和C#相互调用。</p>
-<h2 id="什么是热更新"><a href="#什么是热更新" class="headerlink" title="什么是热更新"></a>什么是热更新</h2><p>热：就是刚出炉<br>简单来说就是当游戏某个功能出现bug，或者修改了某个功能，或者增加了某个功能的时候，我们不需要重新下载安装安装包，就可以更新游戏内容。</p>
+  pageType: 'post'
+}</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-color: #f0f0f0;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tamsiree</span></a><a class="nav-page-title" href="/"><span class="site-name">xLua 入门</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">xLua 入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-15T03:35:09.000Z" title="发表于 2020-06-15 11:35:09">2020-06-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.395Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/">xLua</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>xLua 为 Unity、 .Net、 Mono 等 C# 环境增加 Lua 脚本编程的能力，借助 xLua，这些 Lua 代码可以方便的和 C# 相互调用。</p>
+<h2 id="什么是热更新"><a href="#什么是热更新" class="headerlink" title="什么是热更新"></a>什么是热更新</h2><p>热：就是刚出炉<br>简单来说就是当游戏某个功能出现 bug，或者修改了某个功能，或者增加了某个功能的时候，我们不需要重新下载安装安装包，就可以更新游戏内容。</p>
 <p>热更新的好处：不用浪费流量重新下载，不用通过商店审核更加快速，不用重新安装玩家可以更快体验到更新的内容</p>
 <p>目前比较受欢迎的热更新方案：uLua tolua xLua</p>
-<h2 id="热更新方案"><a href="#热更新方案" class="headerlink" title="热更新方案"></a>热更新方案</h2><p>这些热更新方案都是基于Lua语言的，也可以叫做lua插件（可以运行lua，并实现了lua和C#交互的插件）。<br>所以本质上这些热更新方案就是一个lua插件，可以运行lua，并实现了lua和C#交互的插件。  </p>
-<p>1，（luainterface cs2lua tolua）–&gt;ulua(不再维护，转到主要维护tolua)<br>2，tolua（基于tolua开发了luaframework）<br>3，slua代码质量好，性能比tolua低<br>4，C#light、LSharp同一个作者（商用比较少）  </p>
-<h2 id="xLua"><a href="#xLua" class="headerlink" title="xLua"></a>xLua</h2><p>　　xLua是Unity3D下Lua编程解决方案，自2016年初推广以来，已经应用于十多款腾讯自研游戏，因其良好性能、易用性、扩展性而广受好评。现在，腾讯已经将xLua开源到GitHub。<br>　　2016年12月末，xLua刚刚实现新的突破：全平台支持用Lua修复C#代码bug。<br>　　目前Unity下的Lua热更新方案大多都是要求要热更新的部分一开始就要用Lua语言实现，不足之处在于：<br>1、接入成本高，有的项目已经用C#写完了，这时要接入需要把需要热更的地方用Lua重新实现；<br>2、即使一开始就接入了，也存在同时用两种语言开发难度较大的问题；<br>3、Lua性能不如C#；<br>　　xLua热补丁技术支持在运行时把一个C#实现（函数，操作符，属性，事件，或者整个类）替换成Lua实现，意味着你可以：<br>1、平时用C#开发；<br>2、运行也是C#，性能秒杀Lua；<br>3、有bug的地方下发个Lua脚本fix了，下次整体更新时可以把Lua的实现换回正确的C#实现，更新时甚至可以做到不重启游戏；<br>　　这个新特性iOS，Android，Window，Mac都测试通过了，目前在做一些易用性优化。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="xLua入门"><a href="#xLua入门" class="headerlink" title="xLua入门"></a>xLua入门</h2><h3 id="Lua文件加载"><a href="#Lua文件加载" class="headerlink" title="Lua文件加载"></a>Lua文件加载</h3><ol>
+<h2 id="热更新方案"><a href="#热更新方案" class="headerlink" title="热更新方案"></a>热更新方案</h2><p>这些热更新方案都是基于 Lua 语言的，也可以叫做 lua 插件（可以运行 lua，并实现了 lua 和 C# 交互的插件）。<br>所以本质上这些热更新方案就是一个 lua 插件，可以运行 lua，并实现了 lua 和 C# 交互的插件。  </p>
+<p>1，（luainterface cs2lua tolua）–&gt;ulua(不再维护，转到主要维护 tolua)<br>2，tolua（基于 tolua 开发了 luaframework）<br>3，slua 代码质量好，性能比 tolua 低<br>4，C#light、LSharp 同一个作者（商用比较少）  </p>
+<h2 id="xLua"><a href="#xLua" class="headerlink" title="xLua"></a>xLua</h2><p>　　xLua 是 Unity3D 下 Lua 编程解决方案，自 2016 年初推广以来，已经应用于十多款腾讯自研游戏，因其良好性能、易用性、扩展性而广受好评。现在，腾讯已经将 xLua 开源到 GitHub。<br>　　2016 年 12 月末，xLua 刚刚实现新的突破：全平台支持用 Lua 修复 C# 代码 bug。<br>　　目前 Unity 下的 Lua 热更新方案大多都是要求要热更新的部分一开始就要用 Lua 语言实现，不足之处在于：<br>1、接入成本高，有的项目已经用 C# 写完了，这时要接入需要把需要热更的地方用 Lua 重新实现；<br>2、即使一开始就接入了，也存在同时用两种语言开发难度较大的问题；<br>3、Lua 性能不如 C#；<br>　　xLua 热补丁技术支持在运行时把一个 C# 实现（函数，操作符，属性，事件，或者整个类）替换成 Lua 实现，意味着你可以：<br>1、平时用 C# 开发；<br>2、运行也是 C#，性能秒杀 Lua；<br>3、有 bug 的地方下发个 Lua 脚本 fix 了，下次整体更新时可以把 Lua 的实现换回正确的 C# 实现，更新时甚至可以做到不重启游戏；<br>　　这个新特性 iOS，Android，Window，Mac 都测试通过了，目前在做一些易用性优化。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="xLua-入门"><a href="#xLua-入门" class="headerlink" title="xLua 入门"></a>xLua 入门</h2><h3 id="Lua-文件加载"><a href="#Lua-文件加载" class="headerlink" title="Lua 文件加载"></a>Lua 文件加载</h3><ol>
 <li><p>执行字符串</p>
-<p> 最基本是直接用LuaEnv.DoString执行一个字符串，当然，字符串得符合Lua语法<br> 比如：</p>
+<p> 最基本是直接用 LuaEnv.DoString 执行一个字符串，当然，字符串得符合 Lua 语法<br> 比如：</p>
 <pre><code> luaenv.DoString(&quot;print(&#39;hello world&#39;)&quot;)
 </code></pre>
-<p> 完整代码见XLua\Tutorial\LoadLuaScript\ByString目录</p>
+<p> 完整代码见 XLua\Tutorial\LoadLuaScript\ByString 目录</p>
 <blockquote>
 <p>但这种方式并不建议，更建议下面介绍这种方法。</p>
 </blockquote>
 </li>
-<li><p>加载Lua文件</p>
-<p> 用lua的require函数即可<br> 比如：</p>
-<pre><code> DoString(&quot;require &#39;byfile&#39;&quot;)
+<li><p>加载 Lua 文件</p>
+<p> 用 lua 的 require 函数即可<br> 比如：</p>
+<pre><code> DoString(&quot;require&#39;byfile&#39;&quot;)
 </code></pre>
-<p> 完整代码见XLua\Tutorial\LoadLuaScript\ByFile目录</p>
-<p> require实际上是调一个个的loader去加载，有一个成功就不再往下尝试，全失败则报文件找不到。<br> 目前xLua除了原生的loader外，还添加了从Resource加载的loader，需要注意的是因为Resource只支持有限的后缀，放Resources下的lua文件得加上txt后缀（见附带的例子）。</p>
-<p> 建议的加载Lua脚本方式是：整个程序就一个DoString(“require ‘main’”)，然后在main.lua加载其它脚本（类似lua脚本的命令行执行：lua main.lua）。</p>
-<p> 有童鞋会问：要是我的Lua文件是下载回来的，或者某个自定义的文件格式里头解压出来，或者需要解密等等，怎么办？问得好，xLua的自定义Loader可以满足这些需求。</p>
+<p> 完整代码见 XLua\Tutorial\LoadLuaScript\ByFile 目录</p>
+<p> require 实际上是调一个个的 loader 去加载，有一个成功就不再往下尝试，全失败则报文件找不到。<br> 目前 xLua 除了原生的 loader 外，还添加了从 Resource 加载的 loader，需要注意的是因为 Resource 只支持有限的后缀，放 Resources 下的 lua 文件得加上 txt 后缀（见附带的例子）。</p>
+<p> 建议的加载 Lua 脚本方式是：整个程序就一个 DoString(“require’main’”)，然后在 main.lua 加载其它脚本（类似 lua 脚本的命令行执行：lua main.lua）。</p>
+<p> 有童鞋会问：要是我的 Lua 文件是下载回来的，或者某个自定义的文件格式里头解压出来，或者需要解密等等，怎么办？问得好，xLua 的自定义 Loader 可以满足这些需求。</p>
 </li>
-<li><p>自定义Loader</p>
-<p> 在xLua加自定义loader是很简单的，只涉及到一个接口：</p>
+<li><p>自定义 Loader</p>
+<p> 在 xLua 加自定义 loader 是很简单的，只涉及到一个接口：</p>
 <pre><code> public delegate byte[] CustomLoader(ref string filepath);
  public void LuaEnv.AddLoader(CustomLoader loader)
 </code></pre>
-<p> 通过AddLoader可以注册个回调，该回调参数是字符串，lua代码里头调用require时，参数将会透传给回调，回调中就可以根据这个参数去加载指定文件，如果需要支持调试，需要把filepath修改为真实路径传出。该回调返回值是一个byte数组，如果为空表示该loader找不到，否则则为lua文件的内容。<br> 有了这个就简单了，用IIPS的IFS？没问题。写个loader调用IIPS的接口读文件内容即可。文件已经加密？没问题，自己写loader读取文件解密后返回即可。。。<br> 完整示例见XLua\Tutorial\LoadLuaScript\Loader</p>
+<p> 通过 AddLoader 可以注册个回调，该回调参数是字符串，lua 代码里头调用 require 时，参数将会透传给回调，回调中就可以根据这个参数去加载指定文件，如果需要支持调试，需要把 filepath 修改为真实路径传出。该回调返回值是一个 byte 数组，如果为空表示该 loader 找不到，否则则为 lua 文件的内容。<br> 有了这个就简单了，用 IIPS 的 IFS？没问题。写个 loader 调用 IIPS 的接口读文件内容即可。文件已经加密？没问题，自己写 loader 读取文件解密后返回即可。。。<br> 完整示例见 XLua\Tutorial\LoadLuaScript\Loader</p>
 </li>
 </ol>
-<h3 id="C-访问Lua"><a href="#C-访问Lua" class="headerlink" title="C#访问Lua"></a>C#访问Lua</h3><p>这里指的是C#主动发起对Lua数据结构的访问。<br>本章涉及到的例子都可以在XLua\Tutorial\CSharpCallLua下找到。</p>
+<h3 id="C-访问-Lua"><a href="#C-访问-Lua" class="headerlink" title="C# 访问 Lua"></a>C# 访问 Lua</h3><p>这里指的是 C# 主动发起对 Lua 数据结构的访问。<br>本章涉及到的例子都可以在 XLua\Tutorial\CSharpCallLua 下找到。</p>
 <ol>
-<li><p>获取一个全局基本数据类型<br> 访问LuaEnv.Global就可以了，上面有个模版Get方法，可指定返回的类型。</p>
+<li><p>获取一个全局基本数据类型<br> 访问 LuaEnv.Global 就可以了，上面有个模版 Get 方法，可指定返回的类型。</p>
 <pre><code> luaenv.Global.Get&lt;int&gt;(&quot;a&quot;)
  luaenv.Global.Get&lt;string&gt;(&quot;b&quot;)
  luaenv.Global.Get&lt;bool&gt;(&quot;c&quot;)
 </code></pre>
 </li>
-<li><p>访问一个全局的table</p>
-<p> 也是用上面的Get方法，那类型要指定成啥呢？</p>
+<li><p>访问一个全局的 table</p>
+<p> 也是用上面的 Get 方法，那类型要指定成啥呢？</p>
 <ol>
-<li><p>映射到普通class或struct</p>
-<p> 定义一个class，有对应于table的字段的public属性，而且有无参数构造函数即可，比如对于{f1 = 100, f2 = 100}可以定义一个包含public int f1;public int f2;的class。<br> 这种方式下xLua会帮你new一个实例，并把对应的字段赋值过去。</p>
-<p> table的属性可以多于或者少于class的属性。可以嵌套其它复杂类型。<br> 要注意的是，这个过程是值拷贝，如果class比较复杂代价会比较大。而且修改class的字段值不会同步到table，反过来也不会。</p>
-<p> 这个功能可以通过把类型加到GCOptimize生成降低开销，详细可参见配置介绍文档。<br> 那有没有引用方式的映射呢？有，下面这个就是：</p>
+<li><p>映射到普通 class 或 struct</p>
+<p> 定义一个 class，有对应于 table 的字段的 public 属性，而且有无参数构造函数即可，比如对于 {f1 = 100, f2 = 100} 可以定义一个包含 public int f1;public int f2; 的 class。<br> 这种方式下 xLua 会帮你 new 一个实例，并把对应的字段赋值过去。</p>
+<p> table 的属性可以多于或者少于 class 的属性。可以嵌套其它复杂类型。<br> 要注意的是，这个过程是值拷贝，如果 class 比较复杂代价会比较大。而且修改 class 的字段值不会同步到 table，反过来也不会。</p>
+<p> 这个功能可以通过把类型加到 GCOptimize 生成降低开销，详细可参见配置介绍文档。<br> 那有没有引用方式的映射呢？有，下面这个就是：</p>
 </li>
-<li><p>映射到一个interface</p>
-<p> 这种方式依赖于生成代码（如果没生成代码会抛InvalidCastException异常），代码生成器会生成这个interface的实例，如果get一个属性，生成代码会get对应的table字段，如果set属性也会设置对应的字段。甚至可以通过interface的方法访问lua的函数。</p>
+<li><p>映射到一个 interface</p>
+<p> 这种方式依赖于生成代码（如果没生成代码会抛 InvalidCastException 异常），代码生成器会生成这个 interface 的实例，如果 get 一个属性，生成代码会 get 对应的 table 字段，如果 set 属性也会设置对应的字段。甚至可以通过 interface 的方法访问 lua 的函数。</p>
 </li>
-<li><p>更轻量级的by value方式：映射到Dictionary&lt;&gt;，List&lt;&gt;</p>
-<p> 不想定义class或者interface的话，可以考虑用这个，前提table下key和value的类型都是一致的。</p>
+<li><p>更轻量级的 by value 方式：映射到 Dictionary&lt;&gt;，List&lt;&gt;</p>
+<p> 不想定义 class 或者 interface 的话，可以考虑用这个，前提 table 下 key 和 value 的类型都是一致的。</p>
 </li>
-<li><p>另外一种by ref方式：映射到LuaTable类</p>
-<p> 这种方式好处是不需要生成代码，但也有一些问题，比如慢，比方式2要慢一个数量级，比如没有类型检查。</p>
+<li><p>另外一种 by ref 方式：映射到 LuaTable 类</p>
+<p> 这种方式好处是不需要生成代码，但也有一些问题，比如慢，比方式 2 要慢一个数量级，比如没有类型检查。</p>
 </li>
 </ol>
 </li>
-<li><p>访问一个全局的function</p>
-<p> 仍然是用Get方法，不同的是类型映射。</p>
+<li><p>访问一个全局的 function</p>
+<p> 仍然是用 Get 方法，不同的是类型映射。</p>
 <ol>
-<li><p>映射到delegate</p>
-<p> 这种是建议的方式，性能好很多，而且类型安全。缺点是要生成代码（如果没生成代码会抛InvalidCastException异常）。</p>
-<p> delegate要怎样声明呢？<br> 对于function的每个参数就声明一个输入类型的参数。<br> 多返回值要怎么处理？从左往右映射到c#的输出参数，输出参数包括返回值，out参数，ref参数。</p>
-<p> 参数、返回值类型支持哪些呢？都支持，各种复杂类型，out，ref修饰的，甚至可以返回另外一个delegate。</p>
-<p> delegate的使用就更简单了，直接像个函数那样用就可以了。</p>
+<li><p>映射到 delegate</p>
+<p> 这种是建议的方式，性能好很多，而且类型安全。缺点是要生成代码（如果没生成代码会抛 InvalidCastException 异常）。</p>
+<p> delegate 要怎样声明呢？<br> 对于 function 的每个参数就声明一个输入类型的参数。<br> 多返回值要怎么处理？从左往右映射到 c# 的输出参数，输出参数包括返回值，out 参数，ref 参数。</p>
+<p> 参数、返回值类型支持哪些呢？都支持，各种复杂类型，out，ref 修饰的，甚至可以返回另外一个 delegate。</p>
+<p> delegate 的使用就更简单了，直接像个函数那样用就可以了。</p>
 </li>
-<li><p>映射到LuaFunction</p>
-<p> 这种方式的优缺点刚好和第一种相反。<br> 使用也简单，LuaFunction上有个变参的Call函数，可以传任意类型，任意个数的参数，返回值是object的数组，对应于lua的多返回值。</p>
+<li><p>映射到 LuaFunction</p>
+<p> 这种方式的优缺点刚好和第一种相反。<br> 使用也简单，LuaFunction 上有个变参的 Call 函数，可以传任意类型，任意个数的参数，返回值是 object 的数组，对应于 lua 的多返回值。</p>
 </li>
 </ol>
 </li>
 <li><p>使用建议</p>
 <ol>
-<li><p>访问lua全局数据，特别是table以及function，代价比较大，建议尽量少做，比如在初始化时把要调用的lua function获取一次（映射到delegate）后，保存下来，后续直接调用该delegate即可。table也类似。</p>
+<li><p>访问 lua 全局数据，特别是 table 以及 function，代价比较大，建议尽量少做，比如在初始化时把要调用的 lua function 获取一次（映射到 delegate）后，保存下来，后续直接调用该 delegate 即可。table 也类似。</p>
 </li>
-<li><p>如果lua测的实现的部分都以delegate和interface的方式提供，使用方可以完全和xLua解耦：由一个专门的模块负责xlua的初始化以及delegate、interface的映射，然后把这些delegate和interface设置到要用到它们的地方。</p>
-</li>
-</ol>
+<li><p>如果 lua 测的实现的部分都以 delegate 和 interface 的方式提供，使用方可以完全和 xLua 解耦：由一个专门的模块负责 xlua 的初始化以及 delegate、interface 的映射，然后把这些 delegate 和 interface 设置到要用到它们的地方。</p>
 </li>
 </ol>
-<h3 id="Lua调用C"><a href="#Lua调用C" class="headerlink" title="Lua调用C#"></a>Lua调用C#</h3><blockquote>
-<p>本章节涉及到的实例均在XLua\Tutorial\LuaCallCSharp下</p>
+</li>
+</ol>
+<h3 id="Lua-调用-C"><a href="#Lua-调用-C" class="headerlink" title="Lua 调用 C#"></a>Lua 调用 C#</h3><blockquote>
+<p>本章节涉及到的实例均在 XLua\Tutorial\LuaCallCSharp 下</p>
 </blockquote>
-<h4 id="new-C-对象"><a href="#new-C-对象" class="headerlink" title="new C#对象"></a>new C#对象</h4><p>你在C#这样new一个对象：</p>
+<h4 id="new-C-对象"><a href="#new-C-对象" class="headerlink" title="new C# 对象"></a>new C# 对象</h4><p>你在 C# 这样 new 一个对象：</p>
 <pre><code>var newGameObj = new UnityEngine.GameObject();
 </code></pre>
-<p>对应到Lua是这样：</p>
+<p>对应到 Lua 是这样：</p>
 <pre><code>local newGameObj = CS.UnityEngine.GameObject()
 </code></pre>
 <p>基本类似，除了：</p>
-<pre><code>1. lua里头没有new关键字；
-2. 所有C#相关的都放到CS下，包括构造函数，静态成员属性、方法；
+<pre><code>1. lua 里头没有 new 关键字；
+2. 所有 C# 相关的都放到 CS 下，包括构造函数，静态成员属性、方法；
 </code></pre>
-<p>如果有多个构造函数呢？放心，xlua支持重载，比如你要调用GameObject的带一个string参数的构造函数，这么写：</p>
+<p>如果有多个构造函数呢？放心，xlua 支持重载，比如你要调用 GameObject 的带一个 string 参数的构造函数，这么写：</p>
 <pre><code>local newGameObj2 = CS.UnityEngine.GameObject(&#39;helloworld&#39;)
 </code></pre>
-<h4 id="访问C-静态属性，方法"><a href="#访问C-静态属性，方法" class="headerlink" title="访问C#静态属性，方法"></a>访问C#静态属性，方法</h4><h5 id="读静态属性"><a href="#读静态属性" class="headerlink" title="读静态属性"></a>读静态属性</h5><pre><code>CS.UnityEngine.Time.deltaTime
+<h4 id="访问-C-静态属性，方法"><a href="#访问-C-静态属性，方法" class="headerlink" title="访问 C# 静态属性，方法"></a>访问 C# 静态属性，方法</h4><h5 id="读静态属性"><a href="#读静态属性" class="headerlink" title="读静态属性"></a>读静态属性</h5><pre><code>CS.UnityEngine.Time.deltaTime
 </code></pre>
 <h5 id="写静态属性"><a href="#写静态属性" class="headerlink" title="写静态属性"></a>写静态属性</h5><pre><code>CS.UnityEngine.Time.timeScale = 0.5
 </code></pre>
@@ -276,62 +292,66 @@
 <pre><code>local GameObject = CS.UnityEngine.GameObject
 GameObject.Find(&#39;helloworld&#39;)
 </code></pre>
-<h4 id="访问C-成员属性，方法"><a href="#访问C-成员属性，方法" class="headerlink" title="访问C#成员属性，方法"></a>访问C#成员属性，方法</h4><h5 id="读成员属性"><a href="#读成员属性" class="headerlink" title="读成员属性"></a>读成员属性</h5><pre><code>testobj.DMF
+<h4 id="访问-C-成员属性，方法"><a href="#访问-C-成员属性，方法" class="headerlink" title="访问 C# 成员属性，方法"></a>访问 C# 成员属性，方法</h4><h5 id="读成员属性"><a href="#读成员属性" class="headerlink" title="读成员属性"></a>读成员属性</h5><pre><code>testobj.DMF
 </code></pre>
 <h5 id="写成员属性"><a href="#写成员属性" class="headerlink" title="写成员属性"></a>写成员属性</h5><pre><code>testobj.DMF = 1024
 </code></pre>
 <h5 id="调用成员方法"><a href="#调用成员方法" class="headerlink" title="调用成员方法"></a>调用成员方法</h5><p>注意：调用成员方法，第一个参数需要传该对象，建议用冒号语法糖，如下</p>
 <pre><code>testobj:DMFunc()
 </code></pre>
-<h5 id="父类属性，方法"><a href="#父类属性，方法" class="headerlink" title="父类属性，方法"></a>父类属性，方法</h5><p>xlua支持（通过派生类）访问基类的静态属性，静态方法，（通过派生类实例）访问基类的成员属性，成员方法</p>
-<h5 id="参数的输入输出属性（out，ref）"><a href="#参数的输入输出属性（out，ref）" class="headerlink" title="参数的输入输出属性（out，ref）"></a>参数的输入输出属性（out，ref）</h5><p>Lua调用测的参数处理规则：C#的普通参数算一个输入形参，ref修饰的算一个输入形参，out不算，然后从左往右对应lua 调用测的实参列表；</p>
-<p>Lua调用测的返回值处理规则：C#函数的返回值（如果有的话）算一个返回值，out算一个返回值，ref算一个返回值，然后从左往右对应lua的多返回值。</p>
+<h5 id="父类属性，方法"><a href="#父类属性，方法" class="headerlink" title="父类属性，方法"></a>父类属性，方法</h5><p>xlua 支持（通过派生类）访问基类的静态属性，静态方法，（通过派生类实例）访问基类的成员属性，成员方法</p>
+<h5 id="参数的输入输出属性（out，ref）"><a href="#参数的输入输出属性（out，ref）" class="headerlink" title="参数的输入输出属性（out，ref）"></a>参数的输入输出属性（out，ref）</h5><p>Lua 调用测的参数处理规则：C# 的普通参数算一个输入形参，ref 修饰的算一个输入形参，out 不算，然后从左往右对应 lua 调用测的实参列表；</p>
+<p>Lua 调用测的返回值处理规则：C# 函数的返回值（如果有的话）算一个返回值，out 算一个返回值，ref 算一个返回值，然后从左往右对应 lua 的多返回值。</p>
 <h5 id="重载方法"><a href="#重载方法" class="headerlink" title="重载方法"></a>重载方法</h5><p>直接通过不同的参数类型进行重载函数的访问，例如：</p>
 <pre><code>testobj:TestFunc(100)
 testobj:TestFunc(&#39;hello&#39;)
 </code></pre>
-<p>将分别访问整数参数的TestFunc和字符串参数的TestFunc。</p>
-<p>注意：xlua只一定程度上支持重载函数的调用，因为lua的类型远远不如C#丰富，存在一对多的情况，比如C#的int，float，double都对应于lua的number，上面的例子中TestFunc如果有这些重载参数，第一行将无法区分开来，只能调用到其中一个（生成代码中排前面的那个）</p>
-<h5 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h5><p>支持的操作符有：+，-，*，/，==，一元-，&lt;，&lt;=， %，[]</p>
-<h5 id="参数带默认值的方法"><a href="#参数带默认值的方法" class="headerlink" title="参数带默认值的方法"></a>参数带默认值的方法</h5><p>和C#调用有默认值参数的函数一样，如果所给的实参少于形参，则会用默认值补上。</p>
-<h5 id="可变参数方法"><a href="#可变参数方法" class="headerlink" title="可变参数方法"></a>可变参数方法</h5><p>对于C#的如下方法：</p>
+<p>将分别访问整数参数的 TestFunc 和字符串参数的 TestFunc。</p>
+<p>注意：xlua 只一定程度上支持重载函数的调用，因为 lua 的类型远远不如 C# 丰富，存在一对多的情况，比如 C# 的 int，float，double 都对应于 lua 的 number，上面的例子中 TestFunc 如果有这些重载参数，第一行将无法区分开来，只能调用到其中一个（生成代码中排前面的那个）</p>
+<h5 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h5><p>支持的操作符有：+，-，*，/，==，一元 -，&lt;，&lt;=， %，[]</p>
+<h5 id="参数带默认值的方法"><a href="#参数带默认值的方法" class="headerlink" title="参数带默认值的方法"></a>参数带默认值的方法</h5><p>和 C# 调用有默认值参数的函数一样，如果所给的实参少于形参，则会用默认值补上。</p>
+<h5 id="可变参数方法"><a href="#可变参数方法" class="headerlink" title="可变参数方法"></a>可变参数方法</h5><p>对于 C# 的如下方法：</p>
 <pre><code>void VariableParamsFunc(int a, params string[] strs)
 </code></pre>
-<p>可以在lua里头这样调用：</p>
+<p>可以在 lua 里头这样调用：</p>
 <pre><code>testobj:VariableParamsFunc(5, &#39;hello&#39;, &#39;john&#39;)
 </code></pre>
-<h5 id="使用Extension-methods"><a href="#使用Extension-methods" class="headerlink" title="使用Extension methods"></a>使用Extension methods</h5><p>在C#里定义了，lua里就能直接使用。</p>
-<h5 id="泛化（模版）方法"><a href="#泛化（模版）方法" class="headerlink" title="泛化（模版）方法"></a>泛化（模版）方法</h5><p>不直接支持，可以通过Extension methods功能进行封装后调用。</p>
+<h5 id="使用-Extension-methods"><a href="#使用-Extension-methods" class="headerlink" title="使用 Extension methods"></a>使用 Extension methods</h5><p>在 C# 里定义了，lua 里就能直接使用。</p>
+<h5 id="泛化（模版）方法"><a href="#泛化（模版）方法" class="headerlink" title="泛化（模版）方法"></a>泛化（模版）方法</h5><p>不直接支持，可以通过 Extension methods 功能进行封装后调用。</p>
 <h5 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h5><p>枚举值就像枚举类型下的静态属性一样。</p>
 <pre><code>testobj:EnumTestFunc(CS.Tutorial.TestEnum.E1)
 </code></pre>
-<p>上面的EnumTestFunc函数参数是Tutorial.TestEnum类型的。</p>
-<p>枚举类支持__CastFrom方法，可以实现从一个整数或者字符串到枚举值的转换，例如：</p>
+<p>上面的 EnumTestFunc 函数参数是 Tutorial.TestEnum 类型的。</p>
+<p>枚举类支持__CastFrom 方法，可以实现从一个整数或者字符串到枚举值的转换，例如：</p>
 <pre><code>CS.Tutorial.TestEnum.__CastFrom(1)
 CS.Tutorial.TestEnum.__CastFrom(&#39;E1&#39;)
 </code></pre>
-<h5 id="delegate使用（调用，-，-）"><a href="#delegate使用（调用，-，-）" class="headerlink" title="delegate使用（调用，+，-）"></a>delegate使用（调用，+，-）</h5><p>C#的delegate调用：和调用普通lua函数一样</p>
-<p>+操作符：对应C#的+操作符，把两个调用串成一个调用链，右操作数可以是同类型的C# delegate或者是lua函数。</p>
-<p>-操作符：和+相反，把一个delegate从调用链中移除。</p>
+<h5 id="delegate-使用（调用，-，-）"><a href="#delegate-使用（调用，-，-）" class="headerlink" title="delegate 使用（调用，+，-）"></a>delegate 使用（调用，+，-）</h5><p>C# 的 delegate 调用：和调用普通 lua 函数一样</p>
+<ul>
+<li>操作符：对应 C# 的 + 操作符，把两个调用串成一个调用链，右操作数可以是同类型的 C# delegate 或者是 lua 函数。</li>
+</ul>
+<ul>
+<li>操作符：和 + 相反，把一个 delegate 从调用链中移除。</li>
+</ul>
 <blockquote>
-<p>Ps：delegate属性可以用一个luafunction来赋值。</p>
+<p>Ps：delegate 属性可以用一个 luafunction 来赋值。</p>
 </blockquote>
-<h5 id="event"><a href="#event" class="headerlink" title="event"></a>event</h5><p>比如testobj里头有个事件定义是这样：public event Action TestEvent;</p>
+<h5 id="event"><a href="#event" class="headerlink" title="event"></a>event</h5><p>比如 testobj 里头有个事件定义是这样：public event Action TestEvent;</p>
 <p>增加事件回调</p>
 <pre><code>testobj:TestEvent(&#39;+&#39;, lua_event_callback)
 </code></pre>
 <p>移除事件回调</p>
 <pre><code>testobj:TestEvent(&#39;-&#39;, lua_event_callback)
 </code></pre>
-<h5 id="64位整数支持"><a href="#64位整数支持" class="headerlink" title="64位整数支持"></a>64位整数支持</h5><pre><code>Lua53版本64位整数（long，ulong）映射到原生的64位整数，而luajit版本，相当于lua5.1的标准，本身不支持64位，xlua做了个64位支持的扩展库，C#的long和ulong都将映射到userdata：
+<h5 id="64-位整数支持"><a href="#64-位整数支持" class="headerlink" title="64 位整数支持"></a>64 位整数支持</h5><pre><code>Lua53 版本 64 位整数（long，ulong）映射到原生的 64 位整数，而 luajit 版本，相当于 lua5.1 的标准，本身不支持 64 位，xlua 做了个 64 位支持的扩展库，C# 的 long 和 ulong 都将映射到 userdata：
 
-支持在lua里头进行64位的运算，比较，打印
+支持在 lua 里头进行 64 位的运算，比较，打印
 
-支持和lua number的运算，比较
+支持和 lua number 的运算，比较
 
-要注意的是，在64扩展库中，实际上只有int64，ulong也会先强转成long再传递到lua，而对ulong的一些运算，比较，我们采取和java一样的支持方式，提供一组API，详情请看API文档。
+要注意的是，在 64 扩展库中，实际上只有 int64，ulong 也会先强转成 long 再传递到 lua，而对 ulong 的一些运算，比较，我们采取和 java 一样的支持方式，提供一组 API，详情请看 API 文档。
 </code></pre>
-<h5 id="C-复杂类型和table的自动转换"><a href="#C-复杂类型和table的自动转换" class="headerlink" title="C#复杂类型和table的自动转换"></a>C#复杂类型和table的自动转换</h5><p>对于一个有无参构造函数的C#复杂类型，在lua侧可以直接用一个table来代替，该table对应复杂类型的public字段有相应字段即可，支持函数参数传递，属性赋值等，例如：<br>C#下B结构体（class也支持）定义如下：</p>
+<h5 id="C-复杂类型和-table-的自动转换"><a href="#C-复杂类型和-table-的自动转换" class="headerlink" title="C# 复杂类型和 table 的自动转换"></a>C# 复杂类型和 table 的自动转换</h5><p>对于一个有无参构造函数的 C# 复杂类型，在 lua 侧可以直接用一个 table 来代替，该 table 对应复杂类型的 public 字段有相应字段即可，支持函数参数传递，属性赋值等，例如：<br>C# 下 B 结构体（class 也支持）定义如下：</p>
 <pre><code>public struct A
 {
     public int a;
@@ -346,109 +366,144 @@ public struct B
 <p>某个类有成员函数如下：</p>
 <pre><code>void Foo(B b)
 </code></pre>
-<p>在lua可以这么调用</p>
+<p>在 lua 可以这么调用</p>
 <pre><code>obj:Foo({b = {a = 100}, c = 200})
 </code></pre>
-<h5 id="获取类型（相当于C-的typeof）"><a href="#获取类型（相当于C-的typeof）" class="headerlink" title="获取类型（相当于C#的typeof）"></a>获取类型（相当于C#的typeof）</h5><p>比如要获取UnityEngine.ParticleSystem类的Type信息，可以这样</p>
+<h5 id="获取类型（相当于-C-的-typeof）"><a href="#获取类型（相当于-C-的-typeof）" class="headerlink" title="获取类型（相当于 C# 的 typeof）"></a>获取类型（相当于 C# 的 typeof）</h5><p>比如要获取 UnityEngine.ParticleSystem 类的 Type 信息，可以这样</p>
 <pre><code>typeof(CS.UnityEngine.ParticleSystem)
 </code></pre>
-<h5 id="“强”转"><a href="#“强”转" class="headerlink" title="“强”转"></a>“强”转</h5><p>lua没类型，所以不会有强类型语言的“强转”，但有个有点像的东西：告诉xlua要用指定的生成代码去调用一个对象，这在什么情况下能用到呢？有的时候第三方库对外暴露的是一个interface或者抽象类，实现类是隐藏的，这样我们无法对实现类进行代码生成。该实现类将会被xlua识别为未生成代码而用反射来访问，如果这个调用是很频繁的话还是很影响性能的，这时我们就可以把这个interface或者抽象类加到生成代码，然后指定用该生成代码来访问：</p>
+<h5 id="“强”转"><a href="#“强”转" class="headerlink" title="“强”转"></a>“强”转</h5><p>lua 没类型，所以不会有强类型语言的“强转”，但有个有点像的东西：告诉 xlua 要用指定的生成代码去调用一个对象，这在什么情况下能用到呢？有的时候第三方库对外暴露的是一个 interface 或者抽象类，实现类是隐藏的，这样我们无法对实现类进行代码生成。该实现类将会被 xlua 识别为未生成代码而用反射来访问，如果这个调用是很频繁的话还是很影响性能的，这时我们就可以把这个 interface 或者抽象类加到生成代码，然后指定用该生成代码来访问：</p>
 <pre><code>cast(calc, typeof(CS.Tutorial.Calc))
 </code></pre>
-<p>上面就是指定用CS.Tutorial.Calc的生成代码来访问calc对象。</p>
+<p>上面就是指定用 CS.Tutorial.Calc 的生成代码来访问 calc 对象。</p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/">https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="post-meta__tags" href="/tags/xLua/">xLua</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/GameEngine/Unity/AssetBundle/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/jiguangbo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">AssetBundle</div></div></a></div><div class="next-post pull-right"><a href="/TechnicalResearch/RESTful/RESTful/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/duchu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RESTful</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Room/Android%E4%B9%8BRoom%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Android之Room库的使用"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom25601440bg7e04c99.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-22</div><div class="title">Android之Room库的使用</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/AndroidX/" title="AndroidX"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bga6e4154.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-13</div><div class="title">AndroidX</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/UnitTest/Android%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="Android单元测试"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-nmdprk.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-28</div><div class="title">Android单元测试</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/" title="Android唯一标识"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom19201080bg8ae443e.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-12</div><div class="title">Android唯一标识</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90/" title="Android原生开发现状分析"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1c34660a6917f03b1249fsaf8a1923d36ef.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-24</div><div class="title">Android原生开发现状分析</div></div></a></div><div><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E4%B9%8BJetPack%E5%BA%93/" title="Android之JetPack库"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/v225243a3a2e454c85c456711f9576b08ehd.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-21</div><div class="title">Android之JetPack库</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-number">1.1.</span> <span class="toc-text">什么是热更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E6%9B%B4%E6%96%B0%E6%96%B9%E6%A1%88"><span class="toc-number">1.2.</span> <span class="toc-text">热更新方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xLua"><span class="toc-number">1.3.</span> <span class="toc-text">xLua</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xLua%E5%85%A5%E9%97%A8"><span class="toc-number">2.1.</span> <span class="toc-text">xLua入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.1.1.</span> <span class="toc-text">Lua文件加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E8%AE%BF%E9%97%AELua"><span class="toc-number">2.1.2.</span> <span class="toc-text">C#访问Lua</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua%E8%B0%83%E7%94%A8C"><span class="toc-number">2.1.3.</span> <span class="toc-text">Lua调用C#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#new-C-%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">new C#对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BF%E9%97%AEC-%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7%EF%BC%8C%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">访问C#静态属性，方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%BB%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.2.1.</span> <span class="toc-text">读静态属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%99%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.2.2.</span> <span class="toc-text">写静态属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.2.3.</span> <span class="toc-text">调用静态方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BF%E9%97%AEC-%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%EF%BC%8C%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">访问C#成员属性，方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%BB%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.3.1.</span> <span class="toc-text">读成员属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%99%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.3.2.</span> <span class="toc-text">写成员属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.3.</span> <span class="toc-text">调用成员方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%B6%E7%B1%BB%E5%B1%9E%E6%80%A7%EF%BC%8C%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.4.</span> <span class="toc-text">父类属性，方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%B1%9E%E6%80%A7%EF%BC%88out%EF%BC%8Cref%EF%BC%89"><span class="toc-number">2.1.3.3.5.</span> <span class="toc-text">参数的输入输出属性（out，ref）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.6.</span> <span class="toc-text">重载方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.1.3.3.7.</span> <span class="toc-text">操作符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%B8%A6%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.8.</span> <span class="toc-text">参数带默认值的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.9.</span> <span class="toc-text">可变参数方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Extension-methods"><span class="toc-number">2.1.3.3.10.</span> <span class="toc-text">使用Extension methods</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%9B%E5%8C%96%EF%BC%88%E6%A8%A1%E7%89%88%EF%BC%89%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.11.</span> <span class="toc-text">泛化（模版）方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.3.3.12.</span> <span class="toc-text">枚举类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#delegate%E4%BD%BF%E7%94%A8%EF%BC%88%E8%B0%83%E7%94%A8%EF%BC%8C-%EF%BC%8C-%EF%BC%89"><span class="toc-number">2.1.3.3.13.</span> <span class="toc-text">delegate使用（调用，+，-）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#event"><span class="toc-number">2.1.3.3.14.</span> <span class="toc-text">event</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#64%E4%BD%8D%E6%95%B4%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">2.1.3.3.15.</span> <span class="toc-text">64位整数支持</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#C-%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B%E5%92%8Ctable%E7%9A%84%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.1.3.3.16.</span> <span class="toc-text">C#复杂类型和table的自动转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%9E%8B%EF%BC%88%E7%9B%B8%E5%BD%93%E4%BA%8EC-%E7%9A%84typeof%EF%BC%89"><span class="toc-number">2.1.3.3.17.</span> <span class="toc-text">获取类型（相当于C#的typeof）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%80%9C%E5%BC%BA%E2%80%9D%E8%BD%AC"><span class="toc-number">2.1.3.3.18.</span> <span class="toc-text">“强”转</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
-  function initWaline () {
-    const waline = new Waline(Object.assign({
-      el: '#waline-wrap',
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tamsiree.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/">https://tamsiree.com/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/xLua/xLua%E5%85%A5%E9%97%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="post-meta__tags" href="/tags/xLua/">xLua</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/ducishuimu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/GameEngine/Unity/AssetBundle/" title="AssetBundle"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/jiguangbo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">AssetBundle</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文AssetBundle 的定义和作用1，AssetBundle 是一个压缩包包含模型、贴图、预制体、声音、甚至整个场景，可以在游戏运行的时候被加载；2，AssetBundle 自身保存着互相的依赖关系；3，压缩包可以使用 LZMA 和 LZ4 压缩算法，减少包大小，更快的进行网络传输；4，把一些可以下载内容放在 AssetBundle 里面，可以减少安装包的大小；   什么是 AssetBundle可以归为两点：1，它是一个存在于硬盘上的文件。可以称之为压缩包。这个压缩包可以认为是一个文件夹，里面包含了多个文件。这些文件可以分为两类：serialized file 和 resource files。（序列化文件和源文件）serialized file：资源被打碎放在一个对象中，最后统一被写进一个单独的文件（只有一个）resource files：某些二进制资源（图片、声音）被单独保存，方便快速加载 2，它是一个 AssetBundle 对象，我们可以通过代码从一个特定的压缩包加载出来的对象。这个对象包含了所有我们当初添加到这个压缩包里面的内容，我们可以通...</div></div></div></a><a class="pagination-related" href="/TechnicalResearch/RESTful/RESTful/" title="RESTful"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/duchu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">RESTful</div></div><div class="info-2"><div class="info-item-1">前言 RESTful 是目前最流行的 API 设计规范，用于 Web 数据接口的设计。本文总结 RESTful 的特点，以及如何设计和使用 RESTful 风格的 API。 RESTful 规范一种软件的架构风格，设计风格，而不是标准，为客户端和服务端的交互提供一组设计原则和约束条件。  正文面向资源编程每个 URL 代表一种资源，URL 中尽量不要用动词，要用名词，往往名词跟数据库表格相对应。 一般来说，数据库中的表都是同种记录的集合，所有 API 中的名词也应该使用复数。 举例来说，有一个 API 提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。 123https://api.example.com/v1/zooshttps://api.example.com/v1/animalshttps://api.example.com/v1/employees  HTTP 动词对于资源的具体操作类型，由 HTTP 动词表示。常用的 HTTP 动词有下面五个（括号里对应的 sql 命令）。 12345GET（SELECT）：从服务器取出资源（一项或...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Room/Android%E4%B9%8BRoom%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Android 之 Room 库的使用"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom25601440bg7e04c99.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-22</div><div class="info-item-2">Android 之 Room 库的使用</div></div><div class="info-2"><div class="info-item-1">前言最近疫情待在家里，想着没事就做一个 APP 练练手，需要用到数据库的本地化方案，便尝试深入了解以下 Google 官方的 ORM 库 Room，配置和使用还算比较简单，没用过的可以查看 官方文档, 上手还算比较容易。可以参考 Google 官方在 GitHub 上的示例库 [Android Room with a View] , 一步一步非常清晰的展现了框架的架构与流程。 正文问题归纳 新入手的库当然会遇到坑的啦！    模糊查询的 Sql 语句拼写问题本来一切增删改查都进行的很顺利，然后 APP 中有一个模糊搜索的功能。例如查找 person 表中 name 或者 name_pinyin 包含某字符串的所有用户，一般 sql 语句是这样 1Select * From person Where Name Like %name% OR Name_Pinyin Like %name_pinyin%  在 Android 端里面一般用的数据库都是注解 @query ，后面拼上需要查询的语句，当然每个数据库框架要求的格式可能不一样，但是最终编译成的最终语句肯定是上面那种格式的。 终于...</div></div></div></a><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/RxTool/RxTool/" title="RxTool(Android 工具库)"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-09-24</div><div class="info-item-2">RxTool(Android 工具库)</div></div><div class="info-2"><div class="info-item-1">前言    所谓：工欲善其事必先利其器！   RxTool 是 Android 开发过程经常需要用到各式各样的工具类集合，虽然大部分只需谷歌一下就能找到。   但是有时候急需使用却苦苦搜寻不到，于是整理了自己平常用到的工具类，以便以后的使用。         ★★★★★ ★★★ ★★ ★ ★ ★ ★ ★                   关键词      **Android 开发人员不得不收集的工具类集合 ** ** 支付宝支付 ** ** 微信支付（统一下单）**   ** 微信分享 ** Zip4j 压缩（支持分卷压缩与加密） ** 一键集成 UCrop 选择圆形头像 **   ** 一键集成二维码和条形码的扫描与生成 ** ** 常用 Dialog** **WebView 的封装可播放视频 **   ** 仿斗鱼滑动验证码 ** **Toast 封装 ** ** 震动 **   GPS **Location 定位 ** ** 图片缩放 **   Exif ** 图片添加地理位置信息（经纬度）** ** 蛛网等级 ** ** 颜色选择器 **   ArcGis VTPK *...</div></div></div></a><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%BC%BA%E5%88%B6%E5%85%B3%E9%97%AD%E8%BD%AF%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E6%B3%95/" title="Android 强制关闭软键盘输入法"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/20170812142435mxeUN.jpeg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-02-16</div><div class="info-item-2">Android 强制关闭软键盘输入法</div></div><div class="info-2"><div class="info-item-1">前言在类似评论说说的这种界面中，输入评论内容后，点击发送按钮，小米手机的键盘有时候不消失, 只是消失了自定义的输入框式样弹框，大概率出现的一种情况（即使你自己调用的关闭键盘也会出现无效的情况）。 正文解决方法：  在 AndroidManifest 配置 需要强制关闭软键盘输入法 的 Activity    12345678910&lt;activity    android:name=&quot;.activity.ActivityLogin&quot;    &lt;!--  新增这一行代码  --&gt;    android:windowSoftInputMode=&quot;stateAlwaysHidden&quot;&gt;    &lt;intent-filter&gt;        &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;        &lt;category android:name=&quot;android.intent.category.LAUNCHER&...</div></div></div></a><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Goland/GoLand%E6%BF%80%E6%B4%BB%E7%A0%81/" title="GoLand 激活码"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/1css34660a6917f03b1249f8a1923d36ef.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-17</div><div class="info-item-2">GoLand 激活码</div></div><div class="info-2"><div class="info-item-1">正文激活 GoLand 时，选择 License server 方式地址填入： 1http://fls.jetbrains-agent.com  点击：”Activate”。按照以下图片操作 - 操作完毕 - 重启 IDE，激活完成。    to be continued…  </div></div></div></a><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Golang/Golang/" title="Golang"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bfhajlkdgahgf16617a.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-17</div><div class="info-item-2">Golang</div></div><div class="info-2"><div class="info-item-1">前言Go 语言是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言，它用批判吸收的眼光，融合 C 语言、Java 等众家之长，将简洁、高效演绎得淋漓尽致。 Go 语言起源于 2007 年，当时 Google 的技术大神们备受 C++ 越来越臃肿的困扰，决心开发一种新的语言来取代 C++。他们认为：与其在臃肿的语言上不断增加新的特性，不如简化编程语言。于是，Golang 这门新语言应运而生。 在十年多的时间里，Go 语言发展势头强劲，凭借其简洁、高效的特性，在竞争激烈的编程语言市场中占据了一席之地。Google、腾讯、阿里等大公司纷纷选择使用 Go 语言来开发服务应用项目。当然，和其他的编程语言一样，Go 语言也有其自身的缺陷。 正文特点及优势Go 语言的设计者们一直致力于降低构建简单、可靠、高效软件的门槛。相比于其他语言，Go 语言具有众多令人兴奋不已的特点和优势： **1. 自动垃圾回收降低了开发难度 ** 内存和资源管理一直是一个让人非常抓狂的难题。在其他语言（如 C 或 C++）中，使用内存前要先分配这段内存，使用完毕后再将其释放掉，一个小疏...</div></div></div></a><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/RxTool/Wiki/RxTool-Wiki/" title="RxTool Wiki"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-14</div><div class="info-item-2">RxTool Wiki</div></div><div class="info-2"><div class="info-item-1">RxTool Wiki    工欲善其事必先利其器！   Android 开发过程经常需要用到各式各样的工具类，虽然大部分只需谷歌 / 百度一下就能找到；   但是有时候急需使用却苦苦搜寻不到，于是整理了自己平常用到的工具类，以便以后的使用。  自定义 View   Name description Module    RxAutoImageView ImageView 实现自动左右移动效果 RxUI   RxBarCode 条形码控件 RxUI   RxCaptcha 验证码控件 RxUI   RxCardStackView 银行卡组叠加效果 RxUI   RxCobwebView 蛛网等级控件 RxUI   RxHeartLayout 直播爱心点赞控件 RxUI   RxNetSpeedView 显示当前网速控件 RxUI   RxPopupView 自定义 PopupWindow 控件 RxUI   RxProgressBar 自定义进度条 RxUI   RxQRCode 二维码控件 RxUI   RxRoundProgress 实现弧形进度条 RxUI   RxRuler...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tamsiree</div><div class="author-info-description">勇于尝试才有可能迈向成功</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-number">1.1.</span> <span class="toc-text">什么是热更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%AD%E6%9B%B4%E6%96%B0%E6%96%B9%E6%A1%88"><span class="toc-number">1.2.</span> <span class="toc-text">热更新方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xLua"><span class="toc-number">1.3.</span> <span class="toc-text">xLua</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xLua-%E5%85%A5%E9%97%A8"><span class="toc-number">2.1.</span> <span class="toc-text">xLua 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua-%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.1.1.</span> <span class="toc-text">Lua 文件加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E8%AE%BF%E9%97%AE-Lua"><span class="toc-number">2.1.2.</span> <span class="toc-text">C# 访问 Lua</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua-%E8%B0%83%E7%94%A8-C"><span class="toc-number">2.1.3.</span> <span class="toc-text">Lua 调用 C#</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#new-C-%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">new C# 对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE-C-%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7%EF%BC%8C%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">访问 C# 静态属性，方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%BB%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.2.1.</span> <span class="toc-text">读静态属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%99%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.2.2.</span> <span class="toc-text">写静态属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.2.3.</span> <span class="toc-text">调用静态方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE-C-%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%EF%BC%8C%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">访问 C# 成员属性，方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%BB%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.3.1.</span> <span class="toc-text">读成员属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%99%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.3.3.2.</span> <span class="toc-text">写成员属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.3.</span> <span class="toc-text">调用成员方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%B6%E7%B1%BB%E5%B1%9E%E6%80%A7%EF%BC%8C%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.4.</span> <span class="toc-text">父类属性，方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%B1%9E%E6%80%A7%EF%BC%88out%EF%BC%8Cref%EF%BC%89"><span class="toc-number">2.1.3.3.5.</span> <span class="toc-text">参数的输入输出属性（out，ref）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.6.</span> <span class="toc-text">重载方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.1.3.3.7.</span> <span class="toc-text">操作符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%B8%A6%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.8.</span> <span class="toc-text">参数带默认值的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.9.</span> <span class="toc-text">可变参数方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Extension-methods"><span class="toc-number">2.1.3.3.10.</span> <span class="toc-text">使用 Extension methods</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%9B%E5%8C%96%EF%BC%88%E6%A8%A1%E7%89%88%EF%BC%89%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.3.3.11.</span> <span class="toc-text">泛化（模版）方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.3.3.12.</span> <span class="toc-text">枚举类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#delegate-%E4%BD%BF%E7%94%A8%EF%BC%88%E8%B0%83%E7%94%A8%EF%BC%8C-%EF%BC%8C-%EF%BC%89"><span class="toc-number">2.1.3.3.13.</span> <span class="toc-text">delegate 使用（调用，+，-）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#event"><span class="toc-number">2.1.3.3.14.</span> <span class="toc-text">event</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#64-%E4%BD%8D%E6%95%B4%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">2.1.3.3.15.</span> <span class="toc-text">64 位整数支持</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#C-%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B%E5%92%8C-table-%E7%9A%84%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.1.3.3.16.</span> <span class="toc-text">C# 复杂类型和 table 的自动转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%9E%8B%EF%BC%88%E7%9B%B8%E5%BD%93%E4%BA%8E-C-%E7%9A%84-typeof%EF%BC%89"><span class="toc-number">2.1.3.3.17.</span> <span class="toc-text">获取类型（相当于 C# 的 typeof）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%80%9C%E5%BC%BA%E2%80%9D%E8%BD%AC"><span class="toc-number">2.1.3.3.18.</span> <span class="toc-text">“强”转</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 中 MongoDB 数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复">Docker 中 MongoDB 数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃">Unity 多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的 CDN 之 jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr">好用的 CDN 之 jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统">Unity 坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2025 By Tamsiree</span></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><script src="/js/tw_cn.js?v=5.5.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"],"avatar":"wavatar"}
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
       serverURL: 'https://comment.tamsiree.com',
-      path: location.pathname,
-      visitor: true,
-      dark: 'html[data-theme="dark"]'
-    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
-  }
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
 
-  if (typeof Waline === 'function') initWaline()
-  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
-}
-
-if ('Waline' === 'Waline' || !true) {
-  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
-  else setTimeout(loadWaline, 0)
-} else {
-  function loadOtherComment () {
-    loadWaline()
-  }
-}</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
 
-})
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>

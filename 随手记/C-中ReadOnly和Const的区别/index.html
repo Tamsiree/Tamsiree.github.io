@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C#中ReadOnly和Const的区别 | Tamsiree</title><meta name="keywords" content="Tamsiree,Unity,blog,安卓,程序员,个人博客,Android"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 C#基本知识点-Readonly和Const的区别目录   什么是静态常量（Const）和动态常量（Readonly）   静态常量（Const）和动态常量（Readonly）之间的区别   动态常量（Readonly）被赋值后不可以改变   总结  什么是静态常量（Const）和动态常量（Readonly）　　先解释下什么是静态常量（Const）以及什么是动态常量（Read">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C# 中 ReadOnly 和 Const 的区别 | Tamsiree</title><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 C# 基本知识点 - Readonly 和 Const 的区别** 目录 **   ** 什么是静态常量（Const）和动态常量（Readonly）**   ** 静态常量（Const）和动态常量（Readonly）之间的区别 **   ** 动态常量（Readonly）被赋值后不可以改变 **   ** 总结 **  ** 什么是静态常量（Const）和动态常量（Reado">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#中ReadOnly和Const的区别">
+<meta property="og:title" content="C# 中 ReadOnly 和 Const 的区别">
 <meta property="og:url" content="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Tamsiree">
-<meta property="og:description" content="前言这里是前言介绍。 C#基本知识点-Readonly和Const的区别目录   什么是静态常量（Const）和动态常量（Readonly）   静态常量（Const）和动态常量（Readonly）之间的区别   动态常量（Readonly）被赋值后不可以改变   总结  什么是静态常量（Const）和动态常量（Readonly）　　先解释下什么是静态常量（Const）以及什么是动态常量（Read">
+<meta property="og:description" content="前言这里是前言介绍。 C# 基本知识点 - Readonly 和 Const 的区别** 目录 **   ** 什么是静态常量（Const）和动态常量（Readonly）**   ** 静态常量（Const）和动态常量（Readonly）之间的区别 **   ** 动态常量（Readonly）被赋值后不可以改变 **   ** 总结 **  ** 什么是静态常量（Const）和动态常量（Reado">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg">
 <meta property="article:published_time" content="2022-11-04T06:08:52.000Z">
@@ -17,19 +17,141 @@
 <meta property="article:tag" content="安卓">
 <meta property="article:tag" content="程序员">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C# 中 ReadOnly 和 Const 的区别",
+  "url": "https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/",
+  "image": "https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg",
+  "datePublished": "2022-11-04T06:08:52.000Z",
+  "dateModified": "2025-11-05T13:53:39.343Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tamsiree",
+      "url": "https://tamsiree.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: 'ca-pub-8688374801147098',
   enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -37,7 +159,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -46,140 +168,34 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'C#中ReadOnly和Const的区别',
-  isPost: true,
-  isHome: false,
+  title: 'C# 中 ReadOnly 和 Const 的区别',
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2025-11-05 21:53:39'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C#中ReadOnly和Const的区别</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-04T06:08:52.000Z" title="发表于 2022-11-04 14:08:52">2022-11-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.343Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C#中ReadOnly和Const的区别"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
-<h1 id="C-基本知识点-Readonly和Const的区别"><a href="#C-基本知识点-Readonly和Const的区别" class="headerlink" title="C#基本知识点-Readonly和Const的区别"></a>C#基本知识点-Readonly和Const的区别</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
-<li>  <strong>什么是静态常量（Const）和动态常量（Readonly）</strong></li>
-<li>  <strong>静态常量（Const）和动态常量（Readonly）之间的区别</strong></li>
-<li>  <strong>动态常量（Readonly）被赋值后不可以改变</strong></li>
-<li>  <strong>总结</strong></li>
+  pageType: 'post'
+}</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-color: #f0f0f0;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tamsiree</span></a><a class="nav-page-title" href="/"><span class="site-name">C# 中 ReadOnly 和 Const 的区别</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">C# 中 ReadOnly 和 Const 的区别</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-04T06:08:52.000Z" title="发表于 2022-11-04 14:08:52">2022-11-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.343Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
+<h1 id="C-基本知识点-Readonly-和-Const-的区别"><a href="#C-基本知识点-Readonly-和-Const-的区别" class="headerlink" title="C# 基本知识点 - Readonly 和 Const 的区别"></a>C# 基本知识点 - Readonly 和 Const 的区别</h1><h2 id="目录"><a href="#目录" class="headerlink" title="** 目录 **"></a>** 目录 **</h2><ul>
+<li>  ** 什么是静态常量（Const）和动态常量（Readonly）**</li>
+<li>  ** 静态常量（Const）和动态常量（Readonly）之间的区别 **</li>
+<li>  ** 动态常量（Readonly）被赋值后不可以改变 **</li>
+<li>  ** 总结 **</li>
 </ul>
-<h2 id="什么是静态常量（Const）和动态常量（Readonly）"><a href="#什么是静态常量（Const）和动态常量（Readonly）" class="headerlink" title="什么是静态常量（Const）和动态常量（Readonly）"></a><strong>什么是静态常量（Const）和动态常量（Readonly）</strong></h2><p>　　先解释下什么是静态常量（Const）以及什么是动态常量（Readonly）。 **　　静态常量（Const）<strong>是指编译器在编译时候会对常量进行解析，并将常量的值替换成初始化的那个值。 **　　动态常量（Readonly）</strong>的值则是在运行的那一刻才获得的，编译器编译期间将其标示为只读常量，而不用常量的值代替，这样动态常量不必在声明的时候就初始化，而可以延迟到构造函数中初始化。</p>
-<h2 id="静态常量（Const）和动态常量（Readonly）之间的区别"><a href="#静态常量（Const）和动态常量（Readonly）之间的区别" class="headerlink" title="静态常量（Const）和动态常量（Readonly）之间的区别"></a><strong>静态常量（Const）和动态常量（Readonly）之间的区别</strong></h2><p>静态常量（Compile-time Constant）</p>
+<h2 id="什么是静态常量（Const）和动态常量（Readonly）"><a href="#什么是静态常量（Const）和动态常量（Readonly）" class="headerlink" title="** 什么是静态常量（Const）和动态常量（Readonly）**"></a>** 什么是静态常量（Const）和动态常量（Readonly）**</h2><p>　　先解释下什么是静态常量（Const）以及什么是动态常量（Readonly）。 **　　静态常量（Const）** 是指编译器在编译时候会对常量进行解析，并将常量的值替换成初始化的那个值。 **　　动态常量（Readonly）** 的值则是在运行的那一刻才获得的，编译器编译期间将其标示为只读常量，而不用常量的值代替，这样动态常量不必在声明的时候就初始化，而可以延迟到构造函数中初始化。</p>
+<h2 id="静态常量（Const）和动态常量（Readonly）之间的区别"><a href="#静态常量（Const）和动态常量（Readonly）之间的区别" class="headerlink" title="** 静态常量（Const）和动态常量（Readonly）之间的区别 **"></a>** 静态常量（Const）和动态常量（Readonly）之间的区别 **</h2><p>静态常量（Compile-time Constant）</p>
 <p>动态常量（Runtime Constant）</p>
 <p>定义</p>
 <p>声明的同时要设置常量值。</p>
@@ -197,30 +213,30 @@
 <p>性能要略高，无内存开销，但是限制颇多，不灵活。</p>
 <p>灵活，方便，但是性能略低，且有内存开销。</p>
 <ol>
-<li> Const修饰的常量在声明的时候必须初始化;Readonly修饰的常量则可以延迟到构造函数初始化 。</li>
-<li> Const常量既可以声明在类中也可以在函数体内，但是Static Readonly常量只能声明在类中。Const是静态常量，所以它本身就是Static的，因此不能手动再为Const增加一个Static修饰符。</li>
-<li> Const修饰的常量在编译期间就被解析，即：经过编译器编译后，我们都在代码中引用Const变量的地方会用Const变量所对应的实际值来代替; Readonly修饰的常量则延迟到运行的时候。</li>
+<li> Const 修饰的常量在声明的时候必须初始化; Readonly 修饰的常量则可以延迟到构造函数初始化 。</li>
+<li> Const 常量既可以声明在类中也可以在函数体内，但是 Static Readonly 常量只能声明在类中。Const 是静态常量，所以它本身就是 Static 的，因此不能手动再为 Const 增加一个 Static 修饰符。</li>
+<li> Const 修饰的常量在编译期间就被解析，即：经过编译器编译后，我们都在代码中引用 Const 变量的地方会用 Const 变量所对应的实际值来代替; Readonly 修饰的常量则延迟到运行的时候。</li>
 </ol>
 <p>　　举个例子来说明一下</p>
 <p>public static readonly int NumberA = NumberB * 10;<br>public static readonly int NumberB = 10;</p>
 <p>public const int NumberC = NumberD*10;<br>public const int NumberD = 10;</p>
 <p>static void Main(string[] args)<br>{<br>    Console.WriteLine(“NumberA is {0}, NumberB is {1}.”, NumberA, NumberB);//NumberA is 0, NumberB is 10.<br>    Console.WriteLine(“NumberC is {0}, NumberD is {1}.”, NumberC, NumberD);//NumberC is 100, NumberD is 10.<br>    Console.ReadKey();<br>    }</p>
 <p>复制</p>
-<p>以上是语法方面的应用，那在实际的用法上，还是有些微妙的变化，通常不易发觉. 　　举个例子来说明一下： 　　在程序集DoTestConst.dll 中有一个类MyClass，定义了一个公开的静态变量Count</p>
-<p>public static class MyClass<br>{<br>    public const int Count = 10;<br>    }<br>    　　然后另外一个应用程序中引用DoTestConst.dll，并在代码中作如下调用：<br>    public static void Main(string[] args)<br>    {<br>        Console.WriteLine(DoTestConst.MyClass.Count);//输出10<br>        Console.ReadKey();<br>        }</p>
+<p>以上是语法方面的应用，那在实际的用法上，还是有些微妙的变化，通常不易发觉. 　　举个例子来说明一下： 　　在程序集 DoTestConst.dll 中有一个类 MyClass，定义了一个公开的静态变量 Count</p>
+<p>public static class MyClass<br>{<br>    public const int Count = 10;<br>    }<br>    　　然后另外一个应用程序中引用 DoTestConst.dll，并在代码中作如下调用：<br>    public static void Main(string[] args)<br>    {<br>        Console.WriteLine(DoTestConst.MyClass.Count);// 输出 10<br>        Console.ReadKey();<br>        }</p>
 <p>复制</p>
 <p>复制</p>
-<p>　　毫无疑问，非常简单的代码，直接输出10。 　　接下来更新MyClass的Count的值为20，然后重新编译DoTestConst.dll，并更新到应用程序的所在目录中，注意不要编译应用程序。那么这时候的输出结果按预期那么想应该是20才对，但实际上还是10，为什么呢？ 　　这就是Const的特别之处，有多特别还是直接看生成的IL，查看IL代码(假设这时候Count的值为10)</p>
+<p>　　毫无疑问，非常简单的代码，直接输出 10。 　　接下来更新 MyClass 的 Count 的值为 20，然后重新编译 DoTestConst.dll，并更新到应用程序的所在目录中，注意不要编译应用程序。那么这时候的输出结果按预期那么想应该是 20 才对，但实际上还是 10，为什么呢？ 　　这就是 Const 的特别之处，有多特别还是直接看生成的 IL，查看 IL 代码(假设这时候 Count 的值为 10)</p>
 <p>　　IL_0000: nop IL_0001: ldc.i4.s 10 　　IL_0003: call void [mscorlib]System.Console::WriteLine(int32)</p>
-<p>　　红色代码很明显的表明了，直接加载10，没有通过任何类型的加载然后得到对应变量的，也就是说在运行时没有去加载DoTestConst.dll，那么是否意味着没有DoTestConst.dll也可以运行呢？答案是肯定的，删除DoTestConst.dll也可以运行，是否很诡异呢？也就解释了之前的实验，为什么更新Const变量的值之后没有调用新的值，因为程序在运行的时候根本不会去加载DoTestConst.dll。那么10这个值是从哪来的呢？实际上CLR对于Const变量做了特殊处理，是将Const的值直接嵌入在生成的IL代码中，在执行的时候不会再去从dll加载。这也带来了一个不容易发觉的Bug，因此在引用其他程序集的Const变量时，需考虑到版本更新问题，要解决这个问题就是把调用的应用程序再编译一次就ok了。但实际程序部署更新时可能只更新个别文件，这时候就必须用Readonly关键字来解决这个问题。</p>
-<p>　　接下来看Readonly的版本：</p>
+<p>　　红色代码很明显的表明了，直接加载 10，没有通过任何类型的加载然后得到对应变量的，也就是说在运行时没有去加载 DoTestConst.dll，那么是否意味着没有 DoTestConst.dll 也可以运行呢？答案是肯定的，删除 DoTestConst.dll 也可以运行，是否很诡异呢？也就解释了之前的实验，为什么更新 Const 变量的值之后没有调用新的值，因为程序在运行的时候根本不会去加载 DoTestConst.dll。那么 10 这个值是从哪来的呢？实际上 CLR 对于 Const 变量做了特殊处理，是将 Const 的值直接嵌入在生成的 IL 代码中，在执行的时候不会再去从 dll 加载。这也带来了一个不容易发觉的 Bug，因此在引用其他程序集的 Const 变量时，需考虑到版本更新问题，要解决这个问题就是把调用的应用程序再编译一次就 ok 了。但实际程序部署更新时可能只更新个别文件，这时候就必须用 Readonly 关键字来解决这个问题。</p>
+<p>　　接下来看 Readonly 的版本：</p>
 <p>public static class MyClass<br>{<br>    public static readonly int Count = 10;<br>    }</p>
 <p>复制</p>
 <p>复制</p>
-<p>　调用方代码不变，接着看生成的IL代码：</p>
+<p>　调用方代码不变，接着看生成的 IL 代码：</p>
 <p>　　IL_0000: nop IL_0001: ldsfld int32 [DoTestConst]DoTestConst.MyClass::Count 　　IL_0006: call void [mscorlib]System.Console::WriteLine(int32)</p>
-<p>　　很明显加载代码变了，一个很常见的ldsfld动作，请求了DoTestConst.MyClass的Count变量，是通过强制要求加载DoTestConst来实现的。因此这时候更新Count的值重新编译之后，还是不编译调用程序，然后再执行就会看到新的值。而这时候如果删除DoTestConst.dll那么，会出现找不到dll之类的异常。这也充分说明了对于Readonly定义的变量是在运行时加载的。</p>
-<h2 id="动态常量（Readonly）被赋值后不可以改变"><a href="#动态常量（Readonly）被赋值后不可以改变" class="headerlink" title="动态常量（Readonly）被赋值后不可以改变"></a><strong>动态常量（Readonly）被赋值后不可以改变</strong></h2><p>　　ReadOnly 变量是运行时变量，它在运行时第一次赋值后将不可以改变。其中“不可以改变”分为两层意思：</p>
+<p>　　很明显加载代码变了，一个很常见的 ldsfld 动作，请求了 DoTestConst.MyClass 的 Count 变量，是通过强制要求加载 DoTestConst 来实现的。因此这时候更新 Count 的值重新编译之后，还是不编译调用程序，然后再执行就会看到新的值。而这时候如果删除 DoTestConst.dll 那么，会出现找不到 dll 之类的异常。这也充分说明了对于 Readonly 定义的变量是在运行时加载的。</p>
+<h2 id="动态常量（Readonly）被赋值后不可以改变"><a href="#动态常量（Readonly）被赋值后不可以改变" class="headerlink" title="** 动态常量（Readonly）被赋值后不可以改变 **"></a>** 动态常量（Readonly）被赋值后不可以改变 **</h2><p>　　ReadOnly 变量是运行时变量，它在运行时第一次赋值后将不可以改变。其中 “不可以改变” 分为两层意思：</p>
 <ol>
 <li> 对于值类型变量，值本身不可以改变（Readonly， 只读）</li>
 <li> 对于引用类型变量，引用本身（相当于指针）不可改变。</li>
@@ -229,120 +245,155 @@
 <p>public class Student<br>{<br>    public readonly int Age;</p>
 <p>public Student(int age)<br>{<br>    this.Age = age;<br>    }<br>    }</p>
 <p>复制</p>
-<p>　　Student的实例Age在构造函数中被赋值以后就不可以改变，下面的代码不会编译通过：</p>
-<p>Student student = new Student(20);<br>student.Age = 21; //错误信息：无法对只读的字段赋值（构造函数或变量初始化器中除外）</p>
+<p>　　Student 的实例 Age 在构造函数中被赋值以后就不可以改变，下面的代码不会编译通过：</p>
+<p>Student student = new Student(20);<br>student.Age = 21; // 错误信息：无法对只读的字段赋值（构造函数或变量初始化器中除外）</p>
 <p>复制</p>
 <p>复制</p>
 <p>　引用类型变量，举个例子说明一下：</p>
-<p>public class Student<br>{<br>    public int Age; //注意这里的Age是没有readonly修饰符的</p>
+<p>public class Student<br>{<br>    public int Age; // 注意这里的 Age 是没有 readonly 修饰符的</p>
 <p>public Student(int age)<br>{<br>    this.Age = age;<br>    }<br>    }</p>
 <p>public class School<br>{<br>    public readonly Student Student;</p>
 <p>public School(Student student)<br>{<br>    this.Student = student;<br>    }<br>    }</p>
 <p>复制</p>
-<p>　　School实例的Student是一个引用类型的变量，赋值后，变量不能再指向其他任何的Student实例，所以，下面的代码将不会编译通过：</p>
-<p>School school = new School(new Student(10));<br>school.Student = new Student(20);//错误信息：无法对只读的字段赋值（构造函数或变量初始化器中除外）</p>
+<p>　　School 实例的 Student 是一个引用类型的变量，赋值后，变量不能再指向其他任何的 Student 实例，所以，下面的代码将不会编译通过：</p>
+<p>School school = new School(new Student(10));<br>school.Student = new Student(20);// 错误信息：无法对只读的字段赋值（构造函数或变量初始化器中除外）</p>
 <p>复制</p>
 <p>复制</p>
 <p>　　引用本身不可以改变，但是引用说指向的实例的值是可以改变的。所以下面的代码是可以编译通过的：</p>
 <p>School school = new School(new Student(10));<br>school.Student.Age = 20;</p>
 <p>复制</p>
-<p>在构造方法中，我们可以多次对Readonly修饰的常量赋值。举个例子说明一下：</p>
-<p>public class Student<br>{<br>    public readonly int Age = 20;//注意:初始化器实际上是构造方法的一部分，它其实是一个语法糖</p>
+<p>在构造方法中，我们可以多次对 Readonly 修饰的常量赋值。举个例子说明一下：</p>
+<p>public class Student<br>{<br>    public readonly int Age = 20;// 注意: 初始化器实际上是构造方法的一部分，它其实是一个语法糖</p>
 <p>public Student(int age)<br>{<br>    this.Age = age;<br>    this.Age = 25;<br>    this.Age = 30;<br>    }<br>}</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>　　Const和Readonly的最大区别(除语法外) 　　Const的变量是嵌入在IL代码中，编译时就加载好，不依赖外部dll（这也是为什么不能在构造方法中赋值）。Const在程序集更新时容易产生版本不一致的情况。 Readonly的变量是在运行时加载，需请求加载dll，每次都获取最新的值。Readonly赋值引用类型以后，引用本身不可以改变，但是引用所指向的实例的值是可以改变的。在构造方法中，我们可以多次对Readonly赋值。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="** 总结 **"></a>** 总结 **</h2><p>　　Const 和 Readonly 的最大区别(除语法外) 　　Const 的变量是嵌入在 IL 代码中，编译时就加载好，不依赖外部 dll（这也是为什么不能在构造方法中赋值）。Const 在程序集更新时容易产生版本不一致的情况。 Readonly 的变量是在运行时加载，需请求加载 dll，每次都获取最新的值。Readonly 赋值引用类型以后，引用本身不可以改变，但是引用所指向的实例的值是可以改变的。在构造方法中，我们可以多次对 Readonly 赋值。</p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/">https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Unity的ShaderLab着色器入门</div></div></a></div><div class="next-post pull-right"><a href="/GameEngine/Unity/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88%E7%9A%84%E9%80%82%E9%85%8D/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/abe82828ef4a42dfbccdcaab4e58ddb4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Unity粒子特效的适配</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9-Readonly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">C#基本知识点-Readonly和Const的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">2.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Const%EF%BC%89%E5%92%8C%E5%8A%A8%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Readonly%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">什么是静态常量（Const）和动态常量（Readonly）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Const%EF%BC%89%E5%92%8C%E5%8A%A8%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Readonly%EF%BC%89%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.3.</span> <span class="toc-text">静态常量（Const）和动态常量（Readonly）之间的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Readonly%EF%BC%89%E8%A2%AB%E8%B5%8B%E5%80%BC%E5%90%8E%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98"><span class="toc-number">2.4.</span> <span class="toc-text">动态常量（Readonly）被赋值后不可以改变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
-  function initWaline () {
-    const waline = new Waline(Object.assign({
-      el: '#waline-wrap',
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tamsiree.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/">https://tamsiree.com/%E9%9A%8F%E6%89%8B%E8%AE%B0/C-%E4%B8%ADReadOnly%E5%92%8CConst%E7%9A%84%E5%8C%BA%E5%88%AB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/78dc5761ab8c4b55b940967ae24ebe3a.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E7%9A%84ShaderLab%E7%9D%80%E8%89%B2%E5%99%A8%E5%85%A5%E9%97%A8/" title="Unity 的 ShaderLab 着色器入门"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-kxj3l1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Unity 的 ShaderLab 着色器入门</div></div><div class="info-2"><div class="info-item-1">前言如果你对 cg glsl hlsl 顶点 着色器 片段着色器 表面着色器 固定渲染管线 等等有所疑惑，或是想学会 unity 的渲染，看这一篇就足够了。另外我博客的 shader 分类中还有很多 shader 教程和源码，每篇源码都有实现思路、语法功能注释，还在不断更新添加中。感兴趣的请自行查看 正文让 vs 支持 shader点击 vs 的工具 &gt; 扩展和更新 &gt; 联机 &gt; visual studio marketplace搜素 shader点击下载重启 vs弹出 installer，点击修改 即可。 一，基础知识关于着色器语言与 Shader Lab 着色器语言有三种：hlsl（DirectX）glsl（OpenGL）cg（支持以上两种）Shader Lab 是 unity 封装了 cg、hlsl、glsl 的 unity 专有着色器语言。shaderlab 具有跨平台、图形化编程、便于着色器与 unity 通信等优点。在 unity2018.3.5f 以后版本，可以使用图形化工具 shader graph 来大幅缩减 shader 编程成本，使这个令人...</div></div></div></a><a class="pagination-related" href="/GameEngine/Unity/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88%E7%9A%84%E9%80%82%E9%85%8D/" title="Unity 粒子特效的适配"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/abe82828ef4a42dfbccdcaab4e58ddb4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Unity 粒子特效的适配</div></div><div class="info-2"><div class="info-item-1">前言最近在工作中使用粒子特效是发现了两个问题 1. 美术提供的粒子特效没有根据屏幕分辨率自适应调整大小 2. 粒子特效的层级比较奇怪  正文粒子特效自适应在 Unity 编辑器开发中，使用的是 1080*1920 的分辨率，粒子特效大小看起来完美契合。  在打包运行在手机上时，因为手机的分辨率为 1440*2960, 粒子特效就明显大于了 UI 界面。  解决办法： 将粒子特效的 Scaling Mode [缩放模式] ，改为 Hierarchy [跟随父节点缩放]。  注意，改变了缩放模式之后，运行时会发现粒子变得特别小，这是因为 Unity 重置了该粒子特效的大小，只需要重新调整大小即可。   因为我是在 FGUI 的基础上穿插使用粒子特效，因为 FGUI 与 Unity 的比例不一致，比例为 1：100，所以粒子特效需要将缩放比放大 100 倍。  Scaling Mode 为 Local 时不会有 FGUI 的比例问题，但是会有分辨率不适配问题，两害取其轻，所以选用 Hierarchy 模式。  1effect.transform.localScale = Vector3...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tamsiree</div><div class="author-info-description">勇于尝试才有可能迈向成功</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9-Readonly-%E5%92%8C-Const-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">C# 基本知识点 - Readonly 和 Const 的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">2.1.</span> <span class="toc-text">** 目录 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Const%EF%BC%89%E5%92%8C%E5%8A%A8%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Readonly%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">** 什么是静态常量（Const）和动态常量（Readonly）**</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Const%EF%BC%89%E5%92%8C%E5%8A%A8%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Readonly%EF%BC%89%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.3.</span> <span class="toc-text">** 静态常量（Const）和动态常量（Readonly）之间的区别 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%B8%B8%E9%87%8F%EF%BC%88Readonly%EF%BC%89%E8%A2%AB%E8%B5%8B%E5%80%BC%E5%90%8E%E4%B8%8D%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98"><span class="toc-number">2.4.</span> <span class="toc-text">** 动态常量（Readonly）被赋值后不可以改变 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">** 总结 **</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 中 MongoDB 数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复">Docker 中 MongoDB 数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃">Unity 多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的 CDN 之 jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr">好用的 CDN 之 jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统">Unity 坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2025 By Tamsiree</span></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><script src="/js/tw_cn.js?v=5.5.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"],"avatar":"wavatar"}
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
       serverURL: 'https://comment.tamsiree.com',
-      path: location.pathname,
-      visitor: true,
-      dark: 'html[data-theme="dark"]'
-    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
-  }
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
 
-  if (typeof Waline === 'function') initWaline()
-  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
-}
-
-if ('Waline' === 'Waline' || !true) {
-  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
-  else setTimeout(loadWaline, 0)
-} else {
-  function loadOtherComment () {
-    loadWaline()
-  }
-}</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
 
-})
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>

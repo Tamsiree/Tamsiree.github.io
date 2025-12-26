@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Tamsiree</title><meta name="keywords" content="Tamsiree,Unity,blog,安卓,程序员,个人博客,Android"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="勇于尝试才有可能迈向成功">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Tamsiree</title><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="勇于尝试才有可能迈向成功">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tamsiree">
 <meta property="og:url" content="https://tamsiree.com/page/18/index.html">
@@ -15,19 +15,126 @@
 <meta property="article:tag" content="安卓">
 <meta property="article:tag" content="程序员">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/page/18/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/page/18/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: 'ca-pub-8688374801147098',
   enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -35,7 +142,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -44,384 +151,164 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Tamsiree',
-  isPost: false,
-  isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-12-25 10:05:51'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
+  pageType: 'home'
+}</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-color: #f0f0f0;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/y2ouxichangjing.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tamsiree</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Tamsiree</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/" title="吉他入门"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/guitartimg.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="吉他入门"></a></div><div class="recent-post-info"><a class="article-title" href="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/" title="吉他入门">吉他入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-08-15T02:43:00.000Z" title="发表于 2018-08-15 10:43:00">2018-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Daily/">Daily</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Daily/Hobbies/">Hobbies</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Daily/Hobbies/Guitar/">Guitar</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/#post-comment"><span class="waline-comment-count" data-path="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言把吉他拿到手后，每天在家只能拿着琴无聊的扫扫弦拔拔单音，甚至单音都不会。拿着六线谱也不知如何下手，零基础如何识别六线谱学好吉他？  六线谱吉他初学知识一：最初的谱都是六线谱 吉他最早用的谱都是六线谱，近代与钢琴小提琴并列为三大乐器后，才开始有五线谱来用于吉他曲上。    六弦定音吉他初学知识二：吉他六根弦的定音 什么都不会的基础上，拿到吉他一定要知道它六根弦定音，也就是空弦的音是什么？  吉他六根弦的音，从下往上数，为 123456 弦，最细的是 1 弦，最粗的是六弦，他们的音名分别是：EBGDAE。   这是外国人定的固定音名，那唱名就 3（米）7（希）5（嗦）2（来）6（啦）3（米低音）。下面的图中告诉你简谱与音名与唱名的关系，这里的是指 C 大调里的唱名与简谱。如果是其他调，那就往上推，这个初学先不了解最好。  六线谱上的数字吉他初学知识三：吉他六线谱上数字的意思  吉他六线谱的六条线相当于一个倒放的吉他，1 弦在上面，6 弦在最下面，所以，从上往下数为 1 弦 2 弦 3 弦 4 弦 5 弦 6 弦。 如果上面有个和弦的名字，线上有个 X，就是按好和弦，X 打在哪根弦...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Hexo 问题归纳"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-6kogj6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 问题归纳"></a></div><div class="recent-post-info"><a class="article-title" href="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Hexo 问题归纳">Hexo 问题归纳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-20T03:14:11.000Z" title="发表于 2018-04-20 11:14:11">2018-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/">TechnicalResearch</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/Hexo/">Hexo</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/#post-comment"><span class="waline-comment-count" data-path="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">hexo 版本更新之后，部分模块失效错误原因：    hexo 版本更新之后，部分模块会因为新特性的改动而失效  解决方案：    npm 全面更新所依赖的工具库即可  1npm update  执行命令 hexo server，提示：Usage: hexo …. 提示找不到该指令解决方法: 在 Hexo 3.0 后 server 被单独出来了，需要安装 server，安装的命令如下：   1npm install hexo-server –save    安装此 server 后再试，问题解决。 执行：hexo server，启动了服务，在浏览器输入本地地址访问，看到白板和 Cannot GET / 几个字原因是由于 2.6 以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令： 12345npm install hexo-renderer-ejs --savenpm install hexo-renderer-stylus --savenpm install hexo-renderer-marked --save  这时候重新启动本地服务在访问。或者： 在空文件夹下...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/TechnicalResearch/Android/RxTool/Contributor/" title="Contributor"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-73l29v.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Contributor"></a></div><div class="recent-post-info"><a class="article-title" href="/TechnicalResearch/Android/RxTool/Contributor/" title="Contributor">Contributor</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-11T14:34:11.000Z" title="发表于 2018-04-11 22:34:11">2018-04-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/">TechnicalResearch</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/Android/RxTool/">RxTool</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/TechnicalResearch/Android/RxTool/Contributor/#post-comment"><span class="waline-comment-count" data-path="/TechnicalResearch/Android/RxTool/Contributor/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Software/UltraISO/UltraISO/" title="UltraISO"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-18.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UltraISO"></a></div><div class="recent-post-info"><a class="article-title" href="/Software/UltraISO/UltraISO/" title="UltraISO">UltraISO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-10T06:05:00.000Z" title="发表于 2018-04-10 14:05:00">2018-04-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Software/">Software</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Software/UltraISO/">UltraISO</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Software/UltraISO/UltraISO/#post-comment"><span class="waline-comment-count" data-path="/Software/UltraISO/UltraISO/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言 UltraISO 软碟通是一款功能强大、方便实用、老牌优秀的光盘映像文件制作 / 编辑 / 转换工具：可直接编辑 ISO 文件，从 ISO 中提取文件和目录；也可从 CD – ROM 制作光盘映像或者将硬盘上的文件制作成 ISO 文件；还可处理 ISO 的启动信息，制作可引导光盘。使用 UltraISO，可随心所欲地制作 / 编辑 / 转换光盘映像文件。   正文注册信息： 简体中文版专用，价值 30 块钱的正版注册码！Guanjiu 注册码：A06C-83A7-701D-6CFC 多语言版本专用，价值 10 美刀的注册码分享！Name：Home key：4BA9-0D54-214A-C938   to be continued…  </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/" title="AndroidStuio 之 Gradle 配置国内镜像"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-208bdd1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AndroidStuio 之 Gradle 配置国内镜像"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/" title="AndroidStuio 之 Gradle 配置国内镜像">AndroidStuio 之 Gradle 配置国内镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-02-18T09:53:28.000Z" title="发表于 2018-02-18 17:53:28">2018-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/">AndroidStudio</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/#post-comment"><span class="waline-comment-count" data-path="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言在使用 AndroidStuio 进行 Gradle 同步时，总会遇到以下错误 12Gradle sync failed: Cause: org.gradle.api.tasks.TaskInputs.property(Ljava/lang/String;Ljava/lang/Object;)Lorg/gradle/api/tasks/TaskInputs;			Consult IDE log for more details (Help | Show Log) (17 s 150 ms)  大概率是因为墙的关系，可以配置阿里云国内镜像解决 单个项目配置在项目中的 build.gradle 修改内容 12345678910111213141516buildscript &#123;    repositories &#123;        maven &#123; url &#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27; &#125;        maven&#123; url &#x27;h...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="Chrome 使用技巧"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t012f8bc5b5e6497cc9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Chrome 使用技巧"></a></div><div class="recent-post-info"><a class="article-title" href="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="Chrome 使用技巧">Chrome 使用技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-18T02:45:33.000Z" title="发表于 2017-12-18 10:45:33">2017-12-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Google/">Google</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Google/Chrome/">Chrome</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#post-comment"><span class="waline-comment-count" data-path="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">chrome 调试常用调试快捷键  F8：运行剩余程序F9：运行该程序，一步步运行。F10: 调试跳过该方法，执行下一步F11: 进入函数内部shift +F11: 跳出该函数，返回上一个函数   don’t pause on exceptions : 不要暂停异常（默认，取消之后按 F8 可以直接运行到异常处）  找出点击事件要找出点击事件，就需要找出点击所触发的 js 函数，进行修改。js 的封装性很强，而且用了一些 js 框架，通过源代码真的很难找到。所以只能借助强大的 chrome 浏览器了。  打开 Chrome 的调试页面 Ctrl + Shift + I 或者 F12 。  有些页面占用了 F12 功能按键，无法使用   选择调试元素，找到该元素的监听事件。  找到你所需要的监听事件的类型，比如我需要的是点击事件，就打开点击事件，找到对应的 js 和方法，可能会有多个，可以选择临时移除，找到真正的那一个。     找到该段代码，设置断点。开始调试执行。      to be continued…  </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Steam 问题归纳"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01fbd871ed0d04d43d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Steam 问题归纳"></a></div><div class="recent-post-info"><a class="article-title" href="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Steam 问题归纳">Steam 问题归纳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-03T03:08:35.000Z" title="发表于 2017-12-03 11:08:35">2017-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Game/">Game</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Game/GamePlatform/">GamePlatform</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Game/GamePlatform/Steam/">Steam</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/#post-comment"><span class="waline-comment-count" data-path="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言 Steam 在 Windows 环境下支持的还不错，但是到了 Linux 环境下就会出现各种各样的问题，因此便总结归纳一下所遇到的问题及其解决方案。    正文Steam 中文支持请移步查阅我的这篇文章 [[Steam 中文支持]](https://tamsiree.com/Game/GamePlatform/Steam/Steam 中文支持 /)  使用独显 N 卡运行游戏可以在 steam 的游戏启动选项里打开高级选项，填写 primusrun %command% 这样你就可以规定用独显来启动特定的程序。  steam 不能正常运行如果你发现你的 steam 不能正常运行，就去装 steam-native 这个包。  XCOM2 运行卡顿如果你玩 XCOM2 卡顿，可以考虑调整一下配置文件，位置是： 1~/.local/share/feral-interactive/XCOM2/VFS/Local/my\ games/XCOM2/XComGame/Config/XComEngine.ini  把 PoolSize=10 改成 256，OneFrameThreadLag=...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/" title="仙剑奇侠传系列"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/ChinesePaladin_Sword_and_Fairy/ac6eddc451da81cbeb04b5d45666d016082431cc.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="仙剑奇侠传系列"></a></div><div class="recent-post-info"><a class="article-title" href="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/" title="仙剑奇侠传系列">仙剑奇侠传系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-26T12:54:16.000Z" title="发表于 2017-11-26 20:54:16">2017-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Teleplay/">Teleplay</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/#post-comment"><span class="waline-comment-count" data-path="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">仙剑奇侠传 据说:《逍遥叹》是 李逍遥 的人生《六月的雨》是 李逍遥 对 赵灵儿 的心声《一直很安静》是 林月如 的存在     逍遥叹     六月的雨    一直很安静    终于明白    杀破狼    莫失莫忘    桃花岛    仙剑奇缘    央视节目之仙剑奇侠传系列歌曲专栏，就要十年了，看看央视的评价吧      to be continued…  </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="AndroidStudio 问题归纳"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/5wg9y3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AndroidStudio 问题归纳"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="AndroidStudio 问题归纳">AndroidStudio 问题归纳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-21T00:59:15.000Z" title="发表于 2017-11-21 08:59:15">2017-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/">AndroidStudio</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/#post-comment"><span class="waline-comment-count" data-path="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言 整理归纳使用 AndroidStudio 过程中遇到的问题，并记录解决办法。   正文Error:Could not download protobuf-java.jar (com.google.protobuf:protobuf-java:3.0.0)老项目导入到最新版本的 AndroidStudio 时，发现无法同步，找不到 protobuf-java.jar 这个包，因为新版本有所改动 解决方案：我之前只有 jcenter()，需要修改配置修改一下整个项目的配置 build.gradle   123jcenter() &#123;    url &quot;http://jcenter.bintray.com/&quot;&#125;   报错 error: No resource identifier found for attribute ‘cardCornerRadius’ in package ‘com.xxxxx.xxx’解决在依赖我自己的 RxTool 下的 RxUI 库时，出现上面这个错误，我反复检查了 res 目录里的文件，最后确定没有缺少资源，查看报...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/" title="百宝袋"><img class="post-bg" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-0p9269.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="百宝袋"></a></div><div class="recent-post-info"><a class="article-title" href="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/" title="百宝袋">百宝袋</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-14T03:27:35.000Z" title="发表于 2017-11-14 11:27:35">2017-11-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Tool/">Tool</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/#post-comment"><span class="waline-comment-count" data-path="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/17/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/#content-inner">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/#content-inner">19</a><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/19/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tamsiree</div><div class="author-info-description">勇于尝试才有可能迈向成功</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 中 MongoDB 数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复">Docker 中 MongoDB 数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃">Unity 多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的 CDN 之 jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr">好用的 CDN 之 jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统">Unity 坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Interview/" style="font-size: 1.17em; color: rgb(87, 79, 50);">Interview</a><a href="/tags/Python/" style="font-size: 1.23em; color: rgb(163, 130, 60);">Python</a><a href="/tags/Computer/" style="font-size: 1.15em; color: rgb(95, 68, 50);">Computer</a><a href="/tags/Alienware/" style="font-size: 1.15em; color: rgb(98, 54, 145);">Alienware</a><a href="/tags/Game/" style="font-size: 1.35em; color: rgb(185, 50, 50);">Game</a><a href="/tags/GamePlatform/" style="font-size: 1.25em; color: rgb(156, 84, 50);">GamePlatform</a><a href="/tags/Steam/" style="font-size: 1.23em; color: rgb(129, 137, 107);">Steam</a><a href="/tags/ARK/" style="font-size: 1.15em; color: rgb(69, 50, 90);">ARK</a><a href="/tags/Linux/" style="font-size: 1.31em; color: rgb(100, 162, 120);">Linux</a><a href="/tags/Android/" style="font-size: 1.37em; color: rgb(123, 58, 145);">Android</a><a href="/tags/Manjaro/" style="font-size: 1.27em; color: rgb(88, 50, 53);">Manjaro</a><a href="/tags/Software/" style="font-size: 1.33em; color: rgb(170, 166, 158);">Software</a><a href="/tags/Anbox/" style="font-size: 1.15em; color: rgb(172, 167, 185);">Anbox</a><a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.29em; color: rgb(50, 119, 167);">开发工具</a><a href="/tags/AndroidStudio/" style="font-size: 1.19em; color: rgb(176, 144, 184);">AndroidStudio</a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.43em; color: rgb(200, 83, 142);">编程语言</a><a href="/tags/AndroidX/" style="font-size: 1.15em; color: rgb(50, 153, 177);">AndroidX</a><a href="/tags/JetPack/" style="font-size: 1.15em; color: rgb(115, 70, 77);">JetPack</a><a href="/tags/Room/" style="font-size: 1.15em; color: rgb(141, 80, 50);">Room</a><a href="/tags/UnitTest/" style="font-size: 1.15em; color: rgb(119, 148, 67);">UnitTest</a><a href="/tags/Html/" style="font-size: 1.17em; color: rgb(142, 55, 143);">Html</a><a href="/tags/GameEngine/" style="font-size: 1.39em; color: rgb(176, 50, 170);">GameEngine</a><a href="/tags/Unity/" style="font-size: 1.45em; color: rgb(131, 50, 180);">Unity</a><a href="/tags/Fragment/" style="font-size: 1.15em; color: rgb(146, 172, 86);">Fragment</a><a href="/tags/EditText/" style="font-size: 1.15em; color: rgb(102, 50, 51);">EditText</a><a href="/tags/TechnicalResearch/" style="font-size: 1.41em; color: rgb(99, 53, 188);">TechnicalResearch</a><a href="/tags/Base64/" style="font-size: 1.15em; color: rgb(128, 50, 141);">Base64</a><a href="/tags/CDN/" style="font-size: 1.15em; color: rgb(190, 146, 169);">CDN</a><a href="/tags/C/" style="font-size: 1.21em; color: rgb(174, 50, 106);">C#</a><a href="/tags/CSGO/" style="font-size: 1.15em; color: rgb(111, 50, 54);">CSGO</a><a href="/tags/Google/" style="font-size: 1.23em; color: rgb(197, 113, 50);">Google</a><a href="/tags/Chrome/" style="font-size: 1.21em; color: rgb(150, 157, 128);">Chrome</a><a href="/tags/Chromium/" style="font-size: 1.15em; color: rgb(50, 113, 105);">Chromium</a><a href="/tags/MachineLearning/" style="font-size: 1.15em; color: rgb(102, 76, 94);">MachineLearning</a><a href="/tags/DeepLearning/" style="font-size: 1.17em; color: rgb(119, 94, 50);">DeepLearning</a><a href="/tags/DNF/" style="font-size: 1.15em; color: rgb(96, 113, 171);">DNF</a><a href="/tags/RxTool/" style="font-size: 1.19em; color: rgb(106, 135, 137);">RxTool</a><a href="/tags/Contributor/" style="font-size: 1.15em; color: rgb(50, 105, 114);">Contributor</a><a href="/tags/Docker/" style="font-size: 1.17em; color: rgb(90, 50, 50);">Docker</a><a href="/tags/MongoDB/" style="font-size: 1.15em; color: rgb(131, 164, 50);">MongoDB</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">200</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-09-24T09:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">494.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-26T10:35:53.872Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2025 By Tamsiree</span></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><script src="/js/tw_cn.js?v=5.5.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  async function loadWaline () {
+    try {
+      const eleGroup = document.querySelectorAll('#recent-posts .waline-comment-count')
+      if (!eleGroup || eleGroup.length === 0) return
+      
+      const keyArray = Array.from(eleGroup).map(i => i.getAttribute('data-path'))
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
+      const res = await fetch(`https://comment.tamsiree.com/api/comment?type=count&url=${keyArray}`, { method: 'GET' })
+      const result = await res.json()
+      
+      if (result && result.data && Array.isArray(result.data)) {
+        result.data.forEach((count, index) => {
+          if (eleGroup[index]) {
+            eleGroup[index].textContent = count
+          }
+        })
       }
+    } catch (err) {
+      console.error(err)
     }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/y2ouxichangjing.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Tamsiree</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/" title="吉他入门"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/guitartimg.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="吉他入门"></a></div><div class="recent-post-info"><a class="article-title" href="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/" title="吉他入门">吉他入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-08-15T02:43:00.000Z" title="发表于 2018-08-15 10:43:00">2018-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Daily/">Daily</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Daily/Hobbies/">Hobbies</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Daily/Hobbies/Guitar/">Guitar</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/#post-comment"><span class="waline-comment-count" id="/Daily/Hobbies/Guitar/%E5%90%89%E4%BB%96%E5%85%A5%E9%97%A8/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言把吉他拿到手后，每天在家只能拿着琴无聊的扫扫弦拔拔单音，甚至单音都不会。拿着六线谱也不知如何下手，零基础如何识别六线谱学好吉他？
-
-六线谱吉他初学知识一：最初的谱都是六线谱
-吉他最早用的谱都是六线谱，近代与钢琴小提琴并列为三大乐器后，才开始有五线谱来用于吉他曲上。
-
-
-
-六弦定音吉他初学知识二：吉他六根弦的定音
-什么都不会的基础上，拿到吉他一定要知道它六根弦定音，也就是空弦的音是什么？
-
-吉他六根弦的音，从下往上数，为123456弦，最细的是1弦，最粗的是六弦，他们的音名分别是：EBGDAE。
-
-
-这是外国人定的固定音名，那唱名就3（米）7（希）5（嗦）2（来）6（啦）3（米低音）。下面的图中告诉你简谱与音名与唱名的关系，这里的是指C大调里的唱名与简谱。如果是其他调，那就往上推，这个初学先不了解最好。
-
-六线谱上的数字吉他初学知识三：吉他六线谱上数字的意思
-
-吉他六线谱的六条线相当于一个倒放的吉他，1弦在上面，6弦在最下面，所以，从上往下数为1弦2弦3弦4弦5弦6弦。
-如果上面有个和弦的名字，线上有个X，就是按好和弦，X打在哪根弦上弹哪根弦。
-
-
-
-那么这是和弦的弹奏的方法，就像上 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Hexo问题归纳"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-6kogj6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo问题归纳"></a></div><div class="recent-post-info"><a class="article-title" href="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Hexo问题归纳">Hexo问题归纳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-20T03:14:11.000Z" title="发表于 2018-04-20 11:14:11">2018-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/">TechnicalResearch</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/Hexo/">Hexo</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/#post-comment"><span class="waline-comment-count" id="/TechnicalResearch/Hexo/Hexo%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">hexo版本更新之后，部分模块失效错误原因：  
-
-hexo版本更新之后，部分模块会因为新特性的改动而失效
-
-解决方案：  
-
-npm全面更新所依赖的工具库即可
-
-1npm update
-
-执行命令hexo server，提示：Usage: hexo …. 提示找不到该指令解决方法: 在Hexo 3.0 后server被单独出来了，需要安装server，安装的命令如下：  
-1npm install hexo-server –save  
-
-安装此server后再试，问题解决。
-执行：hexo server，启动了服务，在浏览器输入本地地址访问，看到白板和Cannot GET / 几个字原因是由于2.6以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令：
-12345npm install hexo-renderer-ejs --savenpm install hexo-renderer-stylus --savenpm install hexo-renderer-marked --save
-
-这时候重新启动本地服务在访问。或者： 在空文件夹下，执行  
-1hexo init ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/TechnicalResearch/Android/RxTool/Contributor/" title="Contributor"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-73l29v.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Contributor"></a></div><div class="recent-post-info"><a class="article-title" href="/TechnicalResearch/Android/RxTool/Contributor/" title="Contributor">Contributor</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-11T14:34:11.000Z" title="发表于 2018-04-11 22:34:11">2018-04-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/">TechnicalResearch</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/TechnicalResearch/Android/RxTool/">RxTool</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/TechnicalResearch/Android/RxTool/Contributor/#post-comment"><span class="waline-comment-count" id="/TechnicalResearch/Android/RxTool/Contributor/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
-  8bb69e782d356dd70fc4c0aca077fc8145fffee31d87372c513eacd59d2e0845c857beca731be45ed26c752e467377aa2d3b720bf3fa74d896012489b76815ce4bd89f0a29f09c9222f4e1791887a32d972856bc4cf43d1d0061a9b5a0913e6399e44662351e3c61ec82fe3a93f10afedf7c66a480bf46d4879f5d88a71d7483baea5f08e6e027af3a5372be7c7d4b2c5ae76a557b60c9a11616af8c2e7469935c172892f403df9b6022a8ca3eff488f0f246c9d5dc3afd7734a502acc07789f98809b17530310488f2528089267acddda4437e76e101b6127102a279dcbcfc828c2251130fb36c9302bf4d5aedccfdd029e3de1404015a33 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Software/UltraISO/UltraISO/" title="UltraISO"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/code-wallpaper-18.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UltraISO"></a></div><div class="recent-post-info"><a class="article-title" href="/Software/UltraISO/UltraISO/" title="UltraISO">UltraISO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-04-10T06:05:00.000Z" title="发表于 2018-04-10 14:05:00">2018-04-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Software/">Software</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Software/UltraISO/">UltraISO</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Software/UltraISO/UltraISO/#post-comment"><span class="waline-comment-count" id="/Software/UltraISO/UltraISO/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言
-UltraISO软碟通是一款功能强大、方便实用、老牌优秀的光盘映像文件制作/编辑/转换工具：可直接编辑ISO文件，从ISO中提取文件和目录；也可从CD – ROM制作光盘映像或者将硬盘上的文件制作成ISO文件；还可处理ISO的启动信息，制作可引导光盘。使用UltraISO，可随心所欲地制作/编辑/转换光盘映像文件。
-
-
-正文注册信息：
-简体中文版专用，价值30块钱的正版注册码！Guanjiu 注册码：A06C-83A7-701D-6CFC
-多语言版本专用，价值10美刀的注册码分享！Name：Home key：4BA9-0D54-214A-C938
-
-
-to be continued…
-
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/" title="AndroidStuio之Gradle配置国内镜像"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-208bdd1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AndroidStuio之Gradle配置国内镜像"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/" title="AndroidStuio之Gradle配置国内镜像">AndroidStuio之Gradle配置国内镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-02-18T09:53:28.000Z" title="发表于 2018-02-18 17:53:28">2018-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/">AndroidStudio</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/#post-comment"><span class="waline-comment-count" id="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStuio%E4%B9%8BGradle%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言在使用AndroidStuio进行Gradle同步时，总会遇到以下错误
-12Gradle sync failed: Cause: org.gradle.api.tasks.TaskInputs.property(Ljava/lang/String;Ljava/lang/Object;)Lorg/gradle/api/tasks/TaskInputs;			Consult IDE log for more details (Help | Show Log) (17 s 150 ms)
-
-大概率是因为墙的关系，可以配置阿里云国内镜像解决
-单个项目配置在项目中的build.gradle修改内容
-12345678910111213141516buildscript &#123;    repositories &#123;        maven &#123; url &#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27; &#125;        maven&#123; url &#x27;http://mav ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="Chrome使用技巧"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t012f8bc5b5e6497cc9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Chrome使用技巧"></a></div><div class="recent-post-info"><a class="article-title" href="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="Chrome使用技巧">Chrome使用技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-18T02:45:33.000Z" title="发表于 2017-12-18 10:45:33">2017-12-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Google/">Google</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Google/Chrome/">Chrome</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#post-comment"><span class="waline-comment-count" id="/Google/Chrome/Chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">chrome调试常用调试快捷键
-
-F8：运行剩余程序F9：运行该程序，一步步运行。F10:调试跳过该方法，执行下一步F11:进入函数内部shift +F11:跳出该函数，返回上一个函数  
-don’t pause on exceptions :不要暂停异常（默认，取消之后按F8可以直接运行到异常处）
-
-找出点击事件要找出点击事件，就需要找出点击所触发的js函数，进行修改。js的封装性很强，而且用了一些js框架，通过源代码真的很难找到。所以只能借助强大的chrome浏览器了。
-
-打开Chrome的调试页面 Ctrl + Shift + I 或者 F12 。
-
-有些页面占用了 F12 功能按键，无法使用
-
-
-选择调试元素，找到该元素的监听事件。
-
-找到你所需要的监听事件的类型，比如我需要的是点击事件，就打开点击事件，找到对应的js和方法，可能会有多个，可以选择临时移除，找到真正的那一个。
-
-
-
-
-找到该段代码，设置断点。开始调试执行。
-
-
-
-
-
-to be continued…
-
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Steam问题归纳"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t01fbd871ed0d04d43d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Steam问题归纳"></a></div><div class="recent-post-info"><a class="article-title" href="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="Steam问题归纳">Steam问题归纳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-03T03:08:35.000Z" title="发表于 2017-12-03 11:08:35">2017-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Game/">Game</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Game/GamePlatform/">GamePlatform</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Game/GamePlatform/Steam/">Steam</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/#post-comment"><span class="waline-comment-count" id="/Game/GamePlatform/Steam/Steam%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言
-Steam在Windows环境下支持的还不错，但是到了Linux环境下就会出现各种各样的问题，因此便总结归纳一下所遇到的问题及其解决方案。
-
-
-
-正文Steam中文支持请移步查阅我的这篇文章 [Steam中文支持]
-
-使用独显N卡运行游戏可以在 steam 的游戏启动选项里打开高级选项，填写 primusrun %command% 这样你就可以规定用独显来启动特定的程序。
-
-steam不能正常运行如果你发现你的 steam 不能正常运行，就去装 steam-native 这个包。
-
-XCOM2运行卡顿如果你玩 XCOM2 卡顿，可以考虑调整一下配置文件，位置是：
-1~/.local/share/feral-interactive/XCOM2/VFS/Local/my\ games/XCOM2/XComGame/Config/XComEngine.ini
-
-把 PoolSize=10 改成 256，OneFrameThreadLag=True 改成 False。虽然还是有点卡，不过可以接受了。
-
-Manjaro运行Steam 文明5/6
-系统环境 : Linux 5.3.11-1- ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/" title="仙剑奇侠传系列"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/ChinesePaladin_Sword_and_Fairy/ac6eddc451da81cbeb04b5d45666d016082431cc.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="仙剑奇侠传系列"></a></div><div class="recent-post-info"><a class="article-title" href="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/" title="仙剑奇侠传系列">仙剑奇侠传系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-26T12:54:16.000Z" title="发表于 2017-11-26 20:54:16">2017-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Teleplay/">Teleplay</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/#post-comment"><span class="waline-comment-count" id="/Teleplay/%E4%BB%99%E5%89%91%E5%A5%87%E4%BE%A0%E4%BC%A0%E7%B3%BB%E5%88%97/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">仙剑奇侠传
-据说:《逍遥叹》是 李逍遥 的人生《六月的雨》是 李逍遥 对 赵灵儿 的心声《一直很安静》是 林月如 的存在  
-
-
-逍遥叹 
-
-
-
-六月的雨 
-
-
-一直很安静 
-
-
-终于明白 
-
-
-杀破狼 
-
-
-莫失莫忘 
-
-
-桃花岛 
-
-
-仙剑奇缘 
-
-
-央视节目之仙剑奇侠传系列歌曲专栏，就要十年了，看看央视的评价吧 
-
-
-
-
-to be continued…
-
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="AndroidStudio问题归纳"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/5wg9y3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AndroidStudio问题归纳"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/" title="AndroidStudio问题归纳">AndroidStudio问题归纳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-21T00:59:15.000Z" title="发表于 2017-11-21 08:59:15">2017-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/">AndroidStudio</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/#post-comment"><span class="waline-comment-count" id="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio/AndroidStudio%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">前言
-整理归纳使用AndroidStudio过程中遇到的问题，并记录解决办法。
-
-
-正文Error:Could not download protobuf-java.jar (com.google.protobuf:protobuf-java:3.0.0)老项目导入到最新版本的 AndroidStudio 时，发现无法同步，找不到 protobuf-java.jar 这个包，因为新版本有所改动
-解决方案：我之前只有 jcenter()，需要修改配置修改一下整个项目的配置 build.gradle  
-123jcenter() &#123;    url &quot;http://jcenter.bintray.com/&quot;&#125;
-
-
-报错 error: No resource identifier found for attribute ‘cardCornerRadius’ in package ‘com.xxxxx.xxx’解决在依赖我自己的 RxTool下的 RxUI库时，出现上面这个错误，我反复检查了res目录里的文件，最后确定没有缺少资源，查看报错信息如下：
-
-发 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/" title="百宝袋"><img class="post_bg" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallhaven-0p9269.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="百宝袋"></a></div><div class="recent-post-info"><a class="article-title" href="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/" title="百宝袋">百宝袋</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-11-14T03:27:35.000Z" title="发表于 2017-11-14 11:27:35">2017-11-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Tool/">Tool</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/#post-comment"><span class="waline-comment-count" id="/Tool/%E7%99%BE%E5%AE%9D%E8%A2%8B/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
-  5e59f0b04d92342a815f76aa3d76ad1fe770a48955ba9b940fb63193ef779ff4b000903be929b036b56c1419ce47189ce20514de3da9e9c4e67af1e68a25314a93b91b0eaa2ec01c7df7d4df20606d4a6231808cb211bc86717f57a8911b06dcbe670e8d8253ac03f4f2c7c38947b148f3a596fa944cc5a9cd51ff6456df74c52526f439750d15a11aaad0448615b8bbfa51adb1aeef9d95eff168c257bcf4c0b4490058139dbf91b850e6256ddd5178133f4003daaf3dffe5710c8ca26927912036fd692626fc30d686351bf2aeb8b6d7a43fe7c6f88763ce14fa880baa5da81089505b2afb18d47e75b8a0bbf269f4930e4e96526662375 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/17/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/#content-inner">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/#content-inner">19</a><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/19/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Computer/" style="font-size: 1.15em; color: rgb(121, 112, 179)">Computer</a><a href="/tags/Alienware/" style="font-size: 1.15em; color: rgb(112, 112, 72)">Alienware</a><a href="/tags/Interview/" style="font-size: 1.17em; color: rgb(151, 126, 151)">Interview</a><a href="/tags/Python/" style="font-size: 1.24em; color: rgb(97, 98, 110)">Python</a><a href="/tags/Linux/" style="font-size: 1.33em; color: rgb(125, 59, 25)">Linux</a><a href="/tags/Android/" style="font-size: 1.4em; color: rgb(11, 134, 192)">Android</a><a href="/tags/Manjaro/" style="font-size: 1.29em; color: rgb(18, 78, 86)">Manjaro</a><a href="/tags/Software/" style="font-size: 1.36em; color: rgb(59, 97, 85)">Software</a><a href="/tags/Anbox/" style="font-size: 1.15em; color: rgb(155, 54, 191)">Anbox</a><a href="/tags/Game/" style="font-size: 1.38em; color: rgb(128, 154, 182)">Game</a><a href="/tags/GamePlatform/" style="font-size: 1.27em; color: rgb(1, 75, 143)">GamePlatform</a><a href="/tags/Steam/" style="font-size: 1.24em; color: rgb(0, 78, 31)">Steam</a><a href="/tags/ARK/" style="font-size: 1.15em; color: rgb(17, 63, 99)">ARK</a><a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.31em; color: rgb(151, 147, 106)">开发工具</a><a href="/tags/AndroidStudio/" style="font-size: 1.2em; color: rgb(127, 68, 21)">AndroidStudio</a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.45em; color: rgb(123, 66, 90)">编程语言</a><a href="/tags/Room/" style="font-size: 1.15em; color: rgb(168, 170, 160)">Room</a><a href="/tags/AndroidX/" style="font-size: 1.15em; color: rgb(197, 140, 26)">AndroidX</a><a href="/tags/UnitTest/" style="font-size: 1.15em; color: rgb(64, 131, 134)">UnitTest</a><a href="/tags/Html/" style="font-size: 1.17em; color: rgb(99, 45, 106)">Html</a><a href="/tags/JetPack/" style="font-size: 1.15em; color: rgb(112, 84, 181)">JetPack</a><a href="/tags/EditText/" style="font-size: 1.15em; color: rgb(76, 107, 93)">EditText</a><a href="/tags/Fragment/" style="font-size: 1.15em; color: rgb(112, 115, 29)">Fragment</a><a href="/tags/TechnicalResearch/" style="font-size: 1.43em; color: rgb(169, 114, 179)">TechnicalResearch</a><a href="/tags/Base64/" style="font-size: 1.15em; color: rgb(44, 164, 25)">Base64</a><a href="/tags/CDN/" style="font-size: 1.15em; color: rgb(15, 116, 169)">CDN</a><a href="/tags/CSGO/" style="font-size: 1.15em; color: rgb(52, 94, 32)">CSGO</a><a href="/tags/C/" style="font-size: 1.22em; color: rgb(83, 159, 62)">C#</a><a href="/tags/Google/" style="font-size: 1.24em; color: rgb(106, 198, 67)">Google</a><a href="/tags/Chrome/" style="font-size: 1.22em; color: rgb(120, 144, 29)">Chrome</a><a href="/tags/Chromium/" style="font-size: 1.15em; color: rgb(74, 72, 22)">Chromium</a><a href="/tags/RxTool/" style="font-size: 1.2em; color: rgb(75, 66, 80)">RxTool</a><a href="/tags/Contributor/" style="font-size: 1.15em; color: rgb(27, 119, 128)">Contributor</a><a href="/tags/DNF/" style="font-size: 1.15em; color: rgb(98, 103, 3)">DNF</a><a href="/tags/MachineLearning/" style="font-size: 1.15em; color: rgb(133, 69, 135)">MachineLearning</a><a href="/tags/DeepLearning/" style="font-size: 1.17em; color: rgb(90, 93, 101)">DeepLearning</a><a href="/tags/Docker/" style="font-size: 1.17em; color: rgb(51, 63, 101)">Docker</a><a href="/tags/MongoDB/" style="font-size: 1.15em; color: rgb(143, 188, 189)">MongoDB</a><a href="/tags/Intellij-IDEA/" style="font-size: 1.15em; color: rgb(104, 20, 64)">Intellij IDEA</a><a href="/tags/EmmyLua/" style="font-size: 1.15em; color: rgb(148, 193, 52)">EmmyLua</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">200</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-09-24T09:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">489.6k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-25T02:05:50.310Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
-  function loadWaline () {
-    function initWaline () {
-      let initData = {
-        el: null,
-        serverURL: 'https://comment.tamsiree.com',
-      }
-      const waline = new Waline(initData)
-    }
-
-    if (typeof Waline === 'function') initWaline() 
-    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
   }
 
   window.pjax ? loadWaline() : window.addEventListener('load', loadWaline)
-})()</script><script>function subtitleType () {
-  if (true) { 
-    window.typed = new Typed("#subtitle", {
-      strings: ["勇于尝试才有可能迈向成功"],
+})()</script><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
       startDelay: 300,
       typeSpeed: 150,
       loop: true,
-      backSpeed: 50
-    })
-  } else {
-    document.getElementById("subtitle").innerHTML = '勇于尝试才有可能迈向成功'
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["勇于尝试才有可能迈向成功"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
   }
 }
-
-if (true) {
-  if (typeof Typed === 'function') {
-    subtitleType()
-  } else {
-    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
-  }
-} else {
-  subtitleType()
-}</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["勇于尝试才有可能迈向成功"])
+}
+typedJSFn.run(subtitleType)</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
-})
-
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
-
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>

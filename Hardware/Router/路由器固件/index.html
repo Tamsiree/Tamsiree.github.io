@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>路由器固件 | Tamsiree</title><meta name="keywords" content="Hardware,Router"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="目前路由器折腾刷机，除了采用各品牌的原厂固件外，第三方路由器固件，基本就是：Tomato、DD-WRT、OpenWRT三种。 当然还有其他一些更加小众的版本, 和很多从这三大固件衍生出来的修改版固件。这篇文章, 可以让大家对这些知识有一个相对比较全面的理解, 使你更容易入门一些。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>路由器固件 | Tamsiree</title><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="目前路由器折腾刷机，除了采用各品牌的原厂固件外，第三方路由器固件，基本就是：Tomato、DD-WRT、OpenWRT三种。 当然还有其他一些更加小众的版本, 和很多从这三大固件衍生出来的修改版固件。这篇文章, 可以让大家对这些知识有一个相对比较全面的理解, 使你更容易入门一些。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="路由器固件">
 <meta property="og:url" content="https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/index.html">
@@ -12,19 +12,141 @@
 <meta property="article:tag" content="Hardware">
 <meta property="article:tag" content="Router">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "路由器固件",
+  "url": "https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/",
+  "image": "https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg",
+  "datePublished": "2020-01-13T11:14:54.000Z",
+  "dateModified": "2025-11-05T13:53:39.422Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tamsiree",
+      "url": "https://tamsiree.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: 'ca-pub-8688374801147098',
   enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -32,7 +154,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -41,209 +163,103 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '路由器固件',
-  isPost: true,
-  isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2025-11-05 21:53:39'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">路由器固件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-01-13T11:14:54.000Z" title="发表于 2020-01-13 19:14:54">2020-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.422Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hardware/">Hardware</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hardware/Router/">Router</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="路由器固件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近偶然原因需要刷机，潜水研究，开始也是搞不清各种固件区别，后来慢慢整理了下整理的资料。</p>
-<p>目前路由器折腾刷机，除了采用各品牌的原厂固件外，第三方路由器固件，基本就是：Tomato、<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/tag/dd-wrt/" title="查看与 DD-WRT 相关的文章">DD-WRT</a>、OpenWRT三种。 当然还有其他一些更加小众的版本, 和很多从这三大固件衍生出来的修改版固件。这篇文章, 可以让大家对这些知识有一个相对比较全面的理解, 使你更容易入门一些。</p>
+  pageType: 'post'
+}</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-color: #f0f0f0;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tamsiree</span></a><a class="nav-page-title" href="/"><span class="site-name">路由器固件</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">路由器固件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-01-13T11:14:54.000Z" title="发表于 2020-01-13 19:14:54">2020-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.422Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hardware/">Hardware</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hardware/Router/">Router</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">4.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近偶然原因需要刷机，潜水研究，开始也是搞不清各种固件区别，后来慢慢整理了下整理的资料。</p>
+<p>目前路由器折腾刷机，除了采用各品牌的原厂固件外，第三方路由器固件，基本就是：Tomato、<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/tag/dd-wrt/" title="查看与 DD-WRT 相关的文章">DD-WRT</a>、OpenWRT 三种。 当然还有其他一些更加小众的版本, 和很多从这三大固件衍生出来的修改版固件。这篇文章, 可以让大家对这些知识有一个相对比较全面的理解, 使你更容易入门一些。</p>
 <p>本文转载自 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/1237.html">路由网</a> 。</p>
-<h1 id="开源路由器固件历史"><a href="#开源路由器固件历史" class="headerlink" title="开源路由器固件历史"></a>开源路由器固件历史</h1><p>2003年Linksys公司（已被思科收购）推出WRT-54G，一款基于MIPS架构的无线路由器，WRT-54G操作系统以Linux取代vXworks，是很经典的一款产品，可是这个产品的软件核心是基于GPL许可下开发的，而GPL许可是遵循开源标准的，种种压力之下，思科最终还是被迫于2003年7月开放了Linksys WRT54G源代码，开源爱好者便清楚了 Linksys 是如何操作这些硬件的，这样 WRT54G 就从黑盒子变为了白盒子，从而产生出后来的各种开源项目。如 OpenWRT，dd-wrt, Tomato，Gargoyle（石像鬼），OPNsense, PFSense 等等还有很多。（Tomato 和 ddwrt 的代码与 OpenWRT 的源代码并无直接的联系，虽然 ddwrt 有在使用 OpenWRT 的GPL 的内核补丁，但是应用层的软件、启动代码等都有很大的不同。）下面说些国内论坛常见的：  </p>
+<h1 id="开源路由器固件历史"><a href="#开源路由器固件历史" class="headerlink" title="开源路由器固件历史"></a>开源路由器固件历史</h1><p>2003 年 Linksys 公司（已被思科收购）推出 WRT-54G，一款基于 MIPS 架构的无线路由器，WRT-54G 操作系统以 Linux 取代 vXworks，是很经典的一款产品，可是这个产品的软件核心是基于 GPL 许可下开发的，而 GPL 许可是遵循开源标准的，种种压力之下，思科最终还是被迫于 2003 年 7 月开放了 Linksys WRT54G 源代码，开源爱好者便清楚了 Linksys 是如何操作这些硬件的，这样 WRT54G 就从黑盒子变为了白盒子，从而产生出后来的各种开源项目。如 OpenWRT，dd-wrt, Tomato，Gargoyle（石像鬼），OPNsense, PFSense 等等还有很多。（Tomato 和 ddwrt 的代码与 OpenWRT 的源代码并无直接的联系，虽然 ddwrt 有在使用 OpenWRT 的 GPL 的内核补丁，但是应用层的软件、启动代码等都有很大的不同。）下面说些国内论坛常见的：  </p>
 <ul>
-<li>OpenWRT（OpenWRT，LEDE，Pandora/潘多拉）  <ul>
-<li>  2004年1月出现所谓的OpenWRT，第一个版本是基于Linksys源码及uclibc中的buildroot项目，相关的内核驱动的代码都经过了重写，以保证其版权100%属于 OpenWRT 的版权所有人。真正基于OpenWrt发展的路由器固件项目可以参见这里：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://en.wikipedia.org/wiki/OpenWrt#Derivatives">https://en.wikipedia.org/wiki/OpenWrt#Derivatives</a>。</li>
-<li>  LEDE 是 OpenWRT 的一个分支，可应用于多种处理器平台，国内论坛中应用最多的就是基于 X64/Intel64（X86扩展为64位版本且兼容X86） 处理器的版本，俗称的软路由系统即指这个。</li>
-<li>  Pandora/潘多拉即 PandoraBox，是基于OpenWrt的，前身是DreamBox，由OpenWrt中国创始人之一的Lintel 所带领的技术团队维护。 Pandora 是基于OP深度定制的路由器系统，系统底层部分采用了原厂原声驱动，而非开源驱动，使其相比OP有更好的稳定性。由于OP配置及二次开发的方便性，加上Lintel根据中国网络环境对PB作出的调整及优化，受到不少互联网大咖的关注（听说还有橄榄枝）。 在中国深圳，不少公司厂家推出的“基于OP深度定制的系统”，使用的是当时开源的 DreamBox 源码或者泄漏的早期PB源码。 现时PB已得到OP的官方支持，而PB的成员也向OP贡献代码。</li>
-<li>相对原厂固件而言，OpenWRT不是一个单一、静态的固件，而是提供了一个可添加软件包的可写的文件系统。这使用户可以自由的选择应用程序和配置，而不必受设备提供商的限制，并且可以使用一些适合某方面应用的软件包来定制你的设备。对于开发者来说，OpenWRT是一个框架，开发者不必麻烦的构建整个固件就能得到想要的应用程序；对于用户来说，这意味着完全定制的能力，与以往不同的方式使用设备，OPKG包含超过3500个软件，其 默认使用LuCI作为web交互界面。简单来说，由于OpenWRT的灵活性高，所以其部属十分复杂。因此OpenWRT最适合专家型人群。该固件适合于希望操作方面的限制尽量少、想大胆使用不同寻常的硬件，以及擅长自行推出个性化Linux发行版本的用户。  </li>
+<li>OpenWRT（OpenWRT，LEDE，Pandora / 潘多拉）  <ul>
+<li>  2004 年 1 月出现所谓的 OpenWRT，第一个版本是基于 Linksys 源码及 uclibc 中的 buildroot 项目，相关的内核驱动的代码都经过了重写，以保证其版权 100% 属于 OpenWRT 的版权所有人。真正基于 OpenWrt 发展的路由器固件项目可以参见这里：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://en.wikipedia.org/wiki/OpenWrt#Derivatives">https://en.wikipedia.org/wiki/OpenWrt#Derivatives</a>。</li>
+<li>  LEDE 是 OpenWRT 的一个分支，可应用于多种处理器平台，国内论坛中应用最多的就是基于 X64/Intel64（X86 扩展为 64 位版本且兼容 X86） 处理器的版本，俗称的软路由系统即指这个。</li>
+<li>  Pandora / 潘多拉即 PandoraBox，是基于 OpenWrt 的，前身是 DreamBox，由 OpenWrt 中国创始人之一的 Lintel 所带领的技术团队维护。 Pandora 是基于 OP 深度定制的路由器系统，系统底层部分采用了原厂原声驱动，而非开源驱动，使其相比 OP 有更好的稳定性。由于 OP 配置及二次开发的方便性，加上 Lintel 根据中国网络环境对 PB 作出的调整及优化，受到不少互联网大咖的关注（听说还有橄榄枝）。 在中国深圳，不少公司厂家推出的“基于 OP 深度定制的系统”，使用的是当时开源的 DreamBox 源码或者泄漏的早期 PB 源码。 现时 PB 已得到 OP 的官方支持，而 PB 的成员也向 OP 贡献代码。</li>
+<li>相对原厂固件而言，OpenWRT 不是一个单一、静态的固件，而是提供了一个可添加软件包的可写的文件系统。这使用户可以自由的选择应用程序和配置，而不必受设备提供商的限制，并且可以使用一些适合某方面应用的软件包来定制你的设备。对于开发者来说，OpenWRT 是一个框架，开发者不必麻烦的构建整个固件就能得到想要的应用程序；对于用户来说，这意味着完全定制的能力，与以往不同的方式使用设备，OPKG 包含超过 3500 个软件，其 默认使用 LuCI 作为 web 交互界面。简单来说，由于 OpenWRT 的灵活性高，所以其部属十分复杂。因此 OpenWRT 最适合专家型人群。该固件适合于希望操作方面的限制尽量少、想大胆使用不同寻常的硬件，以及擅长自行推出个性化 Linux 发行版本的用户。  </li>
 </ul>
 </li>
-<li>华硕开源（包括华硕原厂系统 Asuswrt，梅林，Padavan/老毛子）  <ul>
-<li>  华硕路由器固件（Asuswrt）是基于Tomato-RT/Tomato-USB进行二次开发的版本，需遵守GPL开源协议，除了少部分比如 Broadcom/Ralink驱动以二进制格式闭源提供外，其他大部分模块都以源码格式开源提供。</li>
+<li>华硕开源（包括华硕原厂系统 Asuswrt，梅林，Padavan / 老毛子）  <ul>
+<li>  华硕路由器固件（Asuswrt）是基于 Tomato-RT/Tomato-USB 进行二次开发的版本，需遵守 GPL 开源协议，除了少部分比如 Broadcom/Ralink 驱动以二进制格式闭源提供外，其他大部分模块都以源码格式开源提供。</li>
 <li>  梅林固件基于华硕固件进行修改和增强，它使用的是华硕官方的闭源驱动，而不是其他人使用的开源驱动，稳定性相比开源驱动要高很多，同时它也是受到官方默许的固件，在华硕的路由器中是可以直接通过网页端手动更新的，想换回来的时候也可以直接在梅林固件的更新页面通过手动上传官方固件就更新回来了，路由器设置什么的都保留着。不过梅林固件官网只支持华硕的路由器，无法支持华硕以外的第三方路由器。而国内有些开发者大神将梅林原版进行适配，支持了更多第三方的路由器。</li>
-<li>  padavan也是基于华硕固件修改，最初是在华硕N14U N54U 的固件上经过俄国（老毛子）大神深度开发的华硕固件，就是 padavan/老毛子固件，运行速度快，界面友好，对硬件要求低。</li>
-<li>国内常用的梅林、padavan修改版本：koolshare上面是小宝修改版merlin，Koolshare改版梅林主要就是多了以软件中心为主的第三方应用功能，譬如kms自建服务器，广告过滤等。恩山上常见的是hiboy修改版padavan。  </li>
+<li>  padavan 也是基于华硕固件修改，最初是在华硕 N14U N54U 的固件上经过俄国（老毛子）大神深度开发的华硕固件，就是 padavan / 老毛子固件，运行速度快，界面友好，对硬件要求低。</li>
+<li>国内常用的梅林、padavan 修改版本：koolshare 上面是小宝修改版 merlin，Koolshare 改版梅林主要就是多了以软件中心为主的第三方应用功能，譬如 kms 自建服务器，广告过滤等。恩山上常见的是 hiboy 修改版 padavan。  </li>
 </ul>
 </li>
 <li>DD-WRT  <ul>
-<li>DD-WRT固件由BrainSlayer维护，<a target="_blank" rel="noopener external nofollow noreferrer" href="http://放在dd-wrt.com/">放在dd-wrt.com</a>。从第一个版本直至V22版本都是基于Sveasoft Inc公司的Alchemy开发出来，而Alchemy又是基于以GPL发放之Linksys固件及许多其它开放源程序。由于后来人们需要向Sveasoft支付$20才能下载Alchemy固件，于是从V23开始的DD-WRT几乎完全重写，linux核心部分基于OpenWrt核心。 DD-WRT最接近实用，算是中庸，但是要定制和扩展都比较难。  </li>
+<li>DD-WRT 固件由 BrainSlayer 维护，[放在 dd-wrt.com](http:// 放在 dd-wrt.com)。从第一个版本直至 V22 版本都是基于 Sveasoft Inc 公司的 Alchemy 开发出来，而 Alchemy 又是基于以 GPL 发放之 Linksys 固件及许多其它开放源程序。由于后来人们需要向 Sveasoft 支付 $20 才能下载 Alchemy 固件，于是从 V23 开始的 DD-WRT 几乎完全重写，linux 核心部分基于 OpenWrt 核心。 DD-WRT 最接近实用，算是中庸，但是要定制和扩展都比较难。  </li>
 </ul>
 </li>
-<li>Gargoyle/石像鬼  <ul>
-<li>基于GPL，提供完整的全套路由功能，流量监控强悍，带宽管理和QoS很是强大，不比Tomato逊色，如果不想自己动手编译或设置，但是又想要用版权规范的OpenWRT，且想一步到位的话，Gargoyle是最好的选择，很适合追求稳定的普通用户或小微企业用户，默认界面风格传统，但有时尚风格的主题可更换，不支持多国语言，国内不流行，但已有汉化的补丁出现。  </li>
+<li>Gargoyle / 石像鬼  <ul>
+<li>基于 GPL，提供完整的全套路由功能，流量监控强悍，带宽管理和 QoS 很是强大，不比 Tomato 逊色，如果不想自己动手编译或设置，但是又想要用版权规范的 OpenWRT，且想一步到位的话，Gargoyle 是最好的选择，很适合追求稳定的普通用户或小微企业用户，默认界面风格传统，但有时尚风格的主题可更换，不支持多国语言，国内不流行，但已有汉化的补丁出现。  </li>
 </ul>
 </li>
 <li>Tomato  <ul>
-<li>  Tomato最封闭，只针对老机器，非常保守而稳定，正在消亡中……</li>
+<li>  Tomato 最封闭，只针对老机器，非常保守而稳定，正在消亡中……</li>
 </ul>
 </li>
 </ul>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="固件分类"><a href="#固件分类" class="headerlink" title="固件分类"></a>固件分类</h3><p>第三方路由器固件，基本就是：Tomato、<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/tag/dd-wrt/" title="查看与 DD-WRT 相关的文章">DD-WRT</a>、OpenWRT三种.</p>
-<h3 id="前端和后端"><a href="#前端和后端" class="headerlink" title="前端和后端"></a>前端和后端</h3><p>基本上所有第三方路由器固件的架构上可分为前端（Frontend）和后端（Backend），后端一般情况下是一个不带界面的Linux系统, 前端一般指图形用户接口，即GUI，主要体现为Web管理界面。 比较流行的OpenWRT自身默认编译出来是不带前端的。</p>
-<h3 id="OpenWRT的在国内常见的前端有"><a href="#OpenWRT的在国内常见的前端有" class="headerlink" title="OpenWRT的在国内常见的前端有"></a>OpenWRT的在国内常见的前端有</h3><p>LuCI：基于Apache License，现在主流，是自行编译的OpenWRT最佳搭配；</p>
-<p>X-WRT：基于GPL，不太活跃，不太流行，好像没怎么更新了；</p>
-<p>Gargoyle：基于GPL，提供完整的全套路由功能，流量监控强悍，带宽管理和QoS很是强大，不比Tomato逊色，如果不想自己动 手编译或设置，但是又想要用版权规范的OpenWRT，且想一步到位的话，Gargoyle是最好的选择，很适合追求稳定的普通用户或小微企业用户，默认 界面风格传统，但有时尚风格的主题可更换，不支持多国语言，国内不流行，但已有汉化的补丁出现了；</p>
-<h3 id="其它两大固件的前端"><a href="#其它两大固件的前端" class="headerlink" title="其它两大固件的前端"></a>其它两大固件的前端</h3><p>Tomato前端部分：私有，非GPL（有源码供自编译，不能随便修改），版权模糊，有免费版，但也有很多付费增强功能的版本，界面简约，运行稳定，QoS很强大，机型的支持比较少；</p>
-<p>DD-WRT前端部分：版权模糊，部分私有，非GPL（有提供源码，不能随便修改），有免费版，也有增强功能的付费版，界面美观，中继能力强大，支持语言众多，对机型的支持最广泛，但免费版QoS性能一般；</p>
-<h3 id="Tomato-DualWAN"><a href="#Tomato-DualWAN" class="headerlink" title="Tomato DualWAN"></a>Tomato DualWAN</h3><p>Tomato DualWAN 使那些能刷Tomato或DD-WRT固件的路由器由原来的单WAN口变成双WAN口，而这一切不需要在路由器上增加任何硬件，只需要刷一下 Tomato DualWAN 固件就可以。刷了Tomato DualWAN之后转变出来的第二个WAN口可以接有线网络也可以接无线网络，双WAN模式支持带宽合并或智能路由。</p>
-<p>DualWan前端部分：私有，非GPL（有源码供自编译，不能随便修改源码），版权模糊，有免费版，也有增强功能的付费版，基于Tomato前端部分的衍生，算是中文Tomato的典型代表，多拨功能强大，对机型的支持比较少；</p>
-<h2 id="三大固件的介绍和对比"><a href="#三大固件的介绍和对比" class="headerlink" title="三大固件的介绍和对比"></a>三大固件的介绍和对比</h2><h3 id="DDWRT"><a href="#DDWRT" class="headerlink" title="DDWRT"></a>DDWRT</h3><p>界面美观,设置简单直观,易用性比较好,官方固件自带的功能是三大固件中最为丰富的,对新路由的支持也十分迅速,可支持迅速的同时,由于新代码的加入,导致 DDWRT经常出现一些bug,一些可能之前已经解决的bug,往往又会在之后的某次更新中原地满状态复活 ,着实让人喷血,最让人呕病的,是孱弱的QOS功能,DDWRT的qos功能只能说聊胜于无吧.功能的话到时还挺多,PPTP openvpn qos 上网控制 mac过滤等等功能都很使用,还能调节官方版本一般不提供的无线信号功率,当然还有中继,说中继可能有些人不敏感,说CW,很多人估计会会心一笑。DDWRT绝对是最适合新手入手的第三方固件,功能丰富,大部分机子的reset都是有效的,路由设置变砖后轻抚菊花即可涅磐重生 ,所以可以放心折腾~</p>
-<h3 id="Tomato"><a href="#Tomato" class="headerlink" title="Tomato"></a>Tomato</h3><p>界面尚可,设置也算简单,易用性还行,流量的统计查看等功能是三个固件中做的最好的.官版Tomato是所有第三方路由固件中最为稳定的, 它的稳定源自于它的保守,官方版本的Tomato好几个版本之前就已经没有再加入什么新功能. 在这里我要补充几句,泰迪熊TT也好,国内的DWTT也好,这些都不是官方Tomato,只是根据官方原版Tomato进行修改和功能扩充的MOD版本</p>
-<h3 id="OpenWRT"><a href="#OpenWRT" class="headerlink" title="OpenWRT"></a>OpenWRT</h3><p>Openwrt是三大固件中扩展性最好的固件,通过扩展,可以实现很多超过路由本职工作的事情,比如脱机下载,网站,论坛,qos功能也十分强大,不逊 色于Tomato的QOS,设置得当后网络表现会让人偷着乐~而且openwrt对新路由的支持也是十分迅速,个人认为是最有前途的固件,因为可以在新路由强劲CPU的支持下获得很好的性能表现,比那些老古董和洋垃圾的性能强大太多.各种功能的软件扩展包比比皆是,而且还有飞翔的天空开发的nwan多 wan和限速qos。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果想玩路由的话，推荐从DD-WRT入手最方便；</p>
-<p>过后若想用折腾QoS，就用Tomato</p>
-<p>要多拨用DualWan；</p>
-<p>注重版权意识又想功能丰富的就自编译OpenWRT去集成LuCI等各种组件——自由自主，功能强大，应有尽有，这或许是很多路由器玩家的最终选择。</p>
-<h3 id="OpenWrt的来历"><a href="#OpenWrt的来历" class="headerlink" title="OpenWrt的来历"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/tag/openwrt/" title="查看与 OpenWrt 相关的文章">OpenWrt</a>的来历</h3><p>Cisco/Linksys 在2003 年发行的WRT54G这款无线路由器非常“经典”。</p>
-<p>同年有好事者在 Linux Kernel Mailing List 搜索 WRT54G，发现它的IOS 是基于Linux，然而Linux 基于GPL 发布许可证，就是 GNU General Public License. 该许可证规定Cisco 应该把WRT54G 的IOS 的源代码公开。</p>
-<p>本来Cisco 拒绝公开源代码，最后，03年三月份的时候，基于公众压力Linksys 公开了WRT54G 的源代码。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="固件分类"><a href="#固件分类" class="headerlink" title="固件分类"></a>固件分类</h3><p>第三方路由器固件，基本就是：Tomato、<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/tag/dd-wrt/" title="查看与 DD-WRT 相关的文章">DD-WRT</a>、OpenWRT 三种.</p>
+<h3 id="前端和后端"><a href="#前端和后端" class="headerlink" title="前端和后端"></a>前端和后端</h3><p>基本上所有第三方路由器固件的架构上可分为前端（Frontend）和后端（Backend），后端一般情况下是一个不带界面的 Linux 系统, 前端一般指图形用户接口，即 GUI，主要体现为 Web 管理界面。 比较流行的 OpenWRT 自身默认编译出来是不带前端的。</p>
+<h3 id="OpenWRT-的在国内常见的前端有"><a href="#OpenWRT-的在国内常见的前端有" class="headerlink" title="OpenWRT 的在国内常见的前端有"></a>OpenWRT 的在国内常见的前端有</h3><p>LuCI：基于 Apache License，现在主流，是自行编译的 OpenWRT 最佳搭配；</p>
+<p>X-WRT：基于 GPL，不太活跃，不太流行，好像没怎么更新了；</p>
+<p>Gargoyle：基于 GPL，提供完整的全套路由功能，流量监控强悍，带宽管理和 QoS 很是强大，不比 Tomato 逊色，如果不想自己动 手编译或设置，但是又想要用版权规范的 OpenWRT，且想一步到位的话，Gargoyle 是最好的选择，很适合追求稳定的普通用户或小微企业用户，默认 界面风格传统，但有时尚风格的主题可更换，不支持多国语言，国内不流行，但已有汉化的补丁出现了；</p>
+<h3 id="其它两大固件的前端"><a href="#其它两大固件的前端" class="headerlink" title="其它两大固件的前端"></a>其它两大固件的前端</h3><p>Tomato 前端部分：私有，非 GPL（有源码供自编译，不能随便修改），版权模糊，有免费版，但也有很多付费增强功能的版本，界面简约，运行稳定，QoS 很强大，机型的支持比较少；</p>
+<p>DD-WRT 前端部分：版权模糊，部分私有，非 GPL（有提供源码，不能随便修改），有免费版，也有增强功能的付费版，界面美观，中继能力强大，支持语言众多，对机型的支持最广泛，但免费版 QoS 性能一般；</p>
+<h3 id="Tomato-DualWAN"><a href="#Tomato-DualWAN" class="headerlink" title="Tomato DualWAN"></a>Tomato DualWAN</h3><p>Tomato DualWAN 使那些能刷 Tomato 或 DD-WRT 固件的路由器由原来的单 WAN 口变成双 WAN 口，而这一切不需要在路由器上增加任何硬件，只需要刷一下 Tomato DualWAN 固件就可以。刷了 Tomato DualWAN 之后转变出来的第二个 WAN 口可以接有线网络也可以接无线网络，双 WAN 模式支持带宽合并或智能路由。</p>
+<p>DualWan 前端部分：私有，非 GPL（有源码供自编译，不能随便修改源码），版权模糊，有免费版，也有增强功能的付费版，基于 Tomato 前端部分的衍生，算是中文 Tomato 的典型代表，多拨功能强大，对机型的支持比较少；</p>
+<h2 id="三大固件的介绍和对比"><a href="#三大固件的介绍和对比" class="headerlink" title="三大固件的介绍和对比"></a>三大固件的介绍和对比</h2><h3 id="DDWRT"><a href="#DDWRT" class="headerlink" title="DDWRT"></a>DDWRT</h3><p>界面美观, 设置简单直观, 易用性比较好, 官方固件自带的功能是三大固件中最为丰富的, 对新路由的支持也十分迅速, 可支持迅速的同时, 由于新代码的加入, 导致 DDWRT 经常出现一些 bug, 一些可能之前已经解决的 bug, 往往又会在之后的某次更新中原地满状态复活 , 着实让人喷血, 最让人呕病的, 是孱弱的 QOS 功能, DDWRT 的 qos 功能只能说聊胜于无吧. 功能的话到时还挺多, PPTP openvpn qos 上网控制 mac 过滤等等功能都很使用, 还能调节官方版本一般不提供的无线信号功率, 当然还有中继, 说中继可能有些人不敏感, 说 CW, 很多人估计会会心一笑。DDWRT 绝对是最适合新手入手的第三方固件, 功能丰富, 大部分机子的 reset 都是有效的, 路由设置变砖后轻抚菊花即可涅磐重生 , 所以可以放心折腾~</p>
+<h3 id="Tomato"><a href="#Tomato" class="headerlink" title="Tomato"></a>Tomato</h3><p>界面尚可, 设置也算简单, 易用性还行, 流量的统计查看等功能是三个固件中做的最好的. 官版 Tomato 是所有第三方路由固件中最为稳定的, 它的稳定源自于它的保守, 官方版本的 Tomato 好几个版本之前就已经没有再加入什么新功能. 在这里我要补充几句, 泰迪熊 TT 也好, 国内的 DWTT 也好, 这些都不是官方 Tomato, 只是根据官方原版 Tomato 进行修改和功能扩充的 MOD 版本</p>
+<h3 id="OpenWRT"><a href="#OpenWRT" class="headerlink" title="OpenWRT"></a>OpenWRT</h3><p>Openwrt 是三大固件中扩展性最好的固件, 通过扩展, 可以实现很多超过路由本职工作的事情, 比如脱机下载, 网站, 论坛, qos 功能也十分强大, 不逊 色于 Tomato 的 QOS, 设置得当后网络表现会让人偷着乐~ 而且 openwrt 对新路由的支持也是十分迅速, 个人认为是最有前途的固件, 因为可以在新路由强劲 CPU 的支持下获得很好的性能表现, 比那些老古董和洋垃圾的性能强大太多. 各种功能的软件扩展包比比皆是, 而且还有飞翔的天空开发的 nwan 多 wan 和限速 qos。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果想玩路由的话，推荐从 DD-WRT 入手最方便；</p>
+<p>过后若想用折腾 QoS，就用 Tomato</p>
+<p>要多拨用 DualWan；</p>
+<p>注重版权意识又想功能丰富的就自编译 OpenWRT 去集成 LuCI 等各种组件——自由自主，功能强大，应有尽有，这或许是很多路由器玩家的最终选择。</p>
+<h3 id="OpenWrt的来历"><a href="#OpenWrt的来历" class="headerlink" title="OpenWrt的来历"></a><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luyouwang.net/tag/openwrt/" title="查看与 OpenWrt 相关的文章">OpenWrt</a>的来历</h3><p>Cisco/Linksys 在 2003 年发行的 WRT54G 这款无线路由器非常“经典”。</p>
+<p>同年有好事者在 Linux Kernel Mailing List 搜索 WRT54G，发现它的 IOS 是基于 Linux，然而 Linux 基于 GPL 发布许可证，就是 GNU General Public License. 该许可证规定 Cisco 应该把 WRT54G 的 IOS 的源代码公开。</p>
+<p>本来 Cisco 拒绝公开源代码，最后，03 年三月份的时候，基于公众压力 Linksys 公开了 WRT54G 的源代码。</p>
 <p>故事本来到这里就结束了，然而相反，结果越闹越大：</p>
-<p>有了源代码以后，开发者便清楚知道代码如何控制路由器的硬件，并且掌握了一些通过增加新的代码到原有的IOS 当中去 —— 使得硬件支持更多的Feature 的技术。这些开发者组成了一个项目开发团队，不断对原来的IOS 进行更新，编码，加入新的特性…… 现在他们手上的WRT54G 无线路由器的能力已经大大超过了原来Cisco 设计的地摊货的设计思路。</p>
-<p>不但如此，随着这两年互联网Web2.0 技术的发展，不同的开发团队之间找到了更好的协同工作平台，其规模不亚于TAC. 他们最近建立了一个DD-WRT 项目的Wiki 站点将全套文档以及代码公开发布。使用DD-WRT 项目提供的源代码，重新升级WRT54G 以后你就能够获得一台相当于$600 左右的中端无线路由器了。</p>
-<p>当Linksys 释放 WRT54G/GS 的源码后，网上出现了很多不同版本的 Firmware 去增强原有的功能。大多数的 Firmware 都是99%使用 Linksys的源码，只有1%是加上去的，每一种 Firmware 都是针对特定的市场而设计，这样做有2个缺点，第一个是难以集合各版本Firmware的长处，第二个是这版本距离 Linux 正式发行版越来越远。</p>
-<p>OpenWrt 选择了另一条路，它从零开始，一点一点的把各软件加入去，使其接近 Linksys 版 Firmware的功能，而OpenWrt 的成功之处是它的文件系统是可写的，开发者无需在每一次修改后重新编译，另它更像一个小型的 Linux 电脑系统，也加快了开发速度。</p>
+<p>有了源代码以后，开发者便清楚知道代码如何控制路由器的硬件，并且掌握了一些通过增加新的代码到原有的 IOS 当中去 —— 使得硬件支持更多的 Feature 的技术。这些开发者组成了一个项目开发团队，不断对原来的 IOS 进行更新，编码，加入新的特性…… 现在他们手上的 WRT54G 无线路由器的能力已经大大超过了原来 Cisco 设计的地摊货的设计思路。</p>
+<p>不但如此，随着这两年互联网 Web2.0 技术的发展，不同的开发团队之间找到了更好的协同工作平台，其规模不亚于 TAC. 他们最近建立了一个 DD-WRT 项目的 Wiki 站点将全套文档以及代码公开发布。使用 DD-WRT 项目提供的源代码，重新升级 WRT54G 以后你就能够获得一台相当于 $600 左右的中端无线路由器了。</p>
+<p>当 Linksys 释放 WRT54G/GS 的源码后，网上出现了很多不同版本的 Firmware 去增强原有的功能。大多数的 Firmware 都是 99% 使用 Linksys 的源码，只有 1% 是加上去的，每一种 Firmware 都是针对特定的市场而设计，这样做有 2 个缺点，第一个是难以集合各版本 Firmware 的长处，第二个是这版本距离 Linux 正式发行版越来越远。</p>
+<p>OpenWrt 选择了另一条路，它从零开始，一点一点的把各软件加入去，使其接近 Linksys 版 Firmware 的功能，而 OpenWrt 的成功之处是它的文件系统是可写的，开发者无需在每一次修改后重新编译，另它更像一个小型的 Linux 电脑系统，也加快了开发速度。</p>
 <p>简化总结</p>
 <ul>
-<li>  从前有个路由器公司，突然有一天想在Linux基础上开发固件，结果后来被捅出来了，于是要求他们公开源代码，于是他们就被迫公开了。</li>
+<li>  从前有个路由器公司，突然有一天想在 Linux 基础上开发固件，结果后来被捅出来了，于是要求他们公开源代码，于是他们就被迫公开了。</li>
 <li>  于是大家很兴奋，做了很多修改版出来～</li>
-<li>  有一个团队基于上述开源的代码从零开始加入各种软件, 结果一不小心做成了此行业的狡狡者, 他们给自己的产品起名叫OpenWrt</li>
+<li>  有一个团队基于上述开源的代码从零开始加入各种软件, 结果一不小心做成了此行业的狡狡者, 他们给自己的产品起名叫 OpenWrt</li>
 </ul>
-<h3 id="OpenWrt的衍生版本-PandoraBox"><a href="#OpenWrt的衍生版本-PandoraBox" class="headerlink" title="OpenWrt的衍生版本-PandoraBox"></a>OpenWrt的衍生版本-PandoraBox</h3><ul>
-<li>  PandoraBox是OpenWrt的一条分支，前身是DreamBox，由OpenWrt中国创始人之一的Lintel所带领的技术团队维护。</li>
-<li>  PandoraBox是基于OpenWrt深度定制的路由器系统，系统底层部分采用了原厂原生驱动，而非开源驱动，使其相比OpenWrt有更好的稳定性。由于OpenWrt配置及二次开发的方便性，加上Lintel根据中国网络环境对PandoraBox作出的调整及优化，受到不少互联网大咖的关注（听说还有橄榄枝）。</li>
-<li>  在中国深圳，不少公司厂家推出的“基于OpenWrt深度定制的系统”，使用的是当时开源的DreamBox源码或者泄漏的早期PandoraBox源码。</li>
+<h3 id="OpenWrt-的衍生版本-PandoraBox"><a href="#OpenWrt-的衍生版本-PandoraBox" class="headerlink" title="OpenWrt 的衍生版本 - PandoraBox"></a>OpenWrt 的衍生版本 - PandoraBox</h3><ul>
+<li>  PandoraBox 是 OpenWrt 的一条分支，前身是 DreamBox，由 OpenWrt 中国创始人之一的 Lintel 所带领的技术团队维护。</li>
+<li>  PandoraBox 是基于 OpenWrt 深度定制的路由器系统，系统底层部分采用了原厂原生驱动，而非开源驱动，使其相比 OpenWrt 有更好的稳定性。由于 OpenWrt 配置及二次开发的方便性，加上 Lintel 根据中国网络环境对 PandoraBox 作出的调整及优化，受到不少互联网大咖的关注（听说还有橄榄枝）。</li>
+<li>  在中国深圳，不少公司厂家推出的“基于 OpenWrt 深度定制的系统”，使用的是当时开源的 DreamBox 源码或者泄漏的早期 PandoraBox 源码。</li>
 </ul>
-<h3 id="OpenWrt介绍"><a href="#OpenWrt介绍" class="headerlink" title="OpenWrt介绍"></a>OpenWrt介绍</h3><p>OpenWrt社区聚集了一大批纯正的Linux各个方向的死忠级专家,从而使OpenWrt具备了如下与传统NorFlash嵌入式Linux截然不同的高级特征。</p>
-<h3 id="SquashFS与JFFS2文件系统的整合形成的overlayfs机制"><a href="#SquashFS与JFFS2文件系统的整合形成的overlayfs机制" class="headerlink" title="SquashFS与JFFS2文件系统的整合形成的overlayfs机制"></a><strong>SquashFS与JFFS2文件系统的整合形成的overlayfs机制</strong></h3><p>对用户而言,OpenWrt的整个文件系统是完全动态可读写的,而其中的固件部分是用SquashFS实施的只读压缩文件系统,而用户所有的对文件系统的增删改都是用类似“差值”的形态存储在JFFS2文件系统中的,二者用overlayfs机制黏合,对用户完全透明。</p>
-<p>因此我们可以在文件系统中肆意发挥、随便折腾,出现任何问题则可像手机一样恢复出厂设置,并提供fail-safe模式帮助用户修复系统。</p>
-<p>而在传统的嵌入式Linux里,固件是静态的,对系统做任何一点与可运行程序相关的变动,比如增加一个模块,删除一个应用程序,都要重新编译全部固件,并重新刷写,就好比你一个Android手机要升级微信就要重新刷机。这种反人类的传统文件系统完全阻挡了非专业爱好者进入嵌入式Linux这一领域。</p>
-<h3 id="UCI（Unified-Configuration-Interface）"><a href="#UCI（Unified-Configuration-Interface）" class="headerlink" title="UCI（Unified Configuration Interface）"></a><strong>UCI（Unified Configuration Interface）</strong></h3><p>帮助用户在任何平台的OpenWrt上用同样的方法配置系统、网络和应用。在Boardcom的平台上,在Atheros的平台上,甚至x86的平台上,修改系统配置均为同样的命令。</p>
-<p>而UCI的机制并不是二进制硬件虚拟层实现的,是由Linux shell脚本实现的。</p>
-<p>这毫无疑问是一种别致的创新,比Android来的轻巧得多。OpenWrt里的Linux shell脚本用得很帅很高端,那种感觉怎么形容呢？就好像精通十八般武艺的高手有一天特别复古地拿起铅笔刀在硬盘上刻出来了系统,就是这种感觉。</p>
-<h3 id="Opkg包管理系统与丰富的软件源"><a href="#Opkg包管理系统与丰富的软件源" class="headerlink" title="Opkg包管理系统与丰富的软件源"></a><strong>Opkg包管理系统与丰富的软件源</strong></h3><p>是一个与桌面级Linux使用的apt-get、yum等同级别的包管理系统,使用形如：opkg install xxxx-app的命令从互联网软件源中安装大约3000余种各种软件。</p>
-<p>3000款软件,数量没法跟手机的应用市场比,但是要知道,这里头的任何一个软件都来头不小,是经过Linux社区千锤百炼的东西,一个应用折腾一个月都玩不够。</p>
-<p>类型覆盖网络、音频、视频、编程开发、Linux系统管理等。当然,如果是专业比较偏的东西OpenWrt的软件源里还是不够完善,比如笔者团队用到的OpenCV的东西,源里就没有,就靠自己交叉编译了。</p>
-<h3 id="Luci-WEB界面系统"><a href="#Luci-WEB界面系统" class="headerlink" title="Luci WEB界面系统"></a><strong>Luci WEB界面系统</strong></h3><p>除CLI命令行终端界面外,不同于桌面级Linux使用屏幕GUI作为交互界面,OpenWrt使用WEB界面交互。而不同于传统路由器web管理界面的是,luci是用户可订制的,安装了支持luci的软件后,WEB界面系统就中出现了新的模块,而opkg本身也web化了。这个特征让用户感觉很像手机的app store。</p>
+<h3 id="OpenWrt-介绍"><a href="#OpenWrt-介绍" class="headerlink" title="OpenWrt 介绍"></a>OpenWrt 介绍</h3><p>OpenWrt 社区聚集了一大批纯正的 Linux 各个方向的死忠级专家, 从而使 OpenWrt 具备了如下与传统 NorFlash 嵌入式 Linux 截然不同的高级特征。</p>
+<h3 id="SquashFS-与-JFFS2-文件系统的整合形成的-overlayfs-机制"><a href="#SquashFS-与-JFFS2-文件系统的整合形成的-overlayfs-机制" class="headerlink" title="**SquashFS 与 JFFS2 文件系统的整合形成的 overlayfs 机制 **"></a>**SquashFS 与 JFFS2 文件系统的整合形成的 overlayfs 机制 **</h3><p>对用户而言, OpenWrt 的整个文件系统是完全动态可读写的, 而其中的固件部分是用 SquashFS 实施的只读压缩文件系统, 而用户所有的对文件系统的增删改都是用类似 “差值” 的形态存储在 JFFS2 文件系统中的, 二者用 overlayfs 机制黏合, 对用户完全透明。</p>
+<p>因此我们可以在文件系统中肆意发挥、随便折腾, 出现任何问题则可像手机一样恢复出厂设置, 并提供 fail-safe 模式帮助用户修复系统。</p>
+<p>而在传统的嵌入式 Linux 里, 固件是静态的, 对系统做任何一点与可运行程序相关的变动, 比如增加一个模块, 删除一个应用程序, 都要重新编译全部固件, 并重新刷写, 就好比你一个 Android 手机要升级微信就要重新刷机。这种反人类的传统文件系统完全阻挡了非专业爱好者进入嵌入式 Linux 这一领域。</p>
+<h3 id="UCI（Unified-Configuration-Interface）"><a href="#UCI（Unified-Configuration-Interface）" class="headerlink" title="UCI（Unified Configuration Interface）"></a><strong>UCI（Unified Configuration Interface）</strong></h3><p>帮助用户在任何平台的 OpenWrt 上用同样的方法配置系统、网络和应用。在 Boardcom 的平台上, 在 Atheros 的平台上, 甚至 x86 的平台上, 修改系统配置均为同样的命令。</p>
+<p>而 UCI 的机制并不是二进制硬件虚拟层实现的, 是由 Linux shell 脚本实现的。</p>
+<p>这毫无疑问是一种别致的创新, 比 Android 来的轻巧得多。OpenWrt 里的 Linux shell 脚本用得很帅很高端, 那种感觉怎么形容呢？就好像精通十八般武艺的高手有一天特别复古地拿起铅笔刀在硬盘上刻出来了系统, 就是这种感觉。</p>
+<h3 id="Opkg-包管理系统与丰富的软件源"><a href="#Opkg-包管理系统与丰富的软件源" class="headerlink" title="**Opkg 包管理系统与丰富的软件源 **"></a>**Opkg 包管理系统与丰富的软件源 **</h3><p>是一个与桌面级 Linux 使用的 apt-get、yum 等同级别的包管理系统, 使用形如：opkg install xxxx-app 的命令从互联网软件源中安装大约 3000 余种各种软件。</p>
+<p>3000 款软件, 数量没法跟手机的应用市场比, 但是要知道, 这里头的任何一个软件都来头不小, 是经过 Linux 社区千锤百炼的东西, 一个应用折腾一个月都玩不够。</p>
+<p>类型覆盖网络、音频、视频、编程开发、Linux 系统管理等。当然, 如果是专业比较偏的东西 OpenWrt 的软件源里还是不够完善, 比如笔者团队用到的 OpenCV 的东西, 源里就没有, 就靠自己交叉编译了。</p>
+<h3 id="Luci-WEB-界面系统"><a href="#Luci-WEB-界面系统" class="headerlink" title="**Luci WEB 界面系统 **"></a>**Luci WEB 界面系统 **</h3><p>除 CLI 命令行终端界面外, 不同于桌面级 Linux 使用屏幕 GUI 作为交互界面, OpenWrt 使用 WEB 界面交互。而不同于传统路由器 web 管理界面的是, luci 是用户可订制的, 安装了支持 luci 的软件后, WEB 界面系统就中出现了新的模块, 而 opkg 本身也 web 化了。这个特征让用户感觉很像手机的 app store。</p>
 <hr>
 <p>参考连接：</p>
 <blockquote>
@@ -253,95 +269,130 @@
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/">https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hardware/">Hardware</a><a class="post-meta__tags" href="/tags/Router/">Router</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/OperationSystem/Linux/Manjaro/Software/Anbox/Anbox/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg8ba947b.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Anbox</div></div></a></div><div class="next-post pull-right"><a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom19201080bg8ae443e.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Android唯一标识</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Hardware/%E5%8D%8E%E7%A1%95PG279QR%E6%98%BE%E7%A4%BA%E5%99%A8/" title="华硕PG279QR显示器"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-5199699.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-19</div><div class="title">华硕PG279QR显示器</div></div></a></div><div><a href="/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/" title="电脑设备"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-01</div><div class="title">电脑设备</div></div></a></div><div><a href="/Hardware/HardDisk/%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA%E7%BB%93%E6%9E%84/" title="硬盘分区结构"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/sufjgfuiovgfhgjkldhajs.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-10</div><div class="title">硬盘分区结构</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6%E5%8E%86%E5%8F%B2"><span class="toc-number">2.</span> <span class="toc-text">开源路由器固件历史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">3.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">固件分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF"><span class="toc-number">3.1.2.</span> <span class="toc-text">前端和后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWRT%E7%9A%84%E5%9C%A8%E5%9B%BD%E5%86%85%E5%B8%B8%E8%A7%81%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%89"><span class="toc-number">3.1.3.</span> <span class="toc-text">OpenWRT的在国内常见的前端有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E4%B8%A4%E5%A4%A7%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%89%8D%E7%AB%AF"><span class="toc-number">3.1.4.</span> <span class="toc-text">其它两大固件的前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomato-DualWAN"><span class="toc-number">3.1.5.</span> <span class="toc-text">Tomato DualWAN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E5%9B%BA%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AF%B9%E6%AF%94"><span class="toc-number">3.2.</span> <span class="toc-text">三大固件的介绍和对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DDWRT"><span class="toc-number">3.2.1.</span> <span class="toc-text">DDWRT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomato"><span class="toc-number">3.2.2.</span> <span class="toc-text">Tomato</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWRT"><span class="toc-number">3.2.3.</span> <span class="toc-text">OpenWRT</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWrt%E7%9A%84%E6%9D%A5%E5%8E%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">OpenWrt的来历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWrt%E7%9A%84%E8%A1%8D%E7%94%9F%E7%89%88%E6%9C%AC-PandoraBox"><span class="toc-number">3.3.2.</span> <span class="toc-text">OpenWrt的衍生版本-PandoraBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWrt%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.3.3.</span> <span class="toc-text">OpenWrt介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SquashFS%E4%B8%8EJFFS2%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%95%B4%E5%90%88%E5%BD%A2%E6%88%90%E7%9A%84overlayfs%E6%9C%BA%E5%88%B6"><span class="toc-number">3.3.4.</span> <span class="toc-text">SquashFS与JFFS2文件系统的整合形成的overlayfs机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UCI%EF%BC%88Unified-Configuration-Interface%EF%BC%89"><span class="toc-number">3.3.5.</span> <span class="toc-text">UCI（Unified Configuration Interface）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Opkg%E5%8C%85%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%B8%8E%E4%B8%B0%E5%AF%8C%E7%9A%84%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-number">3.3.6.</span> <span class="toc-text">Opkg包管理系统与丰富的软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Luci-WEB%E7%95%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.7.</span> <span class="toc-text">Luci WEB界面系统</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
-  function initWaline () {
-    const waline = new Waline(Object.assign({
-      el: '#waline-wrap',
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tamsiree.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/">https://tamsiree.com/Hardware/Router/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hardware/">Hardware</a><a class="post-meta__tags" href="/tags/Router/">Router</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg61c5560.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/OperationSystem/Linux/Manjaro/Software/Anbox/Anbox/" title="Anbox"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg8ba947b.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Anbox</div></div><div class="info-2"><div class="info-item-1">前言听说最近出了一个软件 anbox，可以在 Linux 上原生运行 Andriod 程序，于是迫不及待想试一试。AUR 已经有人打了包，所以装起来还算方便，只是系统镜像有点大，以及要编译的包稍微有点多。安装方法主要来自 artex-files 在 GitHub 上的评论。 正文先安装所有需要的软件包 (anbox-image 要单独先装，不然一直显示’cannot resolve anbox-image’) 12yaourt -S linux-headers dkms anbox-imageyaourt -S anbox-modules-dkms-git anbox-git 然后加载所需要的内核模块 12sudo modprobe binder_linuxsudo modprobe ashmem_linux 再启动相关服务 (这里用 start，如果你想开机自启可以再 enable) 12sudo systemctl start anbox-container-manager.servicesystemctl --user start anbox-session-manager...</div></div></div></a><a class="pagination-related" href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Android/Android%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86/" title="Android 唯一标识"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom19201080bg8ae443e.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Android 唯一标识</div></div><div class="info-2"><div class="info-item-1">前言最近公司在做防刷和确认真机策略，在高版本里面，谷歌规定了 IMEI 无法获取到了，包含但不止如下（MAC，IMEI，IMSI，ICCID）。但是我们的业务需求还需要这方面支撑，只能将能拿到的数据都拿出来，交给 DB 去分析。 正文下面的 html 是前端工具类，称之为浏览器指纹，在我们自己测试情况下，百分之 99 都是可以确保唯一，包含卸载，刷机，恢复出厂设置，获取到的数值都是一样的。 123456789101112131415161718192021&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;    &lt;title&gt;fingerprint&lt;/title&gt;    &lt;style type=&quot;text/css&quot;&gt;    body&#123;      font-family: &#x27;Sans&#x27;    &#125;    &lt;/style&gt;    &lt;script&gt;  (function(a,c,b)&#123;if(typeof module!=...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/Hardware/%E7%94%B5%E8%84%91%E8%AE%BE%E5%A4%87/" title="电脑设备"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/958739597.jpeg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-01</div><div class="info-item-2">电脑设备</div></div></div></a><a class="pagination-related" href="/Hardware/HardDisk/%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA%E7%BB%93%E6%9E%84/" title="硬盘分区结构"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/sufjgfuiovgfhgjkldhajs.jpeg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-10</div><div class="info-item-2">硬盘分区结构</div></div><div class="info-2"><div class="info-item-1">硬盘模式 硬盘模式主要有 AHCI、RAID、IDE 三种模式。   IDE 模式IDE 是表示硬盘的传输接口。我们常说的 IDE 接口，也叫 ATA（Advanced Technology Attachment）接口，现在 PC 机使用的硬盘大多数都是 IDE 兼容的，只需用一根电缆将它们与主板或接口卡连起来就可以了    优点：易于使用与价格低廉，问世后成为最为普及的磁盘接口     缺点：1、速度慢2、只能内置使用3、对接口电缆的长度有很严格的限制  RAID 模式RAID 模式即磁盘阵列模式，简单说就是利用多个硬盘同时工作，来保证数据的安全以及存取速度的。它共有九个模式，以数字命名，为 RAID 0、RAID1 到 RAID 7 以及 RAID 0+1，而目前最常见的是 RAID 0、RAID 1、RAID 5 和 RAID 0+1 这四种模式    优点：1、设置与组建方便2、能够叠加硬盘容量避免容量浪费3、两倍于单块机械硬盘传输性能4、相比升级 SSD 节省大量资金     缺点：1、缺少数据冗余 数据可靠性低2、无法使用 Ghost 软件备份镜像。  AHCI 模式...</div></div></div></a><a class="pagination-related" href="/Hardware/%E5%8D%8E%E7%A1%95PG279QR%E6%98%BE%E7%A4%BA%E5%99%A8/" title="华硕 PG279QR 显示器"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-5199699.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-19</div><div class="info-item-2">华硕 PG279QR 显示器</div></div><div class="info-2"><div class="info-item-1">华硕 PG279Q 显示器 ODOD 可理解为 Overdrive，是一项通过提高液晶面板电压，以牺牲显示效果为代价来降低显示延迟的技术。关闭（选择禁用）时，显示面板以正常状态工作，能提供最佳的显示效果，但显示延时较高；开至中档（选择常规色）时，显示面板以较高电压工作，略微影响显示效果，显示延时有所降低；开至高档（选择 Extreme）时，显示面板以能稳定接受的最高电压工作，严重影响显示效果，产生肉眼可见的明显色差，显示延迟降至最低。建议：玩竞技类游戏时可设置为 Extreme 来改善操作感，提高成绩；玩一般游戏时可设置为常规色，在欣赏风景的同时改善操作体验；不玩游戏时（看电影等）可关闭 OD，提供最佳显示效果。 软硬件综合测试相信大家在选择显示器的过程中经常会听到有网友推荐选择什么大金刚和小金刚显示器。那么什么是大金刚，什么又是小金刚呢。   在开始介绍这款大金刚显示器之前，我们先来了解一下小金刚和大金刚的区别吧。首先这两大类显示器并不是指某几款特定的产品，目前来说当显示器的几个参数到达了某个标准，他就会被冠以 x 金刚的称呼。   先说说小金刚，在前几年，只要显示器拥有 2K...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tamsiree</div><div class="author-info-description">勇于尝试才有可能迈向成功</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6%E5%8E%86%E5%8F%B2"><span class="toc-number">2.</span> <span class="toc-text">开源路由器固件历史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">3.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.1.</span> <span class="toc-text">固件分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF"><span class="toc-number">3.1.2.</span> <span class="toc-text">前端和后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWRT-%E7%9A%84%E5%9C%A8%E5%9B%BD%E5%86%85%E5%B8%B8%E8%A7%81%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%89"><span class="toc-number">3.1.3.</span> <span class="toc-text">OpenWRT 的在国内常见的前端有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E4%B8%A4%E5%A4%A7%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%89%8D%E7%AB%AF"><span class="toc-number">3.1.4.</span> <span class="toc-text">其它两大固件的前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomato-DualWAN"><span class="toc-number">3.1.5.</span> <span class="toc-text">Tomato DualWAN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E5%9B%BA%E4%BB%B6%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AF%B9%E6%AF%94"><span class="toc-number">3.2.</span> <span class="toc-text">三大固件的介绍和对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DDWRT"><span class="toc-number">3.2.1.</span> <span class="toc-text">DDWRT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomato"><span class="toc-number">3.2.2.</span> <span class="toc-text">Tomato</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWRT"><span class="toc-number">3.2.3.</span> <span class="toc-text">OpenWRT</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWrt%E7%9A%84%E6%9D%A5%E5%8E%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">OpenWrt的来历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWrt-%E7%9A%84%E8%A1%8D%E7%94%9F%E7%89%88%E6%9C%AC-PandoraBox"><span class="toc-number">3.3.2.</span> <span class="toc-text">OpenWrt 的衍生版本 - PandoraBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenWrt-%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.3.3.</span> <span class="toc-text">OpenWrt 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SquashFS-%E4%B8%8E-JFFS2-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%95%B4%E5%90%88%E5%BD%A2%E6%88%90%E7%9A%84-overlayfs-%E6%9C%BA%E5%88%B6"><span class="toc-number">3.3.4.</span> <span class="toc-text">**SquashFS 与 JFFS2 文件系统的整合形成的 overlayfs 机制 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UCI%EF%BC%88Unified-Configuration-Interface%EF%BC%89"><span class="toc-number">3.3.5.</span> <span class="toc-text">UCI（Unified Configuration Interface）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Opkg-%E5%8C%85%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%B8%8E%E4%B8%B0%E5%AF%8C%E7%9A%84%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-number">3.3.6.</span> <span class="toc-text">**Opkg 包管理系统与丰富的软件源 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Luci-WEB-%E7%95%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.7.</span> <span class="toc-text">**Luci WEB 界面系统 **</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 中 MongoDB 数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复">Docker 中 MongoDB 数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃">Unity 多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的 CDN 之 jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr">好用的 CDN 之 jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统">Unity 坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2025 By Tamsiree</span></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><script src="/js/tw_cn.js?v=5.5.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"],"avatar":"wavatar"}
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
       serverURL: 'https://comment.tamsiree.com',
-      path: location.pathname,
-      visitor: true,
-      dark: 'html[data-theme="dark"]'
-    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
-  }
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
 
-  if (typeof Waline === 'function') initWaline()
-  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
-}
-
-if ('Waline' === 'Waline' || !true) {
-  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
-  else setTimeout(loadWaline, 0)
-} else {
-  function loadOtherComment () {
-    loadWaline()
-  }
-}</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
 
-})
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>

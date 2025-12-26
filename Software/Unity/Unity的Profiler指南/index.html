@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Unity的Profiler指南 | Tamsiree</title><meta name="keywords" content="Software,Unity"><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 正文Profiler概述打开Unity Profiler Window-&gt;Analysis-&gt;Profiler。     Profiler可以确定需要在应用程序中优化什么，并确认优化产生了您期望的结果。默认情况下，Unity记录300帧游戏数据并呈现每一帧的详细信息。  Profiler Window Layout A：Profiler模块。这是可以在应用程序中配">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Unity 的 Profiler 指南 | Tamsiree</title><meta name="author" content="Tamsiree,tamsiree.com@gmail.com"><meta name="copyright" content="Tamsiree"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这里是前言介绍。 正文Profiler 概述打开 Unity Profiler Window-&gt;Analysis-&gt;Profiler。     Profiler 可以确定 ** 需要在应用程序中优化什么，并确认优化产生了您期望的结果 **。默认情况下，Unity 记录 300 帧游戏数据并呈现每一帧的详细信息。  Profiler Window Layout A：Profiler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity的Profiler指南">
+<meta property="og:title" content="Unity 的 Profiler 指南">
 <meta property="og:url" content="https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="Tamsiree">
-<meta property="og:description" content="前言这里是前言介绍。 正文Profiler概述打开Unity Profiler Window-&gt;Analysis-&gt;Profiler。     Profiler可以确定需要在应用程序中优化什么，并确认优化产生了您期望的结果。默认情况下，Unity记录300帧游戏数据并呈现每一帧的详细信息。  Profiler Window Layout A：Profiler模块。这是可以在应用程序中配">
+<meta property="og:description" content="前言这里是前言介绍。 正文Profiler 概述打开 Unity Profiler Window-&gt;Analysis-&gt;Profiler。     Profiler 可以确定 ** 需要在应用程序中优化什么，并确认优化产生了您期望的结果 **。默认情况下，Unity 记录 300 帧游戏数据并呈现每一帧的详细信息。  Profiler Window Layout A：Profiler">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png">
 <meta property="article:published_time" content="2022-01-06T06:22:07.000Z">
@@ -12,19 +12,141 @@
 <meta property="article:tag" content="Software">
 <meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Unity 的 Profiler 指南",
+  "url": "https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/",
+  "image": "https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png",
+  "datePublished": "2022-01-06T06:22:07.000Z",
+  "dateModified": "2025-11-05T13:53:39.385Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tamsiree",
+      "url": "https://tamsiree.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png"><link rel="canonical" href="https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
   google_ad_client: 'ca-pub-8688374801147098',
   enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+});</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -32,7 +154,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -41,165 +163,59 @@
   },
   copyright: {"limitCount":50,"languages":{"author":"作者: Tamsiree","link":"链接: ","source":"来源: Tamsiree","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Unity的Profiler指南',
-  isPost: true,
-  isHome: false,
+  title: 'Unity 的 Profiler 指南',
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2025-11-05 21:53:39'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Tamsiree</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Unity的Profiler指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-06T06:22:07.000Z" title="发表于 2022-01-06 14:22:07">2022-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.385Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Software/">Software</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Software/Unity/">Unity</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">10.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>34分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Unity的Profiler指南"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="Profiler概述"><a href="#Profiler概述" class="headerlink" title="Profiler概述"></a>Profiler概述</h1><h2 id="打开Unity-Profiler"><a href="#打开Unity-Profiler" class="headerlink" title="打开Unity Profiler"></a>打开Unity Profiler</h2><ol>
+  pageType: 'post'
+}</script><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><script>if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') { window.location.href = window.location.href.replace('http:', 'https:'); }</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Tamsiree" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-color: #f0f0f0;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tamsiree</span></a><a class="nav-page-title" href="/"><span class="site-name">Unity 的 Profiler 指南</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-keyboard"></i><span> 目录</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-torah"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-leaf"></i><span> 风向标</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-dragon"></i><span> 寻龙尺</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-icons"></i><span> 回味</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-camera-retro"></i><span> 画廊</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书屋</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 神秘链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-clipboard-list"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-id-badge"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/night_sky/"><i class="fa-fw fas fa-magic"></i><span> 冥想空间</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Unity 的 Profiler 指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-06T06:22:07.000Z" title="发表于 2022-01-06 14:22:07">2022-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T13:53:39.385Z" title="更新于 2025-11-05 21:53:39">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Software/">Software</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Software/Unity/">Unity</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">10.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>35分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里是前言介绍。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h1 id="Profiler-概述"><a href="#Profiler-概述" class="headerlink" title="Profiler 概述"></a>Profiler 概述</h1><h2 id="打开-Unity-Profiler"><a href="#打开-Unity-Profiler" class="headerlink" title="打开 Unity Profiler"></a>打开 Unity Profiler</h2><ol>
 <li>Window-&gt;Analysis-&gt;Profiler。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408151835953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408151732233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408151835953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408151732233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="2">
-<li>Profiler可以确定<strong>需要在应用程序中优化什么，并确认优化产生了您期望的结果</strong>。默认情况下，Unity记录300帧游戏数据并呈现每一帧的详细信息。</li>
+<li>Profiler 可以确定 ** 需要在应用程序中优化什么，并确认优化产生了您期望的结果 **。默认情况下，Unity 记录 300 帧游戏数据并呈现每一帧的详细信息。</li>
 </ol>
 <h2 id="Profiler-Window-Layout"><a href="#Profiler-Window-Layout" class="headerlink" title="Profiler Window Layout"></a>Profiler Window Layout</h2><ul>
-<li>A：Profiler模块。这是可以在应用程序中配置的所有模块的列表。使用该区域顶部的下拉菜单从窗口中添加和删除模块。</li>
+<li>A：Profiler 模块。这是可以在应用程序中配置的所有模块的列表。使用该区域顶部的下拉菜单从窗口中添加和删除模块。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408154842311.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408154842311.png"></p>
 <ul>
-<li>B：Profiler控件。使用这些控件来设置从哪个设备进行配置，以及应该执行哪种类型的配置Unity，在帧之间导航，并开始记录数据。</li>
+<li>B：Profiler 控件。使用这些控件来设置从哪个设备进行配置，以及应该执行哪种类型的配置 Unity，在帧之间导航，并开始记录数据。</li>
 <li>C: 帧图表。这个区域包含了每个模块的图表。</li>
 <li>D：细节面板模块。窗口这个区域的信息会根据您选择的模块而变化。</li>
 </ul>
-<h2 id="Profiler-Controls"><a href="#Profiler-Controls" class="headerlink" title="Profiler Controls"></a>Profiler Controls</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408155856179.png"></p>
+<h2 id="Profiler-Controls"><a href="#Profiler-Controls" class="headerlink" title="Profiler Controls"></a>Profiler Controls</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408155856179.png"></p>
 <h3 id="各个控件功能："><a href="#各个控件功能：" class="headerlink" title="各个控件功能："></a>各个控件功能：</h3><ol>
 <li>AttachToPlay：</li>
 </ol>
 <ul>
 <li>选择要对应用程序进行概要分析的目标。</li>
-<li>默认情况下，这个设置为Playmode。还可以选择编辑器来配置Unity编辑器，并显示编辑器当前使用的资源。</li>
-<li>Unity还可以自动检测任何运行在网络上或通过USB连接的设备，并在下拉菜单中显示它们。在下拉列表中单击Enter IP，手动输入要对应用程序进行概要分析的设备的IP地址；</li>
+<li>默认情况下，这个设置为 Playmode。还可以选择编辑器来配置 Unity 编辑器，并显示编辑器当前使用的资源。</li>
+<li>Unity 还可以自动检测任何运行在网络上或通过 USB 连接的设备，并在下拉菜单中显示它们。在下拉列表中单击 Enter IP，手动输入要对应用程序进行概要分析的设备的 IP 地址；</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408160807342.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408160807342.png"></p>
 <ol start="2">
 <li>Record：</li>
 </ol>
 <p>-<br>启用此设置以在运行应用程序时记录活动模块的分析信息。</p>
 <p>-<br>如果没有启用此按钮，则分析器在运行应用程序时不会收集任何数据。</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408160933765.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408160933765.png"></p>
 <ol start="3">
 <li><p>Back Arrow：向后导航一帧。</p>
 </li>
@@ -211,70 +227,70 @@
 <ul>
 <li>跳转到最后记录的帧，使分析器实时显示收集到的数据。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408161117694.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408161117694.png"></p>
 <ol start="6">
 <li><p>Frame Number：指示当前在分析器中查看的帧号。</p>
 </li>
-<li><p>Clear：清除Profiler窗口中的所有数据。</p>
+<li><p>Clear：清除 Profiler 窗口中的所有数据。</p>
 </li>
 <li><p>Clear On Play：</p>
 </li>
 </ol>
 <ul>
-<li>当下次在“Player Windows”中单击“播放”或连接到新目标设备时，启用此设置可从“分析器”窗口中删除所有数据。</li>
+<li>当下次在 “Player Windows” 中单击 “播放” 或连接到新目标设备时，启用此设置可从 “分析器” 窗口中删除所有数据。</li>
 </ul>
 <ol start="9">
 <li>Deep Profile：</li>
 </ol>
 <ul>
-<li>启用此设置来配置所有c#方法。</li>
-<li><strong>当启用此设置时，Unity将检测添加到所有mono调用中，这样就可以对的脚本进行更详细的调查</strong>。</li>
+<li>启用此设置来配置所有 c# 方法。</li>
+<li>** 当启用此设置时，Unity 将检测添加到所有 mono 调用中，这样就可以对的脚本进行更详细的调查 **。</li>
 </ul>
 <ol start="10">
 <li>Call Stack：</li>
 </ol>
-<p>-<br><strong>若要记录用于脚本化内存分配的调用堆栈，需要单击此切换</strong>。</p>
-<p>-<br><strong>启用此选项时分析器记录的帧在GC中有信息</strong>。</p>
-<p>-<br><strong>在完整调用堆栈上的Alloc示例将导致托管脚本分配，即使在Deep Profile没有激活时也是如此</strong>。</p>
+<p>-<br>** 若要记录用于脚本化内存分配的调用堆栈，需要单击此切换 **。</p>
+<p>-<br>** 启用此选项时分析器记录的帧在 GC 中有信息 **。</p>
+<p>-<br>** 在完整调用堆栈上的 Alloc 示例将导致托管脚本分配，即使在 Deep Profile 没有激活时也是如此 **。</p>
 <ol start="11">
 <li>Load：</li>
 </ol>
 <ul>
 <li>将保存的分析器数据加载到分析器窗口。</li>
-<li>也可以通过分析器加载Player通过<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/2019.3/Documentation/ScriptReference/Profiling.Profiler-logFile.html">Profiler.logFile </a>API写出的已经写出到文件的数据。</li>
-<li><strong>按住Shift键，然后单击Load按钮，可以将文件内容附加到当前Profile 帧序列中</strong>。</li>
+<li>也可以通过分析器加载 Player 通过<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/2019.3/Documentation/ScriptReference/Profiling.Profiler-logFile.html">Profiler.logFile </a>API 写出的已经写出到文件的数据。</li>
+<li>** 按住 Shift 键，然后单击 Load 按钮，可以将文件内容附加到当前 Profile 帧序列中 **。</li>
 </ul>
 <ol start="12">
 <li>Context Menu：</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408162658408.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408162658408.png"></p>
 <p>(1) ColorBindMode：启用此设置可使分析器在其图形中使用更高的对比度颜色。这增强了红绿色盲用户的可见性。</p>
 <p>(2) Show Stat for “Current Frame” : 在记录过程中一直显示当前帧的对应的图表上的数据。</p>
 <p>(3) Preference：</p>
 <ul>
-<li>打开Preferences菜单以调整特定于分析器的属性。</li>
+<li>打开 Preferences 菜单以调整特定于分析器的属性。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408163327695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<p><strong>为了保持较低的开销，Unity只会每隔五帧重绘一次编辑器UI，这将导致一个稍微有些不太平滑的更新</strong>。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408163327695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p>** 为了保持较低的开销，Unity 只会每隔五帧重绘一次编辑器 UI，这将导致一个稍微有些不太平滑的更新 **。</p>
 <h3 id="Deep-Profilling"><a href="#Deep-Profilling" class="headerlink" title="Deep Profilling"></a>Deep Profilling</h3><ol>
-<li><p><strong>通常，分析器只分析在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/2019.3/Documentation/ScriptReference/Unity.Profiling.ProfilerMarker.html">profilermarker</a>中显式包装的Code Timings</strong>。<strong>这包括从引擎的本地代码到脚本代码的第一次调用堆栈深度</strong>，例如MonoBehaviour的启动、Update或类似的方法。</p>
+<li><p>** 通常，分析器只分析在 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/2019.3/Documentation/ScriptReference/Unity.Profiling.ProfilerMarker.html">profilermarker</a> 中显式包装的 Code Timings<strong>。</strong> 这包括从引擎的本地代码到脚本代码的第一次调用堆栈深度 **，例如 MonoBehaviour 的启动、Update 或类似的方法。</p>
 </li>
-<li><p>如果没有向您自己的代码中添加更显式的ProfilerMarker插装，那么只能看到作为脚本代码子样例的其他样例是那些回调到Unity的API(如果该API已插装)的样例。<strong>大多数带有性能开销的API调用都是插装的Instumented</strong>。例如：通过Camera.main API获取主相机作为“FindMainCamera”Sample。</p>
+<li><p>如果没有向您自己的代码中添加更显式的 ProfilerMarker 插装，那么只能看到作为脚本代码子样例的其他样例是那些回调到 Unity 的 API(如果该 API 已插装)的样例。** 大多数带有性能开销的 API 调用都是插装的 Instumented**。例如：通过 Camera.main API 获取主相机作为“FindMainCamera”Sample。</p>
 </li>
-<li><p>当启用Deep Profile设置，Profiler会剖析脚本代码的每一部分并且记录所有的函数调用，包括至少第一次调用堆栈到任何UnityAPI的深度。Unity将分析器工具注入到你所有的脚本方法中来记录所有的函数调用。这对于理解应用程序代码在什么地方花费的时间最多很有用。</p>
+<li><p>当启用 Deep Profile 设置，Profiler 会剖析脚本代码的每一部分并且记录所有的函数调用，包括至少第一次调用堆栈到任何 UnityAPI 的深度。Unity 将分析器工具注入到你所有的脚本方法中来记录所有的函数调用。这对于理解应用程序代码在什么地方花费的时间最多很有用。</p>
 </li>
-<li><p>深度剖析是资源密集型的，并且会使用大量的内存。因此，在进行概要分析时，应用程序的运行速度会明显变慢。深度剖析更适合使用简单脚本的小型游戏。如果正在使用复杂的脚本代码，应用程序可能根本无法使用深度剖析，而对于许多较大的应用程序，深度剖析可能会使Unity耗尽内存。</p>
+<li><p>深度剖析是资源密集型的，并且会使用大量的内存。因此，在进行概要分析时，应用程序的运行速度会明显变慢。深度剖析更适合使用简单脚本的小型游戏。如果正在使用复杂的脚本代码，应用程序可能根本无法使用深度剖析，而对于许多较大的应用程序，深度剖析可能会使 Unity 耗尽内存。</p>
 </li>
-<li><p>要增加Profiler环缓冲区的大小，可以调整分析器。可以调整<strong>正在分析的播放器的<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/2019.3/Documentation/ScriptReference/Profiling.Profiler-maxUsedMemory.html">maxUsedMemory</a>属性</strong>。如果Deep Profile导致应用程序的帧率下降到无法运行的程度，那么可以手动地剖析脚本代码块，这比深度剖析的开销要小。</p>
+<li><p>要增加 Profiler 环缓冲区的大小，可以调整分析器。可以调整 ** 正在分析的播放器的 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/2019.3/Documentation/ScriptReference/Profiling.Profiler-maxUsedMemory.html">maxUsedMemory</a> 属性 **。如果 Deep Profile 导致应用程序的帧率下降到无法运行的程度，那么可以手动地剖析脚本代码块，这比深度剖析的开销要小。</p>
 </li>
 </ol>
 <ul>
-<li><strong>使用profilermarker手动添加标记脚本块所需的工具</strong>。</li>
-<li><strong>标记内容将出现在CPU使用率分析器模块中</strong>。</li>
+<li>** 使用 profilermarker 手动添加标记脚本块所需的工具 **。</li>
+<li>** 标记内容将出现在 CPU 使用率分析器模块中 **。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408170643734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408170643734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="6">
-<li>如果想找出哪些调用堆栈会导致GC。没有深度剖析的Alloc示例，可以打开分配调用堆栈的集合。在Profiler控件中启用调用堆栈设置，然后可以选择GC。在时间轴视图中Alloc样例，或者使用Hierarchy视图中的Show Related Objects面板来查找这些样例的调用堆栈。</li>
+<li>如果想找出哪些调用堆栈会导致 GC。没有深度剖析的 Alloc 示例，可以打开分配调用堆栈的集合。在 Profiler 控件中启用调用堆栈设置，然后可以选择 GC。在时间轴视图中 Alloc 样例，或者使用 Hierarchy 视图中的 Show Related Objects 面板来查找这些样例的调用堆栈。</li>
 </ol>
 <h2 id="Profiler-Modules"><a href="#Profiler-Modules" class="headerlink" title="Profiler Modules"></a>Profiler Modules</h2><h3 id="各个模块功能和含义"><a href="#各个模块功能和含义" class="headerlink" title="各个模块功能和含义"></a>各个模块功能和含义</h3><ol>
 <li>CPU Usage:</li>
@@ -285,135 +301,135 @@
 <li>此模块始终处于活动状态，即使您关闭它。</li>
 </ul>
 <p>2.GPU Usage:</p>
-<p>-<br>GPU Usage显示与图形处理相关的信息。</p>
-<p>-<br><strong>默认情况下，这个模块没有被激活，因为它有很高的开销</strong>。</p>
+<p>-<br>GPU Usage 显示与图形处理相关的信息。</p>
+<p>-<br>** 默认情况下，这个模块没有被激活，因为它有很高的开销 **。</p>
 <ol start="3">
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://so.csdn.net/so/search?q=Render">Render</a>ing:</li>
 </ol>
 <ul>
-<li>显示Unity在应用程序中<strong>渲染图形的信息，包括静态和动态批处理、SetPass和Draw调用、三角形和顶点</strong>。</li>
+<li>显示 Unity 在应用程序中 ** 渲染图形的信息，包括静态和动态批处理、SetPass 和 Draw 调用、三角形和顶点 **。</li>
 </ul>
 <ol start="4">
 <li>Memory：</li>
 </ol>
 <ul>
-<li>显示有关Unity如何在应用程序中分配内存的信息。</li>
-<li>这对于了解<strong>脚本分配(GC.Alloc)如何导致垃圾收集</strong>，或者<strong>了解应用程序的Asset内存使用随时间的变化趋势</strong>特别有用。</li>
+<li>显示有关 Unity 如何在应用程序中分配内存的信息。</li>
+<li>这对于了解 ** 脚本分配 (GC.Alloc) 如何导致垃圾收集 **，或者 ** 了解应用程序的 Asset 内存使用随时间的变化趋势 ** 特别有用。</li>
 </ul>
 <ol start="5">
 <li>Audio：</li>
 </ol>
 <ul>
-<li>显示与应用程序中的音频相关的信息，例如什么时候播放多少音频源，音频系统需要多少CPU占用，以及分配给它多少内存。</li>
+<li>显示与应用程序中的音频相关的信息，例如什么时候播放多少音频源，音频系统需要多少 CPU 占用，以及分配给它多少内存。</li>
 </ul>
 <ol start="6">
-<li><p>Video:显示应用程序中与视频相关的信息。</p>
+<li><p>Video: 显示应用程序中与视频相关的信息。</p>
 </li>
 <li><p>Physics/Physics 2D：显示物理引擎处理过的应用程序中的物理信息。</p>
 </li>
-<li><p>Network Message，Network Operation两个模块已经被弃用。</p>
+<li><p>Network Message，Network Operation 两个模块已经被弃用。</p>
 </li>
 <li><p>UI：</p>
 </li>
 </ol>
 <ul>
-<li>显示关于Unity如何处理应用程序的UI批处理的信息，包括为什么以及如何批处理项目。</li>
+<li>显示关于 Unity 如何处理应用程序的 UI 批处理的信息，包括为什么以及如何批处理项目。</li>
 </ul>
 <ol start="10">
 <li>UI Details：</li>
 </ol>
 <ul>
-<li>与UI模块类似，此模块的图表<strong>添加了有关批处理和顶点计数的数据，以及包含触发UI更改的用户输入事件信息的标记</strong>。</li>
+<li>与 UI 模块类似，此模块的图表 ** 添加了有关批处理和顶点计数的数据，以及包含触发 UI 更改的用户输入事件信息的标记 **。</li>
 </ul>
 <ol start="11">
 <li>Global Illumination：</li>
 </ol>
 <ul>
-<li>显示关于Unity在应用程序中的全局照明子系统上花费了多少CPU资源的信息。</li>
+<li>显示关于 Unity 在应用程序中的全局照明子系统上花费了多少 CPU 资源的信息。</li>
 </ul>
-<h3 id="Profiler-Module-Overhead分析器模块开销"><a href="#Profiler-Module-Overhead分析器模块开销" class="headerlink" title="Profiler Module Overhead分析器模块开销"></a>Profiler Module Overhead分析器模块开销</h3><ol>
-<li><p>一些分析器模块有很大的数据收集开销，比如GPU、UI和音频分析器模块。为了防止这些模块影响应用程序的性能，可以通过在Profiler模块下拉菜单中取消对它们的选择来禁用它们。这将从窗口中删除模块，停止分析器收集模块的数据，并降低分析器的开销。</p>
+<h3 id="Profiler-Module-Overhead-分析器模块开销"><a href="#Profiler-Module-Overhead-分析器模块开销" class="headerlink" title="Profiler Module Overhead 分析器模块开销"></a>Profiler Module Overhead 分析器模块开销</h3><ol>
+<li><p>一些分析器模块有很大的数据收集开销，比如 GPU、UI 和音频分析器模块。为了防止这些模块影响应用程序的性能，可以通过在 Profiler 模块下拉菜单中取消对它们的选择来禁用它们。这将从窗口中删除模块，停止分析器收集模块的数据，并降低分析器的开销。</p>
 </li>
-<li><p><strong>这不适用于CPU使用模块，因为其他模块依赖于CPU使用模块，所以CPU使用模块即使在不活动时也会收集数据</strong>。</p>
+<li><p>** 这不适用于 CPU 使用模块，因为其他模块依赖于 CPU 使用模块，所以 CPU 使用模块即使在不活动时也会收集数据 **。</p>
 </li>
-<li><p>若要添加模块，选择Profiler模块下拉菜单并选择要激活的Profiler。当您从下拉菜单中选择Profiler模块时，它将开始收集数据，但是不会显示它不活动期间的任何数据。</p>
+<li><p>若要添加模块，选择 Profiler 模块下拉菜单并选择要激活的 Profiler。当您从下拉菜单中选择 Profiler 模块时，它将开始收集数据，但是不会显示它不活动期间的任何数据。</p>
 </li>
-<li><p><strong>为了避免GPU Profiler模块的开销，它在默认情况下是不活动的。图形分析器模块必须在应用程序启动时激活，以连接到图形驱动程序。如果你稍后添加它，它对大多数平台没有影响，并且剖析器显示消息“图形卡驱动程序不支持GPU剖析</strong>(或它被禁用，因为驱动程序bug)”。</p>
+<li><p>** 为了避免 GPU Profiler 模块的开销，它在默认情况下是不活动的。图形分析器模块必须在应用程序启动时激活，以连接到图形驱动程序。如果你稍后添加它，它对大多数平台没有影响，并且剖析器显示消息“图形卡驱动程序不支持 GPU 剖析 **(或它被禁用，因为驱动程序 bug)”。</p>
 </li>
-<li><p>如果指示分析器收集数据并通过分析器将数据发送到磁盘。<strong>可以通过Profiler. setareaenabled()关闭Profiler模块，而不是通过Profiler窗口</strong>。</p>
+<li><p>如果指示分析器收集数据并通过分析器将数据发送到磁盘。** 可以通过 Profiler. setareaenabled()关闭 Profiler 模块，而不是通过 Profiler 窗口 **。</p>
 </li>
-<li><p>一些通过外部IDE调试脚本的设置也可能产生开销。<strong>为了避免这种开销和获得更准确的测量，禁用编辑器附加设置(Edit-&gt;首选项-&gt;外部工具)<strong>。类似地，</strong>在配置构建播放器时，打开构建设置并禁用脚本调试以避免这种开销</strong>。</p>
+<li><p>一些通过外部 IDE 调试脚本的设置也可能产生开销。** 为了避免这种开销和获得更准确的测量，禁用编辑器附加设置 (Edit-&gt; 首选项 -&gt;外部工具)<strong>。类似地，</strong> 在配置构建播放器时，打开构建设置并禁用脚本调试以避免这种开销 **。</p>
 </li>
 </ol>
 <h2 id="Command-Line-Arguments"><a href="#Command-Line-Arguments" class="headerlink" title="Command Line Arguments"></a>Command Line Arguments</h2><ol>
-<li>如果从命令行（例如Windows上的命令提示符，MacOS上的终端，LinuxShell或者Android adb）启动构建的播放器或Unity编辑器，可以传递命令行参数来配置一些Profile设置。</li>
+<li>如果从命令行（例如 Windows 上的命令提示符，MacOS 上的终端，LinuxShell 或者 Android adb）启动构建的播放器或 Unity 编辑器，可以传递命令行参数来配置一些 Profile 设置。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408193447129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408193447129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h1 id="Profile-Application"><a href="#Profile-Application" class="headerlink" title="Profile Application"></a>Profile Application</h1><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><ol>
-<li>构建时必须选中：Development Build以及AutoconnectProfiler，其他选项可选。</li>
+<li>构建时必须选中：Development Build 以及 AutoconnectProfiler，其他选项可选。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408194407685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408194457448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408194407685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408194457448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="2">
-<li>Deep Profiling Support对于深入分析应用程序的启动时间非常有用，这将为构建增加少量开销。</li>
+<li>Deep Profiling Support 对于深入分析应用程序的启动时间非常有用，这将为构建增加少量开销。</li>
 </ol>
 <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><ol>
-<li>IOS和Android都支持通过网络的远端profiling。如果使用了防火墙，需要在出站规则中打开端口：54998-55511。</li>
+<li>IOS 和 Android 都支持通过网络的远端 profiling。如果使用了防火墙，需要在出站规则中打开端口：54998-55511。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409095837639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="iOS远端Profiling"><a href="#iOS远端Profiling" class="headerlink" title="iOS远端Profiling"></a>iOS远端Profiling</h3><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409100038215.png"></p>
-<h3 id="Android远端Profiling"><a href="#Android远端Profiling" class="headerlink" title="Android远端Profiling"></a>Android远端Profiling</h3><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/202004091004036.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409095837639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="iOS-远端-Profiling"><a href="#iOS-远端-Profiling" class="headerlink" title="iOS 远端 Profiling"></a>iOS 远端 Profiling</h3><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409100038215.png"></p>
+<h3 id="Android-远端-Profiling"><a href="#Android-远端-Profiling" class="headerlink" title="Android 远端 Profiling"></a>Android 远端 Profiling</h3><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/202004091004036.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h3 id="重新连接"><a href="#重新连接" class="headerlink" title="重新连接"></a>重新连接</h3><ol>
-<li><p>当选择“Build &amp; Run”时，Unity Editor自动为应用程序创建了一个ADB通道。如果想要分析另外的应用，或者重启Adb服务，需要手动配置此通道。</p>
+<li><p>当选择 “Build &amp; Run” 时，Unity Editor 自动为应用程序创建了一个 ADB 通道。如果想要分析另外的应用，或者重启 Adb 服务，需要手动配置此通道。</p>
 </li>
 <li><p>配置方式：打开终端并输入如下内容。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409101638825.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409101638825.png"></p>
 <ol start="3">
-<li><strong>为了开启Android中Deep Profile，需要如下配置</strong>：</li>
+<li>** 为了开启 Android 中 Deep Profile，需要如下配置 **：</li>
 </ol>
-<p>(1) <strong>开启Mono Scripting后端。Edit-&gt;ProjectSettings-&gt;Player-&gt;Android-&gt;OtherSetting</strong>。</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409102145112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p>(1) ** 开启 Mono Scripting 后端。Edit-&gt;ProjectSettings-&gt;Player-&gt;Android-&gt;OtherSetting**。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409102145112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <p>(2) 输入如下命令行：</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409102328817.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409102328817.png"></p>
 <h1 id="Audio-Profiler-module"><a href="#Audio-Profiler-module" class="headerlink" title="Audio Profiler module"></a>Audio Profiler module</h1><h2 id="音频四个模块"><a href="#音频四个模块" class="headerlink" title="音频四个模块"></a>音频四个模块</h2><ol>
 <li>音频主模块分类：</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020040821164155.png"></p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408211033866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020040821164155.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408211033866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="2">
 <li>音频主模块各个部分的含义：</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408211313106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="Simple细节面板"><a href="#Simple细节面板" class="headerlink" title="Simple细节面板"></a>Simple细节面板</h2><h3 id="Simple细节面板显示："><a href="#Simple细节面板显示：" class="headerlink" title="Simple细节面板显示："></a>Simple细节面板显示：</h3><p>注：<strong>AudioClip是一个声音片段，如：按钮点击，相当于是一首音乐</strong>；<strong>AudioSource是一个源，包含AudioClip，还有其它一些属性，如：是否静音等，相当于是一个音乐播放器</strong>。</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408211626692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="Simple细节面板各个参数含义："><a href="#Simple细节面板各个参数含义：" class="headerlink" title="Simple细节面板各个参数含义："></a>Simple细节面板各个参数含义：</h3><ol>
-<li><p>TotalAudioSources：场景中AudioSource的数量。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408211313106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="Simple-细节面板"><a href="#Simple-细节面板" class="headerlink" title="Simple 细节面板"></a>Simple 细节面板</h2><h3 id="Simple-细节面板显示："><a href="#Simple-细节面板显示：" class="headerlink" title="Simple 细节面板显示："></a>Simple 细节面板显示：</h3><p>注：**AudioClip 是一个声音片段，如：按钮点击，相当于是一首音乐 <strong>；</strong>AudioSource 是一个源，包含 AudioClip，还有其它一些属性，如：是否静音等，相当于是一个音乐播放器 **。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200408211626692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Simple-细节面板各个参数含义："><a href="#Simple-细节面板各个参数含义：" class="headerlink" title="Simple 细节面板各个参数含义："></a>Simple 细节面板各个参数含义：</h3><ol>
+<li><p>TotalAudioSources：场景中 AudioSource 的数量。</p>
 </li>
-<li><p>PlayingAudioSources：场景中正在破防的Audio Source的数量。</p>
+<li><p>PlayingAudioSources：场景中正在破防的 Audio Source 的数量。</p>
 </li>
-<li><p>PausedAudioSources：场景中暂停播放的Audio Source的数量。</p>
+<li><p>PausedAudioSources：场景中暂停播放的 Audio Source 的数量。</p>
 </li>
-<li><p>Audio Clip Count：场景中Audio Clips的总数量。</p>
+<li><p>Audio Clip Count：场景中 Audio Clips 的总数量。</p>
 </li>
-<li><p><strong>Audio Voices：项目中使用的Audio Channels（FMOD Channels）的数量</strong>。</p>
+<li><p>**Audio Voices：项目中使用的 Audio Channels（FMOD Channels）的数量 **。</p>
 </li>
-<li><p>Total Audio CPU：Audio使用的CPU的数量（百分比）。</p>
+<li><p>Total Audio CPU：Audio 使用的 CPU 的数量（百分比）。</p>
 </li>
 <li><p>DSP CPU：</p>
 </li>
 </ol>
 <ul>
-<li>（数字信号处理）项目中通过Mixing, Audio Effects，解压缩非流送的在内存中压缩类型的声音使用的CPU的数量（百分比）。</li>
-<li>这并不包含CPU所需的Unity在背后解码的加载类型是解压并且有负载在背景标志中检查的声音。</li>
+<li>（数字信号处理）项目中通过 Mixing, Audio Effects，解压缩非流送的在内存中压缩类型的声音使用的 CPU 的数量（百分比）。</li>
+<li>这并不包含 CPU 所需的 Unity 在背后解码的加载类型是解压并且有负载在背景标志中检查的声音。</li>
 </ul>
 <ol start="8">
-<li><p>Streaming CPU：应用中CPU在项目中使用流送Audio的耗费的百分比。</p>
+<li><p>Streaming CPU：应用中 CPU 在项目中使用流送 Audio 的耗费的百分比。</p>
 </li>
-<li><p>Other CPU：不被上面CPU包含的一般的CPU耗费（百分比）。</p>
+<li><p>Other CPU：不被上面 CPU 包含的一般的 CPU 耗费（百分比）。</p>
 </li>
-<li><p>Total Audio Memory：在应用中使用的Audio的内存数量（M）。</p>
+<li><p>Total Audio Memory：在应用中使用的 Audio 的内存数量（M）。</p>
 </li>
 <li><p>Streaming File Memory：</p>
 </li>
@@ -425,97 +441,97 @@
 <li>Streaming Decode Memory:</li>
 </ol>
 <ul>
-<li>加载类型为流送的Audio文件用来缓存解码后的采样流耗费的内存的数量。</li>
+<li>加载类型为流送的 Audio 文件用来缓存解码后的采样流耗费的内存的数量。</li>
 </ul>
 <ol start="13">
 <li>Sample Sound Memory：</li>
 </ol>
 <ul>
-<li><strong>加载类型为解压加载的音频文件用于解压采样数据的内存量</strong>。</li>
+<li>** 加载类型为解压加载的音频文件用于解压采样数据的内存量 **。</li>
 <li></li>
 </ul>
-<p><strong>Unity会把音频系统分配的内存集中起来，并且它会一直增长，直到应用程序的运行时间达到饱和</strong>。</p>
-<p>-<br><strong>音频系统在内部重用分配的内存，这些内存在运行时无法压缩</strong>。</p>
+<p>**Unity 会把音频系统分配的内存集中起来，并且它会一直增长，直到应用程序的运行时间达到饱和 **。</p>
+<p>-<br>** 音频系统在内部重用分配的内存，这些内存在运行时无法压缩 **。</p>
 <ol start="14">
 <li>Other Memory：音频系统中各子系统引起的内存开销。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409112456329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="Audio-Clip的LoadType"><a href="#Audio-Clip的LoadType" class="headerlink" title="Audio Clip的LoadType"></a>Audio Clip的LoadType</h3><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409141840943.png"></p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020040914180351.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409112456329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Audio-Clip-的-LoadType"><a href="#Audio-Clip-的-LoadType" class="headerlink" title="Audio Clip 的 LoadType"></a>Audio Clip 的 LoadType</h3><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409141840943.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020040914180351.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
 <li>Decompress On Load：</li>
 </ol>
-<p>-<br><strong>音频文件将在加载后立即解压缩</strong>。</p>
-<p>-<br><strong>将此选项用于较小的压缩声音，以避免动态解压缩的性能开销</strong>。</p>
-<p>-<br>将vorbis编码的声音解压到负载上要比压缩它们多占用大约10倍的内存(对于ADPCM编码，大约是3.5倍)，因此<strong>不要将此选项用于大型文件</strong>。</p>
+<p>-<br>** 音频文件将在加载后立即解压缩 **。</p>
+<p>-<br>** 将此选项用于较小的压缩声音，以避免动态解压缩的性能开销 **。</p>
+<p>-<br>将 vorbis 编码的声音解压到负载上要比压缩它们多占用大约 10 倍的内存(对于 ADPCM 编码，大约是 3.5 倍)，因此 ** 不要将此选项用于大型文件 **。</p>
 <ol start="2">
 <li>Compressed In Memory：</li>
 </ol>
-<p>-<br><strong>保持声音压缩在内存中，当播放时才解压</strong>。</p>
-<p>-<br>这个选项有轻微的性能开销(特别是对于Ogg/Vorbis压缩文件)，所以<strong>只在较大的文件中使用它，因为在加载时解压缩会占用大量的内存</strong>。</p>
-<p>-<br><strong>解压是发生在mixer线程，可以在“DSP CPU”部分的音频窗格的剖析器窗口中监视</strong>。</p>
+<p>-<br>** 保持声音压缩在内存中，当播放时才解压 **。</p>
+<p>-<br>这个选项有轻微的性能开销(特别是对于 Ogg/Vorbis 压缩文件)，所以 ** 只在较大的文件中使用它，因为在加载时解压缩会占用大量的内存 **。</p>
+<p>-<br>** 解压是发生在 mixer 线程，可以在 “DSP CPU” 部分的音频窗格的剖析器窗口中监视 **。</p>
 <ol start="3">
 <li>Streaming：</li>
 </ol>
 <ul>
-<li>动态解码声音。<strong>该方法使用最少的内存来缓冲从磁盘中增量读取并动态解码的压缩数据</strong>。</li>
-<li>注意：解压发生在单独的流线程上，可以在profiler窗口的音频窗格的“ Steaming CPU”部分监视它的CPU使用情况。</li>
-<li>Streaming clips即使没有加载音频数据也有一个大约200KB的重载。</li>
+<li>动态解码声音。** 该方法使用最少的内存来缓冲从磁盘中增量读取并动态解码的压缩数据 **。</li>
+<li>注意：解压发生在单独的流线程上，可以在 profiler 窗口的音频窗格的 “ Steaming CPU” 部分监视它的 CPU 使用情况。</li>
+<li>Streaming clips 即使没有加载音频数据也有一个大约 200KB 的重载。</li>
 </ul>
 <h2 id="Dtaile-View："><a href="#Dtaile-View：" class="headerlink" title="Dtaile View："></a>Dtaile View：</h2><p>详细视图包含简单视图中的所有信息，另外还包含音频事件的每帧详细日志记录。</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020040914400953.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020040914400953.png"></p>
 <h3 id="组视图与通道和组视图"><a href="#组视图与通道和组视图" class="headerlink" title="组视图与通道和组视图"></a>组视图与通道和组视图</h3><ol>
-<li><p>Group显示了音频mixer中总线的层次结构。</p>
+<li><p>Group 显示了音频 mixer 中总线的层次结构。</p>
 </li>
 <li><p>通道和组视图将显示此信息以及有关播放声音的信息。</p>
 </li>
-<li><p>Reset Play Count On Play：在下次单击Player窗口中的play或连接到新目标设备时重置plays列中的数字。</p>
+<li><p>Reset Play Count On Play：在下次单击 Player 窗口中的 play 或连接到新目标设备时重置 plays 列中的数字。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409144045771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409144308565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409144045771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409144308565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h3 id="细节面板中各个属性值含义"><a href="#细节面板中各个属性值含义" class="headerlink" title="细节面板中各个属性值含义"></a>细节面板中各个属性值含义</h3><ol>
-<li><p>Object：包含AudioSource播放Audio的GameObject。</p>
+<li><p>Object：包含 AudioSource 播放 Audio 的 GameObject。</p>
 </li>
-<li><p>Asset:  对应的GameObject中Audio Source正在播放的音频Asset。</p>
+<li><p>Asset:  对应的 GameObject 中 Audio Source 正在播放的音频 Asset。</p>
 </li>
-<li><p>Volume：Audio Source应用到Audio上的音量。这是它整体音量特征和动态音量特征的的结合。动态音量适用于与距离相关的衰减曲线。</p>
+<li><p>Volume：Audio Source 应用到 Audio 上的音量。这是它整体音量特征和动态音量特征的的结合。动态音量适用于与距离相关的衰减曲线。</p>
 </li>
-<li><p>Audibility：Audio播放的实际级别。这是Audio Source的音频和另外的mixer通道对其施加的其他衰减的总和。</p>
+<li><p>Audibility：Audio 播放的实际级别。这是 Audio Source 的音频和另外的 mixer 通道对其施加的其他衰减的总和。</p>
 </li>
-<li><p><strong>Players：Unity播放此音频的数量。这个信息对调试逻辑错误可能很有用，因为Unity可能不会使用一些音频文件</strong>。</p>
+<li><p>**Players：Unity 播放此音频的数量。这个信息对调试逻辑错误可能很有用，因为 Unity 可能不会使用一些音频文件 **。</p>
 </li>
-<li><p>3D： 如果Audio使用动态距离想啊滚衰减和方向平移，则显示Yes。</p>
+<li><p>3D： 如果 Audio 使用动态距离想啊滚衰减和方向平移，则显示 Yes。</p>
 </li>
-<li><p>Paused：如果音频在此帧中是暂停的，则显示YES。</p>
+<li><p>Paused：如果音频在此帧中是暂停的，则显示 YES。</p>
 </li>
-<li><p>Muted：如果音频在此帧中是静音的，则显示YES。</p>
+<li><p>Muted：如果音频在此帧中是静音的，则显示 YES。</p>
 </li>
 <li><p>Virtual:</p>
 </li>
 </ol>
 <ul>
-<li>如果Audio由于Max Real Voice Count被挂起，则显示为YES。可以在Project Settings中的Audio中进行设置。</li>
-<li>Max Real Voice Count设置Unity同时播放的最大AudioSources的数量。</li>
-<li>如果这显示为True，则Unity有优先级更高的或Audibility的Audio在这一帧被播放。</li>
+<li>如果 Audio 由于 Max Real Voice Count 被挂起，则显示为 YES。可以在 Project Settings 中的 Audio 中进行设置。</li>
+<li>Max Real Voice Count 设置 Unity 同时播放的最大 AudioSources 的数量。</li>
+<li>如果这显示为 True，则 Unity 有优先级更高的或 Audibility 的 Audio 在这一帧被播放。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409151311346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409151311346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="9">
 <li>OneShot：</li>
 </ol>
 <ul>
-<li>如果AudioSource.PlayOneShot()播放这个音频，则显示YES。</li>
-<li>其中第一个参数为AudioClip，第二个参数为音量缩放值（0-1）。</li>
+<li>如果 AudioSource.PlayOneShot()播放这个音频，则显示 YES。</li>
+<li>其中第一个参数为 AudioClip，第二个参数为音量缩放值（0-1）。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409151902523.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409151902523.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="10">
-<li>Looped：如果AudioSource.Play()播放音频，则显示YES。</li>
+<li>Looped：如果 AudioSource.Play()播放音频，则显示 YES。</li>
 </ol>
-<p>11.** Distance：AudioSource到AudioListener之间的距离**。</p>
+<p>11.** Distance：AudioSource 到 AudioListener 之间的距离 **。</p>
 <ol start="12">
 <li>MinDist：</li>
 </ol>
-<p>-<br>在AudioSource曲线编辑器上定义的最小距离。</p>
+<p>-<br>在 AudioSource 曲线编辑器上定义的最小距离。</p>
 <p>-<br>这定义了音频周围的一个球形区域，小于其值时音量保持在一个恒定的水平。</p>
 <ol start="13">
 <li>MaxDist：</li>
@@ -525,127 +541,127 @@
 <li>这定义了音频周围的一个球形区域，大于其值时音量保持在一个恒定的水平。</li>
 </ul>
 <ol start="14">
-<li><p>Time：Audio回放的当前相关时间，当音频回放暂停时，时间不会往前走。</p>
+<li><p>Time：Audio 回放的当前相关时间，当音频回放暂停时，时间不会往前走。</p>
 </li>
-<li><p>Duration：Audio以秒为单位的长度。</p>
+<li><p>Duration：Audio 以秒为单位的长度。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409144844366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200409144844366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h1 id="CPU-Usege-Module"><a href="#CPU-Usege-Module" class="headerlink" title="CPU Usege Module"></a>CPU Usege Module</h1><h2 id="图表类别"><a href="#图表类别" class="headerlink" title="图表类别"></a>图表类别</h2><ol>
-<li><strong>CPU使用情况探查器模块的图表跟踪在应用程序主线程上花费的时间</strong>。</li>
+<li>**CPU 使用情况探查器模块的图表跟踪在应用程序主线程上花费的时间 **。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200410102648778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="CPU-Usege图表中各个模块及含义"><a href="#CPU-Usege图表中各个模块及含义" class="headerlink" title="CPU Usege图表中各个模块及含义"></a>CPU Usege图表中各个模块及含义</h3><p><strong>类别<strong><strong>描述</strong></strong>Rendering</strong>应用程序花费多少时间来渲染图形。<strong>Scripts</strong>应用程序在运行脚本上花费了多少时间。<strong>Physics</strong>应用程序在物理引擎上花费了多少时间。<strong>Animation</strong><br>应用程序花了多少时间来动画SkinnedMeshRenderers，GameObject和其他组件。这还包括花在计算Animation和Animator组件的系统上使用的时间<br><strong>GarbageCollector</strong>应用程序花了多少时间运行垃圾回收器。<strong>VSync垂直同步****应用程序每帧花费多少时间等待targetFrameRate或下一个VBlank与之同步</strong>。这取决于QualitySetting.vSyncCount值，目标帧速率或VSync设置，该设置是运行应用程序的平台的默认或强制最大值。<strong>Global Illunimation</strong>应用程序在光照上花费了多少时间。<strong><strong>UI</strong></strong>应用程序花费多少时间来显示其UI。<strong>Other</strong>应用程序花在不属于任何其他类别的代码上的时间。<strong>这包括整个EditorLoop或在Profile中配置播放模式时的性能分析开销等区域</strong>。</p>
-<h2 id="模块详细信息窗格"><a href="#模块详细信息窗格" class="headerlink" title="模块详细信息窗格"></a>模块详细信息窗格</h2><p>当选择“ CPU Usage”模块时，其下方的详细信息窗格将显示应用程序在选定框架中花费时间的细分。可以将时序数据显示为时间轴或层次表；要更改显示，使用详细信息窗格中的左上方下拉菜单（默认设置为时间轴）。可用的三个视图是：</p>
-<p><strong>视图<strong><strong>功能</strong></strong>TimeLine</strong>显示特定帧的时间细分，以及该帧长度的时间轴。<strong>这是唯一可用于查看除主线程以外的线程上的时序并关联各个线程之间的时序的视图模式。****Hierarchy</strong>按时序数据的内部层次结构对其进行分组。此选项以降序列表格显示应用程序调用的元素，默认情况下，这些元素按花费的时间排序。您还可以按分配的脚本内存量（<strong>GC Alloc</strong>）或调用次数来排序信息。要更改排序表的列，请单击表列的标题。<strong>RawHierarchy</strong>以类似于发生计时的调用堆栈的分层结构显示计时数据。<strong>Unity在这种模式下单独列出每个调用堆栈，而不是像在“ 层次结构”视图中那样合并它们</strong>。</p>
-<h2 id="TimeLine视图"><a href="#TimeLine视图" class="headerlink" title="TimeLine视图"></a>TimeLine视图</h2><ol>
-<li><p>时间轴视图是用于CPU Usage模块的默认视图。它概述了应用程序中的时间以及时间之间的关系。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200410102648778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="CPU-Usege-图表中各个模块及含义"><a href="#CPU-Usege-图表中各个模块及含义" class="headerlink" title="CPU Usege 图表中各个模块及含义"></a>CPU Usege 图表中各个模块及含义</h3><p>** 类别 **** 描述 <strong><strong>Rendering</strong> 应用程序花费多少时间来渲染图形。**Scripts</strong> 应用程序在运行脚本上花费了多少时间。<strong>Physics</strong> 应用程序在物理引擎上花费了多少时间。<strong>Animation</strong><br>应用程序花了多少时间来动画 SkinnedMeshRenderers，GameObject 和其他组件。这还包括花在计算 Animation 和 Animator 组件的系统上使用的时间<br><strong>GarbageCollector</strong> 应用程序花了多少时间运行垃圾回收器。<strong>VSync 垂直同步 **** 应用程序每帧花费多少时间等待 targetFrameRate 或下一个 VBlank 与之同步 <strong>。这取决于 QualitySetting.vSyncCount 值，目标帧速率或 VSync 设置，该设置是运行应用程序的平台的默认或强制最大值。</strong>Global Illunimation</strong> 应用程序在光照上花费了多少时间。<strong><strong>UI</strong></strong> 应用程序花费多少时间来显示其 UI。<strong>Other</strong> 应用程序花在不属于任何其他类别的代码上的时间。** 这包括整个 EditorLoop 或在 Profile 中配置播放模式时的性能分析开销等区域 **。</p>
+<h2 id="模块详细信息窗格"><a href="#模块详细信息窗格" class="headerlink" title="模块详细信息窗格"></a>模块详细信息窗格</h2><p>当选择 “ CPU Usage” 模块时，其下方的详细信息窗格将显示应用程序在选定框架中花费时间的细分。可以将时序数据显示为时间轴或层次表；要更改显示，使用详细信息窗格中的左上方下拉菜单（默认设置为时间轴）。可用的三个视图是：</p>
+<p>** 视图 **** 功能 <strong><strong>TimeLine</strong> 显示特定帧的时间细分，以及该帧长度的时间轴。</strong> 这是唯一可用于查看除主线程以外的线程上的时序并关联各个线程之间的时序的视图模式。<strong><strong>Hierarchy</strong> 按时序数据的内部层次结构对其进行分组。此选项以降序列表格显示应用程序调用的元素，默认情况下，这些元素按花费的时间排序。您还可以按分配的脚本内存量（<strong>GC Alloc</strong>）或调用次数来排序信息。要更改排序表的列，请单击表列的标题。**RawHierarchy</strong> 以类似于发生计时的调用堆栈的分层结构显示计时数据。**Unity 在这种模式下单独列出每个调用堆栈，而不是像在 “ 层次结构” 视图中那样合并它们 **。</p>
+<h2 id="TimeLine-视图"><a href="#TimeLine-视图" class="headerlink" title="TimeLine 视图"></a>TimeLine 视图</h2><ol>
+<li><p>时间轴视图是用于 CPU Usage 模块的默认视图。它概述了应用程序中的时间以及时间之间的关系。</p>
 </li>
-<li><p><strong>TimeLine视图在其各自的子段中沿同一时间轴显示所有线程的概要分析数据</strong>。<strong>这与Hierarchy视图不同，后者仅显示来自主线程的概要分析数据</strong>。</p>
+<li><p>**TimeLine 视图在其各自的子段中沿同一时间轴显示所有线程的概要分析数据 <strong>。</strong> 这与 Hierarchy 视图不同，后者仅显示来自主线程的概要分析数据 **。</p>
 </li>
-<li><p><strong>可以使用时间轴视图来查看不同线程上的活动在并行执行中如何相互关联</strong>。可以查看正在使用不同线程的多少，例如JobSystem的工作线程，如何对这些线程进行排队，是否有任何线程处于空闲状态或正在等待另一个线程或一个Job来完成（Wait for X Sample）。</p>
+<li><p>** 可以使用时间轴视图来查看不同线程上的活动在并行执行中如何相互关联 **。可以查看正在使用不同线程的多少，例如 JobSystem 的工作线程，如何对这些线程进行排队，是否有任何线程处于空闲状态或正在等待另一个线程或一个 Job 来完成（Wait for X Sample）。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9kb2NzLnVuaXR5M2QuY29tL3VwbG9hZHMvTWFpbi9wcm9maWxlci1jcHUtdGltZWxpbmUtdmlldy5wbmc?x-oss-process=image/format,png" alt="具有时间轴视图的CPU使用情况探查器模块"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9kb2NzLnVuaXR5M2QuY29tL3VwbG9hZHMvTWFpbi9wcm9maWxlci1jcHUtdGltZWxpbmUtdmlldy5wbmc?x-oss-process=image/format,png" alt="具有时间轴视图的 CPU 使用情况探查器模块"></p>
 <h3 id="导航和选择条目"><a href="#导航和选择条目" class="headerlink" title="导航和选择条目"></a>导航和选择条目</h3><ol>
-<li><p>使用鼠标上的滚轮或者Alt+鼠标右键来缩放时间轴上的区域。</p>
+<li><p>使用鼠标上的滚轮或者 Alt + 鼠标右键来缩放时间轴上的区域。</p>
 </li>
-<li><p>使用“A”键来重置缩放，这样整个帧时间都可以看到。</p>
+<li><p>使用 “A” 键来重置缩放，这样整个帧时间都可以看到。</p>
 </li>
-<li><p>使用鼠标中键或者Alt+鼠标左键来平移时间轴上的区域。</p>
+<li><p>使用鼠标中键或者 Alt + 鼠标左键来平移时间轴上的区域。</p>
 </li>
-<li><p>在下面窗口中选中timeline上某个小项，Profiler将会突出显示其对CPU图表的贡献，使得其余部分变暗；若要取消该条目，直接点击视图中其余地方即可。另外，按F键将聚焦选择的当前样本。</p>
+<li><p>在下面窗口中选中 timeline 上某个小项，Profiler 将会突出显示其对 CPU 图表的贡献，使得其余部分变暗；若要取消该条目，直接点击视图中其余地方即可。另外，按 F 键将聚焦选择的当前样本。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413112127618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413112127618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="5">
 <li>单击并水平拖动到任何地方，以在时间轴的某个部分上显示覆盖，时间标尺在顶部显示的时间所涵盖的覆盖。</li>
 </ol>
-<h2 id="Hierarchy-and-和Hierarchy-view"><a href="#Hierarchy-and-和Hierarchy-view" class="headerlink" title="Hierarchy and 和Hierarchy view"></a>Hierarchy and 和Hierarchy view</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413114834910.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="Hierarchy-and-和-Hierarchy-view"><a href="#Hierarchy-and-和-Hierarchy-view" class="headerlink" title="Hierarchy and 和 Hierarchy view"></a>Hierarchy and 和 Hierarchy view</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413114834910.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
-<li><p>Hierarchy视图列出了分析的所有样本，并根据它们的共享调用堆栈和profilermarker的层次结构将它们分组在一起。</p>
+<li><p>Hierarchy 视图列出了分析的所有样本，并根据它们的共享调用堆栈和 profilermarker 的层次结构将它们分组在一起。</p>
 </li>
-<li><p>原始的Hierarchy视图没有将样本分组在一起，这使得它非常适合在粒度级别上查看样本。</p>
+<li><p>原始的 Hierarchy 视图没有将样本分组在一起，这使得它非常适合在粒度级别上查看样本。</p>
 </li>
-<li><p>还可以使用Thread下拉菜单选择一个特定的线程，如MainThread或RenderThread，以便在这些视图中进行检查。</p>
+<li><p>还可以使用 Thread 下拉菜单选择一个特定的线程，如 MainThread 或 RenderThread，以便在这些视图中进行检查。</p>
 </li>
 <li><p>这两个视图都在每一行旁边显示了层次结构中每个项目的以下详细信息:</p>
 </li>
 </ol>
 <p>(1) Total：</p>
 <ul>
-<li><strong>Unity在一个特定函数上花费的总时间</strong>，以百分比表示。</li>
+<li>**Unity 在一个特定函数上花费的总时间 **，以百分比表示。</li>
 </ul>
 <p>(2) Self：</p>
 <ul>
-<li>Unity在一个特定函数上花费的总时间百分比，不包括Unity调用子函数的时间。</li>
+<li>Unity 在一个特定函数上花费的总时间百分比，不包括 Unity 调用子函数的时间。</li>
 </ul>
 <p>(3) Calls：</p>
-<p>-<br><strong>在这一帧中对这个函数的调用次数</strong>。</p>
-<p>-<br><strong>在Raw层次结构视图中，此列中的值始终为1，因为分析器不会合并样本的层次结构</strong>。</p>
+<p>-<br>** 在这一帧中对这个函数的调用次数 **。</p>
+<p>-<br>** 在 Raw 层次结构视图中，此列中的值始终为 1，因为分析器不会合并样本的层次结构 **。</p>
 <p>(4) GC Alloc:</p>
 <ul>
-<li><strong>当前帧中分配了多少脚本堆内存</strong>?</li>
+<li>** 当前帧中分配了多少脚本堆内存 **?</li>
 <li>脚本堆内存由垃圾收集器管理。</li>
-<li><strong>每当Unity调用GC.Collect()或者有一个脚本堆内存分配不适合当前堆内存的大小，垃圾收集器将会被触发，它标记所有的不再引用它们的分配并收集它们</strong>。</li>
-<li><strong>当在堆上分配更多内存时，Unity会更频繁地运行垃圾收集器。随着托管堆的增长，Unity需要更长的时间来标记和收集内存</strong>。因此，<strong>在应用程序运行时，应该将GC Alloc值保持为0，以防止垃圾收集器影响帧速率，并保持总体堆大小较小</strong>。</li>
+<li>** 每当 Unity 调用 GC.Collect()或者有一个脚本堆内存分配不适合当前堆内存的大小，垃圾收集器将会被触发，它标记所有的不再引用它们的分配并收集它们 **。</li>
+<li>** 当在堆上分配更多内存时，Unity 会更频繁地运行垃圾收集器。随着托管堆的增长，Unity 需要更长的时间来标记和收集内存 <strong>。因此，</strong> 在应用程序运行时，应该将 GC Alloc 值保持为 0，以防止垃圾收集器影响帧速率，并保持总体堆大小较小 **。</li>
 </ul>
 <p>(5) Time(ms)：</p>
 <ul>
-<li>Unity花费在一个特定函数上的时间。</li>
-<li><strong>如果应用程序使用作业系统或者多线程呈现，则此消息可能会导致误导，因为它只包含Unity花费在当前选择的线程上的时间</strong>。</li>
-<li>如果要更改线程，选择“层次结构”窗格顶部的“Thread”下拉列表。</li>
+<li>Unity 花费在一个特定函数上的时间。</li>
+<li>** 如果应用程序使用作业系统或者多线程呈现，则此消息可能会导致误导，因为它只包含 Unity 花费在当前选择的线程上的时间 **。</li>
+<li>如果要更改线程，选择 “层次结构” 窗格顶部的 “Thread” 下拉列表。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413120736628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413120736628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <p>(6) Self(ms)：</p>
 <ul>
-<li>Unity花费在一个特定函数上的总时间(以毫秒为单位)，不包括Unity调用子函数的时间。</li>
+<li>Unity 花费在一个特定函数上的总时间(以毫秒为单位)，不包括 Unity 调用子函数的时间。</li>
 </ul>
 <p>(7) Warning：</p>
 <ul>
 <li>由警告图标指示，这将显示应用程序在当前帧中触发警告的次数。</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413115216360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413115216360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="5">
-<li>要获取关于应用程序<strong>在何处调用和使用pfofilerd函数</strong>，选择“模块详细信息”窗格右上角的“详细信息”下拉菜单，然后选择“显示相关对象”或“显示调用视图”。</li>
+<li>要获取关于应用程序 ** 在何处调用和使用 pfofilerd 函数 **，选择 “模块详细信息” 窗格右上角的 “详细信息” 下拉菜单，然后选择 “显示相关对象” 或“显示调用视图”。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413121349231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="Show-Related-Objects面板"><a href="#Show-Related-Objects面板" class="headerlink" title="Show Related Objects面板"></a>Show Related Objects面板</h3><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413152040608.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413121349231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Show-Related-Objects-面板"><a href="#Show-Related-Objects-面板" class="headerlink" title="Show Related Objects 面板"></a>Show Related Objects 面板</h3><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413152040608.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h3 id="Show-Calls-panel"><a href="#Show-Calls-panel" class="headerlink" title="Show Calls panel"></a>Show Calls panel</h3><ol>
-<li><strong>Show Calls</strong> 视图显示所选择的Samples是从哪里被调用的，以及它调用的其他函数。</li>
+<li><strong>Show Calls</strong> 视图显示所选择的 Samples 是从哪里被调用的，以及它调用的其他函数。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413151354875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413151354875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="2">
-<li>另外，可以在详细信息模块右上角顶部启用或者禁用Collapse Editor Only Samples。这个Collapses All Samples在Player循环中仅仅在安全检查时发生。当Samples被折叠时，它们的GC.Alloc值对附加的Samples的GC.Alloc值没有影响。</li>
+<li>另外，可以在详细信息模块右上角顶部启用或者禁用 Collapse Editor Only Samples。这个 Collapses All Samples 在 Player 循环中仅仅在安全检查时发生。当 Samples 被折叠时，它们的 GC.Alloc 值对附加的 Samples 的 GC.Alloc 值没有影响。</li>
 </ol>
-<h3 id="Common-samples"><a href="#Common-samples" class="headerlink" title="Common samples"></a>Common samples</h3><p>除了脚本代码生成的样例之外，Unity还提供了大量的样例，这些样例可以了解应用程序中哪些部分占用了时间。下表解释了一些更常见的样例的作用。</p>
+<h3 id="Common-samples"><a href="#Common-samples" class="headerlink" title="Common samples"></a>Common samples</h3><p>除了脚本代码生成的样例之外，Unity 还提供了大量的样例，这些样例可以了解应用程序中哪些部分占用了时间。下表解释了一些更常见的样例的作用。</p>
 <ol>
-<li>Main thread基本样例：主线程基本示例明确区分了花在应用程序上的时间和花在编辑器和分析器活动上的时间。记录器还可以使用这些样本来获取主线程上帧的计时。</li>
+<li>Main thread 基本样例：主线程基本示例明确区分了花在应用程序上的时间和花在编辑器和分析器活动上的时间。记录器还可以使用这些样本来获取主线程上帧的计时。</li>
 </ol>
 <p>(1) PlayerLoop：</p>
 <p>-<br>来自应用程序主循环的任何示例的根。</p>
-<p>-<br>当玩家在编辑器中以活动播放模式运行时，目标是编辑器而不是Playmode，此示例将嵌套在EditorLoop下。</p>
+<p>-<br>当玩家在编辑器中以活动播放模式运行时，目标是编辑器而不是 Playmode，此示例将嵌套在 EditorLoop 下。</p>
 <p>(2) EditorLoop：</p>
 <ul>
 <li>来自编辑器主循环的任何示例的根。</li>
 <li>这仅在编辑器中配置一个播放器时出现。</li>
-<li>当使用剖析器定位Playmode时，这个例子显示了渲染和运行包含播放器的编辑器花费了多少帧时间。</li>
+<li>当使用剖析器定位 Playmode 时，这个例子显示了渲染和运行包含播放器的编辑器花费了多少帧时间。</li>
 <li>如果希望看到编辑器在这段时间内做了什么，将目标切换到编辑器。</li>
 </ul>
 <p>(3) Profiler.CollectEditorStats</p>
 <ul>
 <li>与为不同的活动分析器模块收集统计信息相关的任何示例的根。</li>
-<li>要关闭特定模块，请关闭它们的图表或调用Profiler.SetAreaEnabled()</li>
+<li>要关闭特定模块，请关闭它们的图表或调用 Profiler.SetAreaEnabled()</li>
 </ul>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413153100954.png"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413153100954.png"></p>
 <ol start="2">
-<li>Script update示例：除非使用的是作业系统，否则大部分脚本代码是嵌套在下面的示例中:</li>
+<li>Script update 示例：除非使用的是作业系统，否则大部分脚本代码是嵌套在下面的示例中:</li>
 </ol>
 <p><strong>Sample<strong><strong>Function</strong></strong>Update.ScriptRunBehaviourUpdate</strong>This sample includes calls to <code>MonoBehaviour.Update</code> and processing of coroutines.<strong>BehaviourUpdate</strong>This sample processes all <code>Update()</code> methods.<strong>CoroutinesDelayedCalls</strong>Contains coroutine samples after their first yield.<strong>PreLateUpdate.ScriptRunBehaviourLateUpdate</strong>This sample processes all <code>LateUpdate()</code> methods.<strong>FixedBehaviourUpdate</strong>This sample processes all <code>FixedUpdate()</code> methods.</p>
 <ol start="3">
 <li>Rendering and VSync 示例：</li>
 </ol>
-<p><strong>这些示例显示了CPU在哪些地方花费时间为GPU处理数据，或者它可能在哪些地方等待GPU完成</strong>。如果GPU分析器不可用，或者它增加了太多的开销，工具栏不会显示这些信息。<strong>这些示例可以让您了解应用程序是cpu受限还是GPU受限。</strong></p>
+<p>** 这些示例显示了 CPU 在哪些地方花费时间为 GPU 处理数据，或者它可能在哪些地方等待 GPU 完成 <strong>。如果 GPU 分析器不可用，或者它增加了太多的开销，工具栏不会显示这些信息。</strong> 这些示例可以让您了解应用程序是 cpu 受限还是 GPU 受限。**</p>
 <p><strong>Sample<strong><strong>Function</strong></strong>WaitForTargetFPS</strong>The time your application spends waiting for the targeted FPS that <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/ScriptReference/Application-targetFrameRate.html">Application.targetFrameRate</a> specifies.</p>
 <p>If this sample is a sub-sample of <strong>Gfx.WaitForPresent</strong>, it represents the amount of time your application spends waiting for the VSync configured in <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/ScriptReference/QualitySettings-vSyncCount.html">QualitySettings.vSyncCount</a>.</p>
 <p><strong>Note:</strong> The Editor doesn’t VSync on the GPU and instead uses <strong>WaitForTargetFPS</strong> to simulate the delay for VSync. Some platforms, in particular Android and iOS, enforce VSync or have a default frame rate cap of 30 or 60.<strong>Gfx.ProcessCommands</strong>Contains all processing of the rendering commands on the render thread. Some of that time might be spent waiting for VSync or new commands from the main thread, which you can see from it’s child sample <strong>Gfx.WaitForPresent</strong>.<strong>Gfx.WaitForCommands</strong>Indicates that the render thread is ready for new commands and might indicate a bottle neck on the main thread.<strong>Gfx.PresentFrame</strong>Indicates the time your application spends waiting for the GPU to render and present the frame, which might include waiting for VSync.</p>
@@ -653,27 +669,27 @@
 <p>If the render thread spends time in <strong>Camera.Render</strong>, your application is CPU-bound and might be spending too much time sending draw calls or textures to the GPU.</p>
 <p>If the render thread spends time in <strong>Gfx.PresentFrame</strong>, your game is GPU-bound or it might be waiting for VSync on the GPU. A <strong>WaitForTargetFPS</strong> sub-sample of <strong>GFX.WaitForPresent</strong> indicates the portion of the Present phase that your application spends waiting for VSync. The Present phase is the portion of time between Unity instructing the graphics API to swap the buffers, to the time that this operation is completed<strong>Gfx.WaitForRenderThread</strong>Indicates that the main thread is waiting for the render thread to process all the commands currently in its command stream. This sample only occurs in multithreaded rendering.</p>
 <ol start="4">
-<li>Multi threading示例：</li>
+<li>Multi threading 示例：</li>
 </ol>
 <p>These samples do not consume CPU cycles but instead highlight information that relates to threading and the JobSystem. When you see these samples, use the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/Manual/ProfilerCPU.html#timeline">Timeline view</a> to check what’s happening on other threads at the same time.</p>
 <p><strong>Sample<strong><strong>Function</strong></strong>Idle</strong>Any time that the JobSystem does not utilize a Worker Thread, it emits an <strong>Idle</strong> sample. Small gaps between <strong>Idle</strong> samples usually happen when the JobSystem wakes them up, for example to schedule new Jobs. Longer gaps indicate a native Job that has not been instrumented.<strong>Semaphore.WaitForSignal</strong>This thread is waiting for something to finish on another thread. To find the thread it is waiting for, check the <strong>Timeline</strong> view for any samples that ended shortly before this one.<strong>WaitForJobGroupID</strong>A Sync Fence on a JobHandle was triggered. This might lead to <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/ScriptReference/Unity.Jobs.IJobParallelFor.html">work stealing</a>, which happens when a worker finishes its work and then looks at other workers’ jobs to complete. These show up as job samples executed under this sample. Jobs that were “stolen” are not necessarily the jobs that were being waited on.</p>
 <ol start="5">
-<li>Physics示例：</li>
+<li>Physics 示例：</li>
 </ol>
 <p>The following table outlines some of the high-level physics Profiler samples. <code>FixedUpdate()</code> calls all of these samples.</p>
 <p><strong>Sample<strong><strong>Function</strong></strong>Physics.Simulate</strong>Updates the state of the current physics by instructing the physics engine to run its simulation.<strong>Physics.Processing</strong>Processes all non-cloth physics jobs. Expand this sample to show the low-level detail of the work done internally in the physics engine.<strong>Physics.ProcessingCloth</strong>Processes all cloth physics jobs. Expand this sample to show the low-level detail of the work done internally in the physics engine.<strong>Physics.FetchResults</strong>Collects the results of the physics simulation from the physics engine.<strong>Physics.UpdateBodies</strong>Updates all the physics bodies’ positions and rotations. This sample also contains messages that communicate when these updates are sent.<strong>Physics.ProcessReports</strong>Runs once the physics <code>FixedUpdate</code> ends. Processes the various stages of responding to the results of the simulation. Contacts, <strong>joint</strong><br>breaks and triggers update and message in this sample. There are four distinct sub stages: <strong>Physics.TriggerEnterExits</strong>Processes <code>OnTriggerEnter</code> and <code>OnTriggerExit</code> events. <strong>Physics.TriggerStays</strong>Processes <code>OnTriggerStay</code> events. <strong>Physics.Contacts</strong>Processes <code>OnCollisionEnter</code>, <code>OnCollisionExit</code>, and <code>OnCollisionStay</code> events. <strong>Physics.JointBreaks</strong>Processes updates and messages relating to broken joints.<strong>Physics.UpdateCloth</strong>Contains updates relating to cloth and their Skinned Meshes.<strong>Physics.Interpolation</strong>Manages the interpolation of positions and rotations for all the physics objects.</p>
-<h3 id="Show-Related-Objects面板-1"><a href="#Show-Related-Objects面板-1" class="headerlink" title="Show Related Objects面板"></a>Show Related Objects面板</h3><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041314220894.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Show-Related-Objects-面板-1"><a href="#Show-Related-Objects-面板-1" class="headerlink" title="Show Related Objects 面板"></a>Show Related Objects 面板</h3><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041314220894.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
-<li><p>ShowRelatedObjects视图显示与Profiler示例中相关的UnityEngine.Objects的列表。</p>
+<li><p>ShowRelatedObjects 视图显示与 Profiler 示例中相关的 UnityEngine.Objects 的列表。</p>
 </li>
-<li><p>如果在编辑器中Profile，Unity将会通过实例ID报告这些对象，并在Profiler窗口将他们解析为一个名称。当配置一个已构建的播放器，或从磁盘加载捕获时，这些名称不会出现，而是显示为“N/A”。</p>
+<li><p>如果在编辑器中 Profile，Unity 将会通过实例 ID 报告这些对象，并在 Profiler 窗口将他们解析为一个名称。当配置一个已构建的播放器，或从磁盘加载捕获时，这些名称不会出现，而是显示为“N/A”。</p>
 </li>
-<li><p>对于GC.Alloc示例中，显示了一个“N/A”项列表，如<strong>果在选择GC时，在启用调用堆栈设置的编辑器中配置应用程序,在这个视图中，将显示选择的已分配脚本对象的调用堆栈，即使没有启用深度分析设置</strong>。</p>
+<li><p>对于 GC.Alloc 示例中，显示了一个 “N/A” 项列表，如 ** 果在选择 GC 时，在启用调用堆栈设置的编辑器中配置应用程序, 在这个视图中，将显示选择的已分配脚本对象的调用堆栈，即使没有启用深度分析设置 **。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041314273277.png"></p>
-<h2 id="Performance-warnings"><a href="#Performance-warnings" class="headerlink" title="Performance warnings"></a>Performance warnings</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413150151100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<p>Profiler可以检测一些在性能关键的上下文中应该避免的特定调用：</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041314273277.png"></p>
+<h2 id="Performance-warnings"><a href="#Performance-warnings" class="headerlink" title="Performance warnings"></a>Performance warnings</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413150151100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p>Profiler 可以检测一些在性能关键的上下文中应该避免的特定调用：</p>
 <ul>
 <li><strong><strong>Rigidbody</strong>.SetKinematic:</strong> 为供给重建非凸网格对撞机。</li>
 <li><strong>Animation.DestroyAnimationClip:</strong> 触发重建内部状态。</li>
@@ -683,56 +699,56 @@
 <li><strong>Animation.Deactivate:</strong> triggers RebuildInternalState</li>
 </ul>
 <h2 id="Allocation-call-stacks"><a href="#Allocation-call-stacks" class="headerlink" title="Allocation call stacks"></a>Allocation call stacks</h2><ol>
-<li><p>默认情况下，在GC.Alloc Samples上分配调用堆栈是禁用的，因为他们会导致多帧延迟扰乱应用程序。</p>
+<li><p>默认情况下，在 GC.Alloc Samples 上分配调用堆栈是禁用的，因为他们会导致多帧延迟扰乱应用程序。</p>
 </li>
-<li><p>启用方法：导航到Profiler窗口的工具栏，并选择Call stack按钮。</p>
+<li><p>启用方法：导航到 Profiler 窗口的工具栏，并选择 Call stack 按钮。</p>
 </li>
-<li><p>无论是在编辑器中配置文件还是在正在运行的播放器中配置文件，都可以使用此功能。<strong>在打开这个选项后的帧中，GC.Alloc Samples包含它们的callstack</strong>。在层次结构视图和时间轴视图中，每个脚本堆分配都显示为一个GC.Alloc Samples。<strong>在时间轴视图中，它的颜色为明亮的洋红色</strong>。</p>
+<li><p>无论是在编辑器中配置文件还是在正在运行的播放器中配置文件，都可以使用此功能。** 在打开这个选项后的帧中，GC.Alloc Samples 包含它们的 callstack<strong>。在层次结构视图和时间轴视图中，每个脚本堆分配都显示为一个 GC.Alloc Samples。</strong> 在时间轴视图中，它的颜色为明亮的洋红色 **。</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413145055483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413145055483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol start="4">
-<li>或者，可以在层次结构或原始层次结构视图中查看调用堆栈。设置Details视图以显示相关对象。<strong>因为GC.Alloc样本没有名字，它们在这个面板中显示为N/A。当您选择一个N/A对象时，分析器会在details视图的下半部分显示调用堆栈</strong>。</li>
+<li>或者，可以在层次结构或原始层次结构视图中查看调用堆栈。设置 Details 视图以显示相关对象。** 因为 GC.Alloc 样本没有名字，它们在这个面板中显示为 N/A。当您选择一个 N/A 对象时，分析器会在 details 视图的下半部分显示调用堆栈 **。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413145059266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="Editor-only-samples"><a href="#Editor-only-samples" class="headerlink" title="Editor only samples"></a>Editor only samples</h2><p>一些Samples只有在编辑器中进行概要分析时才会出现。这包括安全检查，校验一致性，验证对象设置，销毁检查和Prefab-related激活，所有上述这些Samples都不存在于播放器中。</p>
-<p>**默认情况下，只编辑的示例在Hierarchy视图中折叠，并命名为EditorOnly [SampleName]**。虽然它们可能会导致垃圾收集分配，但如果他们被折叠，将不会对GC.Alloc造成影响。</p>
-<p>要更改默认行为，单击“模块详细信息”窗格右上角的上下文菜单，并禁用“Collapse EditorOnly样例”设置。当您这样做时，您可以扩展Samples并贡献它的GC.Alloc值。</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413144758109.png"></p>
-<h1 id="Global-Illumination"><a href="#Global-Illumination" class="headerlink" title="Global Illumination"></a>Global Illumination</h1><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155009185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="图表分类："><a href="#图表分类：" class="headerlink" title="图表分类："></a>图表分类：</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155110286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="细节面板"><a href="#细节面板" class="headerlink" title="细节面板"></a>细节面板</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155233961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413145059266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="Editor-only-samples"><a href="#Editor-only-samples" class="headerlink" title="Editor only samples"></a>Editor only samples</h2><p>一些 Samples 只有在编辑器中进行概要分析时才会出现。这包括安全检查，校验一致性，验证对象设置，销毁检查和 Prefab-related 激活，所有上述这些 Samples 都不存在于播放器中。</p>
+<p>** 默认情况下，只编辑的示例在 Hierarchy 视图中折叠，并命名为 EditorOnly [SampleName]**。虽然它们可能会导致垃圾收集分配，但如果他们被折叠，将不会对 GC.Alloc 造成影响。</p>
+<p>要更改默认行为，单击 “模块详细信息” 窗格右上角的上下文菜单，并禁用 “Collapse EditorOnly 样例” 设置。当您这样做时，您可以扩展 Samples 并贡献它的 GC.Alloc 值。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413144758109.png"></p>
+<h1 id="Global-Illumination"><a href="#Global-Illumination" class="headerlink" title="Global Illumination"></a>Global Illumination</h1><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155009185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="图表分类："><a href="#图表分类：" class="headerlink" title="图表分类："></a>图表分类：</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155110286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="细节面板"><a href="#细节面板" class="headerlink" title="细节面板"></a>细节面板</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155233961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h1 id="GPU-Usage-Profiler"><a href="#GPU-Usage-Profiler" class="headerlink" title="GPU Usage Profiler"></a>GPU Usage Profiler</h1><ol>
-<li>模块显示应用程序在GPU中花费的时间。你只能在播放模式中使用GPU分析器，或者在应用程序的构建中使用。不能使用它来配置编辑器。</li>
+<li>模块显示应用程序在 GPU 中花费的时间。你只能在播放模式中使用 GPU 分析器，或者在应用程序的构建中使用。不能使用它来配置编辑器。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155442634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="GPU-Profiler支持列表"><a href="#GPU-Profiler支持列表" class="headerlink" title="GPU Profiler支持列表"></a>GPU Profiler支持列表</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155714118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="图表分类"><a href="#图表分类" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155904660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="模块细节面板"><a href="#模块细节面板" class="headerlink" title="模块细节面板"></a>模块细节面板</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413160046815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413160248928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155442634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="GPU-Profiler-支持列表"><a href="#GPU-Profiler-支持列表" class="headerlink" title="GPU Profiler 支持列表"></a>GPU Profiler 支持列表</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155714118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="图表分类"><a href="#图表分类" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413155904660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="模块细节面板"><a href="#模块细节面板" class="headerlink" title="模块细节面板"></a>模块细节面板</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413160046815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200413160248928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <h1 id="Momory-Profiler-Module"><a href="#Momory-Profiler-Module" class="headerlink" title="Momory Profiler Module"></a>Momory Profiler Module</h1><ol>
 <li>有两种内存分析方法：</li>
 </ol>
 <p>(1) Memory Profiler Module：</p>
 <ul>
-<li>这是Profiler窗口中的一个内置模块，它为您提供关于应用程序在何处使用内存的基本信息。</li>
+<li>这是 Profiler 窗口中的一个内置模块，它为您提供关于应用程序在何处使用内存的基本信息。</li>
 </ul>
 <p>(2) Memory Profiler Package：</p>
 <ul>
 <li>这是一个单独的包，可以将其添加到项目中。</li>
-<li>它为Unity编辑器增加了一个额外的内存分析器窗口，你可以用它来更详细地分析你的应用程序的内存使用情况。</li>
-<li><strong>可以存储和比较快照来更容易地找到内存泄漏，或者查看内存布局来找到内存碎片问题</strong>。</li>
+<li>它为 Unity 编辑器增加了一个额外的内存分析器窗口，你可以用它来更详细地分析你的应用程序的内存使用情况。</li>
+<li>** 可以存储和比较快照来更容易地找到内存泄漏，或者查看内存布局来找到内存碎片问题 **。</li>
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.unity3d.com/Packages/com.unity.memoryprofiler@0.2/manual/index.html">https://docs.unity3d.com/Packages/com.unity.memoryprofiler@0.2/manual/index.html</a></li>
 </ul>
-<h2 id="Momory-Profiler概述"><a href="#Momory-Profiler概述" class="headerlink" title="Momory Profiler概述"></a>Momory Profiler概述</h2><ol>
-<li><p>内存分析器模块可视化表示应用程序中分配的总内存的计数器。可以<strong>使用内存模块查看诸如加载对象的数量以及它们在每个类别中占用的总内存等信息。还可以看到每个Profiler帧的GC分配数量</strong>。</p>
+<h2 id="Momory-Profiler-概述"><a href="#Momory-Profiler-概述" class="headerlink" title="Momory Profiler 概述"></a>Momory Profiler 概述</h2><ol>
+<li><p>内存分析器模块可视化表示应用程序中分配的总内存的计数器。可以 ** 使用内存模块查看诸如加载对象的数量以及它们在每个类别中占用的总内存等信息。还可以看到每个 Profiler 帧的 GC 分配数量 **。</p>
 </li>
-<li><p>要获得更精确的数字和应用程序的内存使用情况，请通过“附加到播放器”菜单将分析器连接到正在运行的播放器。这允许您查看目标设备上的实际使用情况。</p>
+<li><p>要获得更精确的数字和应用程序的内存使用情况，请通过 “附加到播放器” 菜单将分析器连接到正在运行的播放器。这允许您查看目标设备上的实际使用情况。</p>
 </li>
 </ol>
-<h2 id="图表分类-1"><a href="#图表分类-1" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414104055790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="Module-details-pane"><a href="#Module-details-pane" class="headerlink" title="Module details pane"></a>Module details pane</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414104519841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h3 id="Simple-view"><a href="#Simple-view" class="headerlink" title="Simple view"></a>Simple view</h3><p>Simple View显示了在每一帧上Unity实时有多少内存被使用的概述。<strong>Unity为分配预留了内存池，以避免过于频繁地向操作系统请求内存</strong>。<strong>这将显示为一个保留的数量，以及它使用的数量</strong>。</p>
+<h2 id="图表分类-1"><a href="#图表分类-1" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414104055790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="Module-details-pane"><a href="#Module-details-pane" class="headerlink" title="Module details pane"></a>Module details pane</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414104519841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Simple-view"><a href="#Simple-view" class="headerlink" title="Simple view"></a>Simple view</h3><p>Simple View 显示了在每一帧上 Unity 实时有多少内存被使用的概述。**Unity 为分配预留了内存池，以避免过于频繁地向操作系统请求内存 <strong>。</strong> 这将显示为一个保留的数量，以及它使用的数量 **。</p>
 <ol>
 <li><p>Total：下面区域的所有累计值。</p>
 </li>
@@ -740,20 +756,20 @@
 </li>
 </ol>
 <ul>
-<li>Unity本地代码中的内存分配量</li>
+<li>Unity 本地代码中的内存分配量</li>
 <li>由本地内存管理器系统跟踪，并根据它们的类型、源和平台特定的分配模式在内存池中分配。</li>
 </ul>
 <ol start="3">
 <li>Mono：</li>
 </ol>
 <ul>
-<li><strong>托管代码使用的总堆大小和使用的堆大小。这个内存被垃圾回收</strong>。</li>
+<li>** 托管代码使用的总堆大小和使用的堆大小。这个内存被垃圾回收 **。</li>
 </ul>
 <ol start="3">
 <li>Gfx Driver：</li>
 </ol>
 <ul>
-<li><strong>驱动程序在纹理、渲染目标、着色器和网格数据上使用的估计内存量</strong>。</li>
+<li>** 驱动程序在纹理、渲染目标、着色器和网格数据上使用的估计内存量 **。</li>
 </ul>
 <ol start="4">
 <li><p>Audio：音频系统的估计内存使用量</p>
@@ -762,13 +778,13 @@
 </li>
 <li><p>Profiler：分析器使用的总内存</p>
 </li>
-<li><p>分析器还列出了一些最常见的Assets和游戏对象类型的内存统计信息。这些统计数据包括<strong>计数(在正斜杠之前)和使用的内存</strong>。在这个列表中，<strong>Total Object Count显示应用程序创建的本地游戏对象的总数。如果这个数字随着时间的推移而增加，你的应用程序将创建游戏对象，而不会销毁它们</strong>。</p>
+<li><p>分析器还列出了一些最常见的 Assets 和游戏对象类型的内存统计信息。这些统计数据包括 ** 计数 (在正斜杠之前) 和使用的内存 <strong>。在这个列表中，</strong>Total Object Count 显示应用程序创建的本地游戏对象的总数。如果这个数字随着时间的推移而增加，你的应用程序将创建游戏对象，而不会销毁它们 **。</p>
 </li>
 </ol>
-<h3 id="Detail-View"><a href="#Detail-View" class="headerlink" title="Detail View"></a>Detail View</h3><p>可以使用详细视图获取应用程序当前状态的快照。单击Take Sample按钮以捕获当前目标的详细内存使用情况。分析器需要花费大量的时间来获取这些数据，因此详细视图不会提供实时的详细信息。Profiler获取样本后，Profiler窗口将显示一个树视图，可以在其中更详细地查看应用程序的内存使用情况。</p>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414110814167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h3 id="Detail-View"><a href="#Detail-View" class="headerlink" title="Detail View"></a>Detail View</h3><p>可以使用详细视图获取应用程序当前状态的快照。单击 Take Sample 按钮以捕获当前目标的详细内存使用情况。分析器需要花费大量的时间来获取这些数据，因此详细视图不会提供实时的详细信息。Profiler 获取样本后，Profiler 窗口将显示一个树视图，可以在其中更详细地查看应用程序的内存使用情况。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414110814167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
-<li><p>开启“Gather Object references”设置将会手机关于在快照时引用对象的内容的信息，信息显示在窗口的右侧窗格中。</p>
+<li><p>开启 “Gather Object references” 设置将会手机关于在快照时引用对象的内容的信息，信息显示在窗口的右侧窗格中。</p>
 </li>
 <li><p>在树视图中，使用内存的对象分为以下几类：</p>
 </li>
@@ -781,62 +797,62 @@
 <li><strong>SceneMemory: Objects and attached components</strong></li>
 </ul>
 <p><strong>Note:</strong> In the <strong>Other</strong> category, memory reported under <strong>System.ExecutableAndDlls</strong> is read-only memory. The operating system might discard these pages as needed and later reload them from the file system. This generates lower memory usage, and usually does not directly contribute to the operating system’s decision to close your application if it uses too much memory. Some of these pages might also be shared with other applications that are using the same frameworks.</p>
-<h1 id="Rendering-Profiler"><a href="#Rendering-Profiler" class="headerlink" title="Rendering Profiler"></a>Rendering Profiler</h1><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041411343120.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h1 id="Rendering-Profiler"><a href="#Rendering-Profiler" class="headerlink" title="Rendering Profiler"></a>Rendering Profiler</h1><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041411343120.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
 <li><p>渲染分析器显示渲染统计数据。</p>
 </li>
-<li><p>与Game创口的Static数据很相近。</p>
+<li><p>与 Game 创口的 Static 数据很相近。</p>
 </li>
 </ol>
 <h1 id="Video-Profiler-Module"><a href="#Video-Profiler-Module" class="headerlink" title="Video Profiler Module"></a>Video Profiler Module</h1><ol>
-<li>Video Profiler模块显示关于应用程序中视频使用的资源的信息，如内存、缓冲和视频剪辑的数量。可以使用它来确定应用程序在选定平台上回放和缓冲视频的效率。也可以使用CPU使用率分析器模块来评估Unity在视频上花费的时间。</li>
+<li>Video Profiler 模块显示关于应用程序中视频使用的资源的信息，如内存、缓冲和视频剪辑的数量。可以使用它来确定应用程序在选定平台上回放和缓冲视频的效率。也可以使用 CPU 使用率分析器模块来评估 Unity 在视频上花费的时间。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414114905853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="图表种类："><a href="#图表种类：" class="headerlink" title="图表种类："></a>图表种类：</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414115024492.png"></p>
-<h2 id="模块细节面板-1"><a href="#模块细节面板-1" class="headerlink" title="模块细节面板"></a>模块细节面板</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414115301355.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h1 id="UI-And-UI-Details-Profiler"><a href="#UI-And-UI-Details-Profiler" class="headerlink" title="UI And UI Details Profiler"></a>UI And UI Details Profiler</h1><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414140600476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414114905853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="图表种类："><a href="#图表种类：" class="headerlink" title="图表种类："></a>图表种类：</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414115024492.png"></p>
+<h2 id="模块细节面板-1"><a href="#模块细节面板-1" class="headerlink" title="模块细节面板"></a>模块细节面板</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414115301355.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h1 id="UI-And-UI-Details-Profiler"><a href="#UI-And-UI-Details-Profiler" class="headerlink" title="UI And UI Details Profiler"></a>UI And UI Details Profiler</h1><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414140600476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
-<li><p>UI和UI Detail模块提供关于Unity花费多少时间和资源在应用程序中布局和呈现用户界面的信息。</p>
+<li><p>UI 和 UI Detail 模块提供关于 Unity 花费多少时间和资源在应用程序中布局和呈现用户界面的信息。</p>
 </li>
-<li><p>可以使用这个模块理解<strong>Unity如何处理应用程序中的UI批处理，包括为什么以及如何批处理对象。</strong></p>
+<li><p>可以使用这个模块理解 <strong>Unity 如何处理应用程序中的 UI 批处理，包括为什么以及如何批处理对象。</strong></p>
 </li>
-<li><p>还可以使用此模块来查找UI的哪个部分导致了缓慢的性能，或者在清除时间轴时预览UI。</p>
+<li><p>还可以使用此模块来查找 UI 的哪个部分导致了缓慢的性能，或者在清除时间轴时预览 UI。</p>
 </li>
 </ol>
-<h2 id="图表分类-2"><a href="#图表分类-2" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414141425277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="Module-Details-Pane"><a href="#Module-Details-Pane" class="headerlink" title="Module Details Pane"></a>Module Details Pane</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414141831477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="图表分类-2"><a href="#图表分类-2" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414141425277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="Module-Details-Pane"><a href="#Module-Details-Pane" class="headerlink" title="Module Details Pane"></a>Module Details Pane</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414141831477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
-<li><p>Object：应用程序在分析期间使用的UI画布列表。双击一行以突出显示场景中匹配的对象。</p>
+<li><p>Object：应用程序在分析期间使用的 UI 画布列表。双击一行以突出显示场景中匹配的对象。</p>
 </li>
-<li><p>Self Batch Count：Unity为canvas生成了多个个batches。</p>
+<li><p>Self Batch Count：Unity 为 canvas 生成了多个个 batches。</p>
 </li>
-<li><p>Cumulative Batch Count：累积的Batch数目。Unity为Canves和所有它嵌套的Canvase生成了多少个Batches。</p>
+<li><p>Cumulative Batch Count：累积的 Batch 数目。Unity 为 Canves 和所有它嵌套的 Canvase 生成了多少个 Batches。</p>
 </li>
-<li><p>Self Vertex Count：Canvas渲染了多少个顶点。</p>
+<li><p>Self Vertex Count：Canvas 渲染了多少个顶点。</p>
 </li>
-<li><p>Cumulative Batch Count：Canvas乐基渲染了多少个顶点。</p>
+<li><p>Cumulative Batch Count：Canvas 乐基渲染了多少个顶点。</p>
 </li>
 <li><p>Batch Breaking Reason：</p>
 </li>
 </ol>
 <ul>
-<li>为什么Unity割裂批处理batch。有些时候Unity可能无法将对象批处理在一起。常见原因如下：</li>
-<li>没有与Canvas共面。批处理需要对象的rect变换和Canvas共面。</li>
-<li>CanvasInjectionIndex：存在一个CanvasGroup组件，并强制执行一个新的批处理，比如在其他的组件上显示一个组合框的下拉列表。</li>
-<li>不同的材质实例，矩形裁剪，纹理或A8TexrtureUsage。其中<strong>Unity只能批量使用相同的材质，masking，纹理和纹理通道使用的对象</strong>。</li>
+<li>为什么 Unity 割裂批处理 batch。有些时候 Unity 可能无法将对象批处理在一起。常见原因如下：</li>
+<li>没有与 Canvas 共面。批处理需要对象的 rect 变换和 Canvas 共面。</li>
+<li>CanvasInjectionIndex：存在一个 CanvasGroup 组件，并强制执行一个新的批处理，比如在其他的组件上显示一个组合框的下拉列表。</li>
+<li>不同的材质实例，矩形裁剪，纹理或 A8TexrtureUsage。其中 **Unity 只能批量使用相同的材质，masking，纹理和纹理通道使用的对象 **。</li>
 </ul>
 <ol start="7">
-<li><p>GameObjectCount：Batch中有多少个GameObject。</p>
+<li><p>GameObjectCount：Batch 中有多少个 GameObject。</p>
 </li>
-<li><p>GameObjects：批处理中的GameObject列表。当您从列表中选择一个UI对象时，它的预览将出现在窗格的右侧。在预览上方，工具栏中有以下选项：</p>
+<li><p>GameObjects：批处理中的 GameObject 列表。当您从列表中选择一个 UI 对象时，它的预览将出现在窗格的右侧。在预览上方，工具栏中有以下选项：</p>
 </li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414143625912.png"></p>
-<p>(1) Detach：选择此按钮可在单独的窗口中打开UI画布。要重新安装窗口，请关闭它。</p>
-<p>(2) Preview Background：使用下拉菜单改变预览背景的颜色。你可以从棋盘格、黑色或白色中选择。如果你的UI有一个特别亮或暗的配色方案，这是非常有用的。</p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414143625912.png"></p>
+<p>(1) Detach：选择此按钮可在单独的窗口中打开 UI 画布。要重新安装窗口，请关闭它。</p>
+<p>(2) Preview Background：使用下拉菜单改变预览背景的颜色。你可以从棋盘格、黑色或白色中选择。如果你的 UI 有一个特别亮或暗的配色方案，这是非常有用的。</p>
 <p>(3) 预览类型：使用下拉菜单从标准、透支或复合透支中进行选择。</p>
-<h1 id="Physics-Profiler-Module"><a href="#Physics-Profiler-Module" class="headerlink" title="Physics Profiler Module"></a>Physics Profiler Module</h1><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414144556576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="图表分类-3"><a href="#图表分类-3" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414144700348.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h1 id="Physics-Profiler-Module"><a href="#Physics-Profiler-Module" class="headerlink" title="Physics Profiler Module"></a>Physics Profiler Module</h1><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414144556576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="图表分类-3"><a href="#图表分类-3" class="headerlink" title="图表分类"></a>图表分类</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414144700348.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <ol>
 <li>Active Dynamic：</li>
 </ol>
@@ -848,16 +864,16 @@
 </ol>
 <ul>
 <li>激活的动力学刚体组件的的数量</li>
-<li>当在一帧中调用MovePosition或MoveRotation时，运动学刚体处于激活状态，并在下一帧中保持活动状态。</li>
+<li>当在一帧中调用 MovePosition 或 MoveRotation 时，运动学刚体处于激活状态，并在下一帧中保持活动状态。</li>
 </ul>
-<p>-<br>Unity可能每帧处理具有joints的运动学刚体组件多次，这有助于值的呈现。</p>
+<p>-<br>Unity 可能每帧处理具有 joints 的运动学刚体组件多次，这有助于值的呈现。</p>
 <ol start="3">
 <li><strong>Static Colliders</strong>：</li>
 </ol>
 <ul>
-<li><strong>没有刚体组件附加到的GameObject或者它们的父GameObject的GameObject上面的Collider组件的数量</strong>。</li>
-<li>具有Rigidbody组件的GameObjects或parent GameObjects上的碰撞器组件不算作静态碰撞器。这些被称为复合碰撞器。</li>
-<li>复合碰撞器以一种方便的方式来安排一个物体的多个碰撞器，而不是将所有的碰撞器都放在与刚体组件相同的GameObject上。</li>
+<li>** 没有刚体组件附加到的 GameObject 或者它们的父 GameObject 的 GameObject 上面的 Collider 组件的数量 **。</li>
+<li>具有 Rigidbody 组件的 GameObjects 或 parent GameObjects 上的碰撞器组件不算作静态碰撞器。这些被称为复合碰撞器。</li>
+<li>复合碰撞器以一种方便的方式来安排一个物体的多个碰撞器，而不是将所有的碰撞器都放在与刚体组件相同的 GameObject 上。</li>
 </ul>
 <ol start="4">
 <li>Rigidbody：</li>
@@ -874,115 +890,150 @@
 <ol start="6">
 <li>Active Constraints：</li>
 </ol>
-<p>-<br>物理引擎处理的原始约束的数量。<strong>约束被用作关节和碰撞响应的构件</strong>。</p>
+<p>-<br>物理引擎处理的原始约束的数量。** 约束被用作关节和碰撞响应的构件 **。</p>
 <p>-<br>例如，限制一个可配置关节的线性或旋转自由度涉及到每个约束的基本约束。</p>
 <ol start="7">
 <li>Contacts：</li>
 </ol>
 <p>-<br>场景中所有碰撞器之间的接触对的总数，包括触发重叠对的数量。</p>
 <p>-<br>触点是一对相互接触或重叠的碰撞体。</p>
-<p>-<br>当它们之间的距离低于某个用户可配置的限制时，Unity为每一对碰撞器创建接触对。因此，您可能会看到为刚体组件生成的接触，这些组件还没有接触或重叠。</p>
-<p>注意：剖析器中显示的数字可能与场景中包含物理组件的GameObjects的确切数量不一致。这是因为Unity以不同的速率处理一些物理组件，这取决于其他组件对它的影响(例如，一个附加的联合组件)。要计算带有特定物理组件的GameObjects的确切数量，必须使用FindObjectsOfType函数编写一个自定义脚本。<strong>物理分析器模块不显示睡眠刚体组件的数量。这些组件不参与物理引擎，因此不被分析器处理。</strong></p>
+<p>-<br>当它们之间的距离低于某个用户可配置的限制时，Unity 为每一对碰撞器创建接触对。因此，您可能会看到为刚体组件生成的接触，这些组件还没有接触或重叠。</p>
+<p>注意：剖析器中显示的数字可能与场景中包含物理组件的 GameObjects 的确切数量不一致。这是因为 Unity 以不同的速率处理一些物理组件，这取决于其他组件对它的影响(例如，一个附加的联合组件)。要计算带有特定物理组件的 GameObjects 的确切数量，必须使用 FindObjectsOfType 函数编写一个自定义脚本。** 物理分析器模块不显示睡眠刚体组件的数量。这些组件不参与物理引擎，因此不被分析器处理。**</p>
 <h2 id="使用物理分析器来理解性能问题"><a href="#使用物理分析器来理解性能问题" class="headerlink" title="使用物理分析器来理解性能问题"></a>使用物理分析器来理解性能问题</h2><ol>
-<li>物理模拟运行在从主逻辑更新循环的一个独立的固定评率更新周期，并只能通过Time.fixedDeltaTime每次调用来向前。这和Update和FixedUpdate之间的不同很相似。</li>
+<li>物理模拟运行在从主逻辑更新循环的一个独立的固定评率更新周期，并只能通过 Time.fixedDeltaTime 每次调用来向前。这和 Update 和 FixedUpdate 之间的不同很相似。</li>
 </ol>
-<p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414150420630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h1 id="2D-Physics-Profiler-Module"><a href="#2D-Physics-Profiler-Module" class="headerlink" title="2D Physics Profiler Module"></a>2D Physics Profiler Module</h1><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414151644435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="图表种类：-1"><a href="#图表种类：-1" class="headerlink" title="图表种类："></a>图表种类：</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414151750435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
-<h2 id="模块细节面板-2"><a href="#模块细节面板-2" class="headerlink" title="模块细节面板"></a>模块细节面板</h2><p><img src= "/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041415191085.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414150420630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h1 id="2D-Physics-Profiler-Module"><a href="#2D-Physics-Profiler-Module" class="headerlink" title="2D Physics Profiler Module"></a>2D Physics Profiler Module</h1><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414151644435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="图表种类：-1"><a href="#图表种类：-1" class="headerlink" title="图表种类："></a>图表种类：</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200414151750435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
+<h2 id="模块细节面板-2"><a href="#模块细节面板-2" class="headerlink" title="模块细节面板"></a>模块细节面板</h2><p><img src="/images/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/2020041415191085.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Rva3lvXzIwMjQ=,size_16,color_FFFFFF,t_70"></p>
 <hr>
 <blockquote>
 <p>to be continued…</p>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/">https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Software/">Software</a><a class="post-meta__tags" href="/tags/Unity/">Unity</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/GameEngine/Unity/Unity%E8%87%AA%E5%AE%9A%E4%B9%89PackageManager%E6%9C%8D%E5%8A%A1%E5%99%A8/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom-3840x2400-bg-e7cde59.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Unity自定义PackageManager服务器</div></div></a></div><div class="next-post pull-right"><a href="/Software/Unity/Unity%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%BC%98%E5%8C%96/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/c0c6ded6882311ebb6edd017c2d2eca2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Unity性能分析优化</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Software/Unity/Unity%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%BC%98%E5%8C%96/" title="Unity性能分析优化"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/c0c6ded6882311ebb6edd017c2d2eca2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-05</div><div class="title">Unity性能分析优化</div></div></a></div><div><a href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/" title="Unity的ScrollView组件"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-e4f9e29.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-06</div><div class="title">Unity的ScrollView组件</div></div></a></div><div><a href="/Software/Unity/Unity%E9%9F%B3%E9%A2%91%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96/" title="Unity音频压缩优化"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6af714b3eb7846049b9f2b467112eaa5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-04</div><div class="title">Unity音频压缩优化</div></div></a></div><div><a href="/OperationSystem/Linux/Manjaro/Software/Anbox/Anbox/" title="Anbox"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg8ba947b.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-14</div><div class="title">Anbox</div></div></a></div><div><a href="/OperationSystem/Linux/Manjaro/Software/Manjaro%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" title="Manjaro常用软件"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/t012460c7fdf2994e17.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-21</div><div class="title">Manjaro常用软件</div></div></a></div><div><a href="/OperationSystem/Linux/Manjaro/Software/samba/Manjaro%E6%90%AD%E5%BB%BAsamba%E5%85%B1%E4%BA%AB/" title="Manjaro搭建samba共享"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg882b157.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-08</div><div class="title">Manjaro搭建samba共享</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tamsiree</div><div class="author-info__description">勇于尝试才有可能迈向成功</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Profiler%E6%A6%82%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">Profiler概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80Unity-Profiler"><span class="toc-number">3.1.</span> <span class="toc-text">打开Unity Profiler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Profiler-Window-Layout"><span class="toc-number">3.2.</span> <span class="toc-text">Profiler Window Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Profiler-Controls"><span class="toc-number">3.3.</span> <span class="toc-text">Profiler Controls</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%8E%A7%E4%BB%B6%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-number">3.3.1.</span> <span class="toc-text">各个控件功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-Profilling"><span class="toc-number">3.3.2.</span> <span class="toc-text">Deep Profilling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Profiler-Modules"><span class="toc-number">3.4.</span> <span class="toc-text">Profiler Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%8A%9F%E8%83%BD%E5%92%8C%E5%90%AB%E4%B9%89"><span class="toc-number">3.4.1.</span> <span class="toc-text">各个模块功能和含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Profiler-Module-Overhead%E5%88%86%E6%9E%90%E5%99%A8%E6%A8%A1%E5%9D%97%E5%BC%80%E9%94%80"><span class="toc-number">3.4.2.</span> <span class="toc-text">Profiler Module Overhead分析器模块开销</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Line-Arguments"><span class="toc-number">3.5.</span> <span class="toc-text">Command Line Arguments</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Profile-Application"><span class="toc-number">4.</span> <span class="toc-text">Profile Application</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA"><span class="toc-number">4.1.</span> <span class="toc-text">构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.2.</span> <span class="toc-text">连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS%E8%BF%9C%E7%AB%AFProfiling"><span class="toc-number">4.2.1.</span> <span class="toc-text">iOS远端Profiling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android%E8%BF%9C%E7%AB%AFProfiling"><span class="toc-number">4.2.2.</span> <span class="toc-text">Android远端Profiling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.2.3.</span> <span class="toc-text">重新连接</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Profiler-module"><span class="toc-number">5.</span> <span class="toc-text">Audio Profiler module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%9B%9B%E4%B8%AA%E6%A8%A1%E5%9D%97"><span class="toc-number">5.1.</span> <span class="toc-text">音频四个模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF"><span class="toc-number">5.2.</span> <span class="toc-text">Simple细节面板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF%E6%98%BE%E7%A4%BA%EF%BC%9A"><span class="toc-number">5.2.1.</span> <span class="toc-text">Simple细节面板显示：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="toc-number">5.2.2.</span> <span class="toc-text">Simple细节面板各个参数含义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Audio-Clip%E7%9A%84LoadType"><span class="toc-number">5.2.3.</span> <span class="toc-text">Audio Clip的LoadType</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dtaile-View%EF%BC%9A"><span class="toc-number">5.3.</span> <span class="toc-text">Dtaile View：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E8%A7%86%E5%9B%BE%E4%B8%8E%E9%80%9A%E9%81%93%E5%92%8C%E7%BB%84%E8%A7%86%E5%9B%BE"><span class="toc-number">5.3.1.</span> <span class="toc-text">组视图与通道和组视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF%E4%B8%AD%E5%90%84%E4%B8%AA%E5%B1%9E%E6%80%A7%E5%80%BC%E5%90%AB%E4%B9%89"><span class="toc-number">5.3.2.</span> <span class="toc-text">细节面板中各个属性值含义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU-Usege-Module"><span class="toc-number">6.</span> <span class="toc-text">CPU Usege Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%88%AB"><span class="toc-number">6.1.</span> <span class="toc-text">图表类别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-Usege%E5%9B%BE%E8%A1%A8%E4%B8%AD%E5%90%84%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%90%AB%E4%B9%89"><span class="toc-number">6.1.1.</span> <span class="toc-text">CPU Usege图表中各个模块及含义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E7%AA%97%E6%A0%BC"><span class="toc-number">6.2.</span> <span class="toc-text">模块详细信息窗格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TimeLine%E8%A7%86%E5%9B%BE"><span class="toc-number">6.3.</span> <span class="toc-text">TimeLine视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E8%88%AA%E5%92%8C%E9%80%89%E6%8B%A9%E6%9D%A1%E7%9B%AE"><span class="toc-number">6.3.1.</span> <span class="toc-text">导航和选择条目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hierarchy-and-%E5%92%8CHierarchy-view"><span class="toc-number">6.4.</span> <span class="toc-text">Hierarchy and 和Hierarchy view</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Show-Related-Objects%E9%9D%A2%E6%9D%BF"><span class="toc-number">6.4.1.</span> <span class="toc-text">Show Related Objects面板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Show-Calls-panel"><span class="toc-number">6.4.2.</span> <span class="toc-text">Show Calls panel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-samples"><span class="toc-number">6.4.3.</span> <span class="toc-text">Common samples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Show-Related-Objects%E9%9D%A2%E6%9D%BF-1"><span class="toc-number">6.4.4.</span> <span class="toc-text">Show Related Objects面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-warnings"><span class="toc-number">6.5.</span> <span class="toc-text">Performance warnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Allocation-call-stacks"><span class="toc-number">6.6.</span> <span class="toc-text">Allocation call stacks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Editor-only-samples"><span class="toc-number">6.7.</span> <span class="toc-text">Editor only samples</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Global-Illumination"><span class="toc-number">7.</span> <span class="toc-text">Global Illumination</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="toc-number">7.1.</span> <span class="toc-text">图表分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF"><span class="toc-number">7.2.</span> <span class="toc-text">细节面板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GPU-Usage-Profiler"><span class="toc-number">8.</span> <span class="toc-text">GPU Usage Profiler</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU-Profiler%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8"><span class="toc-number">8.1.</span> <span class="toc-text">GPU Profiler支持列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB"><span class="toc-number">8.2.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF"><span class="toc-number">8.3.</span> <span class="toc-text">模块细节面板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Momory-Profiler-Module"><span class="toc-number">9.</span> <span class="toc-text">Momory Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Momory-Profiler%E6%A6%82%E8%BF%B0"><span class="toc-number">9.1.</span> <span class="toc-text">Momory Profiler概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB-1"><span class="toc-number">9.2.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-details-pane"><span class="toc-number">9.3.</span> <span class="toc-text">Module details pane</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-view"><span class="toc-number">9.3.1.</span> <span class="toc-text">Simple view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Detail-View"><span class="toc-number">9.3.2.</span> <span class="toc-text">Detail View</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rendering-Profiler"><span class="toc-number">10.</span> <span class="toc-text">Rendering Profiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Video-Profiler-Module"><span class="toc-number">11.</span> <span class="toc-text">Video Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%A7%8D%E7%B1%BB%EF%BC%9A"><span class="toc-number">11.1.</span> <span class="toc-text">图表种类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF-1"><span class="toc-number">11.2.</span> <span class="toc-text">模块细节面板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UI-And-UI-Details-Profiler"><span class="toc-number">12.</span> <span class="toc-text">UI And UI Details Profiler</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB-2"><span class="toc-number">12.1.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Details-Pane"><span class="toc-number">12.2.</span> <span class="toc-text">Module Details Pane</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Physics-Profiler-Module"><span class="toc-number">13.</span> <span class="toc-text">Physics Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB-3"><span class="toc-number">13.1.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%89%A9%E7%90%86%E5%88%86%E6%9E%90%E5%99%A8%E6%9D%A5%E7%90%86%E8%A7%A3%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">13.2.</span> <span class="toc-text">使用物理分析器来理解性能问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D-Physics-Profiler-Module"><span class="toc-number">14.</span> <span class="toc-text">2D Physics Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%A7%8D%E7%B1%BB%EF%BC%9A-1"><span class="toc-number">14.1.</span> <span class="toc-text">图表种类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF-2"><span class="toc-number">14.2.</span> <span class="toc-text">模块细节面板</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker中MongoDB数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker中MongoDB数据库的备份与恢复">Docker中MongoDB数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity多线程渲染导致部分手机崩溃">Unity多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的CDN之jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的CDN之jsDelivr">好用的CDN之jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统"><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity坐标系统">Unity坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2025 By Tamsiree</div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
-  function initWaline () {
-    const waline = new Waline(Object.assign({
-      el: '#waline-wrap',
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tamsiree.com">Tamsiree</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/">https://tamsiree.com/Software/Unity/Unity%E7%9A%84Profiler%E6%8C%87%E5%8D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tamsiree.com" target="_blank">Tamsiree</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Software/">Software</a><a class="post-meta__tags" href="/tags/Unity/">Unity</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/946b2751567346a0b0302ecd3e84b3eb.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" rel="external nofollow noreferrer" target="_blank"><img class="post-qr-code-img" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Function/qrcode_alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/GameEngine/Unity/Unity%E8%87%AA%E5%AE%9A%E4%B9%89PackageManager%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Unity 自定义 PackageManager 服务器"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/wallroom-3840x2400-bg-e7cde59.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Unity 自定义 PackageManager 服务器</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文** 本文会实现以下几个需求 **   ** 搭建自己的 PackageManager 服务器 **    安装 nodejs    安装 npm    部署 verdaccio      ** 将自己写的插件发布到 PackageManager 服务器上 **    配置自己的 Package    注册 Verdaccio 服务器账号    登陆 Verdaccio 服务器    发布 Package 到 Verdaccio 服务器上      ** 让项目可以使用 Verdaccio 服务器上的所有 Package**    修改项目的 manifest.json      ** 修改 Unity 编辑器的项目模板，让每个新建的 Unity 项目都可安装自己服务器上的插件 **    修改 Unity 编辑器项目模板的 mainfest.json    使用 peazip 重新压缩为. tgz 文件   ** 本文需要用到的工具 **   Unity Editor   云服务器   Windows PowerShell   PeaZip  ** 参...</div></div></div></a><a class="pagination-related" href="/Software/Unity/Unity%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%BC%98%E5%8C%96/" title="Unity 性能分析优化"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/c0c6ded6882311ebb6edd017c2d2eca2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Unity 性能分析优化</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文Unity Accelerate Solution 团队对 Unity 引擎的源代码了如指掌，可帮助客户们最大限度地利用引擎。团队的日常工作包括深入剖析客户项目，搜寻其在速度、稳定性与效率方面有待优化的部分。本次，我们请到了这支 Unity 最为资深的软件工程师团队来分享一些移动游戏优化方面的专业知识。 他们分享了非常多的锦囊妙计，以至于一篇博文很难涵盖所有内容。因此，我们将推出一个博文系列。作为此系列的首篇文章，我们将着重介绍 ** 怎样借助性能分析、内存优化和代码架构来提高游戏的性能 **。在未来的几周内，我们将再发表两篇文章：一篇讨论 UI Physics，另一篇讨论音频和资源、项目配置和图形。 话不多说，直接开讲！ ** 性能分析 **优化工作的第一个步骤便是通过性能分析来收集性能数据，这也是移动端优化的第一步。 ** 我们要尽早在目标设备上进行性能分析，而且要经常分析。** **Unity Profiler ** 可提供应用关键的性能信息，因此是优化必不可少的一部分。尽早对项目进行性能分析，不要拖到发售前。对每一个故障或性能尖峰彻查到底。对你自...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/Software/Unity/UGUI/ScrollView/Unity%E7%9A%84ScrollView%E7%BB%84%E4%BB%B6/" title="Unity 的 ScrollView 组件"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-e4f9e29.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-06</div><div class="info-item-2">Unity 的 ScrollView 组件</div></div><div class="info-2"><div class="info-item-1">前言Scroll View  滑动视图  相关参数详解：   Scroll View 上的【ScrollRect】 组件：     组件 功能    Content 滑动的内容 (所有需要滑动展示的内容)   Horizontal 是否支持左右滑动   Vertical 是否支持上下滑动   MovementType 滑动类型    ▶ Unrestricted 不受滑动内容边界限制    ▶ Elastic 带边界回弹的 (Elasticity 弹力)    ▶ clamped 边界夹紧   Inertia 是否支持滑动惯性    ▶ Deceleration Rate  减速率  ，我感觉就是惯性的大小   scroll sensitivity 滚动的灵敏度   Viewport 视口  （ 一般是 Content 的父物体，带 Mask 遮罩后的展示区域）   Horizontar Scrollbar 左右的滚动条 ( 连接的滚动条必须放在 Scroll View 下 )   Vertical Scrollbar 垂直的滚动条 ( 连接的滚动条必须放在 Scroll Vie...</div></div></div></a><a class="pagination-related" href="/Software/Unity/Unity%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%BC%98%E5%8C%96/" title="Unity 性能分析优化"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/c0c6ded6882311ebb6edd017c2d2eca2.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-05</div><div class="info-item-2">Unity 性能分析优化</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文Unity Accelerate Solution 团队对 Unity 引擎的源代码了如指掌，可帮助客户们最大限度地利用引擎。团队的日常工作包括深入剖析客户项目，搜寻其在速度、稳定性与效率方面有待优化的部分。本次，我们请到了这支 Unity 最为资深的软件工程师团队来分享一些移动游戏优化方面的专业知识。 他们分享了非常多的锦囊妙计，以至于一篇博文很难涵盖所有内容。因此，我们将推出一个博文系列。作为此系列的首篇文章，我们将着重介绍 ** 怎样借助性能分析、内存优化和代码架构来提高游戏的性能 **。在未来的几周内，我们将再发表两篇文章：一篇讨论 UI Physics，另一篇讨论音频和资源、项目配置和图形。 话不多说，直接开讲！ ** 性能分析 **优化工作的第一个步骤便是通过性能分析来收集性能数据，这也是移动端优化的第一步。 ** 我们要尽早在目标设备上进行性能分析，而且要经常分析。** **Unity Profiler ** 可提供应用关键的性能信息，因此是优化必不可少的一部分。尽早对项目进行性能分析，不要拖到发售前。对每一个故障或性能尖峰彻查到底。对你自...</div></div></div></a><a class="pagination-related" href="/Software/Unity/Unity%E9%9F%B3%E9%A2%91%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96/" title="Unity 音频压缩优化"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/6af714b3eb7846049b9f2b467112eaa5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-04</div><div class="info-item-2">Unity 音频压缩优化</div></div><div class="info-2"><div class="info-item-1">前言这里是前言介绍。 正文没想到 Unity 的音频会成为内存杀手，在实际的商业项目中，音频的优化必不可少。  Unity 支持许多不同的音频格式，但最终它将它们全部转换为首选格式。音频压缩格式有 PCM、ADPCM、Vorbis，不是所有平台都支持这些所有的压缩格式，有些平台，例如 WebGL 只支持 AAC 格式。  所有音频导入时，默认两项设置，LoadType 是 “Decompress On Load”，压缩格式是“Vorbis”，例如下图原始文件大小计算为 35.9 MB，导入的大小计算为 10.7 MB。这意味着这个音频剪辑将使您的游戏（存档）大小增加 10 兆字节，但播放它需要近 36 兆字节的 RAM。    3.Load Type 的各个选项  Compressed In Memory – 音频剪辑将存储在 RAM 中，播放时将解压缩，播放时不需要额外的存储。  Streaming –音频永久存在设备上(硬盘或闪存上) ，播放流媒体方式. 不需要 RAM 进行存储或播放。  Decompress On Load – 未压缩的音频将存储在 RAM 中。这个选项需...</div></div></div></a><a class="pagination-related" href="/GameEngine/Unity/Unity%E5%90%88%E7%90%86%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B/" title="Unity 合理导入模型"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/vd7851705bd16a6a07d13385a92e2da92hd.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-07</div><div class="info-item-2">Unity 合理导入模型</div></div><div class="info-2"><div class="info-item-1">前言相信在游戏中，模型相当于游戏必要的元素，例如游戏的一个人物角色，我们可以称它为一个模型，今天学习一下导入 Unity 3d 模型，我们应该注意哪些细节！当然我们知道常用的模型都可以通过 Maya/3D Max 等三维动画软件制作的。 正文官方学习文档：https://docs.unity3d.com/Manual/FBXImporter-Model.html    模型自身规范：   1.0 所有的模型在原点创建，没有具体的特定要求下，需要以物体对象中心为轴心；   1.1 模型面数：移动端（ 300-1500 个多边形达到比较好的效果） PC 端（ 1500-4000 比较适宜）正常的单个物体最好控制在 1000 面以下，所有的物体面数不超过 20000 个三角面；   1.2 模型大小：模型文件做到最大的优化，对于看不到的面，我们可以采用直接删除，合并断开的点，移除孤立的点；   1.3 模型命名：命名最好做到规范化，模型在给绑定之前必须做一次重置变换；   1.4 模型复制：如果物体可以复制的话，就尽量复制；例如一个 500   面的物体，烘培好之后复制出去 50 个，...</div></div></div></a><a class="pagination-related" href="/GameEngine/Unity/Unity%E7%9A%84UGUI%E4%BD%BF%E7%94%A8BoxCollider2D%E8%87%AA%E9%80%82%E5%BA%94UI%E5%A4%A7%E5%B0%8F/" title="Unity 的 UGUI 使用 BoxCollider2D 自适应 UI 大小"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/bg-77a3a06.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-27</div><div class="info-item-2">Unity 的 UGUI 使用 BoxCollider2D 自适应 UI 大小</div></div><div class="info-2"><div class="info-item-1">前言在使用 Unity 进行 2D 开发的时候，经常会出现屏幕适配的问题，UI 因自适应而改变了自身的大小之后，与之相关的 BoxCollider2D 组件的大小却依然还是原本的大小，故做此记录。 正文废话不多说，直接上代码~ 123456789101112131415161718192021222324252627282930313233343536373839404142434445/* ========================================================* |     作者：Tamsiree * |     创建时间：2020 年 06 月 26 日 23:09:08* |     主要功能：UI 因屏幕适配自适应而改变了大小，使得 BoxCollider2D 跟随与之大小自适应 * |     详细描述：* |     版本：1.0*  ======================================================== */using System.Collections;using System....</div></div></div></a><a class="pagination-related" href="/Tool/NewtonJson/NewtonJson/" title="NewtonJson"><img class="cover" src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/meiguoduizhang.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-18</div><div class="info-item-2">NewtonJson</div></div><div class="info-2"><div class="info-item-1">前言Newtonsoft.Json 介绍Netonsoft.Json 是一款 .NET 适用的 Json 插件，可以将 C# 中常用的数据类型序列化成 json 格式，使用时再反序列化对应的类型即可，包括 Dictionary、List 甚至 class 类都能很简单的进行序列化和反序列化，十分好用。 一、下载 进入官网（ https://www.newtonsoft.com/json ）点击 Download。  直接点击 Json 跳转到 github（ https://github.com/JamesNK/Newtonsoft.Json/releases ） 。  跳转到 github 后可选择下载 dll（第一个 zip） 或者源码。   二、导入项目在 u3d 工程中创建文件夹 Plugins ，将下载的 zip 中 Bin/netXX/Newtonsoft.Json.dll 以及 .xml 文件拖到 u3d 工程 Plugins 中，其中 xml 为注释，可拖可不拖，反正官网有文档和小例子。 ** 附 **：    官方文档：https://www.newtonsof...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Avatar/avatar_sky_circle.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tamsiree</div><div class="author-info-description">勇于尝试才有可能迈向成功</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">140</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">143</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/tamsiree"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Tamsiree" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github-square"></i></a><a class="social-icon" href="mailto:tamsiree.com@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss-square"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">只有用心灵才能看得清事物的本质，真正重要的东西是肉眼无法看见的。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Profiler-%E6%A6%82%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">Profiler 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80-Unity-Profiler"><span class="toc-number">3.1.</span> <span class="toc-text">打开 Unity Profiler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Profiler-Window-Layout"><span class="toc-number">3.2.</span> <span class="toc-text">Profiler Window Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Profiler-Controls"><span class="toc-number">3.3.</span> <span class="toc-text">Profiler Controls</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%8E%A7%E4%BB%B6%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-number">3.3.1.</span> <span class="toc-text">各个控件功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-Profilling"><span class="toc-number">3.3.2.</span> <span class="toc-text">Deep Profilling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Profiler-Modules"><span class="toc-number">3.4.</span> <span class="toc-text">Profiler Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%8A%9F%E8%83%BD%E5%92%8C%E5%90%AB%E4%B9%89"><span class="toc-number">3.4.1.</span> <span class="toc-text">各个模块功能和含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Profiler-Module-Overhead-%E5%88%86%E6%9E%90%E5%99%A8%E6%A8%A1%E5%9D%97%E5%BC%80%E9%94%80"><span class="toc-number">3.4.2.</span> <span class="toc-text">Profiler Module Overhead 分析器模块开销</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Line-Arguments"><span class="toc-number">3.5.</span> <span class="toc-text">Command Line Arguments</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Profile-Application"><span class="toc-number">4.</span> <span class="toc-text">Profile Application</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA"><span class="toc-number">4.1.</span> <span class="toc-text">构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.2.</span> <span class="toc-text">连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS-%E8%BF%9C%E7%AB%AF-Profiling"><span class="toc-number">4.2.1.</span> <span class="toc-text">iOS 远端 Profiling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-%E8%BF%9C%E7%AB%AF-Profiling"><span class="toc-number">4.2.2.</span> <span class="toc-text">Android 远端 Profiling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.2.3.</span> <span class="toc-text">重新连接</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Profiler-module"><span class="toc-number">5.</span> <span class="toc-text">Audio Profiler module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%9B%9B%E4%B8%AA%E6%A8%A1%E5%9D%97"><span class="toc-number">5.1.</span> <span class="toc-text">音频四个模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF"><span class="toc-number">5.2.</span> <span class="toc-text">Simple 细节面板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF%E6%98%BE%E7%A4%BA%EF%BC%9A"><span class="toc-number">5.2.1.</span> <span class="toc-text">Simple 细节面板显示：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="toc-number">5.2.2.</span> <span class="toc-text">Simple 细节面板各个参数含义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Audio-Clip-%E7%9A%84-LoadType"><span class="toc-number">5.2.3.</span> <span class="toc-text">Audio Clip 的 LoadType</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dtaile-View%EF%BC%9A"><span class="toc-number">5.3.</span> <span class="toc-text">Dtaile View：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E8%A7%86%E5%9B%BE%E4%B8%8E%E9%80%9A%E9%81%93%E5%92%8C%E7%BB%84%E8%A7%86%E5%9B%BE"><span class="toc-number">5.3.1.</span> <span class="toc-text">组视图与通道和组视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF%E4%B8%AD%E5%90%84%E4%B8%AA%E5%B1%9E%E6%80%A7%E5%80%BC%E5%90%AB%E4%B9%89"><span class="toc-number">5.3.2.</span> <span class="toc-text">细节面板中各个属性值含义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU-Usege-Module"><span class="toc-number">6.</span> <span class="toc-text">CPU Usege Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%88%AB"><span class="toc-number">6.1.</span> <span class="toc-text">图表类别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-Usege-%E5%9B%BE%E8%A1%A8%E4%B8%AD%E5%90%84%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%8F%8A%E5%90%AB%E4%B9%89"><span class="toc-number">6.1.1.</span> <span class="toc-text">CPU Usege 图表中各个模块及含义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF%E7%AA%97%E6%A0%BC"><span class="toc-number">6.2.</span> <span class="toc-text">模块详细信息窗格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TimeLine-%E8%A7%86%E5%9B%BE"><span class="toc-number">6.3.</span> <span class="toc-text">TimeLine 视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E8%88%AA%E5%92%8C%E9%80%89%E6%8B%A9%E6%9D%A1%E7%9B%AE"><span class="toc-number">6.3.1.</span> <span class="toc-text">导航和选择条目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hierarchy-and-%E5%92%8C-Hierarchy-view"><span class="toc-number">6.4.</span> <span class="toc-text">Hierarchy and 和 Hierarchy view</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Show-Related-Objects-%E9%9D%A2%E6%9D%BF"><span class="toc-number">6.4.1.</span> <span class="toc-text">Show Related Objects 面板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Show-Calls-panel"><span class="toc-number">6.4.2.</span> <span class="toc-text">Show Calls panel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-samples"><span class="toc-number">6.4.3.</span> <span class="toc-text">Common samples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Show-Related-Objects-%E9%9D%A2%E6%9D%BF-1"><span class="toc-number">6.4.4.</span> <span class="toc-text">Show Related Objects 面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-warnings"><span class="toc-number">6.5.</span> <span class="toc-text">Performance warnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Allocation-call-stacks"><span class="toc-number">6.6.</span> <span class="toc-text">Allocation call stacks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Editor-only-samples"><span class="toc-number">6.7.</span> <span class="toc-text">Editor only samples</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Global-Illumination"><span class="toc-number">7.</span> <span class="toc-text">Global Illumination</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="toc-number">7.1.</span> <span class="toc-text">图表分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF"><span class="toc-number">7.2.</span> <span class="toc-text">细节面板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GPU-Usage-Profiler"><span class="toc-number">8.</span> <span class="toc-text">GPU Usage Profiler</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU-Profiler-%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8"><span class="toc-number">8.1.</span> <span class="toc-text">GPU Profiler 支持列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB"><span class="toc-number">8.2.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF"><span class="toc-number">8.3.</span> <span class="toc-text">模块细节面板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Momory-Profiler-Module"><span class="toc-number">9.</span> <span class="toc-text">Momory Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Momory-Profiler-%E6%A6%82%E8%BF%B0"><span class="toc-number">9.1.</span> <span class="toc-text">Momory Profiler 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB-1"><span class="toc-number">9.2.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-details-pane"><span class="toc-number">9.3.</span> <span class="toc-text">Module details pane</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-view"><span class="toc-number">9.3.1.</span> <span class="toc-text">Simple view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Detail-View"><span class="toc-number">9.3.2.</span> <span class="toc-text">Detail View</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rendering-Profiler"><span class="toc-number">10.</span> <span class="toc-text">Rendering Profiler</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Video-Profiler-Module"><span class="toc-number">11.</span> <span class="toc-text">Video Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%A7%8D%E7%B1%BB%EF%BC%9A"><span class="toc-number">11.1.</span> <span class="toc-text">图表种类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF-1"><span class="toc-number">11.2.</span> <span class="toc-text">模块细节面板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UI-And-UI-Details-Profiler"><span class="toc-number">12.</span> <span class="toc-text">UI And UI Details Profiler</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB-2"><span class="toc-number">12.1.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Details-Pane"><span class="toc-number">12.2.</span> <span class="toc-text">Module Details Pane</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Physics-Profiler-Module"><span class="toc-number">13.</span> <span class="toc-text">Physics Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%88%86%E7%B1%BB-3"><span class="toc-number">13.1.</span> <span class="toc-text">图表分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%89%A9%E7%90%86%E5%88%86%E6%9E%90%E5%99%A8%E6%9D%A5%E7%90%86%E8%A7%A3%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">13.2.</span> <span class="toc-text">使用物理分析器来理解性能问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D-Physics-Profiler-Module"><span class="toc-number">14.</span> <span class="toc-text">2D Physics Profiler Module</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%A7%8D%E7%B1%BB%EF%BC%9A-1"><span class="toc-number">14.1.</span> <span class="toc-text">图表种类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%86%E8%8A%82%E9%9D%A2%E6%9D%BF-2"><span class="toc-number">14.2.</span> <span class="toc-text">模块细节面板</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/552b1999aa4d5a2e75352fa2f6e93d51.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="独立游戏的成功之母"/></a><div class="content"><a class="title" href="/%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%9A%84%E6%88%90%E5%8A%9F%E4%B9%8B%E6%AF%8D/" title="独立游戏的成功之母">独立游戏的成功之母</a><time datetime="2025-11-11T05:08:38.000Z" title="发表于 2025-11-11 13:08:38">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/cdd893c83169033d6b4a8354f1ab9d37.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 中 MongoDB 数据库的备份与恢复"/></a><div class="content"><a class="title" href="/Docker/MongoDB/Docker%E4%B8%ADMongoDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" title="Docker 中 MongoDB 数据库的备份与恢复">Docker 中 MongoDB 数据库的备份与恢复</a><time datetime="2025-11-06T00:49:58.000Z" title="发表于 2025-11-06 08:49:58">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/Picture/Blog/Cover/9408053447.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 多线程渲染导致部分手机崩溃"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%B8%B2%E6%9F%93%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E6%89%8B%E6%9C%BA%E5%B4%A9%E6%BA%83/" title="Unity 多线程渲染导致部分手机崩溃">Unity 多线程渲染导致部分手机崩溃</a><time datetime="2023-11-09T11:55:51.000Z" title="发表于 2023-11-09 19:55:51">2023-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/20b24a69649941669d83bb997b01fed6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="好用的 CDN 之 jsDelivr"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/%E5%A5%BD%E7%94%A8%E7%9A%84CDN%E4%B9%8BjsDelivr/" title="好用的 CDN 之 jsDelivr">好用的 CDN 之 jsDelivr</a><time datetime="2023-10-16T07:00:56.000Z" title="发表于 2023-10-16 15:00:56">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统"><img src="/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/wallhaven-z8rqjo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity 坐标系统"/></a><div class="content"><a class="title" href="/%E9%9A%8F%E6%89%8B%E8%AE%B0/Unity%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F/" title="Unity 坐标系统">Unity 坐标系统</a><time datetime="2023-10-14T06:11:46.000Z" title="发表于 2023-10-14 14:11:46">2023-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2025 By Tamsiree</span></div><div class="footer_custom_text">不要盯着我看，已经到底啦～</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><script src="/js/tw_cn.js?v=5.5.3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.7/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"],"avatar":"wavatar"}
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
       serverURL: 'https://comment.tamsiree.com',
-      path: location.pathname,
-      visitor: true,
-      dark: 'html[data-theme="dark"]'
-    }, {"placeholder":"留下你的脚印与心声~","pageSize":10,"lang":"zh-CN","requiredFields":["nick"]}))
-  }
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
 
-  if (typeof Waline === 'function') initWaline()
-  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
-}
-
-if ('Waline' === 'Waline' || !true) {
-  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
-  else setTimeout(loadWaline, 0)
-} else {
-  function loadOtherComment () {
-    loadWaline()
-  }
-}</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.8.0/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
 
-})
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688374801147098" crossorigin="anonymous"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>
